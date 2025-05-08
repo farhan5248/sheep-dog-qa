@@ -1,0 +1,96 @@
+= Step-Object: src/test/resources/asciidoc/specs/Process.asciidoc file
+
+== Step-Definition: Background section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Description
+|===
+
+== Step-Definition: Background Steps section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step
+|===
+
+== Step-Definition: Feature section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name
+|===
+
+* Step-Parameters: 2
++
+|===
+| Name | Statements
+|===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: is deleted
+
+== Step-Definition: Scenario Outline Examples Table section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Examples | Row
+|===
+
+* Step-Parameters: 2
++
+|===
+| Name | Examples | Tags
+|===
+
+* Step-Parameters: 3
++
+|===
+| Name | Examples | Tags | Description
+|===
+
+== Step-Definition: Scenarios section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Tags | Description
+|===
+
+== Step-Definition: Scenarios Steps Doc String section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step | Content
+|===
+
+== Step-Definition: Scenarios Steps section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step
+|===
+
+== Step-Definition: Scenarios Steps Step Table section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step | Row
+|===
+
+== Step-Definition: will be present
+

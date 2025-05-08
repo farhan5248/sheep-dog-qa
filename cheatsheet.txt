@@ -1,0 +1,67 @@
+# Vanilla Ubuntu
+docker container run --rm ubuntu:latest /bin/bash -c "/bin/cat /etc/passwd | wc -l"
+docker container run --rm -ti ubuntu:latest /bin/bash
+docker container run --name local-ubuntu -d ubuntu:latest
+docker container exec -it local-ubuntu /bin/bash 
+docker container stop local-ubuntu
+docker commit local-ubuntu -t farhan5248/ubuntu-runner:latest
+docker push farhan5248/ubuntu-runner:latest
+
+# MySQL
+docker image build -f mysql.dockerfile -t farhan5248/sheep-dog-dev-db:latest .
+docker run --name sheep-dog-dev-db -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d farhan5248/sheep-dog-dev-db:latest
+docker container stop -t 1 sheep-dog-dev-db
+docker container start --restart=on-failure:2 sheep-dog-dev-db
+
+# ActiveMQ
+docker container run --name sheep-dog-dev-mq -p 61616:61616 -p 8161:8161 -d apache/activemq-artemis:latest-alpine
+docker container run --name sheep-dog-dev-mq -p 61616:61616 -p 8161:8161 -e ARTEMIS_USER=artemis -e ARTEMIS_PASSWORD=artemis apache/activemq-artemis:latest-alpine
+docker container run --name sheep-dog-dev-mq -p 61616:61616 -p 8161:8161 -v <broker folder on host>:/var/lib/artemis-instance apache/activemq-artemis:latest-alpine
+
+# Docker Compose
+docker compose config
+docker compose build
+docker compose up -d
+docker compose -p "sheep-dog-dev" up -d
+docker compose -f docker-compose-defaults.yaml up -d
+docker compose run --rm -d sheep-dog-dev-svc-lcl
+docker compose exec sheep-dog-svc-lcl /bin/sh
+docker compose start
+docker compose stop
+docker compose down
+
+# Minikube
+minikube start
+minikube dashboard
+minikube service --all --url -n failsafe
+minikube stop
+
+# Kubectl
+kubectl create namespace sheep-dog-dev
+kubectl delete namespace sheep-dog-dev
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+kubectl expose deployment/kubernetes-bootcamp --type="LoadBalancer" --port 8080
+kubectl get deployments -L canary
+kubectl get pods --selector="app=bandicoot,ver=2"
+kubectl get pods -l 'ver=2,!canary'
+kubectl get pods --selector="app in (alpaca,bandicoot)"
+kubectl get services -l app=kubernetes-bootcamp
+kubectl logs -n failsafe -c sheep-dog-dev-svc sheep-dog-dev-svc-6596487776-tmbmp
+kubectl exec -ti -n failsafe sheep-dog-dev-6b9b78d5cd-s9vkq -- bash
+kubectl scale deployments/sheep-dog-dev --replicas=4
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=docker.io/jocatalin/kubernetes-bootcamp:v2
+kubectl delete service kubernetes-bootcamp
+kubectl delete deployment kubernetes-bootcamp
+
+kubectl create namespace failsafe
+kubectl get all --namespace=sheep-dog-dev -o yaml > sheep-dog-dev-resources.yaml
+kubectl apply -f sheep-dog-dev-resources.yaml --namespace=failsafe
+kubectl delete all,pvc -l app=sheep-dog-dev -n failsafe
+
+# Local Kubernetes
+minikube start --driver docker --static-ip 192.168.49.2
+kubectl apply -f docker/deployment.yaml
+kubectl apply -k overlays/failsafe
+kubectl port-forward -n failsafe svc/sheep-dog-dev-db 30306:3306
+kubectl port-forward -n failsafe svc/sheep-dog-dev-svc 30080:8080

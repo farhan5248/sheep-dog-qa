@@ -1,0 +1,18 @@
+= Step-Object: src/test/resources/asciidoc/specs/app/Process.asciidoc file
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+

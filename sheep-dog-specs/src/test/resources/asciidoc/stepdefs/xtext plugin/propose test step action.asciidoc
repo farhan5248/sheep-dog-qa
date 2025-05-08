@@ -1,0 +1,9 @@
+= Step-Object: propose test step action
+
+This is triggered by CTRL+SPACE.
+
+== Step-Definition: is performed
+
+Calls the Java method that proposes step completions.
+It can propose the component, object or keyword.
+

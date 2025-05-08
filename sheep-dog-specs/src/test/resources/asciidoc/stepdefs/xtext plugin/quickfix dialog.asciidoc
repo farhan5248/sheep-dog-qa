@@ -1,0 +1,17 @@
+= Step-Object: quickfix dialog
+
+Displays the list of fixes for a warning or error.
+
+== Step-Definition: will be set as follows
+
+Makes assertions about the dialog contents.
+
+* Step-Parameters: 1
++
+Makes the assertion that the following message will be displayed
+
++
+|===
+| Message
+|===
+

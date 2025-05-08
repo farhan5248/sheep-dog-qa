@@ -1,0 +1,92 @@
+= Step-Object: uml/pst.uml file
+
+Represents the UML model derived from the test suites and step objects.
+
+== Step-Definition: Class Annotations section will be created as follows
+
+* Step-Parameters: 1
++
+Use to store Cucumber Feature tags
+
++
+|===
+| Class Name | Annotation Name | Annotation Detail
+|===
+
+== Step-Definition: Class Comments section will be created as follows
+
+The UML class comments are mapped to the Javadoc sections or cucumber Feature descriptions
+
+* Step-Parameters: 1
++
+Specify the comment and the class to which it belong
+
++
+|===
+| Class Name | Comment
+|===
+
+== Step-Definition: Class section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Class Name
+|===
+
+== Step-Definition: Class section won't be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Class Name
+|===
+
+== Step-Definition: Interaction Annotations section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Interaction Name | Annotation Name | Annotation Detail
+|===
+
+== Step-Definition: Interaction Comments section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Interaction Name | Comment
+|===
+
+== Step-Definition: Interaction Messages section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Interaction Name | Message | Argument Name | Annotation Detail
+|===
+
+* Step-Parameters: 2
++
+|===
+| Interaction Name | Message
+|===
+
+== Step-Definition: Interaction section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Interaction Name
+|===
+
+== Step-Definition: Interaction section won't be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Interaction Name
+|===
+
+== Step-Definition: will be present
+

@@ -1,0 +1,9 @@
+= Step-Object: uml-to-cucumber-guice goal
+
+Calls the Maven plug-in goal that corresponds to mvn org.farhan:sheep-dog-dev-maven-plugin:uml-to-cucumber-guice -Dtags=""
+The uml-to-cucumber-guice creates Cucumber for Java code with Guice for dependency injection.
+
+== Step-Definition: is executed
+
+Calls the Maven plug-in goal with no tag parameter
+

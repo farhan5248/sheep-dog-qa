@@ -1,0 +1,18 @@
+= Step-Object: validate error action
+
+This is triggered by the Validate menu item, saving the file or editing its contents.
+
+== Step-Definition: is performed as follows
+
+Calls the Java method that validates errors in the file.
+
+* Step-Parameters: 1
++
+The step that is passed to the validation method.
+Validation occurs on each step, one at a time.
+
++
+|===
+| Selected Step
+|===
+

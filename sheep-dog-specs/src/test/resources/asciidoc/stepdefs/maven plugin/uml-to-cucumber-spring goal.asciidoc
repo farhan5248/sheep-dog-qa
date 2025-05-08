@@ -1,0 +1,9 @@
+= Step-Object: uml-to-cucumber-spring goal
+
+Calls the Maven plug-in goal that corresponds to mvn org.farhan:sheep-dog-dev-maven-plugin:uml-to-cucumber-spring -Dtags=""
+The uml-to-cucumber-spring creates Cucumber for Java code with Spring for dependency injection.
+
+== Step-Definition: is executed
+
+Calls the Maven plug-in goal with no tag parameter
+

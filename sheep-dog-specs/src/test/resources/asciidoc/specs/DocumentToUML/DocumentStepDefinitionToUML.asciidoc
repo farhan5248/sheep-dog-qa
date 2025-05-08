@@ -1,0 +1,187 @@
+= Test-Suite: Document Step Definition To UML
+
+@sheep-dog-dev
+TODO add tests for document parameters
+
+== Test-Setup: Create a test case
+
+* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
++
+----
+= Test-Suite: Process
+
+== Test-Case: Submit
+
+* Given: The blah application, Object page is created as follows
++
+|===
+| h1
+|===
+----
+
+== Test-Case: No statement, one step parameter
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| h1
+|===
+----
+
+* When: The maven plugin, asciidoctor-to-uml goal is executed
+
+* Then: The spec-prj project, uml/pst.uml file will be present
+
+* And: The uml/pst.uml file Interaction Annotations section will be created as follows
++
+|===
+| Interaction Name                                               | Annotation Name | Annotation Detail
+| stepdefs::blah application::Object page::is created as follows | 1               | 0 -} h1\|        
+|===
+
+== Test-Case: One statement, one step parameter
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is created as follows
+
+Desc line 1
+
+* Step-Parameters: 1
++
+|===
+| h1
+|===
+----
+
+* When: The maven plugin, asciidoctor-to-uml goal is executed
+
+* Then: The spec-prj project, uml/pst.uml file will be present
+
+* And: The uml/pst.uml file Interaction Comments section will be created as follows
++
+|===
+| Interaction Name                                               | Comment    
+| stepdefs::blah application::Object page::is created as follows | Desc line 1
+|===
+
+== Test-Case: Two statements, two step parameters
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is created as follows
+
+Desc line 1
+Desc line 2
+
+* Step-Parameters: 1
++
+|===
+| h1
+|===
+
+* Step-Parameters: 2
++
+|===
+| h2
+|===
+----
+
+* When: The maven plugin, asciidoctor-to-uml goal is executed
+
+* Then: The spec-prj project, uml/pst.uml file will be present
+
+* And: The uml/pst.uml file Interaction Comments section will be created as follows
++
+|===
+| Interaction Name                                               | Comment                 
+| stepdefs::blah application::Object page::is created as follows | Desc line 1\nDesc line 2
+|===
+
+* And: The uml/pst.uml file Interaction Annotations section will be created as follows
++
+|===
+| Interaction Name                                               | Annotation Name | Annotation Detail
+| stepdefs::blah application::Object page::is created as follows | {Index}         | 0 -} h{Index}\|  
+|===
+
+* Test-Data: Indices
++
+|===
+| Index
+| 1    
+| 2    
+|===
+
+== Test-Case: Three statements, three step parameters
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is created as follows
+
+Desc line 1
+Desc line 2
+Desc line 3
+
+* Step-Parameters: 1
++
+|===
+| h1
+|===
+
+* Step-Parameters: 2
++
+|===
+| h2
+|===
+
+* Step-Parameters: 3
++
+|===
+| h3
+|===
+----
+
+* When: The maven plugin, asciidoctor-to-uml goal is executed
+
+* Then: The spec-prj project, uml/pst.uml file will be present
+
+* And: The uml/pst.uml file Interaction Comments section will be created as follows
++
+|===
+| Interaction Name                                               | Comment                              
+| stepdefs::blah application::Object page::is created as follows | Desc line 1\nDesc line 2\nDesc line 3
+|===
+
+* And: The uml/pst.uml file Interaction Annotations section will be created as follows
++
+|===
+| Interaction Name                                               | Annotation Name | Annotation Detail
+| stepdefs::blah application::Object page::is created as follows | {Index}         | 0 -} h{Index}\|  
+|===
+
+* Test-Data: Indices
++
+|===
+| Index
+| 1    
+| 2    
+| 3    
+|===
+

@@ -1,0 +1,30 @@
+= Step-Object: propose content dialog
+
+Displays the list of proposals.
+
+== Step-Definition: will be empty
+
+Makes the assertion that there are no proposals.
+
+== Step-Definition: will be set as follows
+
+Makes assertions about the dialog contents.
+
+* Step-Parameters: 1
++
+Makes the assertion that the following suggestion and display name will be present.
+
++
+|===
+| Suggestion | Suggestion Name
+|===
+
+* Step-Parameters: 2
++
+Makes the assertion that the following suggestion, display name and description will be present.
+
++
+|===
+| Suggestion | Suggestion Name | Suggestion Description
+|===
+

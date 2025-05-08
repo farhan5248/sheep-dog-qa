@@ -1,0 +1,78 @@
+= Step-Object: src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file
+
+== Step-Definition: Header section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Import
+|===
+
+* Step-Parameters: 2
++
+|===
+| Extends
+|===
+
+* Step-Parameters: 3
++
+|===
+| Constructor Name | Statement
+|===
+
+* Step-Parameters: 4
++
+|===
+| Class Annotation
+|===
+
+* Step-Parameters: 5
++
+|===
+| Constructor Name | Constructor Annotation
+|===
+
+* Step-Parameters: 6
++
+|===
+| Class Name | Package
+|===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: Methods section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Method Name | Annotation | Visibility | Return Type
+|===
+
+* Step-Parameters: 2
++
+|===
+| Method Name | Statement
+|===
+
+* Step-Parameters: 3
++
+|===
+| Method Name | Parameter Name | Parameter Type
+|===
+
+== Step-Definition: will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: will be present
+

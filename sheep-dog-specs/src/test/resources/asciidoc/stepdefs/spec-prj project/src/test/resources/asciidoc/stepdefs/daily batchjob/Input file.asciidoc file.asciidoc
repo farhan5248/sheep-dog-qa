@@ -1,0 +1,69 @@
+= Step-Object: src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file
+
+Represents a Step-Object file called Input file.feature.
+It should be Input file.asciidoc which I'll rename later.
+The Input file is a file processed by the daily batchjob.
+
+== Step-Definition: is created as follows
+
+Updates the file contents with the table data.
+
+* Step-Parameters: 1
++
+Creates a Step-Object and its description
+
++
+|===
+| Object Name | Object Description
+|===
+
+* Step-Parameters: 2
++
+Creates a Step-Object and Step-Definition
+
++
+|===
+| Object Name | Step Definition Name
+|===
+
+* Step-Parameters: 3
++
+Creates a Step-Object and Step-Definition with its parameters.
+I think this only handles one parameter at a time so two rows would be needed to specify two parameters for the same step definition.
+
++
+|===
+| Object Name | Step Definition Name | Parameters
+|===
+
+* Step-Parameters: 4
++
+Creates a Step-Object and Step-Definition with its description
+
++
+|===
+| Object Name | Step Definition Name | Step Definition Description
+|===
+
+== Step-Definition: will be created as follows
+
+Asserts that the file contents contains the table data.
+
+* Step-Parameters: 1
++
+Asserts that the Step-Object and Step-Definition exist
+
++
+|===
+| Object Name | Step Definition Name
+|===
+
+* Step-Parameters: 2
++
+Asserts that the Step-Object and Step-Definition with its parameters exist.
+
++
+|===
+| Object Name | Step Definition Name | Parameters
+|===
+
