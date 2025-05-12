@@ -8,8 +8,6 @@ These four tests describe the Eclipse IDE features that can be customised.
 3. Quick fixes
 4. Code generation
 
-TODO generate the test automation and make update any changes
-
 == Test-Case: Start a step without the component specified
 
 Start with single step and trigger an error by not specifying a component.

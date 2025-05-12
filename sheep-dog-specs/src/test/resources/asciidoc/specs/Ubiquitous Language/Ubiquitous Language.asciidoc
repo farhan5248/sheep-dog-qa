@@ -1,0 +1,25 @@
+= Ubiquitous Language
+
+link:https://martinfowler.com/bliki/UbiquitousLanguage.html[This link to Martin Fowler's bliki entry on Ubiquitous Language] describes the concept of Ubiquitous Language as a language that is used by both domain experts and developers. 
+It is a shared language that helps to bridge the gap between the two groups and ensures that everyone is on the same page when it comes to understanding the domain. 
+
+== Test Automation Creation from the Ubiquitous Language
+
+link:https://youtube.com/clip/UgkxwDpbV3Wzrdz0mNow9cglz9_KJuxLmj25?si=6Sx67uKN7UoKukVM[In his conversation with Eric Evans, at around minute 5], Dave explains how he uses the ubiquitous language to write tests. 
+This is what my QA team did and what I've done to create the code for the plug-ins. 
+By getting the QA testers to write the tests in this language using an IDE to validate the syntax, it ensured that test automation could be automatically generated from the tests via the API created for the language; this is the key feature of the this project. 
+If I asked them write tests in the ubiquitous language using a wiki, Google doc or similar, it would be difficult to validate the syntax and generate the test automation. 
+In fact at first they were using Microsoft Word and Excel and then those files were parsed and converted to automation but without being able to validate the syntax it was like coding with Microsoft Notepad instead of an IDE.
+
+== Gherkin
+When I did this with my QA team, there was no any use of Gherkin.
+Cucumber allows you to use the asterisk so all steps were prefixed with that.
+
+It didn't have anything to do with the definition of the ubiquitous language.
+Some folks on the team understood what Arrange/Act/Assert was but not all.
+I found that when explaining GWT it needed some big changes to the way the tests were written.
+For example some folks had 60+ test steps to one test case. 
+From my point of view, that one test case could have been split into 6 or 10 test cases.
+So introducing Gherkin would have meant a lot of work to change the tests or we'd have to have a sequence of Given When Then When Then When Then etc which I understood was not desirable when using Gherkin.
+
+For now I've left Given/When/Then in the Xtext asciidoc language grammar file; I intend on removing it later. 

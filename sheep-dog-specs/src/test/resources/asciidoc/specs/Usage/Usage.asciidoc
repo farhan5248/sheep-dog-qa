@@ -42,7 +42,7 @@ image::https://github.com/user-attachments/assets/7025fae1-28d7-457c-a0c6-b762ee
 
 This needs a longer explanation but the short story is that you might need to have a way to avoid an explosion of keywords.
 That happens when you have so many fields on a web-page which allow many combinations. 
-I wanted to demonstrated separating a keyword name from possible parameters kind of like overloading a method.
+I wanted to demonstrate separating a keyword name from possible parameters kind of like overloading a method.
 
 .image
 image::https://github.com/user-attachments/assets/8e7cbb14-4d87-4ddc-a086-5228798ca260[image]
@@ -65,7 +65,7 @@ image::https://github.com/user-attachments/assets/f073bd97-a5be-488c-80bd-f79f66
 All test steps need to specify the object and optionally its path and component. 
 Think of this as specifying the fully qualified name of an object in the import statement.
 
-TODO: I believe only the first step really needs to have a component specified and the rest are inferred but I don't have a test for that.
+TODO: I believe only the first step really needs to have a component specified and the rest are inferred but I can't find the test for that.
 
 .image
 image::https://github.com/user-attachments/assets/84f363a2-4221-473c-a7bf-3da991bd40c5[image]
