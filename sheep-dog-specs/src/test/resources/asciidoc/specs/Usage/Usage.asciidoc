@@ -1,0 +1,194 @@
+= Usage
+
+Everything you need to know to use the plug-ins should be here.
+When creating this section, what I had in mind was the usage section of a Maven plug-in site.
+Most of the .asciidoc files are converted to tests so you know that the examples are up-to-date though the screen captures might not be.
+
+== Xtext
+
+With my qa team, I was gradually trying to make the experience of writing test cases the same as coding.
+That is, leveraging IDE features that make coding easier or writing in a language easier.
+I’ve put these screenshots here to show how the custom DSL editor developed with Xtext compares to the Java editor in Eclipse. 
+
+=== Content Assist
+
+When I start writing tests I use content assist. You can customise the code to suggest whatever you want, like an entire test case. 
+For example if you type out a comment, and ask for a suggestion by pressing CTRL{plus}SPACE.
+You could use that comment to generate a test case using MBT or AI. I’ll probably implement that later.
+
+==== Propose applications for which there are keywords
+
+I'm not sure what the equivalent is in Java, I guess something that proposes a jar file to import?
+Either ways, this suggests a list of applications or web-services or batch-jobs etc for which the team.
+
+.image
+image::https://github.com/user-attachments/assets/2b144b36-a133-43f0-af2b-9fdecf1a2903[image]
+
+==== Propose objects for that application
+
+If you're familiar with a page object, this would list all objects for the last referenced component.
+
+.image
+image::https://github.com/user-attachments/assets/8c95c393-58e1-44e4-ab71-b404211a12c9[image]
+
+==== Propose keywords for that object
+
+This is similar to a list of methods for a class or interface.
+
+.image
+image::https://github.com/user-attachments/assets/7025fae1-28d7-457c-a0c6-b762ee75acfb[image]
+
+==== Propose combinations of attributes for that keyword
+
+This needs a longer explanation but the short story is that you might need to have a way to avoid an explosion of keywords.
+That happens when you have so many fields on a web-page which allow many combinations. 
+I wanted to demonstrated separating a keyword name from possible parameters kind of like overloading a method.
+
+.image
+image::https://github.com/user-attachments/assets/8e7cbb14-4d87-4ddc-a086-5228798ca260[image]
+
+==== Propose types for components and objects
+
+.image
+image::https://github.com/user-attachments/assets/a82e3fd3-0cfa-4c11-99b3-6549460462a7[image]
+
+=== Validation
+
+When writing a new test step, you get feedback through validation as you type like referencing an object that doesn’t exist. 
+The check can be a warning or an error. You can also trigger slower validation using the Validate menu item.
+
+.image
+image::https://github.com/user-attachments/assets/f073bd97-a5be-488c-80bd-f79f66a92089[image]
+
+==== Component and Object validation
+
+All test steps need to specify the object and optionally its path and component. 
+Think of this as specifying the fully qualified name of an object in the import statement.
+
+TODO: I believe only the first step really needs to have a component specified and the rest are inferred but I don't have a test for that.
+
+.image
+image::https://github.com/user-attachments/assets/84f363a2-4221-473c-a7bf-3da991bd40c5[image]
+
+.image
+image::https://github.com/user-attachments/assets/150c199a-6064-4d39-924a-a6e554142ef4[image]
+
+==== Predicate validation
+
+This is the remainder of the step, you can think of it as completing a method call.
+
+.image
+image::https://github.com/user-attachments/assets/a8fbf05e-6ca6-413b-90c3-7416146527f2[image]
+
+=== Quick Fixes
+
+Just as you can create a class that doesn’t exist, you can create other language elements. 
+In this case, I created the object that was referenced in the test step.
+
+.image
+image::https://github.com/user-attachments/assets/b7a81d5d-8e1f-4816-b271-42911d977195[image]
+
+If I reference another object that has a similar name, I can rename it to one that exists.
+
+.image
+image::https://github.com/user-attachments/assets/2f0613c1-a1fd-43ab-8c67-e3818b6e7775[image]
+
+And if any new keywords don’t exist, you can create those as well.
+
+.image
+image::https://github.com/user-attachments/assets/feed8fa0-d871-4457-a4e9-6a7fea3e21dc[image]
+
+=== Code Generation
+
+.image
+image::https://github.com/user-attachments/assets/47c34772-852f-484d-acc0-b473e51b1351[image]
+
+=== Formatting
+
+Formats everything including table cell contents. I’ll probably need a GIF to demonstrate this.
+
+=== Syntax Colouring
+
+You can customise the colours in the code and through eclipse preferences.
+
+.image
+image::https://github.com/user-attachments/assets/385c1b6c-de4d-4ce3-8098-5fd02a26d660[image]
+
+== Maven
+
+This is an example of how to convert .asciidoc files written by the editor into java code with cucumber and Guice
+In this specific example, it's how the `sheep-dog-test` `src-gen/test` code is created
+
+TODO: update the snippet below with the latest version.
+
+* First the files are created in the `src/test/resources/asciidoc/specs` directory.
+
+* Then the uml model is created by running the `forward-engineer.bat` script in the `sheep-dog-specs` project.
++
+----
+cd ..
+call mvn clean
+call mvn org.farhan:sheep-dog-dev-maven-plugin:1.26-SNAPSHOT:asciidoctor-to-uml -DrepoDir="" -Dtags="sheep-dog-dev"
+call mvn org.farhan:sheep-dog-dev-maven-plugin:1.26-SNAPSHOT:asciidoctor-to-uml -DrepoDir="" -Dtags="sheep-dog-test"
+call mvn org.farhan:sheep-dog-dev-maven-plugin:1.26-SNAPSHOT:asciidoctor-to-uml -DrepoDir="" -Dtags="round-trip"
+cd scripts 
+----
+
+* This is some of the output of running the script. 
++
+----
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< org.farhan:sheep-dog-specs >---------------------
+[INFO] Building sheep-dog-specs 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- sheep-dog-dev:1.23-SNAPSHOT:asciidoctor-to-uml (default-cli) @ sheep-dog-specs ---
+[INFO] Starting execute
+[INFO] tag: sheep-dog-test
+[INFO] baseDir: C:\Users\Farhan\git\lean-sheep-dog-tools\sheep-dog-specs
+[INFO] repoDir:
+[INFO] Ending execute
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.399 s
+[INFO] Finished at: 2025-04-08T23:09:00-04:00
+[INFO] ------------------------------------------------------------------------
+----
+
+* Then the code is generated by running the `forward-engineer.bat` script in the `sheep-dog-test` project.
++
+----
+cd ..
+call mvn clean
+call mvn org.farhan:sheep-dog-dev-maven-plugin:1.26-SNAPSHOT:uml-to-cucumber-guice -DrepoDir=../../sheep-dog-qa/sheep-dog-specs/ -Dtags="sheep-dog-test"
+cd scripts
+----
+
+* This is the output of running the script.
++
+----
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.farhan:sheep-dog-test >----------------------
+[INFO] Building Lean Sheep Dog Tools for Testers 1.21-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- sheep-dog-dev:1.23-SNAPSHOT:uml-to-cucumber-guice (default-cli) @ sheep-dog-test ---
+[INFO] Starting execute
+[INFO] tag: sheep-dog-test
+[INFO] baseDir: C:\Users\Farhan\git\lean-sheep-dog-tools\sheep-dog-test
+[INFO] repoDir: ../sheep-dog-specs/
+[INFO] Ending execute
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.580 s
+[INFO] Finished at: 2025-04-08T23:13:06-04:00
+[INFO] ------------------------------------------------------------------------
+----
+
+* Finally the files are created in the `src-gen/test` directory.

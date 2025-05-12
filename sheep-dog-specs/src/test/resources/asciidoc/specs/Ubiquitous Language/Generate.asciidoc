@@ -2,6 +2,12 @@
 
 @sheep-dog-test
 
+The Xtext framework lets you map the DSL to Java so that you can generate the Java code with minimal coding. 
+I think that’s useful for a tester if every component is written in Java or the same language. 
+If it’s not, and there’s PL/SQL, COBOL, webMethods, Layer 7 and other such languages, you might not need Java code but insert statements for example. 
+In that case, generating Java code isn’t that useful so I generate the lower layer describing each object. 
+One way to see these two layers is that the test cases are paths in a graph model and the steps are the vertices.
+
 == Test-Case: The object doesn't exist
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows

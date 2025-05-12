@@ -4,6 +4,10 @@
 
 == Test-Case: This object doesn't exist validation
 
+Why are the missing object and keywords flagged as warnings and not errors? 
+It’s because they don’t get in the way validation of that file.
+I could just ignore all those warnings and then use the Build Project menu item and it’ll create everything at once.
+
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===

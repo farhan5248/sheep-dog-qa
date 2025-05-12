@@ -1,2 +1,21 @@
 = Overview
 
+These files in the `specs` directory serve two purposes.
+1. They document what the Xtext and Maven plug-ins do.
+2. They are the test cases which are transformed into a model and then test automation code.
+
+There are three directories
+1. Usage: 
+This is about how to use both plug-ins. 
+For example how to go from .asciidoc test cases to the .uml model to the .feature and .java code using the Maven plug-in.
+It also covers how to first create the .asciidoc file using the Xtext plug-in, ie what IDE features help someone write tests in the ubiquitous language.
+2. Ubiquitous Language: 
+This documentation is about the syntax of the language. Because I'm using Asciidoc to write the files, there's two syntax being validated.
+One is the Asciidoc syntax and the second is the DSL (Ubiquitous language). The former is tested with simple unit tests and its test automation is not derived from these specs. I'll change that in the future most likely. The latter is what's described here. It explains what the language parts are and why they are that way.
+3. Language Mapping: 
+This is describes how the language elements in the source .asciidoc files are mapped to the UML elements in the .uml file and how those elements are mapped to the .feature and .java files.
+
+Most of the stuff in Ubiquitous language is for testers and most of the stuff in Language Mapping is for the developer or whoever codes the test automation.
+I created this separation along the lines of an expert on the DSL (tester) vs expert on a programming language (developer).
+I assume in the beginning if you're in a situation I was in, the language will first be developed by the testers primarily even though it'll be read by others.
+For example, in my QA team, as we developed the language, we were ensuring it would be something the BSA and developers could understand.
