@@ -1,11 +1,13 @@
-= Test-Suite: Code To Code
+= Test-Suite: Format Cucumber Files
 
 @sheep-dog-dev
 @round-trip
 
-== Test-Setup: Create a feature file
+TODO Make more changes to the source file to demonstrate all the formatting changes.
 
-The formatting of the data and example tables is intentionally different to make sure that the file is regenerated
+== Test-Case: Format a feature file
+
+The table formatting is off, this is intentional to check that the formatting works.
 
 * Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
@@ -56,8 +58,6 @@ Feature: Process
 | Tags
 | tag1
 |===
-
-== Test-Case: Feature file is preserved
 
 * Then: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file will be created as follows
 +

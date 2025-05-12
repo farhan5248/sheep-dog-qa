@@ -1,10 +1,20 @@
-= Test-Suite: Code To Document
+= Test-Suite: Create Documentation From Code
 
 @sheep-dog-dev
 @round-trip
-TODO make test for the specific mappings
 
-== Test-Case: Create an adoc file from feature file
+When coding these projects, I start with the asciidoc file and then generate the code.
+However while debugging, I might have to change the cucumber feature file and then regenerate the asciidoc file.
+This is what this test case is about.
+
+In my QA team, there was a similar use-case. 
+Even though the testers would write the feature files, a developer would now and then correct the expected results.
+This was for minor things like floating point numbers, etc. 
+When the code files are reverse engineered into the UML model, it's only the feature files that are read.
+
+== Test-Case: Create an asciidoc file from a feature file
+
+This test is a reverse of the Create Code From Documentation test.
 
 * Given: The code-prj project, src-gen/test/resources/cucumber/specs/app/Process.feature file is created as follows
 +
