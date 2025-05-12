@@ -1,10 +1,12 @@
 = Overview
 
 These files in the `specs` directory serve two purposes.
+
 1. They document what the Xtext and Maven plug-ins do.
 2. They are the test cases which are transformed into a model and then test automation code.
 
 There are three directories
+
 1. Usage: 
 This is about how to use both plug-ins. 
 For example how to go from .asciidoc test cases to the .uml model to the .feature and .java code using the Maven plug-in.
