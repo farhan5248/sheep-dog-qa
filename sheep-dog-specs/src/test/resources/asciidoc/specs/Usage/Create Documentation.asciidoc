@@ -3,6 +3,7 @@
 @sheep-dog-test
 
 These four tests describe the Eclipse IDE features that can be customised.
+
 1. Error validation
 2. Content proposal
 3. Quick fixes

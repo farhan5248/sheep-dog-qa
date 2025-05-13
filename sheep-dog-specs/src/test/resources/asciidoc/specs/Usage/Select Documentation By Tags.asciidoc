@@ -12,7 +12,6 @@ One is for the sheep-dog-dev component but the round-trip one is for other compo
 
 == Test-Case: Create two models from different tags
 
-
 TODO Combine both asciidoc files into one asciidoc file. Keep the two different tags.
 The test was good enough to code what I wanted but I can see how if I break the code, the test will still pass
 

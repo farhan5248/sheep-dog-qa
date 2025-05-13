@@ -1,8 +1,18 @@
-= Test-Suite: Propose Predicate
+= Test-Suite: Proposals for Step Definitions
 
 @sheep-dog-test
 
-== Test-Case: No predicate no definition
+Because a step can have a component or not and the full path specified or not, you can have 4 keywords like:
+
+1. The daily batchjob, path/to/file/Input file is empty
+2. The daily batchjob, Input file is empty
+3. The path/to/file/Input file is empty
+4. The Input file is empty
+
+So instead of saving all combinations, only the details section and predicate are saved.
+When the reference look-up is done, the step-object is located using the full path and component.
+
+== Test-Case: Nothing is proposed if there's no step-definition
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -20,7 +30,7 @@
 | The daily batchjob, Input file is | is              | Maps to setter method 
 |===
 
-== Test-Case: No predicate has definition has description
+== Test-Case: Something is proposed if there's a step-definition
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -45,25 +55,11 @@
 | The daily batchjob, Input file is present | is present      | Creates empty file    
 |===
 
-== Test-Case: Has predicate no definition
+== Test-Case: Something is proposed even if the step is complete
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
-+
-|===
-| Step Name                                
-| The daily batchjob, Input file is present
-|===
+This is a documented bug, if the step is complete, it shouldn't suggest anything
 
-* When: The xtext plugin, propose test step action is performed
-
-* Then: The xtext plugin, propose content dialog will be set as follows
-+
-|===
-| Suggestion                                           | Suggestion Name
-| The daily batchjob, Input file is present as follows | as follows     
-|===
-
-== Test-Case: Has predicate has definition
+TODO Fix this bug
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +

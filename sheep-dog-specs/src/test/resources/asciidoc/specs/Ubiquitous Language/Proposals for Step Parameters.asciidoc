@@ -1,21 +1,12 @@
-= Test-Suite: Propose Step Table
+= Test-Suite: Proposals for Step Parameters
 
 @sheep-dog-test
 
-== Test-Case: Invalid step
+TODO Add text string tests.
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
-+
-|===
-| Step Name                     
-| The daily batchjob, Input file
-|===
+If the step definition has step parameters, they'll be proposed.
 
-* When: The xtext plugin, propose test step table action is performed
-
-* Then: The xtext plugin, propose content dialog will be empty
-
-== Test-Case: Valid step but no object
+== Test-Case: No proposal for absent object
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -28,7 +19,7 @@
 
 * Then: The xtext plugin, propose content dialog will be empty
 
-== Test-Case: Valid step has object but no definition
+== Test-Case: No proposal for absent step definition
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -48,7 +39,9 @@
 
 * Then: The xtext plugin, propose content dialog will be empty
 
-== Test-Case: Valid step has object has definition has parameters
+== Test-Case: List parameters for a step definition if it exists
+
+TODO I should add more parameter combinations to describe this better.
 
 * Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
