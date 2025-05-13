@@ -8,7 +8,7 @@ Most of the .asciidoc files are converted to tests so you know that the examples
 
 With my qa team, I was gradually trying to make the experience of writing test cases the same as coding.
 That is, leveraging IDE features that make coding easier or writing in a language easier.
-I’ve put these screenshots here to show how the custom DSL editor developed with Xtext compares to the Java editor in Eclipse. 
+I've put these screenshots here to show how the custom DSL editor developed with Xtext compares to the Java editor in Eclipse. 
 
 === Content Assist
 
@@ -21,22 +21,21 @@ You could use that comment to generate a test case using MBT or AI. I’ll proba
 I'm not sure what the equivalent is in Java, I guess something that proposes a jar file to import?
 Either ways, this suggests a list of applications or web-services or batch-jobs etc for which the team.
 
-.image
-image::https://github.com/user-attachments/assets/2b144b36-a133-43f0-af2b-9fdecf1a2903[image]
+image::images/propose-applications-for-which-there-are-keywords.png[image]
 
 ==== Propose objects for that application
 
 If you're familiar with a page object, this would list all objects for the last referenced component.
 
 .image
-image::https://github.com/user-attachments/assets/8c95c393-58e1-44e4-ab71-b404211a12c9[image]
+image::images/propose-objects-for-that-application.png[image]
 
 ==== Propose keywords for that object
 
 This is similar to a list of methods for a class or interface.
 
 .image
-image::https://github.com/user-attachments/assets/7025fae1-28d7-457c-a0c6-b762ee75acfb[image]
+image::images/propose-keywords-for-that-object.png[image]
 
 ==== Propose combinations of attributes for that keyword
 
@@ -45,12 +44,12 @@ That happens when you have so many fields on a web-page which allow many combina
 I wanted to demonstrate separating a keyword name from possible parameters kind of like overloading a method.
 
 .image
-image::https://github.com/user-attachments/assets/8e7cbb14-4d87-4ddc-a086-5228798ca260[image]
+image::images/propose-combinations-of-attributes-for-that-keyword.png[image]
 
 ==== Propose types for components and objects
 
 .image
-image::https://github.com/user-attachments/assets/a82e3fd3-0cfa-4c11-99b3-6549460462a7[image]
+image::images/propose-types-for-components-and-objects.png[image]
 
 === Validation
 
@@ -58,7 +57,7 @@ When writing a new test step, you get feedback through validation as you type li
 The check can be a warning or an error. You can also trigger slower validation using the Validate menu item.
 
 .image
-image::https://github.com/user-attachments/assets/f073bd97-a5be-488c-80bd-f79f66a92089[image]
+image::images/validation.png[image]
 
 ==== Component and Object validation
 
@@ -68,17 +67,17 @@ Think of this as specifying the fully qualified name of an object in the import 
 TODO: I believe only the first step really needs to have a component specified and the rest are inferred but I can't find the test for that.
 
 .image
-image::https://github.com/user-attachments/assets/84f363a2-4221-473c-a7bf-3da991bd40c5[image]
+image::images/component-and-object-validation-1.png[image]
 
 .image
-image::https://github.com/user-attachments/assets/150c199a-6064-4d39-924a-a6e554142ef4[image]
+image::images/component-and-object-validation-2.png[image]
 
-==== Predicate validation
+==== Predicate Validation
 
 This is the remainder of the step, you can think of it as completing a method call.
 
 .image
-image::https://github.com/user-attachments/assets/a8fbf05e-6ca6-413b-90c3-7416146527f2[image]
+image::images/predicate-validatiion.png[image]
 
 === Quick Fixes
 
@@ -86,22 +85,22 @@ Just as you can create a class that doesn’t exist, you can create other langua
 In this case, I created the object that was referenced in the test step.
 
 .image
-image::https://github.com/user-attachments/assets/b7a81d5d-8e1f-4816-b271-42911d977195[image]
+image::images/quick-fixes-1.png[image]
 
 If I reference another object that has a similar name, I can rename it to one that exists.
 
 .image
-image::https://github.com/user-attachments/assets/2f0613c1-a1fd-43ab-8c67-e3818b6e7775[image]
+image::images/quick-fixes-2.png[image]
 
 And if any new keywords don’t exist, you can create those as well.
 
 .image
-image::https://github.com/user-attachments/assets/feed8fa0-d871-4457-a4e9-6a7fea3e21dc[image]
+image::images/quick-fixes-3.png[image]
 
 === Code Generation
 
 .image
-image::https://github.com/user-attachments/assets/47c34772-852f-484d-acc0-b473e51b1351[image]
+image::images/code-generation.png[image]
 
 === Formatting
 
@@ -112,7 +111,7 @@ Formats everything including table cell contents. I’ll probably need a GIF to 
 You can customise the colours in the code and through eclipse preferences.
 
 .image
-image::https://github.com/user-attachments/assets/385c1b6c-de4d-4ce3-8098-5fd02a26d660[image]
+image::images/syntax-colouring.png[image]
 
 == Maven
 
