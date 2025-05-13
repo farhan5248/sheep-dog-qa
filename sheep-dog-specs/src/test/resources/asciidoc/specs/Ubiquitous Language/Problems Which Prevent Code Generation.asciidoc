@@ -1,0 +1,53 @@
+= Test-Suite: Problems Which Prevent Code Generation
+
+@sheep-dog-test
+
+Some problems prevent code generation. 
+For example not knowing which component an object belongs to gets in the way of knowing where to create the file.
+
+== Test-Case: The first step needs to have a component specified
+
+* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                                
+| The daily batchjob, Input file is present
+| The Input file is downloaded             
+|===
+
+* When: The xtext plugin, validate error action is performed as follows
++
+|===
+| Selected Step
+| 1            
+|===
+
+* Then: The xtext plugin, validate error dialog will be empty
+
+== Test-Case: No component in the first step triggers an error
+
+The first step needs to have a component specified.
+The other steps default to that one.
+
+* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                                   
+| The Input file is present                   
+| The daily batchjob, Input file is downloaded
+|===
+
+* When: The xtext plugin, validate error action is performed as follows
++
+|===
+| Selected Step
+| 1            
+|===
+
+* Then: The xtext plugin, validate error dialog will be set as follows
++
+|===
+| Message                             
+| The first step must have a component
+|===
+
