@@ -5,6 +5,16 @@
 
 TODO Make more changes to the source file to demonstrate all the formatting changes.
 
+One of the more important uses of going from asciidoc to uml and back to asciidoc is to update the files after changing the grammar.
+I'd first convert all the asciidoc files to a uml model using the previous version.
+Then I'd convert the uml model back to asciidoc files using the current/latest version.
+An example of this is when I converted steps from section to lists.
+
+In my QA team, as the language evolved over the 3 years, we had to keep updating all previous test cases.
+First we were using robot framework and csv lists of value in a step like "do the thing with field1 is value, field2 is value".
+When we moved to Cucumber, the steps were preserved.
+However, we then moved the "field1 is value, field2 is value" to a data table and that was done by converting feature to uml and back to feature files. 
+
 == Test-Case: Format an asciidoc file
 
 The table formatting is off, this is intentional to check that the formatting works.
