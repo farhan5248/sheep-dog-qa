@@ -1,0 +1,173 @@
+= Test-Suite: UML to JUnit with Spring Conversion
+
+@sheep-dog-dev
+@round-trip
+
+This test suite describes the conversion from UML model to JUnit 5 test files with Spring dependency injection.
+
+== Test-Case: Convert UML model to JUnit tests with Spring
+
+* Given: The spec-prj project, src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
+
++
+----
+= Test-Suite: Process
+
+@tag1
+Desc 1
+
+== Test-Case: Story One
+
+@tag2
+Desc 2
+
+* Given: The blah application, Object page is valid
+----
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is valid
+----
+
+* And: The maven plugin, asciidoctor-to-uml goal is executed
+
+* When: The maven plugin, uml-to-junit-spring goal is executed
+
+* Then: The code-prj project, src-gen/test/java/org/farhan/tests/app/ProcessTest.java file will be created as follows
++
+----
+package org.farhan.tests.app;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.farhan.objects.blah.ObjectPage;
+
+@SpringBootTest
+@DisplayName("Process")
+public class ProcessTest {
+
+    @Autowired
+    private ObjectPage objectPage;
+
+    @Test
+    @DisplayName("Story One")
+    @Tag("tag2")
+    public void storyOne() {
+        // Given: The blah application, Object page is valid
+        objectPage.setValid();
+    }
+}
+----
+
+== Test-Case: Handle test data with Spring parameterized tests
+
+* Given: The spec-prj project, src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
++
+----
+= Test-Suite: Process
+
+@tag1
+Desc 1
+
+== Test-Case: Story Two
+
+@tag3
+Desc 3
+
+* Given: The blah application, Object page is invalid
+
+* When: The Object page is created as follows
++
+|===
+| grp | ins
+| 8 | {ins}
+|===
+
+* Test-Data: Some data
++
+|===
+| ins
+| 4
+|===
+
+* Test-Data: Dataset 2
++
+|===
+| ins
+| 5
+| 6
+|===
+----
+
+* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
++
+----
+= Step-Object: Object page
+
+== Step-Definition: is invalid
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| grp | ins
+|===
+----
+
+* And: The maven plugin, asciidoctor-to-uml goal is executed
+
+* When: The maven plugin, uml-to-junit-spring goal is executed
+
+* Then: The code-prj project, src-gen/test/java/org/farhan/tests/app/ProcessTest.java file will be created as follows
++
+----
+package org.farhan.tests.app;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.farhan.objects.blah.ObjectPage;
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+
+@SpringBootTest
+@DisplayName("Process")
+public class ProcessTest {
+
+    @Autowired
+    private ObjectPage objectPage;
+
+    @ParameterizedTest(name = "Story Two - {0}")
+    @MethodSource("storyTwoData")
+    @DisplayName("Story Two")
+    @Tag("tag3")
+    public void storyTwo(String datasetName, Map<String, String> data) {
+        // Given: The blah application, Object page is invalid
+        objectPage.setInvalid();
+        
+        // When: The Object page is created as follows
+        objectPage.setGrp("8");
+        objectPage.setIns(data.get("ins"));
+    }
+    
+    static Stream<Object[]> storyTwoData() {
+        return Stream.of(
+            new Object[] { "Some data", Map.of("ins", "4") },
+            new Object[] { "Dataset 2", Map.of("ins", "5") },
+            new Object[] { "Dataset 2", Map.of("ins", "6") }
+        );
+    }
+}
+----

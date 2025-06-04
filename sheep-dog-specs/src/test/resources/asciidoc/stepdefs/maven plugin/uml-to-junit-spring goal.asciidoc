@@ -2,3 +2,5 @@
 
 == Step-Definition: is executed
 
+This goal converts a UML model to JUnit 5 test files with Spring dependency injection. It generates test classes with Spring Boot annotations and autowired dependencies based on the UML model.
+

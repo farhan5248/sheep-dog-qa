@@ -1,0 +1,6 @@
+= Step-Object: uml-to-junit goal
+
+== Step-Definition: is executed
+
+This goal converts a UML model to JUnit 5 test files. It generates test classes with appropriate annotations and methods based on the UML model.
+
