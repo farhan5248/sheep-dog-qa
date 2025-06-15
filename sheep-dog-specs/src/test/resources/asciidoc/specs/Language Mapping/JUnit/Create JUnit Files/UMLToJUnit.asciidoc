@@ -2,7 +2,7 @@
 
 
 @sheep-dog-dev
-@round-trip
+@round-trip-new
 
 This test suite describes the conversion from UML model to JUnit 5 test files.
 
