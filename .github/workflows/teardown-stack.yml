@@ -1,0 +1,96 @@
+name: Teardown AWS EKS Stack
+
+on:
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+  teardown-eks-stack:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sheep-dog-specs
+    env:
+      BASE_STACK_NAME: sheep-dog-aws
+      REGION: ${{ secrets.AWS_REGION }}
+      ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
+      - name: Set stack name
+        id: stack
+        run: |
+          echo "STACK_NAME=${BASE_STACK_NAME}-${{ github.event.inputs.suffix }}" >> $GITHUB_ENV
+
+      - name: Get EKS cluster name
+        id: cluster
+        run: |
+          CLUSTER_NAME=$(aws cloudformation describe-stacks \
+            --stack-name "$STACK_NAME" \
+            --query "Stacks[0].Outputs[?OutputKey=='ClusterName'].OutputValue" \
+            --output text \
+            --region $REGION)
+          echo "CLUSTER_NAME=$CLUSTER_NAME" >> $GITHUB_ENV
+
+      - name: Update kubeconfig (if cluster exists)
+        if: env.CLUSTER_NAME != ''
+        run: |
+          aws eks update-kubeconfig --name "$CLUSTER_NAME" --region $REGION
+
+      - name: Check for lingering load balancers (if cluster exists)
+        if: env.CLUSTER_NAME != ''
+        run: |
+          LB_NAMES=$(aws elbv2 describe-load-balancers --query "LoadBalancers[?contains(LoadBalancerName, '$STACK_NAME')].LoadBalancerName" --output text)
+          if [ ! -z "$LB_NAMES" ]; then
+            echo "WARNING: Found lingering load balancers: $LB_NAMES"
+            echo "You may need to delete these manually before proceeding."
+            exit 0
+          fi
+
+      - name: Delete EBS CSI driver IAM policy and role
+        run: |
+          ROLE_NAME=EBSCSIDriverRole
+          aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy || echo "Policy may already be detached."
+          aws iam delete-role --role-name $ROLE_NAME || echo "Role may already be deleted."
+
+      - name: Get OIDC URL from EKS cluster
+        id: oidc
+        run: |
+          OIDC_URL=$(aws eks describe-cluster --name "$CLUSTER_NAME" --query "cluster.identity.oidc.issuer" --output text)
+          if [ -z "$OIDC_URL" ]; then
+            echo "Failed to get OIDC URL from EKS Cluster."
+            exit 1
+          fi
+          OIDC_PROVIDER_ID=$(basename "$OIDC_URL")
+          echo "OIDC_PROVIDER_ID=$OIDC_PROVIDER_ID" >> $GITHUB_ENV
+
+      - name: Delete OIDC provider
+        run: |
+          aws iam delete-open-id-connect-provider --open-id-connect-provider-arn arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_PROVIDER_ID} || echo "OIDC provider may already be deleted."
+
+      - name: Delete CloudFormation stack
+        run: |
+          aws cloudformation delete-stack --stack-name "$STACK_NAME" --region $REGION
+          echo "Waiting for stack deletion to complete..."
+          aws cloudformation wait stack-delete-complete --stack-name "$STACK_NAME" --region $REGION
+
+      - name: Teardown completed
+        run: echo "Teardown completed successfully!"

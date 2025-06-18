@@ -1,4 +1,4 @@
-name: Setup AWS EKS Cluster
+name: Setup Kubernetes Cluster
 
 on:
   workflow_dispatch:
@@ -9,14 +9,14 @@ on:
         default: '1'
 
 jobs:
-  update-eks:
+  update-eks-cluster:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: sheep-dog-specs
     env:
       BASE_STACK_NAME: sheep-dog-aws
-      REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+      REGION: ${{ secrets.AWS_REGION }}
       NAMESPACE: prod
 
     steps:

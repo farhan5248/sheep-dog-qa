@@ -1,0 +1,83 @@
+name: Teardown Kubernetes Cluster
+
+on:
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+  teardown-eks-cluster:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sheep-dog-specs
+    env:
+      BASE_STACK_NAME: sheep-dog-aws
+      REGION: ${{ secrets.AWS_REGION }}
+      NAMESPACE: prod
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
+      - name: Set stack name
+        id: stack
+        run: |
+          echo "STACK_NAME=${BASE_STACK_NAME}-${{ github.event.inputs.suffix }}" >> $GITHUB_ENV
+
+      - name: Get EKS cluster name
+        id: cluster
+        run: |
+          CLUSTER_NAME=$(aws cloudformation describe-stacks \
+            --stack-name "$STACK_NAME" \
+            --query "Stacks[0].Outputs[?OutputKey=='ClusterName'].OutputValue" \
+            --output text \
+            --region $REGION)
+          echo "CLUSTER_NAME=$CLUSTER_NAME" >> $GITHUB_ENV
+
+      - name: Update kubeconfig (if cluster exists)
+        if: env.CLUSTER_NAME != ''
+        run: |
+          aws eks update-kubeconfig --name "$CLUSTER_NAME" --region $REGION
+
+      - name: Delete Kubernetes resources (if cluster exists)
+        if: env.CLUSTER_NAME != ''
+        run: |
+          kubectl delete -k ../kubernetes/overlays/$NAMESPACE/ || echo "K8s resources may already be deleted."
+
+      - name: Wait for load balancers to be deleted
+        if: env.CLUSTER_NAME != ''
+        run: sleep 60
+
+      - name: Check for lingering load balancers
+        if: env.CLUSTER_NAME != ''
+        run: |
+          LB_NAMES=$(aws elbv2 describe-load-balancers --query "LoadBalancers[?contains(LoadBalancerName, '$STACK_NAME')].LoadBalancerName" --output text)
+          if [ ! -z "$LB_NAMES" ]; then
+            echo "WARNING: Found lingering load balancers: $LB_NAMES"
+            echo "You may need to delete these manually before proceeding."
+          fi
+
+      - name: Delete CloudFormation stack
+        run: |
+          aws cloudformation delete-stack --stack-name "$STACK_NAME" --region $REGION
+          echo "Waiting for stack deletion to complete..."
+          aws cloudformation wait stack-delete-complete --stack-name "$STACK_NAME" --region $REGION
+
+      - name: Teardown completed
+        run: echo "Teardown completed successfully!"
