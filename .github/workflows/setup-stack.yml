@@ -1,4 +1,4 @@
-name: Deploy EKS Stack
+name: Setup Kubernetes Stack
 
 on:
   workflow_dispatch:

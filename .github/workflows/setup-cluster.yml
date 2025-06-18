@@ -1,4 +1,4 @@
-name: Update EKS Cluster
+name: Setup AWS EKS Cluster
 
 on:
   workflow_dispatch:
