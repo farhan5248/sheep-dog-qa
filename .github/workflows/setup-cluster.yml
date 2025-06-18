@@ -56,7 +56,7 @@ jobs:
 
       - name: Apply Kustomize overlay
         run: |
-          kubectl apply -k sheep-dog-specs/kubernetes/overlays/$NAMESPACE/
+          kubectl apply -k kubernetes/overlays/$NAMESPACE/
 
       - name: Restart deployment
         run: |
