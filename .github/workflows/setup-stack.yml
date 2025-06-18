@@ -1,0 +1,121 @@
+name: Deploy EKS Stack
+
+on:
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+  deploy-eks-stack:
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_STACK_NAME: sheep-dog-aws
+      REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+      ACCOUNT_ID: '013372624673'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
+      - name: Set up Kustomize
+        uses: imranismail/setup-kustomize@v2
+        with:
+          kustomize-version: 'latest'
+
+      - name: Set stack name
+        id: stack
+        run: |
+          echo "STACK_NAME=${BASE_STACK_NAME}-${{ github.event.inputs.suffix }}" >> $GITHUB_ENV
+
+      - name: Deploy CloudFormation stack for EKS
+        run: |
+          aws cloudformation deploy \
+            --template-file aws/eks.yml \
+            --stack-name "$STACK_NAME" \
+            --capabilities CAPABILITY_IAM \
+            --region $REGION
+
+      - name: Get EKS cluster name
+        id: cluster
+        run: |
+          CLUSTER_NAME=$(aws cloudformation describe-stacks \
+            --stack-name "$STACK_NAME" \
+            --query "Stacks[0].Outputs[?OutputKey=='ClusterName'].OutputValue" \
+            --output text \
+            --region $REGION)
+          echo "CLUSTER_NAME=$CLUSTER_NAME" >> $GITHUB_ENV
+
+      - name: Get OIDC URL from EKS cluster
+        id: oidc
+        run: |
+          OIDC_URL=$(aws eks describe-cluster --name "$CLUSTER_NAME" --query "cluster.identity.oidc.issuer" --output text)
+          OIDC_PROVIDER_ID=$(basename "$OIDC_URL")
+          echo "OIDC_URL=$OIDC_URL" >> $GITHUB_ENV
+          echo "OIDC_PROVIDER_ID=$OIDC_PROVIDER_ID" >> $GITHUB_ENV
+
+      - name: Create OIDC provider in IAM
+        run: |
+          set -e
+          aws iam create-open-id-connect-provider \
+            --url "$OIDC_URL" \
+            --client-id-list sts.amazonaws.com \
+            --thumbprint-list 9e99a48a9960b14926bb7f3b02e22da2b0ab7280 || echo "OIDC provider may already exist, continuing..."
+
+      - name: Update trust policy file with OIDC provider ID and account ID
+        run: |
+          mkdir -p target
+          sed "s/OIDC_PROVIDER_ID/$OIDC_PROVIDER_ID/g; s/ACCOUNT_ID/$ACCOUNT_ID/g" aws/oidc-policy.json > target/oidc-policy.json
+
+      - name: Create IAM role for EBS CSI driver
+        run: |
+          aws iam create-role \
+            --role-name EBSCSIDriverRole \
+            --assume-role-policy-document file://target/oidc-policy.json || echo "Role may already exist, continuing..."
+
+      - name: Attach AmazonEBSCSIDriverPolicy to the role
+        run: |
+          aws iam attach-role-policy \
+            --role-name EBSCSIDriverRole \
+            --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy || echo "Policy may already be attached, continuing..."
+
+      - name: Create EBS CSI driver add-on in EKS
+        run: |
+          aws eks create-addon \
+            --cluster-name "$CLUSTER_NAME" \
+            --addon-name aws-ebs-csi-driver \
+            --service-account-role-arn arn:aws:iam::${ACCOUNT_ID}:role/EBSCSIDriverRole \
+            --addon-version v1.44.0-eksbuild.1 \
+            --resolve-conflicts OVERWRITE || echo "Addon may already exist, continuing..."
+
+      - name: Wait for EBS CSI driver add-on to become active (max 60s)
+        run: |
+          for i in {1..12}; do
+            STATUS=$(aws eks describe-addon --cluster-name "$CLUSTER_NAME" --addon-name aws-ebs-csi-driver --query "addon.status" --output text)
+            echo "Current status: $STATUS"
+            if [[ "$STATUS" == "ACTIVE" ]]; then
+              echo "EBS CSI driver add-on is now active."
+              exit 0
+            fi
+            echo "Waiting for EBS CSI driver add-on to become active... (Status: $STATUS)"
+            sleep 5
+          done
+          echo "Warning: Timed out waiting for EBS CSI driver add-on to become active. Check its status manually."
+
+      - name: Deployment completed
+        run: echo "Deployment completed successfully!"

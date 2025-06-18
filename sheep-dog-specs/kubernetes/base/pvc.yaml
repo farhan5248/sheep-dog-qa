@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sheep-dog-dev-db-pvc
+  labels:
+    app: sheep-dog-dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sheep-dog-dev-svc-pvc
+  labels:
+    app: sheep-dog-dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard    
+  resources:
+    requests:
+      storage: 1Gi

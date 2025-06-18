@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: prod
+resources:
+  - ../../../../sheep-dog-dev-svc/kubernetes/base
+patches:
+  - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: sheep-dog-dev-ingress
+  - path: service-patch-db.yaml
+    target:
+      kind: Service
+      name: sheep-dog-dev-db
+  - path: db-pvc-patch.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: sheep-dog-dev-db-pvc
+  - path: svc-pvc-patch.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: sheep-dog-dev-svc-pvc 
