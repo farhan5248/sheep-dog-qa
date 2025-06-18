@@ -1,4 +1,4 @@
-name: Teardown Kubernetes Cluster
+name: Teardown EKS Cluster
 
 on:
   workflow_dispatch:
@@ -9,14 +9,14 @@ on:
         default: '1'
 
 jobs:
-  teardown-eks-cluster:
+  teardown-eks:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: sheep-dog-specs
     env:
       BASE_STACK_NAME: sheep-dog-aws
-      REGION: ${{ secrets.AWS_REGION }}
+      REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
       NAMESPACE: prod
 
     steps:
@@ -72,12 +72,6 @@ jobs:
             echo "WARNING: Found lingering load balancers: $LB_NAMES"
             echo "You may need to delete these manually before proceeding."
           fi
-
-      - name: Delete CloudFormation stack
-        run: |
-          aws cloudformation delete-stack --stack-name "$STACK_NAME" --region $REGION
-          echo "Waiting for stack deletion to complete..."
-          aws cloudformation wait stack-delete-complete --stack-name "$STACK_NAME" --region $REGION
 
       - name: Teardown completed
         run: echo "Teardown completed successfully!"

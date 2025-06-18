@@ -1,0 +1,33 @@
+name: Forward Engineer
+
+on:
+  workflow_dispatch:
+    inputs:
+      host:
+        description: 'Host parameter for Maven'
+        required: true
+        default: 'localhost'
+
+jobs:
+  forward-engineer-svc:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sheep-dog-specs
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Asciidoctor to UML (round-trip)
+      run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip" -Dhost="${{ github.event.inputs.host }}"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: UML to Cucumber Guice (round-trip)
+      run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:uml-to-cucumber-spring -Dtags="round-trip" -Dhost="${{ github.event.inputs.host }}"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
