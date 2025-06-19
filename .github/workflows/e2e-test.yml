@@ -13,8 +13,6 @@ jobs:
     uses: ./.github/workflows/setup-cluster.yml
     with:
       suffix: ${{ github.event.inputs.suffix }}
-    outputs:
-      service_url: ${{ steps.get_service_url.outputs.service_url }}
 
   forward-engineer:
     needs: setup-cluster
