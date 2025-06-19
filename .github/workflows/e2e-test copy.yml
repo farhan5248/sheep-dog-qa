@@ -1,0 +1,26 @@
+name: E2E Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+
+  setup-cluster:
+    uses: ./.github/workflows/setup-cluster-copy.yml
+    with:
+      suffix: ${{ github.event.inputs.suffix }}
+    secrets:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
+  forward-engineer:
+    needs: setup-cluster
+    uses: ./.github/workflows/forward-engineer.yml
+    with:
+      host: ${{ needs.setup-cluster.outputs.service_url }}

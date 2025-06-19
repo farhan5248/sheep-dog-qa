@@ -29,6 +29,6 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
     - name: Asciidoctor to UML (round-trip)
-      run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip" -Dhost="${{ github.event.inputs.host }}"
+      run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip" -Dhost="${{ inputs.host }}"
       env:
         GITHUB_TOKEN: ${{ github.token }}

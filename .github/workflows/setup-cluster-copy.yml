@@ -1,0 +1,65 @@
+name: Setup K8S Cluster
+
+on:
+  workflow_call:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        type: string
+    secrets:
+      AWS_REGION:
+        required: true
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+    outputs:
+      service_url:
+        description: "The service URL"
+        value: ${{ jobs.setup-k8s.outputs.service_url }}
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+  setup-k8s:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sheep-dog-specs
+    env:
+      BASE_STACK_NAME: sheep-dog-aws
+      REGION: ${{ secrets.AWS_REGION }}
+      NAMESPACE: prod
+    outputs:
+      service_url: ${{ steps.get_service_url.outputs.service_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
+      - name: Get service URL
+        id: get_service_url
+        run: |
+          SERVICE_URL="www.amazon.com"
+          echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
+
+      - name: Debug service_url
+        run: echo "Service URL is ${{ steps.get_service_url.outputs.service_url }}"
+
