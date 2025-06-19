@@ -54,6 +54,21 @@ jobs:
         with:
           version: 'latest'
 
+      - name: Get EKS Cluster Name from CloudFormation
+        id: get_cluster_name
+        run: |
+          STACK_NAME="${BASE_STACK_NAME}-${{ inputs.suffix }}"
+          CLUSTER_NAME=$(aws cloudformation describe-stacks \
+            --stack-name "$STACK_NAME" \
+            --query "Stacks[0].Outputs[?OutputKey=='ClusterName'].OutputValue" \
+            --output text \
+            --region $REGION)
+          echo "CLUSTER_NAME=$CLUSTER_NAME" >> $GITHUB_ENV
+
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig --name "$CLUSTER_NAME" --region $REGION
+
       - name: Get service URL
         id: get_service_url
         run: |
