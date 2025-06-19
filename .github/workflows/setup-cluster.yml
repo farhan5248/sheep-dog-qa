@@ -14,8 +14,6 @@ on:
         required: true
       AWS_SECRET_ACCESS_KEY:
         required: true
-      ACCOUNT_ID:
-        required: true
     outputs:
       service_url:
         description: "The service URL"

@@ -14,7 +14,7 @@ on:
         required: true
       AWS_SECRET_ACCESS_KEY:
         required: true
-      ACCOUNT_ID:
+      AWS_ACCOUNT_ID:
         required: true
   workflow_dispatch:
     inputs:
