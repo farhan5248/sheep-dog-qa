@@ -86,13 +86,16 @@ jobs:
           kubectl rollout status deployment sheep-dog-dev-svc -n $NAMESPACE
 
       - name: Wait for service external IP
-        run: sleep 30
+        run: sleep 60
 
       - name: Get service URL
         id: get_service_url
         run: |
           SERVICE_URL=$(kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
           echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
+
+      - name: Debug service_url
+        run: echo "Service URL is ${{ steps.get_service_url.outputs.service_url }}"
 
       - name: Get Ingress URL
         run: |
