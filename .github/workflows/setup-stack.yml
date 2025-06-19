@@ -48,7 +48,7 @@ jobs:
       - name: Set stack name
         id: stack
         run: |
-          echo "STACK_NAME=${BASE_STACK_NAME}-${{ github.event.inputs.suffix }}" >> $GITHUB_ENV
+          echo "STACK_NAME=${BASE_STACK_NAME}-${{ inputs.suffix }}" >> $GITHUB_ENV
 
       - name: Deploy CloudFormation stack for EKS
         run: |
