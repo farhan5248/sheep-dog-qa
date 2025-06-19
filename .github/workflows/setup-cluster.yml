@@ -1,6 +1,16 @@
 name: Setup K8S Cluster
 
 on:
+  workflow_call:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        type: string
+    outputs:
+      service_url:
+        description: "The service URL"
+        value: ${{ jobs.setup-k8s.outputs.service_url }}
   workflow_dispatch:
     inputs:
       suffix:

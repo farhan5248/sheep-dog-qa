@@ -1,6 +1,12 @@
 name: Forward Engineer
 
 on:
+  workflow_call:
+    inputs:
+      host:
+        description: 'Host parameter for Maven'
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       host:
