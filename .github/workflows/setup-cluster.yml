@@ -7,6 +7,15 @@ on:
         description: 'Suffix for the stack name'
         required: true
         type: string
+    secrets:
+      AWS_REGION:
+        required: true
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      ACCOUNT_ID:
+        required: true
     outputs:
       service_url:
         description: "The service URL"
