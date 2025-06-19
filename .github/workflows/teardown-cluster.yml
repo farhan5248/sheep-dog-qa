@@ -1,4 +1,4 @@
-name: Teardown EKS Cluster
+name: Teardown K8S Cluster
 
 on:
   workflow_dispatch:
@@ -58,7 +58,7 @@ jobs:
       - name: Delete Kubernetes resources (if cluster exists)
         if: env.CLUSTER_NAME != ''
         run: |
-          kubectl delete -k ../kubernetes/overlays/$NAMESPACE/ || echo "K8s resources may already be deleted."
+          kubectl delete -k kubernetes/overlays/$NAMESPACE/ || echo "K8s resources may already be deleted."
 
       - name: Wait for load balancers to be deleted
         if: env.CLUSTER_NAME != ''

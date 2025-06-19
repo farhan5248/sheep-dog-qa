@@ -1,4 +1,4 @@
-name: Teardown AWS EKS Stack
+name: Teardown EKS Stack
 
 on:
   workflow_dispatch:

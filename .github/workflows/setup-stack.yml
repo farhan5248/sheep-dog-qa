@@ -1,4 +1,4 @@
-name: Setup AWS EKS Stack
+name: Setup EKS Stack
 
 on:
   workflow_dispatch:

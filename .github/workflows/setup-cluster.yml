@@ -1,4 +1,4 @@
-name: Setup Kubernetes Cluster
+name: Setup K8S Cluster
 
 on:
   workflow_dispatch:

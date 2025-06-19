@@ -22,12 +22,7 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-
     - name: Asciidoctor to UML (round-trip)
       run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip" -Dhost="${{ github.event.inputs.host }}"
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: UML to Cucumber Guice (round-trip)
-      run: mvn org.farhan:sheep-dog-dev-svc-maven-plugin:uml-to-cucumber-spring -Dtags="round-trip" -Dhost="${{ github.event.inputs.host }}"
       env:
         GITHUB_TOKEN: ${{ github.token }}
