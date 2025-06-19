@@ -94,9 +94,6 @@ jobs:
           SERVICE_URL=$(kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
           echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
 
-      - name: Debug service_url
-        run: echo "Service URL is ${{ steps.get_service_url.outputs.service_url }}"
-
       - name: Get Ingress URL
         run: |
           kubectl get ingress -n $NAMESPACE sheep-dog-dev-ingress -o jsonpath="{.spec.rules[0].host}"

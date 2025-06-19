@@ -57,7 +57,8 @@ jobs:
       - name: Get service URL
         id: get_service_url
         run: |
-          SERVICE_URL="www.amazon.com"
+          kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"
+          SERVICE_URL=$(kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
           echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
 
       - name: Debug service_url
