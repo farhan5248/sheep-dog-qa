@@ -9,7 +9,7 @@ on:
         default: '1'
 
 jobs:
-  deploy-eks-stack:
+  setup-eks:
     runs-on: ubuntu-latest
     defaults:
       run:

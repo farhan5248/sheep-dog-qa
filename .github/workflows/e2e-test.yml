@@ -1,0 +1,23 @@
+name: E2E Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      suffix:
+        description: 'Suffix for the stack name'
+        required: true
+        default: '1'
+
+jobs:
+  setup-cluster:
+    uses: ./.github/workflows/setup-cluster.yml
+    with:
+      suffix: ${{ github.event.inputs.suffix }}
+    outputs:
+      service_url: ${{ steps.get_service_url.outputs.service_url }}
+
+  forward-engineer:
+    needs: setup-cluster
+    uses: ./.github/workflows/forward-engineer.yml
+    with:
+      host: ${{ needs.setup-cluster.outputs.service_url }}

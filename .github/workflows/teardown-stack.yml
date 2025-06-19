@@ -9,7 +9,7 @@ on:
         default: '1'
 
 jobs:
-  teardown-eks-stack:
+  teardown-eks:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -29,11 +29,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.REGION }}
-
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-          version: 'latest'
 
       - name: Set stack name
         id: stack

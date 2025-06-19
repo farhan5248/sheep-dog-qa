@@ -9,7 +9,7 @@ on:
         default: '1'
 
 jobs:
-  update-eks-cluster:
+  setup-k8s:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -18,6 +18,8 @@ jobs:
       BASE_STACK_NAME: sheep-dog-aws
       REGION: ${{ secrets.AWS_REGION }}
       NAMESPACE: prod
+    outputs:
+      service_url: ${{ steps.get_service_url.outputs.service_url }}
 
     steps:
       - name: Checkout repository
@@ -70,8 +72,10 @@ jobs:
         run: sleep 30
 
       - name: Get service URL
+        id: get_service_url
         run: |
-          kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"
+          SERVICE_URL=$(kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+          echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
 
       - name: Get Ingress URL
         run: |
