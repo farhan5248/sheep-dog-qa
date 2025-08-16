@@ -65,3 +65,28 @@ kubectl apply -f docker/deployment.yaml
 kubectl apply -k overlays/failsafe
 kubectl port-forward -n failsafe svc/sheep-dog-dev-db 30306:3306
 kubectl port-forward -n failsafe svc/sheep-dog-dev-svc 30080:8080
+
+# ollama
+
+ollama serve
+ollama list
+ollama rm llama3.2
+ollama pull codellama:latest
+ollama run codellama:latest
+ollama ps
+ollama stop codellama:latest
+ollama create qakb -f ./Modelfile
+ollama run qakb
+ollama run qakb "Summarize this file: $(cat README.md)"
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt":"Why is the sky blue?"
+}'
+
+curl http://localhost:11434/api/chat -d '{
+  "model": "llama3.2",
+  "messages": [
+    { "role": "user", "content": "why is the sky blue?" }
+  ]
+}'
