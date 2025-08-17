@@ -2,3 +2,11 @@ FROM codellama:latest
 
 # set the temperature to 1 [higher is more creative, lower is more coherent]
 PARAMETER temperature 1
+PARAMETER num_ctx 4096
+# -1 is num_ctx
+PARAMETER repeat_last_n 64
+# this doesn't work on CLI or GUI, test with API
+PARAMETER stop "thanks"
+PARAMETER top_k 40
+# MESSAGE user What time is it?
+# MESSAGE assistant check your clock

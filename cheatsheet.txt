@@ -79,10 +79,7 @@ ollama create qakb -f ./Modelfile
 ollama run qakb
 ollama run qakb "Summarize this file: $(cat README.md)"
 
-curl http://localhost:11434/api/generate -d '{
-  "model": "llama3.2",
-  "prompt":"Why is the sky blue?"
-}'
+curl -Uri "http://localhost:11434/api/generate" -Method POST -Body '{"format": "json","stream":false,"model":"llama3.2","prompt":"Why is the sky blue?"}' -Headers @{"Content-Type"="application/json"}
 
 curl http://localhost:11434/api/chat -d '{
   "model": "llama3.2",
