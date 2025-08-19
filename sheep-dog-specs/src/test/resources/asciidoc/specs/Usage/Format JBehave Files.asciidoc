@@ -1,0 +1,102 @@
+= Test-Suite: Format JBehave Files
+
+@sheep-dog-dev
+@round-trip
+
+TODO Make more changes to the source file to demonstrate all the formatting changes.
+
+== Test-Case: Format a story file
+
+The table formatting is off, this is intentional to check that the formatting works.
+
+* Given: The code-prj project, src-gen/test/resources/jbehave/stories/Process.story file is created as follows
++
+----
+Meta: @tag2 @tag3
+
+Narrative:
+As a user
+I want to process something
+So that something happens
+
+Lifecycle:
+Before:
+Given The blah application, something/Object page is created as follows
+"""
+Text 1
+
+Text 2
+"""
+
+Scenario: Submit One
+Meta: @tag1
+
+Basic EDI claim
+
+When The blah application, something/Object page is empty
+Then The blah application, something/Object page is empty
+And The blah application, something/Object page is empty
+
+Scenario: Submit Several
+
+Given The blah application, DataTable page is created as follows
+|   h1 |   h2 |
+| <h3> | <h4> |
+
+Examples:
+|  h3 |  h4 |
+| v31 | v41 |
+----
+
+* When: The maven plugin, jbehave-to-uml goal is executed with
++
+|===
+| Tags
+| tag1
+|===
+
+* And: The maven plugin, uml-to-jbehave goal is executed with
++
+|===
+| Tags
+| tag1
+|===
+
+* Then: The code-prj project, src-gen/test/resources/jbehave/stories/Process.story file will be created as follows
++
+----
+Meta: @tag2 @tag3
+
+Narrative:
+As a user
+I want to process something
+So that something happens
+
+Lifecycle:
+Before:
+Given The blah application, something/Object page is created as follows
+"""
+Text 1
+
+Text 2
+"""
+
+Scenario: Submit One
+Meta: @tag1
+
+Basic EDI claim
+
+When The blah application, something/Object page is empty
+Then The blah application, something/Object page is empty
+And The blah application, something/Object page is empty
+
+Scenario: Submit Several
+
+Given The blah application, DataTable page is created as follows
+| h1   | h2   |
+| <h3> | <h4> |
+
+Examples:
+| h3  | h4  |
+| v31 | v41 |
+----
