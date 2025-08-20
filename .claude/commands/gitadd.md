@@ -4,8 +4,12 @@ ALWAYS follow these steps in order:
 1. **Check for unpushed commits**: Run `git log --oneline origin/main..HEAD` to see if latest commit is unpushed
 2. **Apply commit decision**:
    - **IF unpushed commits exist** → amend latest commit with `git commit --amend`
-   - **IF no unpushed commits** → create new commit and ask user for message
+   - **IF no unpushed commits** → create new commit using provided message or ask user for message
   
+**Usage:**
+- `/gitadd` - Interactive mode (asks for message when creating new commit)
+- `/gitadd "commit message"` - Direct mode (uses provided message for new commit)
+
 **Git Commit Commands:**
 ```bash
 # Amend to latest commit (preferred when continuing work on same GitHub issue)
