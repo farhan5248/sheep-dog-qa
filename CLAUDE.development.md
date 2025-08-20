@@ -149,33 +149,6 @@ mvn org.farhan:sheep-dog-dev-maven-plugin:uml-to-cucumber-guice \
 - `develop`: Ongoing development with snapshot deployments
 - Feature branches: Use for isolated feature development
 
-**Commit Strategy:**
-- **Amend unpushed commits**: If the latest commit hasn't been pushed to remote, amend it instead of creating a new commit
-- **New commits**: Create a new commit only if there's no unpushed commits. Ask to select title from open issues list:
-  ```bash
-  curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/farhan5248/sheep-dog-old/issues?state=open"
-  ```
-
-  
-**Git Commit Commands:**
-```bash
-# Amend to latest commit (preferred when continuing work on same GitHub issue)
-git add .
-git commit --amend --no-edit
-
-# Amend with updated commit message (if issue details changed)
-git add .
-git commit --amend -m "Updated GitHub issue title"
-
-# New commit for new GitHub issue
-# User provides issue title/description for commit message
-git add .
-git commit -m "<GitHub issue title/description provided by user>"
-```
-
-
-  ```
-
 ### Debugging and Troubleshooting
 
 **Common Issues:**
