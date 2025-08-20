@@ -2,8 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with the sheep-dog-qa repository.
 
-> **📚 Complete Documentation**: See the topic-specific files in this repository:
-> - `CLAUDE.local.md` - Cross-repository coordination
+> **📚 Complete Documentation**: See the topic-specific files:
+> - `../sheep-dog-main/CLAUDE.md` - Cross-repository coordination
 > - `CLAUDE.architecture.md` - System architecture & design patterns
 > - `CLAUDE.development.md` - Development workflows & practices  
 > - `CLAUDE.testing.md` - BDD/testing methodologies
