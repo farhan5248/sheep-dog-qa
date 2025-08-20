@@ -150,13 +150,13 @@ mvn org.farhan:sheep-dog-dev-maven-plugin:uml-to-cucumber-guice \
 - Feature branches: Use for isolated feature development
 
 **Commit Strategy:**
-- **One commit per GitHub issue**: Each GitHub issue gets exactly one commit
-- **Always amend commits**: When working on the same issue, amend to the existing commit instead of creating new commits
-- **New commits only for new issues**: Only create new commits when starting work on a different GitHub issue
-- **Issue-based commit messages**: For new commits, use the GitHub issue title/description as the commit message
-- Separate commits for generated vs. manual code changes when they're different issues
-- Tag releases consistently across repositories
+- **Amend unpushed commits**: If the latest commit hasn't been pushed to remote, amend it instead of creating a new commit
+- **New commits**: Create a new commit only if there's no unpushed commits. Ask to select title from open issues list:
+  ```bash
+  curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/farhan5248/sheep-dog-old/issues?state=open"
+  ```
 
+  
 **Git Commit Commands:**
 ```bash
 # Amend to latest commit (preferred when continuing work on same GitHub issue)
@@ -173,11 +173,8 @@ git add .
 git commit -m "<GitHub issue title/description provided by user>"
 ```
 
-**How to Specify New Commit Message:**
-When starting work on a new GitHub issue, tell Claude Code:
-- "Create a new commit with message: `<GitHub issue title>`"
-- "New commit using issue: `<issue title/description>`"
-- "Start new issue commit: `<message from GitHub issue>`"
+
+  ```
 
 ### Debugging and Troubleshooting
 

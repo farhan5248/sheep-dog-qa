@@ -7,6 +7,10 @@ This file provides cross-repository coordination guidance for Claude Code when w
 > - `CLAUDE.development.md` - Development workflows and practices  
 > - `CLAUDE.testing.md` - BDD/testing methodologies
 
+## Development Environment
+- **Platform**: Windows PC
+- **Commands**: Use .bat scripts and Windows-compatible commands (avoid bash/unix commands)
+
 ## Repository Ecosystem
 
 ### Core Repositories

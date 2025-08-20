@@ -1,11 +1,21 @@
 {
+  "env": {
+    "CLAUDE_PLATFORM_HINT": "windows"
+  },
   "permissions": {
     "allow": [
       "Bash(mv:*)",
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(claude mcp add:*)",
       "Bash(claude mcp:*)",
-      "Bash(claude /install-github-app)"
+      "Bash(claude /install-github-app)",
+      "Bash(gh auth:*)",
+      "Bash(npx @github/github-copilot-mcp-server:*)",
+      "Bash(gh issue list:*)",
+      "Bash(git remote get-url:*)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
