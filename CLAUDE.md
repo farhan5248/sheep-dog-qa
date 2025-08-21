@@ -19,7 +19,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 - **Ollama Integration**: AI-enhanced development support
 
 ### Maven Plugin Used
-- **Plugin**: `sheep-dog-dev-svc-maven-plugin:1.29`
+- **Plugin**: `sheep-dog-dev-svc-maven-plugin:1.32`
 - **Key Feature**: Does NOT require `-DrepoDir` parameter (auto-handles repositories)
 
 ## QA Repository Commands
