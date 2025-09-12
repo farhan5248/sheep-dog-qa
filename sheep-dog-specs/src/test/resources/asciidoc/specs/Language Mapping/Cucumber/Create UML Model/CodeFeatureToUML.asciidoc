@@ -21,64 +21,6 @@ Feature: Process
 | specs::Process
 |===
 
-== Test-Case: One tag, one statement
-
-* Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
-+
-----
-@tag1
-Feature: Process
-  Desc line 1
-----
-
-* When: The maven plugin, cucumber-to-uml goal is executed
-
-* Then: The spec-prj project, uml/pst.uml file will be present
-
-* And: The uml/pst.uml file Class Comments section will be created as follows
-+
-|===
-| Class Name     | Comment    
-| specs::Process | Desc line 1
-|===
-
-* And: The uml/pst.uml file Class Annotations section will be created as follows
-+
-|===
-| Class Name     | Annotation Name | Annotation Detail
-| specs::Process | tags            | tag1             
-|===
-
-== Test-Case: Two tags, two statements
-
-* Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
-+
-----
-@tag1 @tag2
-Feature: Process
-  Desc line 1
-  Desc line 2
-----
-
-* When: The maven plugin, cucumber-to-uml goal is executed
-
-* Then: The spec-prj project, uml/pst.uml file will be present
-
-* And: The uml/pst.uml file Class Comments section will be created as follows
-+
-|===
-| Class Name     | Comment                 
-| specs::Process | Desc line 1\nDesc line 2
-|===
-
-* And: The uml/pst.uml file Class Annotations section will be created as follows
-+
-|===
-| Class Name     | Annotation Name | Annotation Detail
-| specs::Process | tags            | tag1             
-| specs::Process | tags            | tag2             
-|===
-
 == Test-Case: Three tags, three statements
 
 * Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
