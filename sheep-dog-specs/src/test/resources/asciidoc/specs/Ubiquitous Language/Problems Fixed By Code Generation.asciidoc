@@ -22,7 +22,7 @@ There's 4 types of warnings, the scenarios below cover them.
 +
 |===
 | Message                                                                                 
-| daily batchjob/Input file.feature doesn't exist in src/test/resources/asciidoc/stepdefs/
+| The object doesn't exist
 |===
 
 == Test-Case: This object step definition doesn't exist validation
@@ -47,7 +47,7 @@ There's 4 types of warnings, the scenarios below cover them.
 +
 |===
 | Message                                                      
-| is present doesn't exist in daily batchjob/Input file.feature
+| The object predicate doesn't exist
 |===
 
 == Test-Case: This object step definition parameter set doesn't exist validation
@@ -72,7 +72,7 @@ There's 4 types of warnings, the scenarios below cover them.
 +
 |===
 | Message                                                                        
-| \| New Header doesn't exist in daily batchjob/Input file.feature for is present
+| The object predicate parameters doesn't exist
 |===
 
 == Test-Case: This object doesn't exist and there is an alternate
@@ -97,7 +97,7 @@ There's 4 types of warnings, the scenarios below cover them.
 +
 |===
 | Message                                                                                 
-| daily batchjob/Input file.feature doesn't exist in src/test/resources/asciidoc/stepdefs/
+| The object doesn't exist
 |===
 
 * And: The xtext plugin, quickfix dialog will be set as follows

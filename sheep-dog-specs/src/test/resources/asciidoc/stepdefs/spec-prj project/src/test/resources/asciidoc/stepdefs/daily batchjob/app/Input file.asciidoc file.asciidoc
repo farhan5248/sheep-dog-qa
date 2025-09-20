@@ -1,17 +1,8 @@
-= Step-Object: src/test/resources/asciidoc/stepdefs/daily batchjob/app/Input file.asciidoc file
-
-Represents a Step-Object file called Input file.feature.
-It should be Input file.asciidoc which I'll rename later.
-The Input file is a file processed by the daily batchjob but the file is in the app directory.
+= Step-Object: Input file.asciidoc file
 
 == Step-Definition: is created as follows
 
-Updates the file contents with the table data.
-
 * Step-Parameters: 1
-+
-Creates a Step-Object and Step-Definition
-
 +
 |===
 | Object Name | Step Definition Name

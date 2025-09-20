@@ -1,4 +1,0 @@
-= Step-Object: uml-to-junit-guice goal
-
-== Step-Definition: is executed
-

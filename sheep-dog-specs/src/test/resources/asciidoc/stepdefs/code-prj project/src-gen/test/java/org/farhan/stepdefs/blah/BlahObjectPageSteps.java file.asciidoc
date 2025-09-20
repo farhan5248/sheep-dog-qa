@@ -1,4 +1,4 @@
-= Step-Object: src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file
+= Step-Object: BlahObjectPageSteps.java file
 
 == Step-Definition: Header section will be created as follows
 

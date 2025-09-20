@@ -1,4 +1,4 @@
-= Step-Object: src/test/resources/asciidoc/Process2.asciidoc file
+= Step-Object: Process2.asciidoc file
 
 Represents a Test-Suite file called Process.feature.
 It should be Process.asciidoc which I'll rename later.

@@ -1,13 +1,8 @@
-= Step-Object: uml/pst.uml file
-
-Represents the UML model derived from the test suites and step objects.
+= Step-Object: pst.uml file
 
 == Step-Definition: Class Annotations section will be created as follows
 
 * Step-Parameters: 1
-+
-Use to store Cucumber Feature tags
-
 +
 |===
 | Class Name | Annotation Name | Annotation Detail
@@ -15,12 +10,7 @@ Use to store Cucumber Feature tags
 
 == Step-Definition: Class Comments section will be created as follows
 
-The UML class comments are mapped to the Javadoc sections or cucumber Feature descriptions
-
 * Step-Parameters: 1
-+
-Specify the comment and the class to which it belong
-
 +
 |===
 | Class Name | Comment

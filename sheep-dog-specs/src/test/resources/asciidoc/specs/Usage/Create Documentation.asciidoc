@@ -85,7 +85,7 @@ Create a new step instead of picking from what exists and ignore the warning.
 +
 |===
 | Message                                                      
-| is present doesn't exist in daily batchjob/Input file.feature
+| The object predicate doesn't exist
 |===
 
 == Test-Case: Create the new step definition

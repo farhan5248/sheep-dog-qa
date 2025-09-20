@@ -1,14 +1,4 @@
-= Step-Object: src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file
-
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
-|===
-
-== Step-Definition: is deleted
+= Step-Object: Object page.asciidoc file
 
 == Step-Definition: Header section will be created as follows
 
@@ -23,6 +13,16 @@
 |===
 | Name | Statements
 |===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: is deleted
 
 == Step-Definition: Step Definition Parameters Table section will be created as follows
 

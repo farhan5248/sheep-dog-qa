@@ -1,4 +1,4 @@
-= Step-Object: src-gen/test/resources/cucumber/specs/Process.feature file
+= Step-Object: Process.feature file
 
 == Step-Definition: Background section will be created as follows
 
@@ -47,12 +47,6 @@
 |===
 
 * Step-Parameters: 2
-+
-|===
-| Name | Examples | Tags
-|===
-
-* Step-Parameters: 3
 +
 |===
 | Name | Examples | Tags | Description

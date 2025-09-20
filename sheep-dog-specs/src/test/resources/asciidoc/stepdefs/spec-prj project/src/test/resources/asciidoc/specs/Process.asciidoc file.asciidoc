@@ -1,4 +1,4 @@
-= Step-Object: src/test/resources/asciidoc/specs/Process.asciidoc file
+= Step-Object: Process.asciidoc file
 
 == Step-Definition: Background section will be created as follows
 
@@ -49,12 +49,6 @@
 |===
 
 * Step-Parameters: 2
-+
-|===
-| Name | Examples | Tags
-|===
-
-* Step-Parameters: 3
 +
 |===
 | Name | Examples | Tags | Description

@@ -1,4 +1,4 @@
-= Step-Object: src/test/resources/asciidoc/specs/app/Process.asciidoc file
+= Step-Object: Process.asciidoc file
 
 == Step-Definition: is created as follows
 

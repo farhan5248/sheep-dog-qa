@@ -1,4 +1,0 @@
-= Step-Object: uml-to-junit-spring goal
-
-== Step-Definition: is executed
-

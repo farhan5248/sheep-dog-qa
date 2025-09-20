@@ -1,4 +1,4 @@
-= Step-Object: src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file
+= Step-Object: Input file.asciidoc file
 
 Represents a Step-Object file called Input file.feature.
 It should be Input file.asciidoc which I'll rename later.
