@@ -85,7 +85,7 @@ Create a new step instead of picking from what exists and ignore the warning.
 +
 |===
 | Message                                                      
-| The object predicate doesn't exist
+| The step definition doesn't exist for the step object
 |===
 
 == Test-Case: Create the new step definition
