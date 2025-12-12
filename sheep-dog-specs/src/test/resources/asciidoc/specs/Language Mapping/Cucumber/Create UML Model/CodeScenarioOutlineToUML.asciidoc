@@ -4,7 +4,7 @@
 
 == Test-Case: No tags, no statement, one step, one example
 
-* Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -19,9 +19,9 @@ Feature: Process
       | v31 |
 ----
 
-* When: The maven plugin, cucumber-to-uml goal is executed
+* When: The maven plugin cucumber-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
@@ -40,7 +40,7 @@ Feature: Process
 
 == Test-Case: Three tags, three statements, three steps, three examples
 
-* Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -73,9 +73,9 @@ Feature: Process
       | v33 |
 ----
 
-* When: The maven plugin, cucumber-to-uml goal is executed
+* When: The maven plugin cucumber-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
@@ -116,7 +116,7 @@ Feature: Process
 
 == Test-Case: Selected tags
 
-* Given: The code-prj project, src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -138,14 +138,14 @@ Feature: Process
       | v31 |
 ----
 
-* When: The maven plugin, cucumber-to-uml goal is executed with
+* When: The maven plugin cucumber-to-uml goal is executed with
 +
 |===
 | Tags
 | tag1
 |===
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction section will be created as follows
 +

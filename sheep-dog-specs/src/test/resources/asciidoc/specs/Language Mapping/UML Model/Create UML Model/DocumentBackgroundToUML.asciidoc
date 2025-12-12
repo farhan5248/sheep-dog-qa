@@ -4,7 +4,7 @@
 
 == Test-Case: One statement, one step, one scenario
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -20,9 +20,9 @@ Desc line 1
 * Given: The Object page is valid
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
@@ -34,7 +34,7 @@ Desc line 1
 
 == Test-Case: No statement, one step, three scenarios
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -56,9 +56,9 @@ Desc line 1
 * Given: The Object3 page is valid
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
@@ -72,7 +72,7 @@ Desc line 1
 
 == Test-Case: No statement, three steps, one scenario
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -88,9 +88,9 @@ Desc line 1
 * Given: The Object page is valid
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
@@ -104,7 +104,7 @@ Desc line 1
 
 == Test-Case: Three tags, three statements, three steps
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -116,16 +116,16 @@ Desc line 1
 Desc line 2
 Desc line 3
 
-* Given: The blah application, Object page is empty
+* Given: The blah application Object page is empty
 
-* Given: The blah application, Object2 page is empty
+* Given: The blah application Object2 page is empty
 
-* Given: The blah application, Object3 page is empty
+* Given: The blah application Object3 page is empty
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
@@ -147,14 +147,14 @@ Desc line 3
 +
 |===
 | Interaction Name      | Message                                    
-| specs::Process::Setup | The blah application, Object page is empty 
-| specs::Process::Setup | The blah application, Object2 page is empty
-| specs::Process::Setup | The blah application, Object3 page is empty
+| specs::Process::Setup | The blah application Object page is empty 
+| specs::Process::Setup | The blah application Object2 page is empty
+| specs::Process::Setup | The blah application Object3 page is empty
 |===
 
 == Test-Case: Selected tags
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -164,7 +164,7 @@ Desc line 3
 @tag1
 ----
 
-* And: The spec-prj project, src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -172,14 +172,14 @@ Desc line 3
 == Test-Setup: Data Setup
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed with
+* When: The maven plugin asciidoctor-to-uml goal is executed with
 +
 |===
 | Tags
 | tag1
 |===
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Class section will be created as follows
 +

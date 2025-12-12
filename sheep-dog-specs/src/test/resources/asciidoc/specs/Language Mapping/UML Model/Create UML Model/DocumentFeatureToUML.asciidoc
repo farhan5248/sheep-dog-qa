@@ -4,15 +4,15 @@
 
 == Test-Case: No statements
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Class section will be created as follows
 +
@@ -23,7 +23,7 @@
 
 == Test-Case: Three tags, three statements
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -35,9 +35,9 @@ Desc line 3
 == Test-Case: Story One
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project, uml/pst.uml file will be present
+* Then: The spec-prj project uml/pst.uml file will be present
 
 * And: The uml/pst.uml file Class Comments section will be created as follows
 +

@@ -4,37 +4,37 @@
 
 == Test-Setup: Create model
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The blah application, Object page is empty
+* Given: The blah application Object page is empty
 
-* Given: The blah application, Object page Top section will be created as follows
+* Given: The blah application Object page Top section will be created as follows
 +
 |===
 | h1
 | v1
 |===
 
-* Given: The blah application, Object page Top section won't be created as follows
+* Given: The blah application Object page Top section won't be created as follows
 +
 |===
 | h1
 | v1
 |===
 
-* Given: The blah application, Object page is created as follows
+* Given: The blah application Object page is created as follows
 +
 \----
 text1
 \----
 ----
 
-* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
 +
 ----
 = Step-Object: Object page
@@ -66,22 +66,22 @@ text1
 |===
 ----
 
-* And: The maven plugin, asciidoctor-to-uml goal is executed
+* And: The maven plugin asciidoctor-to-uml goal is executed
 
 == Test-Case: Layer 2 without parameters without DI
 
-* When: The maven plugin, uml-to-cucumber goal is executed
+* When: The maven plugin uml-to-cucumber goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name | Annotation                                             | Visibility | Return Type
-| isEmpty     | @Given("^The blah application, Object page is empty$") | public     | void       
+| isEmpty     | @Given("^The blah application Object page is empty$") | public     | void       
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name | Statement                       
@@ -90,25 +90,25 @@ text1
 
 == Test-Case: Layer 2 with datatable without DI
 
-* When: The maven plugin, uml-to-cucumber goal is executed
+* When: The maven plugin uml-to-cucumber goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Import                         
 | io.cucumber.datatable.DataTable
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name                      | Parameter Name | Parameter Type
 | topSectionWillBeCreatedAsFollows | dataTable      | DataTable     
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name                      | Statement                                          
@@ -117,11 +117,11 @@ text1
 
 == Test-Case: Layer 2 with datatable, negative without DI
 
-* When: The maven plugin, uml-to-cucumber goal is executed
+* When: The maven plugin uml-to-cucumber goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name                      | Statement                                                
@@ -130,18 +130,18 @@ text1
 
 == Test-Case: Layer 2 with docstring without DI
 
-* When: The maven plugin, uml-to-cucumber goal is executed
+* When: The maven plugin uml-to-cucumber goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name        | Parameter Name | Parameter Type
 | isCreatedAsFollows | docString      | String        
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name        | Statement                                    
@@ -150,11 +150,11 @@ text1
 
 == Test-Case: Layer 3
 
-* When: The maven plugin, uml-to-cucumber goal is executed
+* When: The maven plugin uml-to-cucumber goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be present
 
-* And: The code-prj project, ObjectPage.java file Methods section will be created as follows
+* And: The code-prj project ObjectPage.java file Methods section will be created as follows
 +
 |===
 | Method Name              | Visibility | Return Type | Parameter Name | Parameter Type        
@@ -166,11 +166,11 @@ text1
 
 == Test-Case: Layer 2 without parameters with spring
 
-* When: The maven plugin, uml-to-cucumber-spring goal is executed
+* When: The maven plugin uml-to-cucumber-spring goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Import                            
@@ -178,21 +178,21 @@ text1
 | org.farhan.objects.blah.ObjectPage
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Extends  
 | TestSteps
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Constructor Name    | Statement                       
 | BlahObjectPageSteps | super(object, "blah", "Object");
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name | Statement                       
@@ -201,11 +201,11 @@ text1
 
 == Test-Case: Layer 2 without parameters with guice
 
-* When: The maven plugin, uml-to-cucumber-guice goal is executed
+* When: The maven plugin uml-to-cucumber-guice goal is executed
 
-* Then: The code-prj project, src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
+* Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Import                          
@@ -213,21 +213,21 @@ text1
 | io.cucumber.guice.ScenarioScoped
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Class Annotation
 | ScenarioScoped  
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Header section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
 +
 |===
 | Constructor Name    | Constructor Annotation
 | BlahObjectPageSteps | Inject                
 |===
 
-* And: The code-prj project, BlahObjectPageSteps.java file Methods section will be created as follows
+* And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
 +
 |===
 | Method Name | Statement                       

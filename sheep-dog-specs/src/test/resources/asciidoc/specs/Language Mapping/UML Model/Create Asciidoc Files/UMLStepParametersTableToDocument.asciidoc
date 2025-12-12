@@ -4,14 +4,14 @@
 
 == Test-Setup: Create a test case
 
-* Given: The spec-prj project, src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The blah application, Object page is created as follows
+* Given: The blah application Object page is created as follows
 +
 |===
 | h1
@@ -20,7 +20,7 @@
 
 == Test-Case: Three cells
 
-* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
 +
 ----
 = Step-Object: Object page
@@ -36,15 +36,15 @@ Desc line 1
 |===
 ----
 
-* When: The maven plugin, asciidoctor-to-uml goal is executed
+* When: The maven plugin asciidoctor-to-uml goal is executed
 
-* And: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is deleted
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is deleted
 
-* And: The maven plugin, uml-to-asciidoctor goal is executed
+* And: The maven plugin uml-to-asciidoctor goal is executed
 
-* Then: The spec-prj project, src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file will be present
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file will be present
 
-* And: The spec-prj project, Object page.asciidoc file Step Definition Parameters Table section will be created as follows
+* And: The spec-prj project Object page.asciidoc file Step Definition Parameters Table section will be created as follows
 +
 |===
 | Name                  | Parameters | Row       
