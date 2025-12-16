@@ -9,7 +9,7 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name          
+| Step Name         
 | The daily batchjob
 |===
 
@@ -25,35 +25,8 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion                     | Suggestion Name | Suggestion Description
+| Suggestion                    | Suggestion Name | Suggestion Description
 | The daily batchjob Input file | Input file      | Description\n         
-|===
-
-== Test-Case: Components have no documentation
-
-Right now there's no component asciidoc file in which to describe it, I'll add that later.
-
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
-+
-|===
-| Step Name
-| empty    
-|===
-
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
-+
-|===
-| Object Name                       | Object Description
-| daily batchjob/Input file.feature | Description       
-|===
-
-* When: The xtext plugin propose test step action is performed
-
-* Then: The xtext plugin propose content dialog will be set as follows
-+
-|===
-| Suggestion          | Suggestion Name | Suggestion Description
-| The daily batchjob | daily batchjob  | daily batchjob        
 |===
 
 == Test-Case: Display empty tooltip if there's no documentation
@@ -61,9 +34,9 @@ Right now there's no component asciidoc file in which to describe it, I'll add t
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| empty                                    
+| empty                                   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -78,7 +51,7 @@ Right now there's no component asciidoc file in which to describe it, I'll add t
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion     | Suggestion Name | Suggestion Description                                
+| Suggestion     | Suggestion Name | Suggestion Description                               
 | The Input file | Input file      | Referred in: The daily batchjob Input file is present
 |===
 
@@ -90,9 +63,9 @@ In that case, the tooltip displays the line that the object is on.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| empty                                    
+| empty                                   
 |===
 
 * When: The xtext plugin propose test step action is performed
@@ -100,7 +73,7 @@ In that case, the tooltip displays the line that the object is on.
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion     | Suggestion Name | Suggestion Description                                
+| Suggestion     | Suggestion Name | Suggestion Description                               
 | The Input file | Input file      | Referred in: The daily batchjob Input file is present
 |===
 
@@ -115,9 +88,9 @@ TODO I guess I could put the full name and the documentation if it exists.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| empty                                    
+| empty                                   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -132,7 +105,7 @@ TODO I guess I could put the full name and the documentation if it exists.
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion     | Suggestion Name | Suggestion Description                                
+| Suggestion     | Suggestion Name | Suggestion Description                               
 | The Input file | Input file      | Referred in: The daily batchjob Input file is present
 |===
 

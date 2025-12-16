@@ -17,7 +17,7 @@ The variables are:
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file background steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 |===
 
@@ -73,8 +73,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion          | Suggestion Name
-| The daily batchjob | daily batchjob 
+| Suggestion                    | Suggestion Name
+| The daily batchjob Input file | Input file     
 |===
 
 == Test-Case: No object no component has previous no component objects
@@ -82,9 +82,9 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| empty                                    
+| empty                                   
 |===
 
 * When: The xtext plugin propose test step action is performed
@@ -101,9 +101,9 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| empty                                    
+| empty                                   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -118,9 +118,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion          | Suggestion Name
-| The Input file      | Input file     
-| The daily batchjob | daily batchjob 
+| Suggestion                    | Suggestion Name
+| The daily batchjob Input file | Input file     
 |===
 
 == Test-Case: No object has component no previous no component objects
@@ -128,7 +127,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name          
+| Step Name         
 | The daily batchjob
 |===
 
@@ -141,7 +140,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name          
+| Step Name         
 | The daily batchjob
 |===
 
@@ -157,7 +156,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Then: The xtext plugin propose content dialog will be set as follows
 +
 |===
-| Suggestion                     | Suggestion Name
+| Suggestion                    | Suggestion Name
 | The daily batchjob Input file | Input file     
 |===
 
@@ -166,7 +165,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 | The daily batchjob                      
 |===
@@ -185,7 +184,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 | The daily batchjob                      
 |===
@@ -211,9 +210,9 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
-| The Input file                           
+| The Input file                          
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -237,7 +236,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                     
+| Step Name                    
 | The daily batchjob Input file
 |===
 
@@ -262,7 +261,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 | The daily batchjob Input file           
 |===
