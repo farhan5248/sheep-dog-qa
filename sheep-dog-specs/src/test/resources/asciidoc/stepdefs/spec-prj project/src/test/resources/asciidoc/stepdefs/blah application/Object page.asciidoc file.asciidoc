@@ -14,16 +14,6 @@
 | Name | Statements
 |===
 
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
-|===
-
-== Step-Definition: is deleted
-
 == Step-Definition: Step Definition Parameters Table section will be created as follows
 
 * Step-Parameters: 1
@@ -39,6 +29,16 @@
 |===
 | Name | Description
 |===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: is deleted
 
 == Step-Definition: will be created as follows
 

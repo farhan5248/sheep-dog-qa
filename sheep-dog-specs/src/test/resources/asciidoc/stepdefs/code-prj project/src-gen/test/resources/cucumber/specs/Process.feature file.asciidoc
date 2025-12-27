@@ -1,19 +1,19 @@
 = Step-Object: Process.feature file
 
-== Step-Definition: Background section will be created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Name | Description
-|===
-
 == Step-Definition: Background Steps section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
 | Name | Step
+|===
+
+== Step-Definition: Background section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Description
 |===
 
 == Step-Definition: Feature section will be created as follows
@@ -30,26 +30,18 @@
 | Name | Tags | Statements
 |===
 
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
-|===
-
 == Step-Definition: Scenario Outline Examples Table section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
-| Name | Examples | Row
+| Name | Examples | Tags | Description
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Name | Examples | Tags | Description
+| Name | Examples | Row
 |===
 
 == Step-Definition: Scenario Outline Steps Data Table section will be created as follows
@@ -84,6 +76,14 @@
 | Name | Step | Content
 |===
 
+== Step-Definition: Scenarios Steps section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step
+|===
+
 == Step-Definition: Scenarios section will be created as follows
 
 * Step-Parameters: 1
@@ -92,12 +92,12 @@
 | Name | Tags | Description
 |===
 
-== Step-Definition: Scenarios Steps section will be created as follows
+== Step-Definition: is created as follows
 
 * Step-Parameters: 1
 +
 |===
-| Name | Step
+| Content
 |===
 
 == Step-Definition: will be created as follows

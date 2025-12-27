@@ -14,20 +14,20 @@
 | Interface Name | Package
 |===
 
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
-|===
-
 == Step-Definition: Methods section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
 | Method Name | Visibility | Return Type | Parameter Name | Parameter Type
+|===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
 |===
 
 == Step-Definition: will be created as follows

@@ -7,12 +7,12 @@
 * Step-Parameters: 1
 +
 |===
-| Suggestion | Suggestion Name
+| Suggestion | Suggestion Name | Suggestion Description
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Suggestion | Suggestion Name | Suggestion Description
+| Suggestion | Suggestion Name
 |===
 

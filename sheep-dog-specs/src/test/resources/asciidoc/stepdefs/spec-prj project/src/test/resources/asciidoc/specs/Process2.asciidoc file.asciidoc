@@ -10,9 +10,6 @@ Adds test steps to the test setup.
 
 * Step-Parameters: 1
 +
-The step name without keywords like Given.
-
-+
 |===
 | Step Name
 |===
@@ -23,20 +20,20 @@ Adds test step to the test case.
 
 * Step-Parameters: 1
 +
-The step name without keywords like Given.
-
-+
-|===
-| Step Name
-|===
-
-* Step-Parameters: 2
-+
 The step name without keywords like Given with its headers.
 I think this only handles one header at a time so two rows would be needed to specify two headers for the same step definition.
 
 +
 |===
 | Step Name | Headers
+|===
+
+* Step-Parameters: 2
++
+The step name without keywords like Given.
+
++
+|===
+| Step Name
 |===
 

@@ -1,19 +1,19 @@
 = Step-Object: Process.asciidoc file
 
-== Step-Definition: Background section will be created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Name | Description
-|===
-
 == Step-Definition: Background Steps section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
 | Name | Step
+|===
+
+== Step-Definition: Background section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Description
 |===
 
 == Step-Definition: Feature section will be created as follows
@@ -30,36 +30,18 @@
 | Name | Statements
 |===
 
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
-|===
-
-== Step-Definition: is deleted
-
 == Step-Definition: Scenario Outline Examples Table section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
-| Name | Examples | Row
+| Name | Examples | Tags | Description
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Name | Examples | Tags | Description
-|===
-
-== Step-Definition: Scenarios section will be created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Name | Tags | Description
+| Name | Examples | Row
 |===
 
 == Step-Definition: Scenarios Steps Doc String section will be created as follows
@@ -70,6 +52,14 @@
 | Name | Step | Content
 |===
 
+== Step-Definition: Scenarios Steps Step Table section will be created as follows
+
+* Step-Parameters: 1
++
+|===
+| Name | Step | Row
+|===
+
 == Step-Definition: Scenarios Steps section will be created as follows
 
 * Step-Parameters: 1
@@ -78,13 +68,23 @@
 | Name | Step
 |===
 
-== Step-Definition: Scenarios Steps Step Table section will be created as follows
+== Step-Definition: Scenarios section will be created as follows
 
 * Step-Parameters: 1
 +
 |===
-| Name | Step | Row
+| Name | Tags | Description
 |===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
+== Step-Definition: is deleted
 
 == Step-Definition: will be present
 

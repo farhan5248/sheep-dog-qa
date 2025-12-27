@@ -5,45 +5,37 @@
 * Step-Parameters: 1
 +
 |===
-| Import
+| Class Annotation
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Extends
+| Class Name | Package
 |===
 
 * Step-Parameters: 3
 +
 |===
-| Constructor Name | Statement
+| Constructor Name | Constructor Annotation
 |===
 
 * Step-Parameters: 4
 +
 |===
-| Class Annotation
+| Constructor Name | Statement
 |===
 
 * Step-Parameters: 5
 +
 |===
-| Constructor Name | Constructor Annotation
+| Extends
 |===
 
 * Step-Parameters: 6
 +
 |===
-| Class Name | Package
-|===
-
-== Step-Definition: is created as follows
-
-* Step-Parameters: 1
-+
-|===
-| Content
+| Import
 |===
 
 == Step-Definition: Methods section will be created as follows
@@ -57,13 +49,21 @@
 * Step-Parameters: 2
 +
 |===
-| Method Name | Statement
+| Method Name | Parameter Name | Parameter Type
 |===
 
 * Step-Parameters: 3
 +
 |===
-| Method Name | Parameter Name | Parameter Type
+| Method Name | Statement
+|===
+
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
 |===
 
 == Step-Definition: will be created as follows
