@@ -62,7 +62,7 @@
 			<plugin>
 				<groupId>org.farhan</groupId>
 				<artifactId>sheep-dog-dev-svc-maven-plugin</artifactId>
-				<version>1.36</version>
+				<version>1.38</version>
 			</plugin>
 		</plugins>
 	</build>

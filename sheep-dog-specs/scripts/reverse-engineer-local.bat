@@ -1,4 +1,3 @@
 cd ..
-call mvn clean
-call mvn org.farhan:sheep-dog-dev-maven-plugin:1.32:uml-to-asciidoctor -Dtags="%1"
+call mvn org.farhan:sheep-dog-dev-maven-plugin:1.35:uml-to-asciidoctor -DrepoDir="../../sheep-dog-qa/sheep-dog-specs/" -Dtags="%1"
 cd scripts 
