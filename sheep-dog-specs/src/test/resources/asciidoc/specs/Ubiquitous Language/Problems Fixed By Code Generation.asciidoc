@@ -9,6 +9,8 @@ There's 4 types of warnings, the scenarios below cover them.
 
 == Test-Case: This object doesn't exist validation
 
+Coverage Target: SheepDogIssueProposal.getQualifiedName lines 32-32
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
