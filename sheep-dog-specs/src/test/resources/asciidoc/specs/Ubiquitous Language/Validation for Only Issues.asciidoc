@@ -20,7 +20,12 @@ These validations check for syntax and naming issues that can be detected by par
 | daily batchjob/Input file.feature | is present           | lowercase header
 |===
 
-* When: The xtext plugin validate action for a cell section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Cell
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -37,7 +42,12 @@ Name should start with a capital
 | lowercase process
 |===
 
-* When: The xtext plugin validate action for a test suite section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Suite
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -54,7 +64,12 @@ Name should start with a capital
 | Process2        | lowercase test case
 |===
 
-* When: The xtext plugin validate action for a test step container section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step Container
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -71,7 +86,12 @@ Name should start with a capital
 | The is present
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -95,7 +115,12 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 | The daily batchjob Input file
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +

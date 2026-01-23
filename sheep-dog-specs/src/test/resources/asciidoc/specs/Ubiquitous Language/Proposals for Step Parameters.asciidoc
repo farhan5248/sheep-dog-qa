@@ -15,7 +15,12 @@ If the step definition has step parameters, they'll be proposed.
 | The daily batchjob Input file is created as follows
 |===
 
-* When: The xtext plugin list proposals action for a row section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Row
+|===
 
 * Then: The xtext plugin list proposals dialog will be empty
 
@@ -35,7 +40,12 @@ If the step definition has step parameters, they'll be proposed.
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a row section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Row
+|===
 
 * Then: The xtext plugin list proposals dialog will be empty
 
@@ -57,7 +67,12 @@ TODO I should add more parameter combinations to describe this better.
 | daily batchjob/Input file.feature | is created as follows | H1        
 |===
 
-* When: The xtext plugin list proposals action for a row section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Row
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +

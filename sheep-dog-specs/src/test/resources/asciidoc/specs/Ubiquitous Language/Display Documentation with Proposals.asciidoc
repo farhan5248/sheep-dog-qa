@@ -20,7 +20,12 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 | daily batchjob/Input file.feature | Description\n     
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -46,7 +51,12 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 | daily batchjob/Input file.feature | empty             
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -68,7 +78,12 @@ In that case, the tooltip displays the line that the object is on.
 | empty                                   
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -100,7 +115,12 @@ TODO I guess I could put the full name and the documentation if it exists.
 | daily batchjob/Input file.feature | Description       
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +

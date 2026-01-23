@@ -28,7 +28,12 @@ The variables are:
 | empty    
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -48,7 +53,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | empty    
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be empty
 
@@ -68,7 +78,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -87,7 +102,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | empty                                   
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -113,7 +133,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -131,7 +156,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | The daily batchjob
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be empty
 
@@ -151,7 +181,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -170,7 +205,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | The daily batchjob                      
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -196,7 +236,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -222,7 +267,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -247,7 +297,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
@@ -273,7 +328,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +

@@ -20,11 +20,11 @@ Start with single step and trigger an error by not specifying a component.
 | The Input file is present
 |===
 
-* When: The xtext plugin validate action for a test step container section is performed as follows
+* When: The xtext plugin validate action is performed as follows
 +
 |===
-| Selected Step
-| 1            
+| Element Type        | Selected Step
+| Test Step Container | 1            
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows
@@ -40,7 +40,7 @@ Create a new step instead of picking from what exists and ignore the warning.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 |===
 
@@ -51,7 +51,12 @@ Create a new step instead of picking from what exists and ignore the warning.
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type | Selected Step
+| Test Step    | 1            
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -66,7 +71,7 @@ Use the suggested quick fix to add this new step to the step object file.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                
+| Step Name                               
 | The daily batchjob Input file is present
 |===
 

@@ -1,14 +1,10 @@
 = Step-Object: list quickfixes action
 
-== Step-Definition: for a cell section is performed
+== Step-Definition: is performed as follows
 
-== Step-Definition: for a row section is performed
-
-== Step-Definition: for a test step container section is performed
-
-== Step-Definition: for a test step section is performed
-
-== Step-Definition: for a test suite section is performed
-
-== Step-Definition: for a text section is performed
+* Step-Parameters: 1
++
+|===
+| Element Type
+|===
 

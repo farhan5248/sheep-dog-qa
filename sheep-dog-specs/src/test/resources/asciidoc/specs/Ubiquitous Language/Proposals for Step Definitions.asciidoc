@@ -28,7 +28,12 @@ When the reference look-up is done, the step-object is located using the full pa
 | daily batchjob/Input file.feature | is present           | Creates empty file         
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +

@@ -32,6 +32,11 @@ Those proposals are triggered from the next line.
 | The daily batchjob Input file is present
 |===
 
-* When: The xtext plugin list proposals action for a test step section is performed
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list proposals dialog will be empty

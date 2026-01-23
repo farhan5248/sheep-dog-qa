@@ -22,11 +22,11 @@ For example not knowing which component an object belongs to gets in the way of 
 | The Input file is downloaded             
 |===
 
-* When: The xtext plugin validate action for a test step container section is performed as follows
+* When: The xtext plugin validate action is performed as follows
 +
 |===
-| Selected Step
-| 1            
+| Element Type        | Selected Step 
+| Test Step Container | 1             
 |===
 
 * Then: The xtext plugin validate dialog will be empty
@@ -44,11 +44,11 @@ The other steps default to that one.
 | The daily batchjob Input file is downloaded
 |===
 
-* When: The xtext plugin validate action for a test step container section is performed as follows
+* When: The xtext plugin validate action is performed as follows
 +
 |===
-| Selected Step
-| 1            
+| Element Type        | Selected Step 
+| Test Step Container | 1             
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows

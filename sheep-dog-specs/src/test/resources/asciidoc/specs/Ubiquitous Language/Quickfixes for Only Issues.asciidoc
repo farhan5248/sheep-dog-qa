@@ -20,7 +20,12 @@ These validations check for syntax and naming issues that can be detected by par
 | daily batchjob/Input file.feature | is present           | lowercase header
 |===
 
-* And: The xtext plugin validate action for a cell section is performed
+* And: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Cell
+|===
 
 * And: The xtext plugin validate dialog will be set as follows
 +
@@ -28,7 +33,12 @@ These validations check for syntax and naming issues that can be detected by par
 Name should start with a capital
 ----
 
-* When: The xtext plugin list quickfixes action for a cell section is performed
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Element Type
+| Cell
+|===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
@@ -46,7 +56,12 @@ Name should start with a capital
 | lowercase process
 |===
 
-* And: The xtext plugin validate action for a test suite section is performed
+* And: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Suite
+|===
 
 * And: The xtext plugin validate dialog will be set as follows
 +
@@ -54,7 +69,12 @@ Name should start with a capital
 Name should start with a capital
 ----
 
-* When: The xtext plugin list quickfixes action for a test suite section is performed
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Element Type
+| Test Suite
+|===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
@@ -72,7 +92,12 @@ Name should start with a capital
 | Process2        | lowercase test case
 |===
 
-* And: The xtext plugin validate action for a test step container section is performed
+* And: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step Container
+|===
 
 * And: The xtext plugin validate dialog will be set as follows
 +
@@ -80,7 +105,12 @@ Name should start with a capital
 Name should start with a capital
 ----
 
-* When: The xtext plugin list quickfixes action for a test step container section is performed
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Element Type
+| Test Step Container
+|===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
@@ -98,7 +128,12 @@ Name should start with a capital
 | The is present
 |===
 
-* And: The xtext plugin validate action for a test step section is performed
+* And: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * And: The xtext plugin validate dialog will be set as follows
 +
@@ -113,7 +148,12 @@ Object ending words are: file, page, response, dialog, directory, request, goal,
 Examples are: "src/test/resources/file.txt file" or "Home page"
 ----
 
-* When: The xtext plugin list quickfixes action for a test step section is performed
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
@@ -131,7 +171,12 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 | The daily batchjob Input file
 |===
 
-* And: The xtext plugin validate action for a test step section is performed
+* And: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * And: The xtext plugin validate dialog will be set as follows
 +
@@ -151,7 +196,12 @@ The time endings are: early, late, on time, at, before, after, in, on.
 Examples are: "after the next day" or "on time"
 ----
 
-* When: The xtext plugin list quickfixes action for a test step section is performed
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +

@@ -18,7 +18,12 @@ Coverage Target: SheepDogIssueProposal.getQualifiedName lines 32-32
 | The daily batchjob Input file is present
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -42,7 +47,12 @@ The step object file doesn't exist for the component
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -66,7 +76,12 @@ The step definition doesn't exist for the step object
 | daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
-* When: The xtext plugin validate action for a row section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Row
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -90,7 +105,12 @@ The step parameters don't exist for the step definition
 | daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
-* When: The xtext plugin validate action for a text section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Text
+|===
 
 * Then: The xtext plugin validate dialog will be set as follows
 +
@@ -116,7 +136,12 @@ The step parameters don't exist for the step definition
 | daily batchjob/app/Input file.feature | is absent           
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* When: The xtext plugin validate action is performed as follows
++
+|===
+| Element Type
+| Test Step
+|===
 
 * Then: The xtext plugin validate dialog will be empty
 
