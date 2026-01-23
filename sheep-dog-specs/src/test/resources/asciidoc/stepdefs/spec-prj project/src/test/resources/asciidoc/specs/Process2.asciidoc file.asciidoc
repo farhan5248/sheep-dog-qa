@@ -14,6 +14,20 @@ Adds test steps to the test setup.
 | Step Name
 |===
 
+== Step-Definition: is created as follows
+
+* Step-Parameters: 1
++
+|===
+| Test Suite Name | Test Case Name
+|===
+
+* Step-Parameters: 2
++
+|===
+| Test Suite Name
+|===
+
 == Step-Definition: steps snippet is created as follows
 
 Adds test step to the test case.
@@ -35,5 +49,11 @@ The step name without keywords like Given.
 +
 |===
 | Step Name
+|===
+
+* Step-Parameters: 3
++
+|===
+| Step Name | Text Content
 |===
 

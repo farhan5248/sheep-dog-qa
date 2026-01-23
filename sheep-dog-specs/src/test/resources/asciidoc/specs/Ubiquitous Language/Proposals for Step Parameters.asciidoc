@@ -17,7 +17,7 @@ If the step definition has step parameters, they'll be proposed.
 
 * When: The xtext plugin propose test step table action is performed
 
-* Then: The xtext plugin propose content dialog will be empty
+* Then: The xtext plugin propose dialog will be empty
 
 == Test-Case: No proposal for absent step definition
 
@@ -37,7 +37,7 @@ If the step definition has step parameters, they'll be proposed.
 
 * When: The xtext plugin propose test step table action is performed
 
-* Then: The xtext plugin propose content dialog will be empty
+* Then: The xtext plugin propose dialog will be empty
 
 == Test-Case: List parameters for a step definition if it exists
 
@@ -59,7 +59,7 @@ TODO I should add more parameter combinations to describe this better.
 
 * When: The xtext plugin propose test step table action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion | Suggestion Name

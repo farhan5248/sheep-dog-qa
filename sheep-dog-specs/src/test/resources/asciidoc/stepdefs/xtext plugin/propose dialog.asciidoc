@@ -1,4 +1,4 @@
-= Step-Object: propose content dialog
+= Step-Object: propose dialog
 
 == Step-Definition: will be empty
 

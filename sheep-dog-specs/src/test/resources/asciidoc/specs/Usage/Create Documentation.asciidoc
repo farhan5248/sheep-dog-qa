@@ -20,19 +20,18 @@ Start with single step and trigger an error by not specifying a component.
 | The Input file is present
 |===
 
-* When: The xtext plugin validate error action is performed as follows
+* When: The xtext plugin validate test step container action is performed as follows
 +
 |===
 | Selected Step
 | 1            
 |===
 
-* Then: The xtext plugin validate error dialog will be set as follows
+* Then: The xtext plugin validate dialog will be set as follows
 +
-|===
-| Message                             
-| The first step must have a component
-|===
+----
+The first step must have a component
+----
 
 == Test-Case: Confirm that this is a new step definition
 
@@ -52,14 +51,13 @@ Create a new step instead of picking from what exists and ignore the warning.
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* When: The xtext plugin validate warning action is performed
+* When: The xtext plugin validate test step action is performed
 
-* Then: The xtext plugin validate warning dialog will be set as follows
+* Then: The xtext plugin validate dialog will be set as follows
 +
-|===
-| Message                                                      
-| The step definition doesn't exist for the step object
-|===
+----
+The step definition doesn't exist for the step object
+----
 
 == Test-Case: Create the new step definition
 

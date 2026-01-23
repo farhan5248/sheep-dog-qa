@@ -1,0 +1,4 @@
+= Step-Object: validate text action
+
+== Step-Definition: is performed
+

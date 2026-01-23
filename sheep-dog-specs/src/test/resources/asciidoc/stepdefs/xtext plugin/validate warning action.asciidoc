@@ -1,4 +1,0 @@
-= Step-Object: validate warning action
-
-== Step-Definition: is performed
-

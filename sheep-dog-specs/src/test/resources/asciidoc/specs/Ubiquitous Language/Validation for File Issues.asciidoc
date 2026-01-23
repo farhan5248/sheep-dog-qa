@@ -1,4 +1,4 @@
-= Test-Suite: Problems Which Prevent Code Generation
+= Test-Suite: Validation for File Issues
 
 @sheep-dog-test
 
@@ -22,14 +22,14 @@ For example not knowing which component an object belongs to gets in the way of 
 | The Input file is downloaded             
 |===
 
-* When: The xtext plugin validate error action is performed as follows
+* When: The xtext plugin validate test step container action is performed as follows
 +
 |===
 | Selected Step
 | 1            
 |===
 
-* Then: The xtext plugin validate error dialog will be empty
+* Then: The xtext plugin validate dialog will be empty
 
 == Test-Case: No component in the first step triggers an error
 
@@ -44,17 +44,16 @@ The other steps default to that one.
 | The daily batchjob Input file is downloaded
 |===
 
-* When: The xtext plugin validate error action is performed as follows
+* When: The xtext plugin validate test step container action is performed as follows
 +
 |===
 | Selected Step
 | 1            
 |===
 
-* Then: The xtext plugin validate error dialog will be set as follows
+* Then: The xtext plugin validate dialog will be set as follows
 +
-|===
-| Message                             
-| The first step must have a component
-|===
+----
+The first step must have a component
+----
 

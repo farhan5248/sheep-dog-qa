@@ -30,7 +30,7 @@ When the reference look-up is done, the step-object is located using the full pa
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion | Suggestion Name | Suggestion Description

@@ -1,4 +1,4 @@
-= Step-Object: validate error dialog
+= Step-Object: validate dialog
 
 == Step-Definition: will be empty
 
@@ -7,6 +7,6 @@
 * Step-Parameters: 1
 +
 |===
-| Message
+| Content
 |===
 

@@ -34,4 +34,4 @@ Those proposals are triggered from the next line.
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be empty
+* Then: The xtext plugin propose dialog will be empty

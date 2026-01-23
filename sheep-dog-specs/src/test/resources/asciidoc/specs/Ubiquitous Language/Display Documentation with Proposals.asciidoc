@@ -22,7 +22,7 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion                    | Suggestion Name | Suggestion Description
@@ -48,7 +48,7 @@ Just as you can see the associated Javadoc for classes and attributes, you can a
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion     | Suggestion Name | Suggestion Description                               
@@ -70,7 +70,7 @@ In that case, the tooltip displays the line that the object is on.
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion     | Suggestion Name | Suggestion Description                               
@@ -102,7 +102,7 @@ TODO I guess I could put the full name and the documentation if it exists.
 
 * When: The xtext plugin propose test step action is performed
 
-* Then: The xtext plugin propose content dialog will be set as follows
+* Then: The xtext plugin propose dialog will be set as follows
 +
 |===
 | Suggestion     | Suggestion Name | Suggestion Description                               

@@ -1,4 +1,6 @@
-= Step-Object: validate error action
+= Step-Object: validate test step container action
+
+== Step-Definition: is performed
 
 == Step-Definition: is performed as follows
 
