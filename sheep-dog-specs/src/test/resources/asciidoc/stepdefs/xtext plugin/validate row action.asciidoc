@@ -1,4 +1,0 @@
-= Step-Object: validate row action
-
-== Step-Definition: is performed
-

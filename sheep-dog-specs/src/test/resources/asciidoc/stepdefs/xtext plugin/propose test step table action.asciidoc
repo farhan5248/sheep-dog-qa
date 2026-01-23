@@ -1,4 +1,0 @@
-= Step-Object: propose test step table action
-
-== Step-Definition: is performed
-

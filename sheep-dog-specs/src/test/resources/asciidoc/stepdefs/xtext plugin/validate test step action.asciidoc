@@ -1,4 +1,0 @@
-= Step-Object: validate test step action
-
-== Step-Definition: is performed
-

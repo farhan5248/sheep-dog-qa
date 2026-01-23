@@ -1,0 +1,18 @@
+= Step-Object: list quickfixes dialog
+
+== Step-Definition: will be empty
+
+== Step-Definition: will be set as follows
+
+* Step-Parameters: 1
++
+|===
+| Quickfix Name
+|===
+
+* Step-Parameters: 2
++
+|===
+| Quickfix Name | Quickfix Description
+|===
+

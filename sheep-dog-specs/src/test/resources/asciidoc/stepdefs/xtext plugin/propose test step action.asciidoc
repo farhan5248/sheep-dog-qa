@@ -1,6 +1,0 @@
-= Step-Object: propose test step action
-
-TODO This needs to be split into two, propose step object name and propose step definition name
-
-== Step-Definition: is performed
-

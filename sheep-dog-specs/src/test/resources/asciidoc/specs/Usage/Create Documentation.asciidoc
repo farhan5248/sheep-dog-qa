@@ -20,7 +20,7 @@ Start with single step and trigger an error by not specifying a component.
 | The Input file is present
 |===
 
-* When: The xtext plugin validate test step container action is performed as follows
+* When: The xtext plugin validate action for a test step container section is performed as follows
 +
 |===
 | Selected Step
@@ -51,7 +51,7 @@ Create a new step instead of picking from what exists and ignore the warning.
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* When: The xtext plugin validate test step action is performed
+* When: The xtext plugin validate action for a test step section is performed
 
 * Then: The xtext plugin validate dialog will be set as follows
 +

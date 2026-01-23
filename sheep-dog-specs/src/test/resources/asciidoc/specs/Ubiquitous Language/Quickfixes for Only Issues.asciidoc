@@ -1,4 +1,4 @@
-= Test-Suite: Validation for Only Issues
+= Test-Suite: Quickfixes for Only Issues
 
 @sheep-dog-test
 
@@ -20,13 +20,22 @@ These validations check for syntax and naming issues that can be detected by par
 | daily batchjob/Input file.feature | is present           | lowercase header
 |===
 
-* When: The xtext plugin validate action for a cell section is performed
+* And: The xtext plugin validate action for a cell section is performed
 
-* Then: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog will be set as follows
 +
 ----
 Name should start with a capital
 ----
+
+* When: The xtext plugin list quickfixes action for a cell section is performed
+
+* Then: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name | Quickfix Description
+| tbd           | tbd                 
+|===
 
 == Test-Case: Test suite name should start with a capital letter
 
@@ -37,13 +46,22 @@ Name should start with a capital
 | lowercase process
 |===
 
-* When: The xtext plugin validate action for a test suite section is performed
+* And: The xtext plugin validate action for a test suite section is performed
 
-* Then: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog will be set as follows
 +
 ----
 Name should start with a capital
 ----
+
+* When: The xtext plugin list quickfixes action for a test suite section is performed
+
+* Then: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name | Quickfix Description
+| tbd           | tbd                 
+|===
 
 == Test-Case: Test case name should start with a capital letter
 
@@ -54,13 +72,22 @@ Name should start with a capital
 | Process2        | lowercase test case
 |===
 
-* When: The xtext plugin validate action for a test step container section is performed
+* And: The xtext plugin validate action for a test step container section is performed
 
-* Then: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog will be set as follows
 +
 ----
 Name should start with a capital
 ----
+
+* When: The xtext plugin list quickfixes action for a test step container section is performed
+
+* Then: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name | Quickfix Description
+| tbd           | tbd                 
+|===
 
 == Test-Case: Test step must have a valid object name
 
@@ -71,9 +98,9 @@ Name should start with a capital
 | The is present
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* And: The xtext plugin validate action for a test step section is performed
 
-* Then: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog will be set as follows
 +
 ----
 Every test case must have at least one component specified.
@@ -86,6 +113,15 @@ Object ending words are: file, page, response, dialog, directory, request, goal,
 Examples are: "src/test/resources/file.txt file" or "Home page"
 ----
 
+* When: The xtext plugin list quickfixes action for a test step section is performed
+
+* Then: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name | Quickfix Description
+| tbd           | tbd                 
+|===
+
 == Test-Case: Test step must have a valid step definition name
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
@@ -95,9 +131,9 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 | The daily batchjob Input file
 |===
 
-* When: The xtext plugin validate action for a test step section is performed
+* And: The xtext plugin validate action for a test step section is performed
 
-* Then: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog will be set as follows
 +
 ----
 After specifying the step object name, a step definition name is specified.
@@ -114,4 +150,13 @@ Time was useful running describing a sequence of steps like submitting an order 
 The time endings are: early, late, on time, at, before, after, in, on.
 Examples are: "after the next day" or "on time"
 ----
+
+* When: The xtext plugin list quickfixes action for a test step section is performed
+
+* Then: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name | Quickfix Description
+| tbd           | tbd                 
+|===
 

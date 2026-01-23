@@ -15,9 +15,9 @@ If the step definition has step parameters, they'll be proposed.
 | The daily batchjob Input file is created as follows
 |===
 
-* When: The xtext plugin propose test step table action is performed
+* When: The xtext plugin list proposals action for a row section is performed
 
-* Then: The xtext plugin propose dialog will be empty
+* Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: No proposal for absent step definition
 
@@ -35,9 +35,9 @@ If the step definition has step parameters, they'll be proposed.
 | daily batchjob/Input file.feature | is present          
 |===
 
-* When: The xtext plugin propose test step table action is performed
+* When: The xtext plugin list proposals action for a row section is performed
 
-* Then: The xtext plugin propose dialog will be empty
+* Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: List parameters for a step definition if it exists
 
@@ -57,9 +57,9 @@ TODO I should add more parameter combinations to describe this better.
 | daily batchjob/Input file.feature | is created as follows | H1        
 |===
 
-* When: The xtext plugin propose test step table action is performed
+* When: The xtext plugin list proposals action for a row section is performed
 
-* Then: The xtext plugin propose dialog will be set as follows
+* Then: The xtext plugin list proposals dialog will be set as follows
 +
 |===
 | Suggestion | Suggestion Name

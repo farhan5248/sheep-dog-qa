@@ -1,4 +1,0 @@
-= Step-Object: validate cell action
-
-== Step-Definition: is performed
-
