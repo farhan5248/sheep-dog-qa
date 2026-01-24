@@ -1,5 +1,15 @@
 = Step-Object: validate dialog
 
+== Step-Definition: is empty
+
+== Step-Definition: is set as follows
+
+* Step-Parameters: 1
++
+|===
+| Content
+|===
+
 == Step-Definition: will be empty
 
 == Step-Definition: will be set as follows

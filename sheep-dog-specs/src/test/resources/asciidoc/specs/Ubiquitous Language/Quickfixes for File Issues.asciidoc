@@ -22,14 +22,7 @@ For example not knowing which component an object belongs to gets in the way of 
 | The Input file is downloaded            
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type        | Selected Step 
-| Test Step Container | 1             
-|===
-
-* And: The xtext plugin validate dialog will be empty
+* And: The xtext plugin validate dialog is empty
 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
@@ -38,12 +31,7 @@ For example not knowing which component an object belongs to gets in the way of 
 | Test Step Container
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
-+
-|===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
-|===
+* Then: The xtext plugin list quickfixes dialog will be empty
 
 == Test-Case: No component in the first step triggers an error
 
@@ -58,14 +46,7 @@ The other steps default to that one.
 | The daily batchjob Input file is downloaded
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type        | Selected Step 
-| Test Step Container | 1             
-|===
-
-* And: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog is set as follows
 +
 ----
 The first step must have a component
@@ -78,10 +59,5 @@ The first step must have a component
 | Test Step Container
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
-+
-|===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
-|===
+* Then: The xtext plugin list quickfixes dialog will be empty
 

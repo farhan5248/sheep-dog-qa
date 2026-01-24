@@ -16,14 +16,7 @@ There's 4 types of warnings, the scenarios below cover them.
 | The daily batchjob Input file is present
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type
-| Test Step
-|===
-
-* And: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog is set as follows
 +
 ----
 The step object file doesn't exist for the component
@@ -33,14 +26,14 @@ The step object file doesn't exist for the component
 +
 |===
 | Element Type
-| Test Step
+| Test Step   
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
+| Quickfix Name                                           | Quickfix Description 
+| Generate Input file - daily batchjob/Input file.feature | empty                          
 |===
 
 == Test-Case: This object step definition doesn't exist validation
@@ -59,14 +52,7 @@ The step object file doesn't exist for the component
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type
-| Test Step
-|===
-
-* And: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog is set as follows
 +
 ----
 The step definition doesn't exist for the step object
@@ -76,14 +62,21 @@ The step definition doesn't exist for the step object
 +
 |===
 | Element Type
-| Test Step
+| Test Step   
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
+| Quickfix Name | Quickfix Description | Quickfix 
+| is absent     | empty                | is absent
+|===
+
+* And: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name       | Quickfix Description
+| Generate is present | empty               
 |===
 
 == Test-Case: This object step definition parameter set doesn't exist validation
@@ -102,14 +95,7 @@ The step definition doesn't exist for the step object
 | daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type
-| Row
-|===
-
-* And: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog is set as follows
 +
 ----
 The step parameters don't exist for the step definition
@@ -119,14 +105,22 @@ The step parameters don't exist for the step definition
 +
 |===
 | Element Type
-| Row
+| Row         
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
+| Quickfix Name      | Quickfix Description | Quickfix          
+| \| Existing Header | empty                | \| Existing Header
+| \| New Header      | empty                | \| New Header     
+|===
+
+* And: The xtext plugin list quickfixes dialog will be set as follows
++
+|===
+| Quickfix Name          | Quickfix Description
+| Generate \| New Header | empty               
 |===
 
 == Test-Case: This object step definition text parameter doesn't exist validation
@@ -145,14 +139,7 @@ The step parameters don't exist for the step definition
 | daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type
-| Text
-|===
-
-* And: The xtext plugin validate dialog will be set as follows
+* And: The xtext plugin validate dialog is set as follows
 +
 ----
 The step parameters don't exist for the step definition
@@ -162,14 +149,14 @@ The step parameters don't exist for the step definition
 +
 |===
 | Element Type
-| Text
+| Text        
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
+| Quickfix Name       | Quickfix Description
+| Generate \| Content | empty               
 |===
 
 == Test-Case: Object path and component is inherited from previous steps
@@ -190,26 +177,14 @@ The step parameters don't exist for the step definition
 | daily batchjob/app/Input file.feature | is absent           
 |===
 
-* And: The xtext plugin validate action is performed as follows
-+
-|===
-| Element Type
-| Test Step
-|===
-
-* And: The xtext plugin validate dialog will be empty
+* And: The xtext plugin validate dialog is empty
 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
 | Element Type
-| Test Step
+| Test Step   
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
-+
-|===
-| Quickfix Name | Quickfix Description
-| tbd           | tbd                 
-|===
+* Then: The xtext plugin list quickfixes dialog will be empty
 

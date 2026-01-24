@@ -7,12 +7,12 @@
 * Step-Parameters: 1
 +
 |===
-| Quickfix Name
+| Quickfix Name | Quickfix Description
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Quickfix Name | Quickfix Description
+| Quickfix Name | Quickfix Description | Quickfix
 |===
 
