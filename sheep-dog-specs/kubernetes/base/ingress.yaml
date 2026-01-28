@@ -4,14 +4,59 @@ metadata:
   name: sheep-dog-dev-ingress
   labels:
     app: sheep-dog-dev
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
     - http:
         paths:
-          - path: "/"
+          # Backend service paths (explicit)
+          - path: "/asciidoctor"
             pathType: Prefix
             backend:
               service:
                 name: sheep-dog-dev-svc
+                port:
+                  number: 80
+          - path: "/cucumber"
+            pathType: Prefix
+            backend:
+              service:
+                name: sheep-dog-dev-svc
+                port:
+                  number: 80
+          - path: "/uml"
+            pathType: Prefix
+            backend:
+              service:
+                name: sheep-dog-dev-svc
+                port:
+                  number: 80
+          - path: "/actuator"
+            pathType: Prefix
+            backend:
+              service:
+                name: sheep-dog-dev-svc
+                port:
+                  number: 80
+          - path: "/(.well-known/.*)"
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: sheep-dog-dev-mcp
+                port:
+                  number: 80
+          - path: "/mcp"
+            pathType: Prefix
+            backend:
+              service:
+                name: sheep-dog-dev-mcp
+                port:
+                  number: 80
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: sheep-dog-dev-mcp
                 port:
                   number: 80
