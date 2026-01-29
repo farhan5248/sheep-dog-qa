@@ -15,7 +15,7 @@ There's 3 things to generate
 
 == Test-Case: Create a new object for a component
 
-@single-test
+@mcp-test
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
