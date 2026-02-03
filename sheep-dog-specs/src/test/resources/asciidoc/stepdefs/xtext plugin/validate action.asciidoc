@@ -5,12 +5,12 @@
 * Step-Parameters: 1
 +
 |===
-| Element Type
+| Element Type | Selected Step
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Element Type | Selected Step
+| Element Type
 |===
 

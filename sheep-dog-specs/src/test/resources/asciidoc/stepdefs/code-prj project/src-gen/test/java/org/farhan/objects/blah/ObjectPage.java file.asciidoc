@@ -19,7 +19,7 @@
 * Step-Parameters: 1
 +
 |===
-| Method Name | Visibility | Return Type | Parameter Name | Parameter Type
+| Method Name | Parameter Name | Parameter Type | Return Type | Visibility
 |===
 
 == Step-Definition: is created as follows

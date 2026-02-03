@@ -14,7 +14,7 @@ Creates a Step-Object and its description
 
 +
 |===
-| Object Name | Object Description
+| Object Description | Object Name
 |===
 
 * Step-Parameters: 2
@@ -24,7 +24,7 @@ I think this only handles one parameter at a time so two rows would be needed to
 
 +
 |===
-| Object Name | Step Definition Name | Parameters
+| Object Name | Parameters | Step Definition Name
 |===
 
 * Step-Parameters: 3
@@ -33,7 +33,7 @@ Creates a Step-Object and Step-Definition with its description
 
 +
 |===
-| Object Name | Step Definition Name | Step Definition Description
+| Object Name | Step Definition Description | Step Definition Name
 |===
 
 * Step-Parameters: 4
@@ -55,7 +55,7 @@ Asserts that the Step-Object and Step-Definition with its parameters exist.
 
 +
 |===
-| Object Name | Step Definition Name | Parameters
+| Object Name | Parameters | Step Definition Name
 |===
 
 * Step-Parameters: 2

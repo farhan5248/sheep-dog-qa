@@ -13,7 +13,7 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Description
+| Description | Name
 |===
 
 == Step-Definition: Feature section will be created as follows
@@ -21,13 +21,13 @@
 * Step-Parameters: 1
 +
 |===
-| Name
+| Name | Statements
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Name | Statements
+| Name
 |===
 
 == Step-Definition: Scenario Outline Examples Table section will be created as follows
@@ -35,13 +35,13 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Examples | Tags | Description
+| Description | Examples | Name | Tags
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Name | Examples | Row
+| Examples | Name | Row
 |===
 
 == Step-Definition: Scenarios Steps Doc String section will be created as follows
@@ -49,7 +49,7 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Step | Content
+| Content | Name | Step
 |===
 
 == Step-Definition: Scenarios Steps Step Table section will be created as follows
@@ -57,7 +57,7 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Step | Row
+| Name | Row | Step
 |===
 
 == Step-Definition: Scenarios Steps section will be created as follows
@@ -73,7 +73,7 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Tags | Description
+| Description | Name | Tags
 |===
 
 == Step-Definition: is created as follows

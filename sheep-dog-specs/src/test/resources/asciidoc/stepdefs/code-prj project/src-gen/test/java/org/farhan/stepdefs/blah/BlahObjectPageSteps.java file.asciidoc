@@ -5,19 +5,19 @@
 * Step-Parameters: 1
 +
 |===
-| Class Annotation
+| Constructor Annotation | Constructor Name
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Class Name | Package
+| Class Annotation
 |===
 
 * Step-Parameters: 3
 +
 |===
-| Constructor Name | Constructor Annotation
+| Class Name | Package
 |===
 
 * Step-Parameters: 4
@@ -43,13 +43,13 @@
 * Step-Parameters: 1
 +
 |===
-| Method Name | Annotation | Visibility | Return Type
+| Method Name | Parameter Name | Parameter Type
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Method Name | Parameter Name | Parameter Type
+| Annotation | Method Name | Return Type | Visibility
 |===
 
 * Step-Parameters: 3

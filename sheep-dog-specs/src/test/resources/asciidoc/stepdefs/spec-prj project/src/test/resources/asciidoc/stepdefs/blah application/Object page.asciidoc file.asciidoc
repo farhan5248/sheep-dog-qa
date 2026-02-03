@@ -5,13 +5,13 @@
 * Step-Parameters: 1
 +
 |===
-| Name
+| Name | Statements
 |===
 
 * Step-Parameters: 2
 +
 |===
-| Name | Statements
+| Name
 |===
 
 == Step-Definition: Step Definition Parameters Table section will be created as follows
@@ -27,7 +27,7 @@
 * Step-Parameters: 1
 +
 |===
-| Name | Description
+| Description | Name
 |===
 
 == Step-Definition: is created as follows
