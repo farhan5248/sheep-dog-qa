@@ -21,6 +21,8 @@ Those three are further broken down and I probably need better names to describe
 
 == Test-Case: Propose nothing
 
+@single-test
+
 If the step is complete, there's nothing to suggest.
 However if it's an attachment, that means a text or table section should follow.
 Those proposals are triggered from the next line.

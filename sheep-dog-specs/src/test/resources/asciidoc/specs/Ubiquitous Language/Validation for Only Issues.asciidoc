@@ -6,8 +6,6 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Cell name should start with a capital letter
 
-@mcp-test
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
