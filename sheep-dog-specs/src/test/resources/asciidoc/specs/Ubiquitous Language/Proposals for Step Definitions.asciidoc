@@ -12,12 +12,48 @@ Because a step can have a component or not and the full path specified or not, y
 So instead of saving all combinations, only the details section and predicate are saved.
 When the reference look-up is done, the step-object is located using the full path and component.
 
-== Test-Case: Something is proposed if there's a step-definition
+== Test-Case: Has component no existing step object
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                     
+| Step Name                    
+| The daily batchjob Input file
+|===
+
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Row         
+|===
+
+* Then: The xtext plugin list proposals dialog will be empty
+
+== Test-Case: Has component no existing step definition
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                    
+| The daily batchjob Input file
+|===
+
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Row         
+|===
+
+* Then: The xtext plugin list proposals dialog will be empty
+
+== Test-Case: Has component has existing step definition
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                    
 | The daily batchjob Input file
 |===
 
@@ -32,7 +68,38 @@ When the reference look-up is done, the step-object is located using the full pa
 +
 |===
 | Element Type
-| Test Step
+| Test Step   
+|===
+
+* Then: The xtext plugin list proposals dialog will be set as follows
++
+|===
+| Suggestion | Suggestion Name | Suggestion Description
+| is present | is present      | Creates empty file    
+|===
+
+== Test-Case: No component has existing step definition
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                               
+| The daily batchjob Input file is present
+| The Input file                          
+|===
+
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
++
+|===
+| Object Name                       | Step Definition Name | Step Definition Description
+| daily batchjob/Input file.feature | is present           | Creates empty file         
+|===
+
+* When: The xtext plugin list proposals action is performed as follows
++
+|===
+| Element Type
+| Test Step   
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows

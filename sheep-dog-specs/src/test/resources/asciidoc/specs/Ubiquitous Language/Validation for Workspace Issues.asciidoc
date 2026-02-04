@@ -4,7 +4,7 @@
 
 Some problems are fixed by code generation.
 They're typically things like keywords or objects that are not defined in the step objects layer.
-I could just ignore all those warnings and then use the Build Project menu item and it’ll create everything at once.
+I could just ignore all those warnings and then use the Build Project menu item and it'll create everything at once.
 There's 4 types of warnings, the scenarios below cover them.
 
 == Test-Case: This object doesn't exist validation
