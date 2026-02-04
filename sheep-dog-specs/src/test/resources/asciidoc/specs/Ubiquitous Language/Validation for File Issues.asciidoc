@@ -25,8 +25,8 @@ For example not knowing which component an object belongs to gets in the way of 
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type        | Selected Step 
-| Test Step Container | 1             
+| Selected Element
+| TestSuite/1/TestStepContainer/1 
 |===
 
 * Then: The xtext plugin validate dialog will be empty
@@ -47,8 +47,8 @@ The other steps default to that one.
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type        | Selected Step 
-| Test Step Container | 1             
+| Selected Element
+| TestSuite/1/TestStepContainer/1 
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows

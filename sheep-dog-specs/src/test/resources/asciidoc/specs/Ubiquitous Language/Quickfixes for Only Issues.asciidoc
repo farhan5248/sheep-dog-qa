@@ -29,8 +29,8 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type
-| Cell        
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
@@ -58,8 +58,8 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type
-| Test Suite  
+| Selected Element
+| TestSuite/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
@@ -87,8 +87,8 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type       
-| Test Step Container
+| Selected Element       
+| TestSuite/1/TestStepContainer/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
@@ -123,8 +123,8 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be empty
@@ -159,8 +159,8 @@ Examples are: "after the next day" or "on time"
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be empty

@@ -18,8 +18,8 @@ If the step definition has step parameters, they'll be proposed.
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Row         
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be empty
@@ -43,8 +43,8 @@ If the step definition has step parameters, they'll be proposed.
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Row         
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be empty
@@ -68,8 +68,8 @@ If the step definition has step parameters, they'll be proposed.
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Row         
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be empty
@@ -95,8 +95,8 @@ TODO I should add more parameter combinations to describe this better.
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Row         
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows

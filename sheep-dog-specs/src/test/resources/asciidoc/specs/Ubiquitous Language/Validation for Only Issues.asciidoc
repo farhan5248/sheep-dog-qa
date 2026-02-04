@@ -23,8 +23,8 @@ These validations check for syntax and naming issues that can be detected by par
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type
-| Cell
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell/1
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows
@@ -45,8 +45,8 @@ Name should start with a capital
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type
-| Test Suite
+| Selected Element
+| TestSuite/1
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows
@@ -67,8 +67,8 @@ Name should start with a capital
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type
-| Test Step Container
+| Selected Element
+| TestSuite/1/TestStepContainer/1
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows
@@ -89,8 +89,8 @@ Name should start with a capital
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type
-| Test Step
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows
@@ -118,8 +118,8 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 * When: The xtext plugin validate action is performed as follows
 +
 |===
-| Element Type
-| Test Step
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin validate dialog will be set as follows

@@ -27,8 +27,8 @@ For example not knowing which component an object belongs to gets in the way of 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type       
-| Test Step Container
+| Selected Element       
+| TestSuite/1/TestStepContainer/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be empty
@@ -55,8 +55,8 @@ The first step must have a component
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Element Type       
-| Test Step Container
+| Selected Element       
+| TestSuite/1/TestStepContainer/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be empty

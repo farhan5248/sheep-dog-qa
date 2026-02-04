@@ -33,7 +33,6 @@ Adds test steps to the test setup.
 Adds test step to the test case.
 
 * Step-Parameters: 1
-
 +
 |===
 | Step Name | Text Content

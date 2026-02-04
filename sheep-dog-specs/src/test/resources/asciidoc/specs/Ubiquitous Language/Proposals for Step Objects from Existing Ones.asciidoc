@@ -26,8 +26,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be empty
@@ -51,8 +51,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
@@ -74,8 +74,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be empty
@@ -99,8 +99,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows

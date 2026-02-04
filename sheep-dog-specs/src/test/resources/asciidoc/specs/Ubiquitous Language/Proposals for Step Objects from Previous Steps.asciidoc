@@ -31,8 +31,8 @@ The variables are:
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
@@ -56,8 +56,8 @@ The variables are:
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
@@ -88,8 +88,8 @@ The variables are:
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
@@ -114,8 +114,8 @@ The variables are:
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
@@ -146,8 +146,8 @@ The variables are:
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Element Type
-| Test Step   
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
