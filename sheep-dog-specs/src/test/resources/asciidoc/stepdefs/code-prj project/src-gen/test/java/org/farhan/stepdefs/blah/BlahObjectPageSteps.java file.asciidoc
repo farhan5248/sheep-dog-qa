@@ -2,37 +2,37 @@
 
 == Step-Definition: Header section will be created as follows
 
-* Step-Parameters: 1
-+
-|===
-| Constructor Annotation | Constructor Name
-|===
-
-* Step-Parameters: 2
+* Step-Parameters: Class Annotation
 +
 |===
 | Class Annotation
 |===
 
-* Step-Parameters: 3
+* Step-Parameters: Class Name, Package
 +
 |===
 | Class Name | Package
 |===
 
-* Step-Parameters: 4
+* Step-Parameters: Constructor Annotation, Constructor Name
++
+|===
+| Constructor Name | Constructor Annotation
+|===
+
+* Step-Parameters: Constructor Name, Statement
 +
 |===
 | Constructor Name | Statement
 |===
 
-* Step-Parameters: 5
+* Step-Parameters: Extends
 +
 |===
 | Extends
 |===
 
-* Step-Parameters: 6
+* Step-Parameters: Import
 +
 |===
 | Import
@@ -40,19 +40,19 @@
 
 == Step-Definition: Methods section will be created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Annotation, Method Name, Return Type, Visibility
++
+|===
+| Method Name | Annotation | Visibility | Return Type
+|===
+
+* Step-Parameters: Method Name, Parameter Name, Parameter Type
 +
 |===
 | Method Name | Parameter Name | Parameter Type
 |===
 
-* Step-Parameters: 2
-+
-|===
-| Annotation | Method Name | Return Type | Visibility
-|===
-
-* Step-Parameters: 3
+* Step-Parameters: Method Name, Statement
 +
 |===
 | Method Name | Statement
@@ -60,7 +60,7 @@
 
 == Step-Definition: is created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Content
 +
 |===
 | Content
@@ -68,7 +68,7 @@
 
 == Step-Definition: will be created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Content
 +
 |===
 | Content

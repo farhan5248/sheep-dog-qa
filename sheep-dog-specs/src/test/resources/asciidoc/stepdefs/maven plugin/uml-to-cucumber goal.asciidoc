@@ -11,7 +11,7 @@ Calls the Maven plug-in goal with no tag parameter
 
 Calls the Maven plug-in goal with a tag parameter
 
-* Step-Parameters: 1
+* Step-Parameters: Tags
 +
 The single tag value.
 The name Tags is misleading, it's just one tag

@@ -2,7 +2,7 @@
 
 == Step-Definition: is created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Object Name, Step Definition Name
 +
 |===
 | Object Name | Step Definition Name

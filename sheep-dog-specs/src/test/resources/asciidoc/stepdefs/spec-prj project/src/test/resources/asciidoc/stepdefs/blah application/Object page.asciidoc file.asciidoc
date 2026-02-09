@@ -2,21 +2,21 @@
 
 == Step-Definition: Header section will be created as follows
 
-* Step-Parameters: 1
-+
-|===
-| Name | Statements
-|===
-
-* Step-Parameters: 2
+* Step-Parameters: Name
 +
 |===
 | Name
 |===
 
+* Step-Parameters: Name, Statements
++
+|===
+| Name | Statements
+|===
+
 == Step-Definition: Step Definition Parameters Table section will be created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Name, Parameters, Row
 +
 |===
 | Name | Parameters | Row
@@ -24,15 +24,15 @@
 
 == Step-Definition: Step Definition section will be created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Description, Name
 +
 |===
-| Description | Name
+| Name | Description
 |===
 
 == Step-Definition: is created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Content
 +
 |===
 | Content
@@ -42,7 +42,7 @@
 
 == Step-Definition: will be created as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Content
 +
 |===
 | Content

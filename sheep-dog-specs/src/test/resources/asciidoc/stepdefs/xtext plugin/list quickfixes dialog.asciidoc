@@ -4,15 +4,15 @@
 
 == Step-Definition: will be set as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Quickfix Description, Quickfix Name
 +
 |===
-| Quickfix | Quickfix Description | Quickfix Name
+| Quickfix Name | Quickfix Description
 |===
 
-* Step-Parameters: 2
+* Step-Parameters: Quickfix, Quickfix Description, Quickfix Name
 +
 |===
-| Quickfix Description | Quickfix Name
+| Quickfix Name | Quickfix Description | Quickfix
 |===
 

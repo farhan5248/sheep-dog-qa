@@ -2,7 +2,7 @@
 
 == Step-Definition: is performed as follows
 
-* Step-Parameters: 1
+* Step-Parameters: Selected Element
 +
 |===
 | Selected Element

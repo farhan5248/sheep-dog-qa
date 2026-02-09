@@ -25,15 +25,15 @@ The step object file doesn't exist for the component
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name                                           | Quickfix Description 
-| Generate Input file - daily batchjob/Input file.feature | empty                          
+| Quickfix Name                                           | Quickfix Description
+| Generate Input file - daily batchjob/Input file.feature | empty               
 |===
 
 == Test-Case: This object step definition doesn't exist validation
@@ -61,7 +61,7 @@ The step definition doesn't exist for the step object
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
@@ -104,23 +104,23 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                                      
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name      | Quickfix Description | Quickfix          
-| \| Existing Header | empty                | \| Existing Header
-| \| New Header      | empty                | \| New Header     
+| Quickfix Name   | Quickfix Description | Quickfix       
+| Existing Header | empty                | Existing Header
+| New Header      | empty                | New Header     
 |===
 
 * And: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
 | Quickfix Name          | Quickfix Description
-| Generate \| New Header | empty               
+| Generate New Header | empty               
 |===
 
 == Test-Case: This object step definition text parameter doesn't exist validation
@@ -148,7 +148,7 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                                
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
@@ -156,7 +156,7 @@ The step parameters don't exist for the step definition
 +
 |===
 | Quickfix Name       | Quickfix Description
-| Generate \| Content | empty               
+| Generate Content | empty               
 |===
 
 == Test-Case: Object path and component is inherited from previous steps
@@ -182,7 +182,7 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
