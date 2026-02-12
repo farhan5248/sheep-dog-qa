@@ -1,6 +1,7 @@
 = Test-Suite: Validation for Only Issues
 
 @sheep-dog-test
+@Validate
 
 These validations check for syntax and naming issues that can be detected by parsing the file alone, without needing to check the workspace.
 
