@@ -9,7 +9,7 @@ These validations check for syntax and naming issues that can be detected by par
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
-| Step Name                                | Headers         
+| Step Name                                | Row Contents           
 | The daily batchjob Input file is present | lowercase header
 |===
 

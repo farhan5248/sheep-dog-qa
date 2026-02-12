@@ -32,10 +32,10 @@ Adds test steps to the test setup.
 
 Adds test step to the test case.
 
-* Step-Parameters: Headers, Step Name
+* Step-Parameters: Row Contents, Step Name
 +
 |===
-| Step Name | Headers
+| Step Name | Row Contents
 |===
 
 * Step-Parameters: Step Name
