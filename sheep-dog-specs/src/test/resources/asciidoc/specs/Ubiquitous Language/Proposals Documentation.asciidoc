@@ -1,4 +1,4 @@
-= Test-Suite: Display Documentation with Proposals
+= Test-Suite: Proposals Documentation
 
 @sheep-dog-test
 

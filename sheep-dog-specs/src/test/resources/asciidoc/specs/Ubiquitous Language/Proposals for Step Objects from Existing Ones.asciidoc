@@ -14,6 +14,8 @@ The variables are:
 
 == Test-Case: No component no existing
 
+@Suggest
+
 TODO make this an outline with various steps like "The" or "The batchjob" etc
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
@@ -33,6 +35,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: No component has existing
+
+@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -64,6 +68,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 
 == Test-Case: Has component no existing
 
+@Suggest
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -81,6 +87,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: Has component has existing
+
+@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +

@@ -1,0 +1,6 @@
+= Test-Suite: Code Generation for Only Issues
+
+@sheep-dog-test
+
+TODO Add tests for each quickfix one
+

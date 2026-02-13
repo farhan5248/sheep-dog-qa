@@ -14,6 +14,8 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: Has component no existing step object
 
+@Suggest
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -32,6 +34,8 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: Has component no existing step definition
 
+@Suggest
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -49,6 +53,8 @@ When the reference look-up is done, the step-object is located using the full pa
 * Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: Has component has existing step definition
+
+@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -79,6 +85,8 @@ When the reference look-up is done, the step-object is located using the full pa
 |===
 
 == Test-Case: No component has existing step definition
+
+@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
