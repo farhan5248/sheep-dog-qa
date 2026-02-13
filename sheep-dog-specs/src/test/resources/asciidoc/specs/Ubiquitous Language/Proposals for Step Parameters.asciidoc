@@ -8,6 +8,8 @@ If the step definition has step parameters, they'll be proposed.
 
 == Test-Case: No existing step object
 
+@Suggest
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -25,6 +27,8 @@ If the step definition has step parameters, they'll be proposed.
 * Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: No existing step definition
+
+@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -51,6 +55,8 @@ If the step definition has step parameters, they'll be proposed.
 
 == Test-Case: Has existing step definition without parameters
 
+@Suggest
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -75,6 +81,8 @@ If the step definition has step parameters, they'll be proposed.
 * Then: The xtext plugin list proposals dialog will be empty
 
 == Test-Case: Has existing step definition with parameters
+
+@Suggest
 
 TODO I should add more parameter combinations to describe this better.
 
