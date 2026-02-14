@@ -7,6 +7,8 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified
 
+@Correct
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
 |===
@@ -34,6 +36,8 @@ For example not knowing which component an object belongs to gets in the way of 
 * Then: The xtext plugin list quickfixes dialog will be empty
 
 == Test-Case: No component in the first step triggers an error
+
+@Correct
 
 The first step needs to have a component specified.
 The other steps default to that one.

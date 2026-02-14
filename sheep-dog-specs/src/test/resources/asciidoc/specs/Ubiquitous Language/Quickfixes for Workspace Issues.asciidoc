@@ -7,7 +7,9 @@ They're typically things like keywords or objects that are not defined in the st
 I could just ignore all those warnings and then use the Build Project menu item and it'll create everything at once.
 There's 4 types of warnings, the scenarios below cover them.
 
-== Test-Case: This object doesn't exist validation
+== Test-Case: This object doesn't exist quickfix
+
+@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -36,7 +38,9 @@ The step object file doesn't exist for the component
 | Generate Input file - daily batchjob/Input file.feature | empty               
 |===
 
-== Test-Case: This object step definition doesn't exist validation
+== Test-Case: This object step definition doesn't exist quickfix
+
+@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -79,7 +83,9 @@ The step definition doesn't exist for the step object
 | Generate is present | empty               
 |===
 
-== Test-Case: This object step definition parameter set doesn't exist validation
+== Test-Case: This object step definition parameter set doesn't exist quickfix
+
+@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -123,7 +129,9 @@ The step parameters don't exist for the step definition
 | Generate New Header | empty               
 |===
 
-== Test-Case: This object step definition text parameter exists validation
+== Test-Case: This object step definition text parameter exists quickfix
+
+@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -150,7 +158,9 @@ The step parameters don't exist for the step definition
 
 * Then: The xtext plugin list quickfixes dialog will be empty
 
-== Test-Case: This object step definition text parameter doesn't exist validation
+== Test-Case: This object step definition text parameter doesn't exist quickfix
+
+@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
