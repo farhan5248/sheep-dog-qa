@@ -14,7 +14,7 @@ Creates a Step-Object and its description
 
 +
 |===
-| Object Name | Object Description
+| Object Name | Step Definition Name | Object Description
 |===
 
 * Step-Parameters: Object Name, Parameters, Parameters Description, Step Definition Name

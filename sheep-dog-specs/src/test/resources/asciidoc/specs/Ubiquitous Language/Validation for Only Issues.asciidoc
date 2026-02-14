@@ -5,7 +5,7 @@
 
 These validations check for syntax and naming issues that can be detected by parsing the file alone, without needing to check the workspace.
 
-== Test-Case: Header row Cell names should start with a capital letter
+== Test-Case: Header row Cell names should start with a capital letter validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -27,7 +27,7 @@ These validations check for syntax and naming issues that can be detected by par
 Name should start with a capital
 ----
 
-== Test-Case: Body row Cell names can be any case
+== Test-Case: Body row Cell names can be any case validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -46,7 +46,7 @@ Name should start with a capital
 
 * Then: The xtext plugin validate dialog will be empty
 
-== Test-Case: Test suite name should start with a capital letter
+== Test-Case: Test suite name should start with a capital letter validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -68,7 +68,7 @@ Name should start with a capital
 Name should start with a capital
 ----
 
-== Test-Case: Test case name should start with a capital letter
+== Test-Case: Test case name should start with a capital letter validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -90,7 +90,7 @@ Name should start with a capital
 Name should start with a capital
 ----
 
-== Test-Case: Test step must have a valid object name
+== Test-Case: Test step must have a valid object name validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -119,7 +119,7 @@ Object ending words are: file, page, response, dialog, directory, request, goal,
 Examples are: "src/test/resources/file.txt file" or "Home page"
 ----
 
-== Test-Case: Test step must have a valid step definition name
+== Test-Case: Test step must have a valid step definition name validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +

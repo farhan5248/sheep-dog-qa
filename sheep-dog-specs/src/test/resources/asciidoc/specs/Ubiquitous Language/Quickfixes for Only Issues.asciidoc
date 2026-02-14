@@ -4,7 +4,7 @@
 
 These validations check for syntax and naming issues that can be detected by parsing the file alone, without needing to check the workspace.
 
-== Test-Case: Cell name should start with a capital letter
+== Test-Case: Cell name should start with a capital letter quickfix
 
 @Correct
 
@@ -38,11 +38,34 @@ Name should start with a capital
 * Then: The xtext plugin list quickfixes dialog will be set as follows
 +
 |===
-| Quickfix Name        | Quickfix Description                    | Quickfix        
+| Quickfix Name        | Quickfix Description                    | Quickfix
 | Capitalize cell name | Capitalize the first letter of the name | Lowercase header
 |===
 
-== Test-Case: Test suite name should start with a capital letter
+== Test-Case: Body row Cell names can be any case quickfix
+
+@Correct
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
++
+|===
+| Step Name                                | Row Contents
+| The daily batchjob Input file is present | Header
+| The daily batchjob Input file is present | value
+|===
+
+* And: The xtext plugin validate dialog is empty
+
+* When: The xtext plugin list quickfixes action is performed as follows
++
+|===
+| Selected Element
+| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/2/Cell/1
+|===
+
+* Then: The xtext plugin list quickfixes dialog will be empty
+
+== Test-Case: Test suite name should start with a capital letter quickfix
 
 @Correct
 
@@ -73,7 +96,7 @@ Name should start with a capital
 | Capitalize test suite name | Capitalize the first letter of the name | Lowercase process
 |===
 
-== Test-Case: Test case name should start with a capital letter
+== Test-Case: Test case name should start with a capital letter quickfix
 
 @Correct
 
@@ -104,7 +127,7 @@ Name should start with a capital
 | Capitalize test step container name | Capitalize the first letter of the name | Lowercase test case
 |===
 
-== Test-Case: Test step must have a valid object name
+== Test-Case: Test step must have a valid object name quickfix
 
 @Correct
 
@@ -137,7 +160,7 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 
 * Then: The xtext plugin list quickfixes dialog will be empty
 
-== Test-Case: Test step must have a valid step definition name
+== Test-Case: Test step must have a valid step definition name quickfix
 
 @Correct
 

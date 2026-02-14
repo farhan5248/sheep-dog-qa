@@ -5,7 +5,7 @@
 Some problems prevent code generation.
 For example not knowing which component an object belongs to gets in the way of knowing where to create the file.
 
-== Test-Case: The first step needs to have a component specified
+== Test-Case: The first step needs to have a component specified quickfix
 
 @Correct
 
@@ -35,7 +35,7 @@ For example not knowing which component an object belongs to gets in the way of 
 
 * Then: The xtext plugin list quickfixes dialog will be empty
 
-== Test-Case: No component in the first step triggers an error
+== Test-Case: No component in the first step triggers an error quickfix
 
 @Correct
 

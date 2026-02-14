@@ -28,7 +28,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
@@ -48,22 +48,22 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
-| daily batchjob/Input file.feature | is present          
+| Object Name                       | Step Definition Name | Object Description
+| daily batchjob/Input file.feature | is present           | Description\n     
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
 |===
-| Suggestion                    | Suggestion Name
-| The daily batchjob Input file | Input file     
+| Suggestion                    | Suggestion Name | Suggestion Description
+| The daily batchjob Input file | Input file      | Description\n         
 |===
 
 == Test-Case: Has component no existing
@@ -80,7 +80,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
@@ -100,21 +100,21 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
-| daily batchjob/Input file.feature | is present          
+| Object Name                       | Step Definition Name | Object Description
+| daily batchjob/Input file.feature | is present           | Description       
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element
+| Selected Element                          
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
 |===
-| Suggestion                    | Suggestion Name
-| The daily batchjob Input file | Input file     
+| Suggestion                    | Suggestion Name | Suggestion Description
+| The daily batchjob Input file | Input file      | Description           
 |===
 

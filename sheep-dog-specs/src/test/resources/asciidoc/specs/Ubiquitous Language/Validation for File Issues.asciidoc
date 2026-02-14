@@ -6,7 +6,7 @@
 Some problems prevent code generation.
 For example not knowing which component an object belongs to gets in the way of knowing where to create the file.
 
-== Test-Case: The first step needs to have a component specified
+== Test-Case: The first step needs to have a component specified validation
 
 * Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
@@ -32,7 +32,7 @@ For example not knowing which component an object belongs to gets in the way of 
 
 * Then: The xtext plugin validate dialog will be empty
 
-== Test-Case: No component in the first step triggers an error
+== Test-Case: No component in the first step triggers an error validation
 
 The first step needs to have a component specified.
 The other steps default to that one.

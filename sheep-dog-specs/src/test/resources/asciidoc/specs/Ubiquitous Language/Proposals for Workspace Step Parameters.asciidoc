@@ -94,22 +94,22 @@ TODO I should add more parameter combinations to describe this better.
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name  | Parameters
-| daily batchjob/Input file.feature | is created as follows | H1, H2, H3
+| Object Name                       | Step Definition Name  | Parameters | Parameters Description
+| daily batchjob/Input file.feature | is created as follows | H1, H2, H3 | Header parameters for tables
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element                                      
+| Selected Element
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals dialog will be set as follows
 +
 |===
-| Suggestion | Suggestion Name
-| H1, H2, H3 | H1, H2, H3     
+| Suggestion | Suggestion Name | Suggestion Description
+| H1, H2, H3 | H1, H2, H3      | Header parameters for tables
 |===
 
 == Test-Case: Has existing step definition with Content parameter
