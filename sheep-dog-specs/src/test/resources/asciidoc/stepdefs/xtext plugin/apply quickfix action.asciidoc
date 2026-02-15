@@ -1,0 +1,14 @@
+= Step-Object: apply quickfix action
+
+== Step-Definition: is performed
+
+== Step-Definition: is performed as follows
+
+This a slash delimited list of types like TestSuite/1/TestStepContainer/1/TestStep/1
+
+* Step-Parameters: Selected Element
++
+|===
+| Selected Element
+|===
+

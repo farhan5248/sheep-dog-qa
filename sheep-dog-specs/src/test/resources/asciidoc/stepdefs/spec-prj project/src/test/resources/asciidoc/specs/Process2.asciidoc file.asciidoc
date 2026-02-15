@@ -57,3 +57,23 @@ I think this only handles one header at a time so two rows would be needed to sp
 | Step Name | Text Content
 |===
 
+== Step-Definition: will be created as follows
+
+* Step-Parameters: Row Contents, Step Name
++
+|===
+| Step Name | Row Contents
+|===
+
+* Step-Parameters: Test Case Name, Test Suite Name
++
+|===
+| Test Suite Name | Test Case Name
+|===
+
+* Step-Parameters: Test Suite Name
++
+|===
+| Test Suite Name
+|===
+
