@@ -14,7 +14,6 @@ The variables are:
 
 == Test-Case: No component has existing
 
-@Suggest
 
 It should show that if there's objects from more than one component, it only picks the matching component
 
@@ -51,7 +50,6 @@ It should show that if there's objects from more than one component, it only pic
 
 == Test-Case: Has component has existing
 
-@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +

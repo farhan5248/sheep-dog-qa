@@ -6,7 +6,6 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Cell name should start with a capital letter quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -44,7 +43,6 @@ Name should start with a capital
 
 == Test-Case: Body row Cell names can be any case quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -67,7 +65,6 @@ Name should start with a capital
 
 == Test-Case: Test suite name should start with a capital letter quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -98,7 +95,6 @@ Name should start with a capital
 
 == Test-Case: Test case name should start with a capital letter quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -129,7 +125,6 @@ Name should start with a capital
 
 == Test-Case: Test step must have a valid object name quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -162,7 +157,6 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 
 == Test-Case: Test step must have a valid step definition name quickfix
 
-@Correct
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +

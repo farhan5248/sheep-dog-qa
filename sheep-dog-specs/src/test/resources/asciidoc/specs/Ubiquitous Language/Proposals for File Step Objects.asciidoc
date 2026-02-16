@@ -14,7 +14,6 @@ The variables are:
 
 == Test-Case: No component no existing
 
-@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -41,7 +40,6 @@ The variables are:
 
 == Test-Case: Has component no existing
 
-@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -68,7 +66,6 @@ The variables are:
 
 == Test-Case: No component no existing has background
 
-@Suggest
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file background steps snippet is created as follows
 +

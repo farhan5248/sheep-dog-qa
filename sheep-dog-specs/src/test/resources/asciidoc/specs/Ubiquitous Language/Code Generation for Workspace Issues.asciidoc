@@ -18,7 +18,6 @@ There's 3 things to generate
 
 == Test-Case: This object doesn't exist generation
 
-@Generate
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -50,7 +49,6 @@ There's 3 things to generate
 
 == Test-Case: This object step definition doesn't exist generation
 
-@Generate
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -90,7 +88,6 @@ There's 3 things to generate
 
 == Test-Case: This object step definition parameter set doesn't exist generation
 
-@Generate
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
@@ -130,7 +127,6 @@ There's 3 things to generate
 
 == Test-Case: This object step definition text parameter doesn't exist generation
 
-@Generate
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
 +
