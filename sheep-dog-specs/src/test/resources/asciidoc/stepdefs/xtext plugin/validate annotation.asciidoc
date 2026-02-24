@@ -1,4 +1,4 @@
-= Step-Object: validate dialog
+= Step-Object: validate annotation
 
 == Step-Definition: is empty
 

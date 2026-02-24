@@ -17,7 +17,7 @@ The variables are:
 
 It should show that if there's objects from more than one component, it only picks the matching component
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                
@@ -39,7 +39,7 @@ It should show that if there's objects from more than one component, it only pic
 | TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
-* Then: The xtext plugin list proposals dialog will be set as follows
+* Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Suggestion                     | Suggestion Name           
@@ -51,7 +51,7 @@ It should show that if there's objects from more than one component, it only pic
 == Test-Case: Has component has existing
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                
@@ -73,7 +73,7 @@ It should show that if there's objects from more than one component, it only pic
 | TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
-* Then: The xtext plugin list proposals dialog will be set as follows
+* Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Suggestion                     | Suggestion Name           

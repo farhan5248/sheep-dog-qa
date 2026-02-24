@@ -7,7 +7,7 @@ If the step definition has step parameters, they'll be proposed.
 == Test-Case: No existing step object
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                          
@@ -21,12 +21,12 @@ If the step definition has step parameters, they'll be proposed.
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: No existing step definition
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                          
@@ -47,12 +47,12 @@ If the step definition has step parameters, they'll be proposed.
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: Has existing step definition without parameters
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                               
@@ -73,14 +73,14 @@ If the step definition has step parameters, they'll be proposed.
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: Has existing step definition with parameters
 
 
 TODO I should add more parameter combinations to describe this better.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                          
@@ -101,7 +101,7 @@ TODO I should add more parameter combinations to describe this better.
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be set as follows
+* Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Suggestion | Suggestion Name | Suggestion Description
@@ -113,7 +113,7 @@ TODO I should add more parameter combinations to describe this better.
 
 Content parameters shouldn't be proposed as they are for text blocks, not table rows.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                          
@@ -134,5 +134,5 @@ Content parameters shouldn't be proposed as they are for text blocks, not table 
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 

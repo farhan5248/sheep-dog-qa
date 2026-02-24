@@ -1,4 +1,0 @@
-= Step-Object: generate step definition action
-
-== Step-Definition: is performed
-

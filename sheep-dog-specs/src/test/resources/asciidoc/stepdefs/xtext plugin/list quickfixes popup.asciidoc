@@ -1,4 +1,6 @@
-= Step-Object: list quickfixes dialog
+= Step-Object: list quickfixes popup
+
+== Step-Definition: Quickfix Name
 
 == Step-Definition: is set as follows
 

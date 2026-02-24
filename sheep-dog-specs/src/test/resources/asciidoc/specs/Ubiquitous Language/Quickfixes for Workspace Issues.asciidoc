@@ -10,14 +10,14 @@ There's 4 types of warnings, the scenarios below cover them.
 == Test-Case: This object doesn't exist quickfix
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                               
 | The daily batchjob Input file is present
 |===
 
-* And: The xtext plugin validate dialog is set as follows
+* And: The xtext plugin validate annotation is set as follows
 +
 ----
 The step object file doesn't exist for the component
@@ -30,7 +30,7 @@ The step object file doesn't exist for the component
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
+* Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name                                           | Quickfix Description
@@ -40,7 +40,7 @@ The step object file doesn't exist for the component
 == Test-Case: This object step definition doesn't exist quickfix
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                               
@@ -54,7 +54,7 @@ The step object file doesn't exist for the component
 | daily batchjob/Input file.feature | is absent           
 |===
 
-* And: The xtext plugin validate dialog is set as follows
+* And: The xtext plugin validate annotation is set as follows
 +
 ----
 The step definition doesn't exist for the step object
@@ -67,14 +67,14 @@ The step definition doesn't exist for the step object
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
+* Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name | Quickfix Description | Quickfix 
 | is absent     | empty                | is absent
 |===
 
-* And: The xtext plugin list quickfixes dialog will be set as follows
+* And: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name       | Quickfix Description
@@ -84,7 +84,7 @@ The step definition doesn't exist for the step object
 == Test-Case: This object step definition parameter set doesn't exist quickfix
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Row Contents
@@ -98,7 +98,7 @@ The step definition doesn't exist for the step object
 | daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
 |===
 
-* And: The xtext plugin validate dialog is set as follows
+* And: The xtext plugin validate annotation is set as follows
 +
 ----
 The step parameters don't exist for the step definition
@@ -111,14 +111,14 @@ The step parameters don't exist for the step definition
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
+* Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name | Quickfix Description | Quickfix  
 | E1, E2, E3    | empty                | E1, E2, E3
 |===
 
-* And: The xtext plugin list quickfixes dialog will be set as follows
+* And: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name   | Quickfix Description
@@ -128,7 +128,7 @@ The step parameters don't exist for the step definition
 == Test-Case: This object step definition text parameter exists quickfix
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Text Content
@@ -142,7 +142,7 @@ The step parameters don't exist for the step definition
 | daily batchjob/Input file.feature | is set as follows    | Content   
 |===
 
-* And: The xtext plugin validate dialog is empty
+* And: The xtext plugin validate annotation is empty
 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
@@ -151,12 +151,12 @@ The step parameters don't exist for the step definition
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be empty
+* Then: The xtext plugin list quickfixes popup will be empty
 
 == Test-Case: This object step definition text parameter doesn't exist quickfix
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Text Content
@@ -170,7 +170,7 @@ The step parameters don't exist for the step definition
 | daily batchjob/Input file.feature | is set as follows   
 |===
 
-* And: The xtext plugin validate dialog is set as follows
+* And: The xtext plugin validate annotation is set as follows
 +
 ----
 The step parameters don't exist for the step definition
@@ -183,7 +183,7 @@ The step parameters don't exist for the step definition
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
-* Then: The xtext plugin list quickfixes dialog will be set as follows
+* Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
 | Quickfix Name    | Quickfix Description

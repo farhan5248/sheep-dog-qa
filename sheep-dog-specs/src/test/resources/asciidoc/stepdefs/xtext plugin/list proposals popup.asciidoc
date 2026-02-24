@@ -1,4 +1,4 @@
-= Step-Object: list proposals dialog
+= Step-Object: list proposals popup
 
 == Step-Definition: will be empty
 

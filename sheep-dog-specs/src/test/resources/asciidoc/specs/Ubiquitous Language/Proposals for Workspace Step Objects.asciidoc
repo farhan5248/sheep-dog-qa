@@ -17,7 +17,7 @@ The variables are:
 
 TODO make this an outline with various steps like "The" or "The batchjob" etc
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name
@@ -31,12 +31,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: No component has existing
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name
@@ -57,7 +57,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be set as follows
+* Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Suggestion                    | Suggestion Name | Suggestion Description
@@ -67,7 +67,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 == Test-Case: Has component no existing
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name         
@@ -81,12 +81,12 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be empty
+* Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: Has component has existing
 
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name         
@@ -107,7 +107,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin list proposals dialog will be set as follows
+* Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Suggestion                    | Suggestion Name | Suggestion Description

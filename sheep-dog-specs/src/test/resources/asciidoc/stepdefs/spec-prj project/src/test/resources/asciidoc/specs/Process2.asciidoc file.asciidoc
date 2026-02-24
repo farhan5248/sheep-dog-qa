@@ -4,11 +4,11 @@ Represents a Test-Suite file called Process.feature.
 It should be Process.asciidoc which I'll rename later.
 The Process Test-Suite describes how the Input file is a file processed by a daily batchjob.
 
-== Step-Definition: background steps snippet is created as follows
+== Step-Definition: background test step list assignment is created as follows
 
 Adds test steps to the test setup.
 
-* Step-Parameters: 1
+* Step-Parameters: Step Name
 +
 |===
 | Step Name
@@ -28,7 +28,7 @@ Adds test steps to the test setup.
 | Test Suite Name
 |===
 
-== Step-Definition: steps snippet is created as follows
+== Step-Definition: test step list assignment is created as follows
 
 Adds test step to the test case.
 

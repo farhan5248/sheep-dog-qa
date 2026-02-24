@@ -14,7 +14,7 @@ For example not knowing which component an object belongs to gets in the way of 
 | daily batchjob/Input file.feature | is present           | Creates empty file         
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                
@@ -29,14 +29,14 @@ For example not knowing which component an object belongs to gets in the way of 
 | TestSuite/1/TestStepContainer/1 
 |===
 
-* Then: The xtext plugin validate dialog will be empty
+* Then: The xtext plugin validate annotation will be empty
 
 == Test-Case: No component in the first step triggers an error validation
 
 The first step needs to have a component specified.
 The other steps default to that one.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                   
@@ -51,7 +51,7 @@ The other steps default to that one.
 | TestSuite/1/TestStepContainer/1 
 |===
 
-* Then: The xtext plugin validate dialog will be set as follows
+* Then: The xtext plugin validate annotation will be set as follows
 +
 ----
 The first step must have a component

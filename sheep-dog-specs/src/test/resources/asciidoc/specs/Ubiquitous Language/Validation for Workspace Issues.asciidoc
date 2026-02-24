@@ -9,7 +9,7 @@ There's 4 types of warnings, the scenarios below cover them.
 
 == Test-Case: This object doesn't exist validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                               
@@ -23,7 +23,7 @@ There's 4 types of warnings, the scenarios below cover them.
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin validate dialog will be set as follows
+* Then: The xtext plugin validate annotation will be set as follows
 +
 ----
 The step object file doesn't exist for the component
@@ -31,7 +31,7 @@ The step object file doesn't exist for the component
 
 == Test-Case: This object step definition doesn't exist validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                               
@@ -52,7 +52,7 @@ The step object file doesn't exist for the component
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin validate dialog will be set as follows
+* Then: The xtext plugin validate annotation will be set as follows
 +
 ----
 The step definition doesn't exist for the step object
@@ -60,7 +60,7 @@ The step definition doesn't exist for the step object
 
 == Test-Case: This object step definition parameter set doesn't exist validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Row Contents     
@@ -81,7 +81,7 @@ The step definition doesn't exist for the step object
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
-* Then: The xtext plugin validate dialog will be set as follows
+* Then: The xtext plugin validate annotation will be set as follows
 +
 ----
 The step parameters don't exist for the step definition
@@ -91,7 +91,7 @@ The step parameters don't exist for the step definition
 
 Step definitions for Text Content only have one parameter called "Content"
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Text Content
@@ -112,13 +112,13 @@ Step definitions for Text Content only have one parameter called "Content"
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
-* Then: The xtext plugin validate dialog will be empty
+* Then: The xtext plugin validate annotation will be empty
 
 == Test-Case: This object step definition text parameter doesn't exist validation
 
 If there isn't a step definition in the step object file with a Content header, then a warning is displayed.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                       | Text Content
@@ -139,7 +139,7 @@ If there isn't a step definition in the step object file with a Content header, 
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
-* Then: The xtext plugin validate dialog will be set as follows
+* Then: The xtext plugin validate annotation will be set as follows
 +
 ----
 The step parameters don't exist for the step definition

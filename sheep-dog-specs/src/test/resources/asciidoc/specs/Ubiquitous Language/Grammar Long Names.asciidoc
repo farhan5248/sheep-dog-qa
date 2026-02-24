@@ -12,7 +12,7 @@ There are long-form or qualified names for
 Add more examples of all the combinations for a single object.
 Then add examples of how two objects in the same test affect the inheritance.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file steps snippet is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
 | Step Name                                   
@@ -35,5 +35,5 @@ Then add examples of how two objects in the same test affect the inheritance.
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
-* Then: The xtext plugin validate dialog will be empty
+* Then: The xtext plugin validate annotation will be empty
 
