@@ -9,11 +9,10 @@ There's 4 types of warnings, the scenarios below cover them.
 
 == Test-Case: This object doesn't exist quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                               
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
@@ -26,31 +25,30 @@ The step object file doesn't exist for the component
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element                          
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name                                           | Quickfix Description
+| Proposal Id                                             | Proposal Description
 | Generate Input file - daily batchjob/Input file.feature | empty               
 |===
 
 == Test-Case: This object step definition doesn't exist quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                               
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
+| Step Object Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is absent           
 |===
 
@@ -63,39 +61,38 @@ The step definition doesn't exist for the step object
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element                          
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description | Quickfix 
-| is absent     | empty                | is absent
+| Proposal Id | Proposal Description | Proposal Value
+| is absent   | empty                | is absent     
 |===
 
 * And: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name       | Quickfix Description
+| Proposal Id         | Proposal Description
 | Generate is present | empty               
 |===
 
 == Test-Case: This object step definition parameter set doesn't exist quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                       | Row Contents
-| The daily batchjob Input file is set as follows | N1, N2      
+| Test Step Full Name                             | Row Cell List
+| The daily batchjob Input file is set as follows | N1, N2       
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters
-| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3          
 |===
 
 * And: The xtext plugin validate annotation is set as follows
@@ -107,39 +104,38 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element                                      
+| Node Path                                             
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name | Quickfix Description | Quickfix  
-| E1, E2, E3    | empty                | E1, E2, E3
+| Proposal Id | Proposal Description | Proposal Value
+| E1, E2, E3  | empty                | E1, E2, E3    
 |===
 
 * And: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name   | Quickfix Description
+| Proposal Id     | Proposal Description
 | Generate N1, N2 | empty               
 |===
 
 == Test-Case: This object step definition text parameter exists quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                       | Text Content
+| Test Step Full Name                             | Text Content
 | The daily batchjob Input file is set as follows | Some text   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters
-| daily batchjob/Input file.feature | is set as follows    | Content   
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | Content             
 |===
 
 * And: The xtext plugin validate annotation is empty
@@ -147,7 +143,7 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element                                
+| Node Path                                       
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
@@ -155,18 +151,17 @@ The step parameters don't exist for the step definition
 
 == Test-Case: This object step definition text parameter doesn't exist quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                       | Text Content
+| Test Step Full Name                             | Text Content
 | The daily batchjob Input file is set as follows | Some text   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
+| Step Object Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is set as follows   
 |===
 
@@ -179,14 +174,14 @@ The step parameters don't exist for the step definition
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element                                
+| Node Path                                       
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name    | Quickfix Description
+| Proposal Id      | Proposal Description
 | Generate Content | empty               
 |===
 

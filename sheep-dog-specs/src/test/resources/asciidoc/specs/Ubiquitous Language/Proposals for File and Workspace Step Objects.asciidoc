@@ -14,13 +14,12 @@ The variables are:
 
 == Test-Case: No component has existing
 
-
 It should show that if there's objects from more than one component, it only picks the matching component
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                
+| Test Step Full Name                      
 | The daily batchjob Output file is present
 | empty                                    
 |===
@@ -28,21 +27,21 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                        | Step Definition Name
-| daily batchjob/Input file.feature  | is present          
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present          
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element                          
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
-| Suggestion                     | Suggestion Name           
+| Proposal Value                 | Proposal Id               
 | The Output file                | Output file               
 | The daily batchjob Output file | daily batchjob/Output file
 | The daily batchjob Input file  | Input file                
@@ -50,11 +49,10 @@ It should show that if there's objects from more than one component, it only pic
 
 == Test-Case: Has component has existing
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                
+| Test Step Full Name                      
 | The daily batchjob Output file is present
 | The daily batchjob                       
 |===
@@ -62,22 +60,23 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                        | Step Definition Name
-| daily batchjob/Input file.feature  | is present          
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present          
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Selected Element                          
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
-| Suggestion                     | Suggestion Name           
+| Proposal Value                 | Proposal Id               
 | The Output file                | Output file               
 | The daily batchjob Output file | daily batchjob/Output file
 | The daily batchjob Input file  | Input file                
 |===
+

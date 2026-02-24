@@ -4,15 +4,15 @@
 
 == Step-Definition: will be set as follows
 
-* Step-Parameters: Suggestion, Suggestion Description, Suggestion Name
+* Step-Parameters: Proposal Value, Proposal Description, Proposal Id
 +
 |===
-| Suggestion | Suggestion Name | Suggestion Description
+| Proposal Value | Proposal Id | Proposal Description
 |===
 
-* Step-Parameters: Suggestion, Suggestion Name
+* Step-Parameters: Proposal Value, Proposal Id
 +
 |===
-| Suggestion | Suggestion Name
+| Proposal Value | Proposal Id
 |===
 

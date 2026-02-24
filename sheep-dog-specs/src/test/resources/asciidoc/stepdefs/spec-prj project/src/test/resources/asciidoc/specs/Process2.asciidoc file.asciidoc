@@ -8,10 +8,10 @@ The Process Test-Suite describes how the Input file is a file processed by a dai
 
 Adds test steps to the test setup.
 
-* Step-Parameters: Step Name
+* Step-Parameters: Test Step Full Name
 +
 |===
-| Step Name
+| Test Step Full Name
 |===
 
 == Step-Definition: is created as follows
@@ -32,37 +32,37 @@ Adds test steps to the test setup.
 
 Adds test step to the test case.
 
-* Step-Parameters: Row Contents, Step Name
+* Step-Parameters: Row Cell List, Test Step Full Name
 +
 |===
-| Step Name | Row Contents
+| Test Step Full Name | Row Cell List
 |===
 
-* Step-Parameters: Step Name
+* Step-Parameters: Test Step Full Name
 +
 The step name without keywords like Given.
 
 +
 |===
-| Step Name
+| Test Step Full Name
 |===
 
-* Step-Parameters: Step Name, Text Content
+* Step-Parameters: Test Step Full Name, Text Content
 +
 The step name without keywords like Given with its headers.
 I think this only handles one header at a time so two rows would be needed to specify two headers for the same step definition.
 
 +
 |===
-| Step Name | Text Content
+| Test Step Full Name | Text Content
 |===
 
 == Step-Definition: will be created as follows
 
-* Step-Parameters: Row Contents, Step Name
+* Step-Parameters: Row Cell List, Test Step Full Name
 +
 |===
-| Step Name | Row Contents
+| Test Step Full Name | Row Cell List
 |===
 
 * Step-Parameters: Test Case Name, Test Suite Name

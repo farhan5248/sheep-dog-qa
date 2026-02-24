@@ -18,148 +18,144 @@ There's 3 things to generate
 
 == Test-Case: This object doesn't exist generation
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                               
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
 +
 |===
-| Quickfix Name                                           | Quickfix Description
+| Proposal Id                                             | Proposal Description
 | Generate Input file - daily batchjob/Input file.feature | empty               
 |===
 
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Selected Element                          
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
 +
 |===
-| Object Name                       | Step Definition Name
+| Step Object Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is present          
 |===
 
 == Test-Case: This object step definition doesn't exist generation
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
-| daily batchjob/Input file.feature | is absent
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is absent           
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
 +
 |===
-| Quickfix Name       | Quickfix Description
-| Generate is present | empty
+| Proposal Id         | Proposal Description
+| Generate is present | empty               
 |===
 
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
 +
 |===
-| Object Name                       | Step Definition Name
-| daily batchjob/Input file.feature | is absent
-| daily batchjob/Input file.feature | is present
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is absent           
+| daily batchjob/Input file.feature | is present          
 |===
 
 == Test-Case: This object step definition parameter set doesn't exist generation
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                       | Row Contents
-| The daily batchjob Input file is set as follows | N1, N2
+| Test Step Full Name                             | Row Cell List
+| The daily batchjob Input file is set as follows | N1, N2       
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters
-| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3          
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
 +
 |===
-| Quickfix Name   | Quickfix Description
-| Generate N1, N2 | empty
+| Proposal Id     | Proposal Description
+| Generate N1, N2 | empty               
 |===
 
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                             
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters
-| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
-| daily batchjob/Input file.feature | is set as follows    | N1, N2
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3          
+| daily batchjob/Input file.feature | is set as follows    | N1, N2              
 |===
 
 == Test-Case: This object step definition text parameter doesn't exist generation
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                       | Text Content
-| The daily batchjob Input file is set as follows | Some text
+| Test Step Full Name                             | Text Content
+| The daily batchjob Input file is set as follows | Some text   
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name
-| daily batchjob/Input file.feature | is set as follows
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is set as follows   
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
 +
 |===
-| Quickfix Name    | Quickfix Description
-| Generate Content | empty
+| Proposal Id      | Proposal Description
+| Generate Content | empty               
 |===
 
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                       
 | TestSuite/1/TestStepContainer/1/TestStep/1/Text/
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters
-| daily batchjob/Input file.feature | is set as follows    | Content
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | Content             
 |===
 

@@ -1,34 +1,32 @@
 = Step-Object: list quickfixes popup
 
-== Step-Definition: Quickfix Name
-
 == Step-Definition: is set as follows
 
-* Step-Parameters: Quickfix Description, Quickfix Name
+* Step-Parameters: Proposal Description, Proposal Id
 +
 |===
-| Quickfix Name | Quickfix Description
+| Proposal Id | Proposal Description
 |===
 
-* Step-Parameters: Quickfix, Quickfix Description, Quickfix Name
+* Step-Parameters: Proposal Value, Proposal Description, Proposal Id
 +
 |===
-| Quickfix Name | Quickfix Description | Quickfix
+| Proposal Id | Proposal Description | Proposal Value
 |===
 
 == Step-Definition: will be empty
 
 == Step-Definition: will be set as follows
 
-* Step-Parameters: Quickfix Description, Quickfix Name
+* Step-Parameters: Proposal Description, Proposal Id
 +
 |===
-| Quickfix Name | Quickfix Description
+| Proposal Id | Proposal Description
 |===
 
-* Step-Parameters: Quickfix, Quickfix Description, Quickfix Name
+* Step-Parameters: Proposal Value, Proposal Description, Proposal Id
 +
 |===
-| Quickfix Name | Quickfix Description | Quickfix
+| Proposal Id | Proposal Description | Proposal Value
 |===
 

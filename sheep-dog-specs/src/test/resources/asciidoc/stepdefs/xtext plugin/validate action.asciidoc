@@ -2,9 +2,9 @@
 
 == Step-Definition: is performed as follows
 
-* Step-Parameters: Selected Element
+* Step-Parameters: Node Path
 +
 |===
-| Selected Element
+| Node Path
 |===
 

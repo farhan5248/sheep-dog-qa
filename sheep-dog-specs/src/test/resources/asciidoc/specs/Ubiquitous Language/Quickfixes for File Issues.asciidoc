@@ -7,11 +7,10 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                               
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 | The Input file is downloaded            
 |===
@@ -19,7 +18,7 @@ For example not knowing which component an object belongs to gets in the way of 
 * And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Step Definition Description
+| Step Object Name                  | Step Definition Name | Step Definition Description
 | daily batchjob/Input file.feature | is present           | Creates empty file         
 |===
 
@@ -28,7 +27,7 @@ For example not knowing which component an object belongs to gets in the way of 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element       
+| Node Path                      
 | TestSuite/1/TestStepContainer/1
 |===
 
@@ -36,14 +35,13 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: No component in the first step triggers an error quickfix
 
-
 The first step needs to have a component specified.
 The other steps default to that one.
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                  
+| Test Step Full Name                        
 | The Input file is present                  
 | The daily batchjob Input file is downloaded
 |===
@@ -57,7 +55,7 @@ The first step must have a component
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element       
+| Node Path                      
 | TestSuite/1/TestStepContainer/1
 |===
 

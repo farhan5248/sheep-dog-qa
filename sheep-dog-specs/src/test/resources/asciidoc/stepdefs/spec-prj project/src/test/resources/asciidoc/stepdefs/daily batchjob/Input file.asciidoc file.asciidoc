@@ -8,68 +8,68 @@ The Input file is a file processed by the daily batchjob.
 
 Updates the file contents with the table data.
 
-* Step-Parameters: Object Description, Object Name
+* Step-Parameters: Step Object Description, Step Object Name
 +
 Creates a Step-Object and its description
 
 +
 |===
-| Object Name | Step Definition Name | Object Description
+| Step Object Name | Step Definition Name | Step Object Description
 |===
 
-* Step-Parameters: Object Name, Parameters, Parameters Description, Step Definition Name
+* Step-Parameters: Step Object Name, Step Parameters Name, Step Parameters Description, Step Definition Name
 +
 |===
-| Object Name | Step Definition Name | Parameters | Parameters Description
+| Step Object Name | Step Definition Name | Step Parameters Name | Step Parameters Description
 |===
 
-* Step-Parameters: Object Name, Parameters, Step Definition Name
+* Step-Parameters: Step Object Name, Step Parameters Name, Step Definition Name
 +
 Creates a Step-Object and Step-Definition with its parameters.
 I think this only handles one parameter at a time so two rows would be needed to specify two parameters for the same step definition.
 
 +
 |===
-| Object Name | Step Definition Name | Parameters
+| Step Object Name | Step Definition Name | Step Parameters Name
 |===
 
-* Step-Parameters: Object Name, Step Definition Description, Step Definition Name
+* Step-Parameters: Step Object Name, Step Definition Description, Step Definition Name
 +
 Creates a Step-Object and Step-Definition with its description
 
 +
 |===
-| Object Name | Step Definition Name | Step Definition Description
+| Step Object Name | Step Definition Name | Step Definition Description
 |===
 
-* Step-Parameters: Object Name, Step Definition Name
+* Step-Parameters: Step Object Name, Step Definition Name
 +
 Creates a Step-Object and Step-Definition
 
 +
 |===
-| Object Name | Step Definition Name
+| Step Object Name | Step Definition Name
 |===
 
 == Step-Definition: will be created as follows
 
 Asserts that the file contents contains the table data.
 
-* Step-Parameters: Object Name, Parameters, Step Definition Name
+* Step-Parameters: Step Object Name, Step Parameters Name, Step Definition Name
 +
 Asserts that the Step-Object and Step-Definition with its parameters exist.
 
 +
 |===
-| Object Name | Step Definition Name | Parameters
+| Step Object Name | Step Definition Name | Step Parameters Name
 |===
 
-* Step-Parameters: Object Name, Step Definition Name
+* Step-Parameters: Step Object Name, Step Definition Name
 +
 Asserts that the Step-Object and Step-Definition exist
 
 +
 |===
-| Object Name | Step Definition Name
+| Step Object Name | Step Definition Name
 |===
 

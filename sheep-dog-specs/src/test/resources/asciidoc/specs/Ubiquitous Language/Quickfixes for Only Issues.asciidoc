@@ -6,19 +6,18 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Cell name should start with a capital letter quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                | Row Contents           
+| Test Step Full Name                      | Row Cell List   
 | The daily batchjob Input file is present | lowercase header
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 +
 |===
-| Object Name                       | Step Definition Name | Parameters      
-| daily batchjob/Input file.feature | is present           | lowercase header
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is present           | lowercase header    
 |===
 
 * And: The xtext plugin validate annotation is set as follows
@@ -30,26 +29,25 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                                    
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name        | Quickfix Description                    | Quickfix
+| Proposal Id          | Proposal Description                    | Proposal Value  
 | Capitalize cell name | Capitalize the first letter of the name | Lowercase header
 |===
 
 == Test-Case: Body row Cell names can be any case quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                                | Row Contents
-| The daily batchjob Input file is present | Header
-| The daily batchjob Input file is present | value
+| Test Step Full Name                      | Row Cell List
+| The daily batchjob Input file is present | Header       
+| The daily batchjob Input file is present | value        
 |===
 
 * And: The xtext plugin validate annotation is empty
@@ -57,14 +55,13 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                                    
 | TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/2/Cell/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
 
 == Test-Case: Test suite name should start with a capital letter quickfix
-
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -82,19 +79,18 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Node Path  
 | TestSuite/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name              | Quickfix Description                    | Quickfix         
+| Proposal Id                | Proposal Description                    | Proposal Value   
 | Capitalize test suite name | Capitalize the first letter of the name | Lowercase process
 |===
 
 == Test-Case: Test case name should start with a capital letter quickfix
-
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
 +
@@ -112,25 +108,24 @@ Name should start with a capital
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element       
+| Node Path                      
 | TestSuite/1/TestStepContainer/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
 +
 |===
-| Quickfix Name                       | Quickfix Description                    | Quickfix           
+| Proposal Id                         | Proposal Description                    | Proposal Value     
 | Capitalize test step container name | Capitalize the first letter of the name | Lowercase test case
 |===
 
 == Test-Case: Test step must have a valid object name quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name     
-| The is present
+| Test Step Full Name
+| The is present     
 |===
 
 * And: The xtext plugin validate annotation is set as follows
@@ -149,7 +144,7 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
@@ -157,11 +152,10 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 
 == Test-Case: Test step must have a valid step definition name quickfix
 
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
 +
 |===
-| Step Name                    
+| Test Step Full Name          
 | The daily batchjob Input file
 |===
 
@@ -186,7 +180,7 @@ Examples are: "after the next day" or "on time"
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Selected Element
+| Node Path                                 
 | TestSuite/1/TestStepContainer/1/TestStep/1
 |===
 
