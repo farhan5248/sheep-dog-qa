@@ -1,4 +1,4 @@
-= Test-Suite: StepObjectRef Fragments
+= Test-Suite: Grammar StepObjectRef Fragments
 
 @sheep-dog-test
 
