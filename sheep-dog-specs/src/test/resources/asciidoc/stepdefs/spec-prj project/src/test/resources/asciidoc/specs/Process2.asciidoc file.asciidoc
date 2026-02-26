@@ -1,124 +1,6 @@
 = Step-Object: Process2.asciidoc file
 
-Represents a Test-Suite file called Process.feature.
-It should be Process.asciidoc which I'll rename later.
-The Process Test-Suite describes how the Input file is a file processed by a daily batchjob.
-
-== Step-Definition: TestSuite/1/TestStepContainer/1 node is created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Test Case Name
-+
-|===
-| Test Case Name
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1 node will be created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Test Case Name
-+
-|===
-| Test Case Name
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
-
-* Step-Parameters: Full Name
-+
-|===
-| Full Name
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell node is created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Row Cell List
-+
-|===
-| Row Cell List
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell node will be created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Row Cell List
-+
-|===
-| Row Cell List
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/2/Cell node is created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Row Cell List
-+
-|===
-| Row Cell List
-|===
-
-== Step-Definition: TestSuite/1/TestStepContainer/1/TestStep/1/Text node is created as follows
-
-* Step-Parameters: Content
-+
-|===
-| Content
-|===
-
-* Step-Parameters: Text Content
-+
-|===
-| Text Content
-|===
-
-== Step-Definition: background test step list assignment is created as follows
-
-Adds test steps to the test setup.
-
-* Step-Parameters: Test Step Full Name
-+
-|===
-| Test Step Full Name
-|===
-
-== Step-Definition: is created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Test Case Name, Test Suite Name
-+
-|===
-| Test Suite Name | Test Case Name
-|===
+== Step-Definition: TestSuite node is created as follows
 
 * Step-Parameters: Test Suite Name
 +
@@ -126,116 +8,71 @@ Adds test steps to the test setup.
 | Test Suite Name
 |===
 
-== Step-Definition: line type is created as follows
+== Step-Definition: TestSuite/1/TestCase node is created as follows
 
-* Step-Parameters: Line
+* Step-Parameters: Test Case Name
 +
 |===
-| Line
+| Test Case Name
 |===
 
-== Step-Definition: phrase tag fragment will be decomposed as follows
+== Step-Definition: TestSuite/1/TestCase/1 node will be created as follows
 
-* Step-Parameters: Tag List
+* Step-Parameters: Test Case Name
 +
 |===
-| Tag List
+| Test Case Name
 |===
 
-== Step-Definition: phrase todo fragment will be decomposed as follows
-
-* Step-Parameters: Todo Description, Todo Type
-+
-|===
-| Todo Type | Todo Description
-|===
-
-== Step-Definition: step definition ref part fragment will be decomposed as follows
-
-* Step-Parameters: Part, Part Name, Part Type
-+
-|===
-| Part | Part Name | Part Type
-|===
-
-== Step-Definition: step definition ref state fragment will be decomposed as follows
-
-* Step-Parameters: State, State Modality, State Type
-+
-|===
-| State | State Modality | State Type
-|===
-
-== Step-Definition: step object ref component fragment will be decomposed as follows
-
-* Step-Parameters: Component, Component Name, Component Type
-+
-|===
-| Component | Component Name | Component Type
-|===
-
-== Step-Definition: step object ref object edge fragment will be decomposed as follows
-
-* Step-Parameters: Object Name, Object Type
-+
-|===
-| Object Name | Object Type
-|===
-
-== Step-Definition: step object ref object fragment will be decomposed as follows
-
-* Step-Parameters: Object, Object Name, Object Type
-+
-|===
-| Object | Object Name | Object Type
-|===
-
-== Step-Definition: step object ref object vertex fragment will be decomposed as follows
-
-* Step-Parameters: Object Name, Object Type
-+
-|===
-| Object Name | Object Type
-|===
-
-== Step-Definition: test step definition ref state fragment will be decomposed as follows
-
-* Step-Parameters: State, State Modality, State Type
-+
-|===
-| State | State Modality | State Type
-|===
-
-== Step-Definition: test step list assignment is created as follows
-
-Adds test step to the test case.
-
-* Step-Parameters: Row Cell List, Test Step Full Name
-+
-|===
-| Test Step Full Name | Row Cell List
-|===
+== Step-Definition: TestSuite/1/TestCase/1/TestStep node is created as follows
 
 * Step-Parameters: Test Step Full Name
-+
-The step name without keywords like Given.
-
 +
 |===
 | Test Step Full Name
 |===
 
-* Step-Parameters: Test Step Full Name, Text Content
-+
-The step name without keywords like Given with its headers.
-I think this only handles one header at a time so two rows would be needed to specify two headers for the same step definition.
+== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 
+* Step-Parameters: Cell Name
 +
 |===
-| Test Step Full Name | Text Content
+| Cell Name
 |===
 
-== Step-Definition: test step type is created as follows
+== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node will be created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
+== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell node is created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
+== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Text node is created as follows
+
+* Step-Parameters: Text Content
++
+|===
+| Text Content
+|===
+
+== Step-Definition: TestSuite/1/TestCase/2/TestStep node is created as follows
+
+* Step-Parameters: Test Step Full Name
++
+|===
+| Test Step Full Name
+|===
+
+== Step-Definition: TestSuite/1/TestSetup/1/TestStep node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
@@ -244,24 +81,6 @@ I think this only handles one header at a time so two rows would be needed to sp
 |===
 
 == Step-Definition: will be created as follows
-
-* Step-Parameters: Name
-+
-|===
-| Name
-|===
-
-* Step-Parameters: Row Cell List, Test Step Full Name
-+
-|===
-| Test Step Full Name | Row Cell List
-|===
-
-* Step-Parameters: Test Case Name, Test Suite Name
-+
-|===
-| Test Suite Name | Test Case Name
-|===
 
 * Step-Parameters: Test Suite Name
 +

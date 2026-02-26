@@ -6,70 +6,47 @@ The Input file is a file processed by the daily batchjob.
 
 == Step-Definition: is created as follows
 
-Updates the file contents with the table data.
-
-* Step-Parameters: Step Object Description, Step Object Name
-+
-Creates a Step-Object and its description
-
-+
-|===
-| Step Object Name | Step Definition Name | Step Object Description
-|===
-
-* Step-Parameters: Step Object Name, Step Parameters Name, Step Parameters Description, Step Definition Name
-+
-|===
-| Step Object Name | Step Definition Name | Step Parameters Name | Step Parameters Description
-|===
-
-* Step-Parameters: Step Object Name, Step Parameters Name, Step Definition Name
-+
-Creates a Step-Object and Step-Definition with its parameters.
-I think this only handles one parameter at a time so two rows would be needed to specify two parameters for the same step definition.
-
-+
-|===
-| Step Object Name | Step Definition Name | Step Parameters Name
-|===
-
-* Step-Parameters: Step Object Name, Step Definition Description, Step Definition Name
-+
-Creates a Step-Object and Step-Definition with its description
-
+* Step-Parameters: Step Definition Description, Step Definition Name, Step Object Name
 +
 |===
 | Step Object Name | Step Definition Name | Step Definition Description
 |===
 
-* Step-Parameters: Step Object Name, Step Definition Name
+* Step-Parameters: Step Definition Name, Step Object Description, Step Object Name
 +
-Creates a Step-Object and Step-Definition
+|===
+| Step Object Name | Step Definition Name | Step Object Description
+|===
 
+* Step-Parameters: Step Definition Name, Step Object Name
 +
 |===
 | Step Object Name | Step Definition Name
 |===
 
-== Step-Definition: will be created as follows
-
-Asserts that the file contents contains the table data.
-
-* Step-Parameters: Step Object Name, Step Parameters Name, Step Definition Name
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Description, Step Parameters Name
 +
-Asserts that the Step-Object and Step-Definition with its parameters exist.
+|===
+| Step Object Name | Step Definition Name | Step Parameters Name | Step Parameters Description
+|===
 
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Name
 +
 |===
 | Step Object Name | Step Definition Name | Step Parameters Name
 |===
 
-* Step-Parameters: Step Object Name, Step Definition Name
-+
-Asserts that the Step-Object and Step-Definition exist
+== Step-Definition: will be created as follows
 
+* Step-Parameters: Step Definition Name, Step Object Name
 +
 |===
 | Step Object Name | Step Definition Name
+|===
+
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Name
++
+|===
+| Step Object Name | Step Definition Name | Step Parameters Name
 |===
 

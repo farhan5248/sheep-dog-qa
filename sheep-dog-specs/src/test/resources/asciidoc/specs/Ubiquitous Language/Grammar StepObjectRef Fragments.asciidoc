@@ -6,7 +6,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
 | Test Step Full Name
@@ -15,7 +15,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 * When: The xtext plugin validate action is performed
 
-* Then: The spec-prj project Process2.asciidoc file step object ref component fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref component fragment will be decomposed as follows
 +
 |===
 | Component   | Component Name   | Component Type
@@ -37,7 +37,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
 | Test Step Full Name
@@ -46,7 +46,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 * When: The xtext plugin validate action is performed
 
-* Then: The spec-prj project Process2.asciidoc file step object ref object fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object fragment will be decomposed as follows
 +
 |===
 | Object   | Object Name   | Object Type
@@ -64,7 +64,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Vertex Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
 | Test Step Full Name
@@ -73,7 +73,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 * When: The xtext plugin validate action is performed
 
-* Then: The spec-prj project Process2.asciidoc file step object ref object vertex fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object vertex fragment will be decomposed as follows
 +
 |===
 | Object Name   | Object Type
@@ -97,7 +97,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Edge Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
 | Test Step Full Name
@@ -106,7 +106,7 @@ A StepObjectRef identifies the component and object in a test step.
 
 * When: The xtext plugin validate action is performed
 
-* Then: The spec-prj project Process2.asciidoc file step object ref object edge fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object edge fragment will be decomposed as follows
 +
 |===
 | Object Name   | Object Type

@@ -6,17 +6,17 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Cell name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name
+| Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
-| Name
+| Cell Name
 | lowercase header
 |===
 
@@ -37,7 +37,7 @@ Name should start with a capital
 +
 |===
 | Node Path                                                    
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
@@ -49,31 +49,24 @@ Name should start with a capital
 
 == Test-Case: Body row Cell names can be any case quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name
+| Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
-| Name
+| Cell Name
 | Header
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell node is created as follows
 +
 |===
-| Full Name
-| The daily batchjob Input file is present
-|===
-
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/2/Cell node is created as follows
-+
-|===
-| Name
+| Cell Name
 | value
 |===
 
@@ -83,17 +76,17 @@ Name should start with a capital
 +
 |===
 | Node Path                                                    
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/2/Cell/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
 
 == Test-Case: Test suite name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite node is created as follows
 +
 |===
-| Name  
+| Test Suite Name
 | lowercase process
 |===
 
@@ -119,10 +112,10 @@ Name should start with a capital
 
 == Test-Case: Test case name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase node is created as follows
 +
 |===
-| Name
+| Test Case Name
 | lowercase test case
 |===
 
@@ -136,7 +129,7 @@ Name should start with a capital
 +
 |===
 | Node Path                      
-| TestSuite/1/TestStepContainer/1
+| TestSuite/1/TestCase/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
@@ -148,10 +141,10 @@ Name should start with a capital
 
 == Test-Case: Test step must have a valid object name quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name
+| Test Step Full Name
 | The is present     
 |===
 
@@ -172,17 +165,17 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 +
 |===
 | Node Path                                 
-| TestSuite/1/TestStepContainer/1/TestStep/1
+| TestSuite/1/TestCase/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
 
 == Test-Case: Test step must have a valid step definition name quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name          
+| Test Step Full Name          
 | The daily batchjob Input file
 |===
 
@@ -208,7 +201,7 @@ Examples are: "after the next day" or "on time"
 +
 |===
 | Node Path                                 
-| TestSuite/1/TestStepContainer/1/TestStep/1
+| TestSuite/1/TestCase/1/TestStep/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty

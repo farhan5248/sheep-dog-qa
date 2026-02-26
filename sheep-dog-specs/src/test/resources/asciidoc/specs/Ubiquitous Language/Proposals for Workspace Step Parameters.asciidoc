@@ -6,7 +6,7 @@ If the step definition has step parameters, they'll be proposed.
 
 == Test-Case: No existing step object
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                                
@@ -17,14 +17,14 @@ If the step definition has step parameters, they'll be proposed.
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: No existing step definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                                
@@ -42,14 +42,14 @@ If the step definition has step parameters, they'll be proposed.
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals popup will be empty
 
 == Test-Case: Has existing step definition without parameters
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -67,7 +67,7 @@ If the step definition has step parameters, they'll be proposed.
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals popup will be empty
@@ -76,7 +76,7 @@ If the step definition has step parameters, they'll be proposed.
 
 TODO I should add more parameter combinations to describe this better.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                                
@@ -94,7 +94,7 @@ TODO I should add more parameter combinations to describe this better.
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
@@ -108,7 +108,7 @@ TODO I should add more parameter combinations to describe this better.
 
 Content parameters shouldn't be proposed as they are for text blocks, not table rows.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                                
@@ -126,7 +126,7 @@ Content parameters shouldn't be proposed as they are for text blocks, not table 
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The xtext plugin list proposals popup will be empty

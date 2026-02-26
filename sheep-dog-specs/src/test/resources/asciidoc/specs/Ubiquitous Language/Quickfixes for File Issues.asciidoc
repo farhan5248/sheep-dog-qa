@@ -7,7 +7,7 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -28,7 +28,7 @@ For example not knowing which component an object belongs to gets in the way of 
 +
 |===
 | Node Path                      
-| TestSuite/1/TestStepContainer/1
+| TestSuite/1/TestCase/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
@@ -38,7 +38,7 @@ For example not knowing which component an object belongs to gets in the way of 
 The first step needs to have a component specified.
 The other steps default to that one.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file test step list assignment is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
 | Test Step Full Name                        
@@ -56,7 +56,7 @@ The first step must have a component
 +
 |===
 | Node Path                      
-| TestSuite/1/TestStepContainer/1
+| TestSuite/1/TestCase/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty

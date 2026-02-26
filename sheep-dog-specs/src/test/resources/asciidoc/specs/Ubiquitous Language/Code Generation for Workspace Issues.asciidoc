@@ -18,10 +18,10 @@ There's 3 things to generate
 
 == Test-Case: This object doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name                     
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
@@ -36,7 +36,7 @@ There's 3 things to generate
 +
 |===
 | Node Path                                 
-| TestSuite/1/TestStepContainer/1/TestStep/1
+| TestSuite/1/TestCase/1/TestStep/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
@@ -48,10 +48,10 @@ There's 3 things to generate
 
 == Test-Case: This object step definition doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name                     
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
@@ -73,7 +73,7 @@ There's 3 things to generate
 +
 |===
 | Node Path                                 
-| TestSuite/1/TestStepContainer/1/TestStep/1
+| TestSuite/1/TestCase/1/TestStep/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
@@ -86,17 +86,17 @@ There's 3 things to generate
 
 == Test-Case: This object step definition parameter set doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name
+| Test Step Full Name
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1/Cell node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
-| Name
+| Cell Name
 | N1
 | N2
 |===
@@ -119,7 +119,7 @@ There's 3 things to generate
 +
 |===
 | Node Path                                             
-| TestSuite/1/TestStepContainer/1/TestStep/1/Table/Row/1
+| TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
@@ -132,17 +132,17 @@ There's 3 things to generate
 
 == Test-Case: This object step definition text parameter doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1 node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Full Name
+| Test Step Full Name
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestStepContainer/1/TestStep/1/Text node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Text node is created as follows
 +
 |===
-| Content
+| Text Content
 | Some text
 |===
 
@@ -164,7 +164,7 @@ There's 3 things to generate
 +
 |===
 | Node Path                                       
-| TestSuite/1/TestStepContainer/1/TestStep/1/Text/
+| TestSuite/1/TestCase/1/TestStep/1/Text/
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file will be created as follows
