@@ -13,7 +13,7 @@ These validations check for syntax and naming issues that can be detected by par
 | The daily batchjob Input file is present
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
+* And: The Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
 | Cell Name
@@ -42,14 +42,14 @@ Name should start with a capital
 | The daily batchjob Input file is present
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
+* And: The Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
 | Cell Name
 | Header
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell node is created as follows
+* And: The Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell node is created as follows
 +
 |===
 | Cell Name

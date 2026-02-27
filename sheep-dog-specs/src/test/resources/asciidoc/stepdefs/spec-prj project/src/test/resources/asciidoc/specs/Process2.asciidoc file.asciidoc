@@ -8,6 +8,14 @@
 | Test Suite Name
 |===
 
+== Step-Definition: TestSuite/1 node will be created as follows
+
+* Step-Parameters: Test Suite Name
++
+|===
+| Test Suite Name
+|===
+
 == Step-Definition: TestSuite/1/TestCase node is created as follows
 
 * Step-Parameters: Test Case Name
@@ -78,13 +86,5 @@
 +
 |===
 | Test Step Full Name
-|===
-
-== Step-Definition: will be created as follows
-
-* Step-Parameters: Test Suite Name
-+
-|===
-| Test Suite Name
 |===
 
