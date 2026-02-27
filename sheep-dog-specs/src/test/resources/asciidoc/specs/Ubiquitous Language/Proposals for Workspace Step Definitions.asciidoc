@@ -60,21 +60,14 @@ When the reference look-up is done, the step-object is located using the full pa
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name | Step Definition Description
-| is present           | Creates empty file
+| Step Object Name                  | Step Definition Name | Step Definition Description
+| daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                 
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/1
 |===
 
@@ -82,7 +75,7 @@ When the reference look-up is done, the step-object is located using the full pa
 +
 |===
 | Proposal Value | Proposal Id | Proposal Description
-| is present     | is present  | Creates empty file  
+| is present     | is present  | Creates empty file
 |===
 
 == Test-Case: No component has existing step definition
@@ -98,21 +91,14 @@ When the reference look-up is done, the step-object is located using the full pa
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name | Step Definition Description
-| is present           | Creates empty file
+| Step Object Name                  | Step Definition Name | Step Definition Description
+| daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                 
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/1
 |===
 
@@ -120,6 +106,6 @@ When the reference look-up is done, the step-object is located using the full pa
 +
 |===
 | Proposal Value | Proposal Id | Proposal Description
-| is present     | is present  | Creates empty file  
+| is present     | is present  | Creates empty file
 |===
 

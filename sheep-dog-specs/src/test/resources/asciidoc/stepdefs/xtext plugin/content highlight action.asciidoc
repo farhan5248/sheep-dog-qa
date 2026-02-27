@@ -1,4 +1,0 @@
-= Step-Object: content highlight action
-
-== Step-Definition: is performed
-

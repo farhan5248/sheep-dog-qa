@@ -18,15 +18,8 @@ For example not knowing which component an object belongs to gets in the way of 
 * And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name | Step Definition Description
-| is present           | Creates empty file
+| Step Object Name                  | Step Definition Name | Step Definition Description
+| daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
 * And: The xtext plugin validate annotation is empty

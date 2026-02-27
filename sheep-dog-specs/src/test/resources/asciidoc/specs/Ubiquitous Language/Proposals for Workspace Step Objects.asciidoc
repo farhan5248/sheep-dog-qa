@@ -44,15 +44,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name                  | Step Object Description
-| daily batchjob/Input file.feature | Description\n
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
+| Step Object Name                  | Step Object Description | Step Definition Name
+| daily batchjob/Input file.feature | Description             | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
@@ -66,7 +59,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 +
 |===
 | Proposal Value                | Proposal Id | Proposal Description
-| The daily batchjob Input file | Input file  | Description\n       
+| The daily batchjob Input file | Input file  | Description       
 |===
 
 == Test-Case: Has component no existing
@@ -99,15 +92,8 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name                  | Step Object Description
-| daily batchjob/Input file.feature | Description
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
+| Step Object Name                  | Step Object Description | Step Definition Name
+| daily batchjob/Input file.feature | Description             | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows

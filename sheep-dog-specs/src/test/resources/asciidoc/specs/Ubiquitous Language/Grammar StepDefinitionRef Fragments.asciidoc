@@ -13,25 +13,23 @@ A StepDefinitionRef identifies the part and state in a test step.
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
-* When: The xtext plugin validate action is performed
-
 * Then: The spec-prj project ProcessGrammar.asciidoc file step definition ref part fragment will be decomposed as follows
 +
 |===
-| Part   | Part Name   | Part Type  
-| {Part} | {Part Name} | {Part Type}
+| Part   | Part Description   | Part Type
+| {Part} | {Part Description} | {Part Type}
 |===
 
 * Test-Data: Fragments
 +
 |===
-| Step Definition Ref Name           | Part                      | Part Name      | Part Type 
-| StepObjectRef type is empty        | StepObjectRef type        | StepObjectRef  | type      
-| SheepDog language is empty         | SheepDog language         | SheepDog       | language  
-| StepObjectName assignment is empty | StepObjectName assignment | StepObjectName | assignment
-| Component fragment is empty        | Component fragment        | Component      | fragment  
-| Only scope is empty                | Only scope                | Only           | scope     
-| StepObjectRef node is empty        | StepObjectRef node        | StepObjectRef  | node      
+| Step Definition Ref Name           | Part                      | Part Description | Part Type
+| StepObjectRef type is absent       | StepObjectRef type        | StepObjectRef    | type
+| SheepDog language is absent        | SheepDog language         | SheepDog         | language
+| StepObjectName assignment is absent | StepObjectName assignment | StepObjectName   | assignment
+| Component fragment is absent       | Component fragment        | Component        | fragment
+| Only scope is absent               | Only scope                | Only             | scope
+| StepObjectRef node is absent       | StepObjectRef node        | StepObjectRef    | node
 |===
 
 == Test-Case: State Fragment
@@ -43,39 +41,26 @@ A StepDefinitionRef identifies the part and state in a test step.
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
-* When: The xtext plugin validate action is performed
-
 * Then: The spec-prj project ProcessGrammar.asciidoc file step definition ref state fragment will be decomposed as follows
 +
 |===
-| State   | State Modality   | State Type  
-| {State} | {State Modality} | {State Type}
+| State   | State Description   | State Type
+| {State} | {State Description} | {State Type}
 |===
 
 * Test-Data: Fragments
 +
 |===
-| Step Definition Ref Name    | State                 | State Modality | State Type        
-| StepObjectRef type is empty | is empty              | is             | empty             
-| is set                      | is set                | is             | set               
-| is unset                    | is unset              | is             | unset             
-| is empty                    | is empty              | is             | empty             
-| is present                  | is present            | is             | present           
-| is absent                   | is absent             | is             | absent            
-| is enabled                  | is enabled            | is             | enabled           
-| is disabled                 | is disabled           | is             | disabled          
-| is downloaded               | is downloaded         | is             | downloaded        
-| is uploaded                 | is uploaded           | is             | uploaded          
-| is created as follows       | is created as follows | is             | created as follows
-| isn't empty                 | isn't empty           | isn't          | empty             
-| will be empty               | will be empty         | will be        | empty             
-| won't be empty              | won't be empty        | won't be       | empty             
-| is executed with            | is executed with      | is             | executed with     
-| is sent                     | is sent               | is             | sent              
-| is performed                | is performed          | is             | performed         
-| is triggered                | is triggered          | is             | triggered         
-| isn't executed              | isn't executed        | isn't          | executed          
-| will be executed            | will be executed      | will be        | executed          
-| won't be executed           | won't be executed     | won't be       | executed          
+| Step Definition Ref Name     | State                 | State Type | State Description
+| StepObjectRef type is absent | is absent             | is         | absent
+| is absent                    | is absent             | is         | absent
+| is created as follows        | is created as follows | is         | created as follows
+| isn't absent                 | isn't absent          | isn't      | absent
+| will be absent               | will be absent        | will be    | absent
+| won't be absent              | won't be absent       | won't be   | absent
+| is executed with             | is executed with      | is         | executed with
+| isn't executed               | isn't executed        | isn't      | executed
+| will be executed             | will be executed      | will be    | executed
+| won't be executed            | won't be executed     | won't be   | executed
 |===
 

@@ -9,35 +9,14 @@ These tests verify that code generation works correctly when names follow proper
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep node is created as follows
 +
 |===
-| Test Step Full Name
+| Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
 * And: The Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
 +
 |===
-| Cell Name
-| lowercase header
-|===
-
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
-+
-|===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
+| Cell Name       
 | lowercase header
 |===
 
@@ -51,14 +30,14 @@ These tests verify that code generation works correctly when names follow proper
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Node Path                                                    
+| Node Path                                           
 | TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node will be created as follows
 +
 |===
-| Cell Name
+| Cell Name       
 | Lowercase header
 |===
 
@@ -67,7 +46,7 @@ These tests verify that code generation works correctly when names follow proper
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite node is created as follows
 +
 |===
-| Test Suite Name
+| Test Suite Name  
 | lowercase process
 |===
 
@@ -88,7 +67,7 @@ These tests verify that code generation works correctly when names follow proper
 * Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1 node will be created as follows
 +
 |===
-| Test Suite Name
+| Test Suite Name  
 | Lowercase process
 |===
 
@@ -97,7 +76,7 @@ These tests verify that code generation works correctly when names follow proper
 * Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase node is created as follows
 +
 |===
-| Test Case Name
+| Test Case Name     
 | lowercase test case
 |===
 
@@ -111,14 +90,14 @@ These tests verify that code generation works correctly when names follow proper
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Node Path                      
+| Node Path             
 | TestSuite/1/TestCase/1
 |===
 
 * Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuite/1/TestCase/1 node will be created as follows
 +
 |===
-| Test Case Name
+| Test Case Name     
 | Lowercase test case
 |===
 

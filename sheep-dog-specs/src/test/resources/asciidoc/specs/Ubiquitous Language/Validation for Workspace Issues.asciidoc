@@ -41,15 +41,8 @@ The step object file doesn't exist for the component
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is absent
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is absent
 |===
 
 * When: The xtext plugin validate action is performed as follows
@@ -84,22 +77,8 @@ The step definition doesn't exist for the step object
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is set as follows
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
-| Existing Header
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node is created as follows
@@ -143,22 +122,8 @@ Step definitions for Text Content only have one parameter called "Content"
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is set as follows
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
-| Content
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | Content
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node is created as follows
@@ -198,15 +163,8 @@ If there isn't a step definition in the step object file with a Content header, 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is set as follows
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is set as follows
 |===
 
 * When: The xtext plugin validate action is performed as follows

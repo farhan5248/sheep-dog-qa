@@ -13,8 +13,6 @@ A StepObjectRef identifies the component and object in a test step.
 | {Test Step Full Name}
 |===
 
-* When: The xtext plugin validate action is performed
-
 * Then: The spec-prj project ProcessGrammar.asciidoc file step object ref component fragment will be decomposed as follows
 +
 |===
@@ -33,6 +31,10 @@ A StepObjectRef identifies the component and object in a test step.
 | The sheep-dog-dev-svc service validate annotation file is empty                   | sheep-dog-dev-svc service | sheep-dog-dev-svc | service
 | The maven plugin validate annotation file is empty                                | maven plugin              | maven             | plugin
 | The nightly batchjob validate annotation file is empty                            | nightly batchjob          | nightly           | batchjob
+| The validate annotation file is empty                                             | empty                     | empty             | empty
+| The uml-to-cucumber request is executed with                                      | empty                     | empty             | empty
+| The xtext plugin                                                                  | xtext plugin              | xtext             | plugin
+| The spec-prj project                                                              | spec-prj project          | spec-prj          | project
 |===
 
 == Test-Case: Object Fragment
@@ -43,8 +45,6 @@ A StepObjectRef identifies the component and object in a test step.
 | Test Step Full Name
 | {Test Step Full Name}
 |===
-
-* When: The xtext plugin validate action is performed
 
 * Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object fragment will be decomposed as follows
 +
@@ -70,8 +70,6 @@ A StepObjectRef identifies the component and object in a test step.
 | Test Step Full Name
 | {Test Step Full Name}
 |===
-
-* When: The xtext plugin validate action is performed
 
 * Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object vertex fragment will be decomposed as follows
 +
@@ -103,8 +101,6 @@ A StepObjectRef identifies the component and object in a test step.
 | Test Step Full Name
 | {Test Step Full Name}
 |===
-
-* When: The xtext plugin validate action is performed
 
 * Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object edge fragment will be decomposed as follows
 +

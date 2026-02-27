@@ -34,21 +34,14 @@ If the step definition has step parameters, they'll be proposed.
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                             
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
@@ -66,28 +59,14 @@ If the step definition has step parameters, they'll be proposed.
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is created as follows
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
-| H1, H2, H3
+| Step Object Name                  | Step Definition Name  | Step Parameters Name
+| daily batchjob/Input file.feature | is created as follows | H1, H2, H3
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                             
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/1/Table/Row/1
 |===
 
@@ -107,22 +86,8 @@ TODO I should add more parameter combinations to describe this better.
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is created as follows
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name | Step Parameters Description
-| H1, H2, H3          | Header parameters for tables
+| Step Object Name                  | Step Definition Name  | Step Parameters Name | Step Parameters Description
+| daily batchjob/Input file.feature | is created as follows | H1, H2, H3           | Header parameters for tables
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
@@ -153,22 +118,8 @@ Content parameters shouldn't be proposed as they are for text blocks, not table 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is created as follows
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
-| Content
+| Step Object Name                  | Step Definition Name  | Step Parameters Name
+| daily batchjob/Input file.feature | is created as follows | Content
 |===
 
 * When: The xtext plugin list proposals action is performed as follows

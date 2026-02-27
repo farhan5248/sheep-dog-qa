@@ -2,38 +2,48 @@
 
 == Step-Definition: StepObject node is created as follows
 
-* Step-Parameters: Step Object Description, Step Object Name
+* Step-Parameters: Step Definition Description, Step Definition Name, Step Object Name
 +
 |===
-| Step Object Name | Step Object Description
+| Step Object Name | Step Definition Name | Step Definition Description
 |===
 
-* Step-Parameters: Step Object Name
+* Step-Parameters: Step Definition Name, Step Object Description, Step Object Name
 +
 |===
-| Step Object Name
+| Step Object Name | Step Object Description | Step Definition Name
+|===
+
+* Step-Parameters: Step Definition Name, Step Object Name
++
+|===
+| Step Object Name | Step Definition Name
+|===
+
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Description, Step Parameters Name
++
+|===
+| Step Object Name | Step Definition Name | Step Parameters Name | Step Parameters Description
+|===
+
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Name
++
+|===
+| Step Object Name | Step Definition Name | Step Parameters Name
 |===
 
 == Step-Definition: StepObject/1 node will be created as follows
 
-* Step-Parameters: Step Object Name
+* Step-Parameters: Step Definition Name, Step Object Name
 +
 |===
-| Step Object Name
+| Step Object Name | Step Definition Name
 |===
 
-== Step-Definition: StepObject/1/StepDefinition node is created as follows
-
-* Step-Parameters: Step Definition Description, Step Definition Name
+* Step-Parameters: Step Definition Name, Step Object Name, Step Parameters Name
 +
 |===
-| Step Definition Name | Step Definition Description
-|===
-
-* Step-Parameters: Step Definition Name
-+
-|===
-| Step Definition Name
+| Step Object Name | Step Definition Name | Step Parameters Name
 |===
 
 == Step-Definition: StepObject/1/StepDefinition node will be created as follows
@@ -42,20 +52,6 @@
 +
 |===
 | Step Definition Name
-|===
-
-== Step-Definition: StepObject/1/StepDefinition/1/StepParameters node is created as follows
-
-* Step-Parameters: Step Parameters Description, Step Parameters Name
-+
-|===
-| Step Parameters Name | Step Parameters Description
-|===
-
-* Step-Parameters: Step Parameters Name
-+
-|===
-| Step Parameters Name
 |===
 
 == Step-Definition: StepObject/1/StepDefinition/1/StepParameters node will be created as follows

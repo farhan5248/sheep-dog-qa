@@ -26,18 +26,18 @@
 
 == Step-Definition: step definition ref part fragment will be decomposed as follows
 
-* Step-Parameters: Part, Part Name, Part Type
+* Step-Parameters: Part, Part Description, Part Type
 +
 |===
-| Part | Part Name | Part Type
+| Part | Part Description | Part Type
 |===
 
 == Step-Definition: step definition ref state fragment will be decomposed as follows
 
-* Step-Parameters: State, State Modality, State Type
+* Step-Parameters: State, State Description, State Type
 +
 |===
-| State | State Modality | State Type
+| State | State Description | State Type
 |===
 
 == Step-Definition: step object ref component fragment will be decomposed as follows
@@ -70,14 +70,6 @@
 +
 |===
 | Object Name | Object Type
-|===
-
-== Step-Definition: test step list assignment is created as follows
-
-* Step-Parameters: Test Step Full Name
-+
-|===
-| Test Step Full Name
 |===
 
 == Step-Definition: test step type is created as follows

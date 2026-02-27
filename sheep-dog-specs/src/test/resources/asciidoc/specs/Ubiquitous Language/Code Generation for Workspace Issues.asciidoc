@@ -42,15 +42,8 @@ There's 3 things to generate
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject/1 node will be created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node will be created as follows
-+
-|===
-| Step Definition Name
-| is present          
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present
 |===
 
 == Test-Case: This object step definition doesn't exist generation
@@ -65,15 +58,8 @@ There's 3 things to generate
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is absent           
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is absent
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
@@ -90,14 +76,7 @@ There's 3 things to generate
 | TestSuite/1/TestCase/1/TestStep/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject/1 node will be created as follows
-+
-|===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject/1/StepDefinition node will be created as follows
 +
 |===
 | Step Definition Name
@@ -125,22 +104,8 @@ There's 3 things to generate
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is set as follows   
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node is created as follows
-+
-|===
-| Step Parameters Name
-| E1, E2, E3          
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node is created as follows
@@ -169,23 +134,16 @@ There's 3 things to generate
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject/1 node will be created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node will be created as follows
-+
-|===
-| Step Definition Name
-| is set as follows   
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is set as follows
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node will be created as follows
 +
 |===
 | Step Parameters Name
-| E1, E2, E3          
-| N1, N2              
+| E1, E2, E3
+| N1, N2
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/2/Table/Row/1/Cell node will be created as follows
@@ -215,15 +173,8 @@ There's 3 things to generate
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is set as follows   
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is set as follows
 |===
 
 * And: The xtext plugin list quickfixes popup is set as follows
@@ -243,22 +194,8 @@ There's 3 things to generate
 * Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject/1 node will be created as follows
 +
 |===
-| Step Object Name                 
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node will be created as follows
-+
-|===
-| Step Definition Name
-| is set as follows   
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters node will be created as follows
-+
-|===
-| Step Parameters Name
-| Content             
+| Step Object Name                  | Step Definition Name | Step Parameters Name
+| daily batchjob/Input file.feature | is set as follows    | Content
 |===
 
 * And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node will be created as follows

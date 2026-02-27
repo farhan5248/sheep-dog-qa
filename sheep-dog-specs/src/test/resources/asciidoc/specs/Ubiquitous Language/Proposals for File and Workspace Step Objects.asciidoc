@@ -27,31 +27,24 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                 
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
-| Proposal Value                 | Proposal Id               
-| The Output file                | Output file               
+| Proposal Value                 | Proposal Id
+| The Output file                | Output file
 | The daily batchjob Output file | daily batchjob/Output file
-| The daily batchjob Input file  | Input file                
+| The daily batchjob Input file  | Input file
 |===
 
 == Test-Case: Has component has existing
@@ -67,30 +60,23 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObject node is created as follows
 +
 |===
-| Step Object Name
-| daily batchjob/Input file.feature
-|===
-
-* And: The Input file.asciidoc file StepObject/1/StepDefinition node is created as follows
-+
-|===
-| Step Definition Name
-| is present
+| Step Object Name                  | Step Definition Name
+| daily batchjob/Input file.feature | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
-| Node Path                                 
+| Node Path
 | TestSuite/1/TestCase/1/TestStep/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
-| Proposal Value                 | Proposal Id               
-| The Output file                | Output file               
+| Proposal Value                 | Proposal Id
+| The Output file                | Output file
 | The daily batchjob Output file | daily batchjob/Output file
-| The daily batchjob Input file  | Input file                
+| The daily batchjob Input file  | Input file
 |===
 
