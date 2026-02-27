@@ -261,3 +261,11 @@ There's 3 things to generate
 | Content             
 |===
 
+* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node will be created as follows
++
+|===
+| Cell Name
+| Content       
+|===
+
+

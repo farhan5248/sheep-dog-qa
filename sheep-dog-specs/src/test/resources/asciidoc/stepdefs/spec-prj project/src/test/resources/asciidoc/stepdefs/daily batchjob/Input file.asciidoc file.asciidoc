@@ -74,6 +74,14 @@
 | Cell Name
 |===
 
+== Step-Definition: StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node will be created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
 == Step-Definition: StepObject/1/StepDefinition/1/StepParameters/2/Table/Row/1/Cell node will be created as follows
 
 * Step-Parameters: Cell Name

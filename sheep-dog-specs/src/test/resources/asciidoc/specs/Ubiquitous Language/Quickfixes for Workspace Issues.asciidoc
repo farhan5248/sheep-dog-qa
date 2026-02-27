@@ -124,6 +124,15 @@ The step definition doesn't exist for the step object
 | E1, E2, E3
 |===
 
+* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node is created as follows
++
+|===
+| Cell Name
+| E1       
+| E2       
+| E3       
+|===
+
 * And: The xtext plugin validate annotation is set as follows
 +
 ----
@@ -185,6 +194,13 @@ The step parameters don't exist for the step definition
 +
 |===
 | Step Parameters Name
+| Content
+|===
+
+* And: The Input file.asciidoc file StepObject/1/StepDefinition/1/StepParameters/1/Table/Row/1/Cell node is created as follows
++
+|===
+| Cell Name
 | Content
 |===
 
