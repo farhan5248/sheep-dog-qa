@@ -6,8 +6,6 @@ A phrase is a sequence of words. Tags and TODOs are special phrases.
 
 == Test-Case: Tag Fragment
 
-@Grammar
-
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file line type is created as follows
 +
 |===
@@ -33,8 +31,6 @@ A phrase is a sequence of words. Tags and TODOs are special phrases.
 |===
 
 == Test-Case: Todo Fragment
-
-@Grammar
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file line type is created as follows
 +
