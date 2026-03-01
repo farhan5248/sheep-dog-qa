@@ -6,6 +6,8 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment
 
+@Grammar
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
@@ -39,6 +41,8 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Fragment
 
+@Grammar
+
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
 |===
@@ -63,6 +67,8 @@ A StepObjectRef identifies the component and object in a test step.
 |===
 
 == Test-Case: Object Vertex Fragment
+
+@Grammar
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
@@ -94,6 +100,8 @@ A StepObjectRef identifies the component and object in a test step.
 |===
 
 == Test-Case: Object Edge Fragment
+
+@Grammar
 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
 +
