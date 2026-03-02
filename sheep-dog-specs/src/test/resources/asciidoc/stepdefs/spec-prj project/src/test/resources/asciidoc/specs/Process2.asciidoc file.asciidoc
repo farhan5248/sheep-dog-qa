@@ -1,6 +1,6 @@
 = Step-Object: Process2.asciidoc file
 
-== Step-Definition: TestSuite node is created as follows
+== Step-Definition: TestSuiteList node is created as follows
 
 * Step-Parameters: Test Suite Name
 +
@@ -8,7 +8,7 @@
 | Test Suite Name
 |===
 
-== Step-Definition: TestSuite/1 node will be created as follows
+== Step-Definition: TestSuiteList/1 node will be created as follows
 
 * Step-Parameters: Test Suite Name
 +
@@ -16,7 +16,7 @@
 | Test Suite Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList node is created as follows
 
 * Step-Parameters: Test Case Name
 +
@@ -24,7 +24,7 @@
 | Test Case Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1 node will be created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1 node will be created as follows
 
 * Step-Parameters: Test Case Name
 +
@@ -32,7 +32,7 @@
 | Test Case Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1/TestStep node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
@@ -40,7 +40,7 @@
 | Test Step Full Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -48,7 +48,7 @@
 | Cell Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/1/Cell node will be created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -56,7 +56,7 @@
 | Cell Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Table/Row/2/Cell node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -64,7 +64,7 @@
 | Cell Name
 |===
 
-== Step-Definition: TestSuite/1/TestCase/1/TestStep/1/Text node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/1/TestStepList/1/Text node is created as follows
 
 * Step-Parameters: Text Content
 +
@@ -72,7 +72,7 @@
 | Text Content
 |===
 
-== Step-Definition: TestSuite/1/TestCase/2/TestStep node is created as follows
+== Step-Definition: TestSuiteList/1/TestCaseList/2/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
@@ -80,7 +80,7 @@
 | Test Step Full Name
 |===
 
-== Step-Definition: TestSuite/1/TestSetup/1/TestStep node is created as follows
+== Step-Definition: TestSuiteList/1/TestSetupList/1/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
