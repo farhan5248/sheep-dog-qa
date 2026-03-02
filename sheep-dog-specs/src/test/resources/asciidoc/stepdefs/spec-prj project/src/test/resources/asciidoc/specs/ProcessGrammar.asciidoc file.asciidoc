@@ -26,21 +26,27 @@
 
 == Step-Definition: step definition ref part fragment will be decomposed as follows
 
-* Step-Parameters: Part, Part Description, Part Type
+* Step-Parameters: Part, Part Description, Part Type, Part Type Description
 +
 |===
-| Part | Part Description | Part Type
+| Part | Part Description | Part Type | Part Type Description
 |===
 
 == Step-Definition: step definition ref state fragment will be decomposed as follows
 
-* Step-Parameters: State, State Description, State Type
+* Step-Parameters: State, State Description, State Type, State Type Description
 +
 |===
-| State | State Description | State Type
+| State | State Description | State Type | State Type Description
 |===
 
 == Step-Definition: step object ref component fragment will be decomposed as follows
+
+* Step-Parameters: Component Type, Component Type Description
++
+|===
+| Component Type | Component Type Description
+|===
 
 * Step-Parameters: Component, Component Name, Component Type
 +
@@ -50,10 +56,10 @@
 
 == Step-Definition: step object ref object edge fragment will be decomposed as follows
 
-* Step-Parameters: Object Name, Object Type
+* Step-Parameters: Object Type, Object Type Description
 +
 |===
-| Object Name | Object Type
+| Object Type | Object Type Description
 |===
 
 == Step-Definition: step object ref object fragment will be decomposed as follows
@@ -66,10 +72,10 @@
 
 == Step-Definition: step object ref object vertex fragment will be decomposed as follows
 
-* Step-Parameters: Object Name, Object Type
+* Step-Parameters: Object Type, Object Type Description
 +
 |===
-| Object Name | Object Type
+| Object Type | Object Type Description
 |===
 
 == Step-Definition: test step type is created as follows

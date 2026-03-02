@@ -16,20 +16,20 @@ A StepDefinitionRef identifies the part and state in a test step.
 * Then: The spec-prj project ProcessGrammar.asciidoc file step definition ref part fragment will be decomposed as follows
 +
 |===
-| Part   | Part Description   | Part Type  
-| {Part} | {Part Description} | {Part Type}
+| Part   | Part Description   | Part Type   | Part Type Description  
+| {Part} | {Part Description} | {Part Type} | {Part Type Description}
 |===
 
 * Test-Data: Fragments
 +
 |===
-| Step Definition Ref Name            | Part                      | Part Description | Part Type 
-| StepObjectRef type is absent        | StepObjectRef type        | StepObjectRef    | type      
-| SheepDog language is absent         | SheepDog language         | SheepDog         | language  
-| StepObjectName assignment is absent | StepObjectName assignment | StepObjectName   | assignment
-| Component fragment is absent        | Component fragment        | Component        | fragment  
-| Only scope is absent                | Only scope                | Only             | scope     
-| StepObjectRef node is absent        | StepObjectRef node        | StepObjectRef    | node      
+| Step Definition Ref Name            | Part                      | Part Description | Part Type  | Part Type Description                                        
+| StepObjectRef type is absent        | StepObjectRef type        | StepObjectRef    | type       | Grammar types (non-terminal rules) defined in the .xtext file
+| SheepDog language is absent         | SheepDog language         | SheepDog         | language   | The name of the Xtext grammar/language implementation        
+| StepObjectName assignment is absent | StepObjectName assignment | StepObjectName   | assignment | Named assignments within grammar rules                       
+| Component fragment is absent        | Component fragment        | Component        | fragment   | Test step regex fragments defining type enumerations         
+| Only scope is absent                | Only scope                | Only             | scope      | Issue scope levels from TypeIssueTypes enum                  
+| StepObjectRef node is absent        | StepObjectRef node        | StepObjectRef    | node       | AST node elements in the parsed syntax tree                  
 |===
 
 == Test-Case: State Fragment
@@ -44,21 +44,17 @@ A StepDefinitionRef identifies the part and state in a test step.
 * Then: The spec-prj project ProcessGrammar.asciidoc file step definition ref state fragment will be decomposed as follows
 +
 |===
-| State   | State Description   | State Type  
-| {State} | {State Description} | {State Type}
+| State   | State Description   | State Type   | State Type Description  
+| {State} | {State Description} | {State Type} | {State Type Description}
 |===
 
 * Test-Data: Fragments
 +
 |===
-| Step Definition Ref Name    | State                       | State Type | State Description 
-| is created as follows       | is created as follows       | is         | created as follows
-| is executed with            | is executed with            | is         | executed with     
-| isn't created as follows    | isn't created as follows    | isn't      | created as follows
-| isn't executed with         | isn't executed with         | isn't      | executed with     
-| will be created as follows  | will be created as follows  | will be    | created as follows
-| will be executed with       | will be executed with       | will be    | executed with     
-| won't be created as follows | won't be created as follows | won't be   | created as follows
-| won't be executed with      | won't be executed with      | won't be   | executed with     
+| Step Definition Ref Name    | State                       | State Type | State Description  | State Type Description                            
+| is created as follows       | is created as follows       | is         | created as follows | Maps to setter method                             
+| isn't created as follows    | isn't created as follows    | isn't      | created as follows | Maps to setter method but used to remove something
+| will be created as follows  | will be created as follows  | will be    | created as follows | Maps to assertion method                          
+| won't be created as follows | won't be created as follows | won't be   | created as follows | Maps to assertion method for negative testing     
 |===
 
