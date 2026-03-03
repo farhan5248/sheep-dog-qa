@@ -1,4 +1,4 @@
-= Step-Object: Process2.asciidoc file
+= Step-Object: ProcessIssues.asciidoc file
 
 == Step-Definition: TestSuiteList node is created as follows
 

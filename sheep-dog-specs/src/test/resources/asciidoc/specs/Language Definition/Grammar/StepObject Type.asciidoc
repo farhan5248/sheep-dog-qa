@@ -6,9 +6,9 @@ A StepObject is a top-level grammar element representing a step object file.
 
 == Test-Case: Assignments
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file StepObject type is as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file StepObject type is as follows
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file StepObject type assignments will be as follows
+* Then: The spec-prj project ProcessGrammarType.asciidoc file StepObject type assignments will be as follows
 +
 |===
 | Assignment         | Type           | Multiplicity
@@ -19,14 +19,14 @@ A StepObject is a top-level grammar element representing a step object file.
 
 == Test-Case: Derived Attributes
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file StepObject type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file StepObject type is created as follows
 +
 |===
 | Full Name
 | {Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file StepObject type derived attributes will be as follows
+* Then: The spec-prj project ProcessGrammarType.asciidoc file StepObject type derived attributes will be as follows
 +
 |===
 | Name

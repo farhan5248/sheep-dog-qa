@@ -6,14 +6,14 @@ These tests verify that code generation works correctly when names follow proper
 
 == Test-Case: Cell name should start with a capital letter generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
-* And: The Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name       
@@ -30,11 +30,11 @@ These tests verify that code generation works correctly when names follow proper
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Node Path                                           
+| Node Path                                                               
 | TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
 +
 |===
 | Cell Name       
@@ -43,7 +43,7 @@ These tests verify that code generation works correctly when names follow proper
 
 == Test-Case: Test suite name should start with a capital letter generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList node is created as follows
 +
 |===
 | Test Suite Name  
@@ -60,11 +60,11 @@ These tests verify that code generation works correctly when names follow proper
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Node Path  
+| Node Path      
 | TestSuiteList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1 node will be created as follows
 +
 |===
 | Test Suite Name  
@@ -73,7 +73,7 @@ These tests verify that code generation works correctly when names follow proper
 
 == Test-Case: Test case name should start with a capital letter generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList node is created as follows
 +
 |===
 | Test Case Name     
@@ -90,11 +90,11 @@ These tests verify that code generation works correctly when names follow proper
 * When: The xtext plugin apply quickfix action is performed as follows
 +
 |===
-| Node Path             
+| Node Path                     
 | TestSuiteList/1/TestCaseList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1 node will be created as follows
 +
 |===
 | Test Case Name     

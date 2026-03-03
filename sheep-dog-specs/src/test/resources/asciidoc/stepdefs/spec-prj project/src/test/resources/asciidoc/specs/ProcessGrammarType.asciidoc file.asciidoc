@@ -1,4 +1,4 @@
-= Step-Object: ProcessGrammar.asciidoc file
+= Step-Object: ProcessGrammarType.asciidoc file
 
 == Step-Definition: Cell type assignments will be as follows
 
@@ -235,90 +235,4 @@
 |===
 
 == Step-Definition: Text type is as follows
-
-== Step-Definition: line type is created as follows
-
-* Step-Parameters: Line
-+
-|===
-| Line
-|===
-
-== Step-Definition: phrase tag fragment will be decomposed as follows
-
-* Step-Parameters: Tag List
-+
-|===
-| Tag List
-|===
-
-== Step-Definition: phrase todo fragment will be decomposed as follows
-
-* Step-Parameters: Todo Description, Todo Type
-+
-|===
-| Todo Type | Todo Description
-|===
-
-== Step-Definition: step definition ref part fragment will be decomposed as follows
-
-* Step-Parameters: Part, Part Description, Part Type, Part Type Description
-+
-|===
-| Part | Part Description | Part Type | Part Type Description
-|===
-
-== Step-Definition: step definition ref state fragment will be decomposed as follows
-
-* Step-Parameters: State, State Description, State Type, State Type Description
-+
-|===
-| State | State Description | State Type | State Type Description
-|===
-
-== Step-Definition: step object ref component fragment will be decomposed as follows
-
-* Step-Parameters: Component Type, Component Type Description
-+
-|===
-| Component Type | Component Type Description
-|===
-
-* Step-Parameters: Component, Component Name, Component Type
-+
-|===
-| Component | Component Name | Component Type
-|===
-
-== Step-Definition: step object ref object edge fragment will be decomposed as follows
-
-* Step-Parameters: Object Type, Object Type Description
-+
-|===
-| Object Type | Object Type Description
-|===
-
-== Step-Definition: step object ref object fragment will be decomposed as follows
-
-* Step-Parameters: Object, Object Name, Object Type
-+
-|===
-| Object | Object Name | Object Type
-|===
-
-== Step-Definition: step object ref object vertex fragment will be decomposed as follows
-
-* Step-Parameters: Object Type, Object Type Description
-+
-|===
-| Object Type | Object Type Description
-|===
-
-== Step-Definition: test step type is created as follows
-
-* Step-Parameters: Test Step Full Name
-+
-|===
-| Test Step Full Name
-|===
 

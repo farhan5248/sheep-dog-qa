@@ -6,9 +6,9 @@ A TestStep is a grammar element representing a test step with a keyword.
 
 == Test-Case: Concrete Types
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file TestStep type is as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file TestStep type is as follows
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file TestStep type concrete types will be as follows
+* Then: The spec-prj project ProcessGrammarType.asciidoc file TestStep type concrete types will be as follows
 +
 |===
 | Type  | Keyword
@@ -20,9 +20,9 @@ A TestStep is a grammar element representing a test step with a keyword.
 
 == Test-Case: Assignments
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file TestStep type is as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file TestStep type is as follows
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file TestStep type assignments will be as follows
+* Then: The spec-prj project ProcessGrammarType.asciidoc file TestStep type assignments will be as follows
 +
 |===
 | Assignment         | Type              | Multiplicity | Group
@@ -34,14 +34,14 @@ A TestStep is a grammar element representing a test step with a keyword.
 
 == Test-Case: Derived Attributes
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file TestStep type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file TestStep type is created as follows
 +
 |===
 | Full Name
 | {Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file TestStep type derived attributes will be as follows
+* Then: The spec-prj project ProcessGrammarType.asciidoc file TestStep type derived attributes will be as follows
 +
 |===
 | Step Object Name   | Step Definition Name

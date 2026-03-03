@@ -6,14 +6,14 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref component fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
 +
 |===
 | Component   | Component Name   | Component Type  
@@ -31,14 +31,14 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment Types
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref component fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
 +
 |===
 | Component Type   | Component Type Description  
@@ -58,14 +58,14 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object fragment will be decomposed as follows
 +
 |===
 | Object   | Object Name   | Object Type  
@@ -83,14 +83,14 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Vertex Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object vertex fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object vertex fragment will be decomposed as follows
 +
 |===
 | Object Type   | Object Type Description  
@@ -114,14 +114,14 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Edge Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file test step type is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammar.asciidoc file step object ref object edge fragment will be decomposed as follows
+* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object edge fragment will be decomposed as follows
 +
 |===
 | Object Type   | Object Type Description  

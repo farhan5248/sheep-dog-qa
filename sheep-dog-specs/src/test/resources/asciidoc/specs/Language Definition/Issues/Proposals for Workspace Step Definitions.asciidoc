@@ -14,7 +14,7 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: Has component no existing step object
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name          
@@ -32,7 +32,7 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: Has component no existing step definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name          
@@ -50,7 +50,7 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: Has component has existing step definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name          
@@ -80,7 +80,7 @@ When the reference look-up is done, the step-object is located using the full pa
 
 == Test-Case: No component has existing step definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     

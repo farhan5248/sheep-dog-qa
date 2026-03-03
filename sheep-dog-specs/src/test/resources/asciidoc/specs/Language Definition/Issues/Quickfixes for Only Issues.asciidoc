@@ -6,14 +6,14 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Cell name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -49,21 +49,21 @@ Name should start with a capital
 
 == Test-Case: Body row Cell names can be any case quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
 | Header
 |===
 
-* And: The Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -83,7 +83,7 @@ Name should start with a capital
 
 == Test-Case: Test suite name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList node is created as follows
 +
 |===
 | Test Suite Name
@@ -112,7 +112,7 @@ Name should start with a capital
 
 == Test-Case: Test case name should start with a capital letter quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList node is created as follows
 +
 |===
 | Test Case Name
@@ -141,7 +141,7 @@ Name should start with a capital
 
 == Test-Case: Test step must have a valid object name quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
@@ -172,7 +172,7 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 
 == Test-Case: Test step must have a valid step definition name quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process2.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name          
