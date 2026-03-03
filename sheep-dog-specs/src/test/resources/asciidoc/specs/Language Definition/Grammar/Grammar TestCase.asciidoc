@@ -12,7 +12,7 @@ A TestCase is a grammar element representing a test case.
 +
 |===
 | Assignment   | Type        | Multiplicity
-| Name         | Phrase      | key         
+| Name         | Phrase      | required    
 | Description  | Description | optional    
 | TestStepList | TestStep    | list        
 | TestDataList | TestData    | list        

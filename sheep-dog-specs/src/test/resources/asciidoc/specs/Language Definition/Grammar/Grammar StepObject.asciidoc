@@ -11,10 +11,10 @@ A StepObject is a top-level grammar element representing a step object file.
 * Then: The spec-prj project ProcessGrammar.asciidoc file StepObject type assignments will be as follows
 +
 |===
-| Assignment         | Type           | Multiplicity | Order
-| Name               | Phrase         | required     | -
-| Description        | Description    | optional     | -
-| StepDefinitionList | StepDefinition | list         | sorted
+| Assignment         | Type           | Multiplicity
+| Name               | Phrase         | required
+| Description        | Description    | optional
+| StepDefinitionList | StepDefinition | list
 |===
 
 == Test-Case: Derived Attributes

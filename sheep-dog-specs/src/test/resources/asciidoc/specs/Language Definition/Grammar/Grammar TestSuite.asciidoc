@@ -11,10 +11,10 @@ A TestSuite is a top-level grammar element representing a test suite file.
 * Then: The spec-prj project ProcessGrammar.asciidoc file TestSuite type assignments will be as follows
 +
 |===
-| Assignment            | Type              | Multiplicity | Order
-| Name                  | Phrase            | required     | -
-| Description           | Description       | optional     | -
-| TestStepContainerList | TestStepContainer | list         | TestSetup first
+| Assignment            | Type              | Multiplicity
+| Name                  | Phrase            | required
+| Description           | Description       | optional
+| TestStepContainerList | TestStepContainer | list
 |===
 
 == Test-Case: Derived Attributes

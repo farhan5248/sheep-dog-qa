@@ -11,9 +11,9 @@ A StepDefinition is a grammar element representing a step definition.
 * Then: The spec-prj project ProcessGrammar.asciidoc file StepDefinition type assignments will be as follows
 +
 |===
-| Assignment        | Type           | Multiplicity | Order
-| Name              | Phrase         | key          | -
-| Description       | Description    | optional     | -
-| StepParameterList | StepParameters | list         | sorted
+| Assignment        | Type           | Multiplicity
+| Name              | Phrase         | required
+| Description       | Description    | optional
+| StepParameterList | StepParameters | list
 |===
 

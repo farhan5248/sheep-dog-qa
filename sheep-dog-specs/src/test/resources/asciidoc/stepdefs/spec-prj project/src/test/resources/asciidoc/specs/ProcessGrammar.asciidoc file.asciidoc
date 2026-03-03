@@ -62,20 +62,20 @@
 
 == Step-Definition: StepDefinition type assignments will be as follows
 
-* Step-Parameters: Assignment, Multiplicity, Order, Type
+* Step-Parameters: Assignment, Multiplicity, Type
 +
 |===
-| Assignment | Type | Multiplicity | Order
+| Assignment | Type | Multiplicity
 |===
 
 == Step-Definition: StepDefinition type is as follows
 
 == Step-Definition: StepObject type assignments will be as follows
 
-* Step-Parameters: Assignment, Multiplicity, Order, Type
+* Step-Parameters: Assignment, Multiplicity, Type
 +
 |===
-| Assignment | Type | Multiplicity | Order
+| Assignment | Type | Multiplicity
 |===
 
 == Step-Definition: StepObject type derived attributes will be as follows
@@ -202,10 +202,10 @@
 
 == Step-Definition: TestSuite type assignments will be as follows
 
-* Step-Parameters: Assignment, Multiplicity, Order, Type
+* Step-Parameters: Assignment, Multiplicity, Type
 +
 |===
-| Assignment | Type | Multiplicity | Order
+| Assignment | Type | Multiplicity
 |===
 
 == Step-Definition: TestSuite type derived attributes will be as follows

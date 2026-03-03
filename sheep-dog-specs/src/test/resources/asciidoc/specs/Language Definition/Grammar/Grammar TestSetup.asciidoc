@@ -12,7 +12,7 @@ A TestSetup is a grammar element representing a test setup.
 +
 |===
 | Assignment   | Type        | Multiplicity
-| Name         | Phrase      | key         
+| Name         | Phrase      | required    
 | Description  | Description | optional    
 | TestStepList | TestStep    | list        
 |===

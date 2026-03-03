@@ -12,7 +12,7 @@ A StepParameters is a grammar element representing step parameters.
 +
 |===
 | Assignment        | Type              | Multiplicity
-| Name              | Phrase            | key         
+| Name              | Phrase            | required    
 | NestedDescription | NestedDescription | optional    
 | Table             | Table             | required    
 |===
