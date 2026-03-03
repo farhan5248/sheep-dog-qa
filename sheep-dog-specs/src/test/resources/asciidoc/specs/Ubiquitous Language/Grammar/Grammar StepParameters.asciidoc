@@ -1,0 +1,19 @@
+= Test-Suite: Grammar StepParameters
+
+@sheep-dog-test
+
+A StepParameters is a grammar element representing step parameters.
+
+== Test-Case: Assignments
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammar.asciidoc file StepParameters type is as follows
+
+* Then: The spec-prj project ProcessGrammar.asciidoc file StepParameters type assignments will be as follows
++
+|===
+| Assignment        | Type              | Multiplicity
+| Name              | Phrase            | key         
+| NestedDescription | NestedDescription | optional    
+| Table             | Table             | required    
+|===
+

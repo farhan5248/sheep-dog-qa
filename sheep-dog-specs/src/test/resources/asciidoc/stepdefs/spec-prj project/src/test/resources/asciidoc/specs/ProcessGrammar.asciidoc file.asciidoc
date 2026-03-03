@@ -1,5 +1,241 @@
 = Step-Object: ProcessGrammar.asciidoc file
 
+== Step-Definition: Cell type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Cell type is as follows
+
+== Step-Definition: Description type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Description type is as follows
+
+== Step-Definition: Line type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Line type is as follows
+
+== Step-Definition: Model type concrete types will be as follows
+
+* Step-Parameters: Type
++
+|===
+| Type
+|===
+
+== Step-Definition: Model type is as follows
+
+== Step-Definition: NestedDescription type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: NestedDescription type is as follows
+
+== Step-Definition: Row type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Row type is as follows
+
+== Step-Definition: StepDefinition type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Order, Type
++
+|===
+| Assignment | Type | Multiplicity | Order
+|===
+
+== Step-Definition: StepDefinition type is as follows
+
+== Step-Definition: StepObject type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Order, Type
++
+|===
+| Assignment | Type | Multiplicity | Order
+|===
+
+== Step-Definition: StepObject type derived attributes will be as follows
+
+* Step-Parameters: Name
++
+|===
+| Name
+|===
+
+== Step-Definition: StepObject type is as follows
+
+== Step-Definition: StepObject type is created as follows
+
+* Step-Parameters: Full Name
++
+|===
+| Full Name
+|===
+
+== Step-Definition: StepParameters type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: StepParameters type is as follows
+
+== Step-Definition: Table type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Table type is as follows
+
+== Step-Definition: TestCase type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: TestCase type is as follows
+
+== Step-Definition: TestData type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: TestData type is as follows
+
+== Step-Definition: TestProject type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: TestProject type is as follows
+
+== Step-Definition: TestSetup type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: TestSetup type is as follows
+
+== Step-Definition: TestStep type assignments will be as follows
+
+* Step-Parameters: Assignment, Group, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity | Group
+|===
+
+== Step-Definition: TestStep type concrete types will be as follows
+
+* Step-Parameters: Keyword, Type
++
+|===
+| Type | Keyword
+|===
+
+== Step-Definition: TestStep type derived attributes will be as follows
+
+* Step-Parameters: Step Definition Name, Step Object Name
++
+|===
+| Step Object Name | Step Definition Name
+|===
+
+== Step-Definition: TestStep type is as follows
+
+== Step-Definition: TestStep type is created as follows
+
+* Step-Parameters: Full Name
++
+|===
+| Full Name
+|===
+
+== Step-Definition: TestStepContainer type concrete types will be as follows
+
+* Step-Parameters: Type
++
+|===
+| Type
+|===
+
+== Step-Definition: TestStepContainer type is as follows
+
+== Step-Definition: TestSuite type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Order, Type
++
+|===
+| Assignment | Type | Multiplicity | Order
+|===
+
+== Step-Definition: TestSuite type derived attributes will be as follows
+
+* Step-Parameters: Name
++
+|===
+| Name
+|===
+
+== Step-Definition: TestSuite type is as follows
+
+== Step-Definition: TestSuite type is created as follows
+
+* Step-Parameters: Full Name
++
+|===
+| Full Name
+|===
+
+== Step-Definition: Text type assignments will be as follows
+
+* Step-Parameters: Assignment, Multiplicity, Type
++
+|===
+| Assignment | Type | Multiplicity
+|===
+
+== Step-Definition: Text type is as follows
+
 == Step-Definition: line type is created as follows
 
 * Step-Parameters: Line
