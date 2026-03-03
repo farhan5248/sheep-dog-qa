@@ -7,14 +7,14 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepObjectList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
 | Step Object Name                  | Step Definition Name | Step Definition Description
 | daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -26,7 +26,7 @@ For example not knowing which component an object belongs to gets in the way of 
 +
 |===
 | Node Path                      
-| TestSuiteList/1/TestCaseList/1
+| Model/TestSuiteList/1/TestStepContainerList/1
 |===
 
 * Then: The xtext plugin validate annotation will be empty
@@ -36,7 +36,7 @@ For example not knowing which component an object belongs to gets in the way of 
 The first step needs to have a component specified.
 The other steps default to that one.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestSuiteList/1/TestCaseList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                        
@@ -48,7 +48,7 @@ The other steps default to that one.
 +
 |===
 | Node Path                      
-| TestSuiteList/1/TestCaseList/1
+| Model/TestSuiteList/1/TestStepContainerList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows

@@ -1,42 +1,81 @@
-= Test-Suite: Grammar StepObject
+= Test-Suite: Grammar Type Step Object
 
 @sheep-dog-test
 
-A StepObject is a top-level grammar element representing a step object file.
+== Test-Case: Initial State
 
-== Test-Case: Assignments
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file StepObject type is as follows
-
-* Then: The spec-prj project ProcessGrammarType.asciidoc file StepObject type assignments will be as follows
+* When: The xtext plugin edit document action is performed to modify StepObjectList with
 +
 |===
-| Assignment         | Type           | Multiplicity
-| Name               | Phrase         | required
-| Description        | Description    | optional
-| StepDefinitionList | StepDefinition | list
+| Step Object Name
+| A Step Object   
 |===
 
-== Test-Case: Derived Attributes
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node will be empty
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarType.asciidoc file StepObject type is created as follows
+* And: The Input file.asciidoc file Model/StepObjectList/1/Description node will be empty
+
+== Test-Case: Step Definition
+
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Full Name
-| {Full Name}
+| Step Object Name
+| A Step Object   
 |===
 
-* Then: The spec-prj project ProcessGrammarType.asciidoc file StepObject type derived attributes will be as follows
+* When: The xtext plugin edit document action is performed to modify StepDefinitionList with
 +
 |===
-| Name
-| {Name}
+| Step Definition Name  
+| First Step Definition 
+| Second Step Definition
 |===
 
-* Test-Data: File name
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1 node will be
 +
 |===
-| Full Name                                     | Name
-| blah application/Object page.asciidoc         | Object page
+| Step Definition Name 
+| First Step Definition
+|===
+
+* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/2 node will be
++
+|===
+| Step Definition Name  
+| Second Step Definition
+|===
+
+== Test-Case: Description
+
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
++
+|===
+| Step Object Name
+| A Step Object   
+|===
+
+* When: The xtext plugin edit document action is performed to modify Description with
++
+|===
+| Line Content
+| First Line  
+| Second Line 
+|===
+
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/Description/LineList/1 node will be
++
+|===
+| Line Content
+| First Line  
+|===
+
+* And: The Input file.asciidoc file Model/StepObjectList/1/Description/LineList/2 node will be
++
+|===
+| Line Content
+| Second Line 
 |===
 
