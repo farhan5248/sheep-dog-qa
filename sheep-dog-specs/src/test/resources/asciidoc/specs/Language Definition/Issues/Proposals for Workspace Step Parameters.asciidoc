@@ -27,8 +27,15 @@ If the step definition has step parameters, they'll be proposed.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                                
+| Test Step Full Name
 | The daily batchjob Input file is created as follows
+|===
+
+* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
++
+|===
+| Cell Name
+| empty
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
@@ -52,8 +59,15 @@ If the step definition has step parameters, they'll be proposed.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                     
+| Test Step Full Name
 | The daily batchjob Input file is present
+|===
+
+* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
++
+|===
+| Cell Name
+| empty
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
@@ -79,8 +93,15 @@ TODO I should add more parameter combinations to describe this better.
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                                
+| Test Step Full Name
 | The daily batchjob Input file is created as follows
+|===
+
+* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
++
+|===
+| Cell Name
+| empty
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
@@ -111,8 +132,15 @@ Content parameters shouldn't be proposed as they are for text blocks, not table 
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                                
+| Test Step Full Name
 | The daily batchjob Input file is created as follows
+|===
+
+* And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
++
+|===
+| Cell Name
+| empty
 |===
 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
