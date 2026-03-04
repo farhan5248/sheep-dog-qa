@@ -70,7 +70,7 @@ Name should start with a capital
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList node is created as follows
 +
 |===
-| Test Suite Name
+| Test Suite Full Name
 | lowercase process
 |===
 

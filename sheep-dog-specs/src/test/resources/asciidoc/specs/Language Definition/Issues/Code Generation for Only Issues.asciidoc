@@ -46,7 +46,7 @@ These tests verify that code generation works correctly when names follow proper
 * Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList node is created as follows
 +
 |===
-| Test Suite Name  
+| Test Suite Full Name
 | lowercase process
 |===
 
@@ -67,7 +67,7 @@ These tests verify that code generation works correctly when names follow proper
 * Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1 node will be created as follows
 +
 |===
-| Test Suite Name  
+| Test Suite Full Name
 | Lowercase process
 |===
 

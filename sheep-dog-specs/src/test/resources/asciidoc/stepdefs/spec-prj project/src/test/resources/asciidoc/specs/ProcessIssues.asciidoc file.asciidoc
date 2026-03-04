@@ -2,18 +2,18 @@
 
 == Step-Definition: TestProject/TestSuiteList node is created as follows
 
-* Step-Parameters: Test Suite Name
+* Step-Parameters: Test Suite Full Name
 +
 |===
-| Test Suite Name
+| Test Suite Full Name
 |===
 
 == Step-Definition: TestProject/TestSuiteList/1 node will be created as follows
 
-* Step-Parameters: Test Suite Name
+* Step-Parameters: Test Suite Full Name
 +
 |===
-| Test Suite Name
+| Test Suite Full Name
 |===
 
 == Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList node is created as follows
