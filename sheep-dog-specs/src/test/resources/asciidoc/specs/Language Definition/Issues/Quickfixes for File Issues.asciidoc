@@ -7,7 +7,7 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -19,7 +19,7 @@ For example not knowing which component an object belongs to gets in the way of 
 +
 |===
 | Step Object Full Name                  | Step Definition Name | Step Definition Description
-| daily batchjob/Input file.feature | is present           | Creates empty file
+| stepdefs/daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
 * And: The xtext plugin validate annotation is empty
@@ -28,7 +28,7 @@ For example not knowing which component an object belongs to gets in the way of 
 +
 |===
 | Node Path                      
-| TestProject/TestSuiteList/1/TestStepContainerList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
@@ -38,7 +38,7 @@ For example not knowing which component an object belongs to gets in the way of 
 The first step needs to have a component specified.
 The other steps default to that one.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                        
@@ -56,7 +56,7 @@ The first step must have a component
 +
 |===
 | Node Path                      
-| TestProject/TestSuiteList/1/TestStepContainerList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty

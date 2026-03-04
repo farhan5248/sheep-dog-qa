@@ -16,7 +16,7 @@ The variables are:
 
 It should show that if there's objects from more than one component, it only picks the matching component
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                      
@@ -28,14 +28,14 @@ It should show that if there's objects from more than one component, it only pic
 +
 |===
 | Step Object Full Name                  | Step Definition Name
-| daily batchjob/Input file.feature | is present
+| stepdefs/daily batchjob/Input file.feature | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
 | Node Path
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/2
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
@@ -49,7 +49,7 @@ It should show that if there's objects from more than one component, it only pic
 
 == Test-Case: Has component has existing
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                      
@@ -61,14 +61,14 @@ It should show that if there's objects from more than one component, it only pic
 +
 |===
 | Step Object Full Name                  | Step Definition Name
-| daily batchjob/Input file.feature | is present
+| stepdefs/daily batchjob/Input file.feature | is present
 |===
 
 * When: The xtext plugin list proposals action is performed as follows
 +
 |===
 | Node Path
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/2
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows

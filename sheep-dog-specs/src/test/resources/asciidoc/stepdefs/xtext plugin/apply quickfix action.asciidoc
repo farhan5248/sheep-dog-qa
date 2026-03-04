@@ -2,8 +2,6 @@
 
 == Step-Definition: is performed as follows
 
-This a slash delimited list of types like TestSuite/1/TestStepContainer/1/TestStep/1
-
 * Step-Parameters: Node Path
 +
 |===

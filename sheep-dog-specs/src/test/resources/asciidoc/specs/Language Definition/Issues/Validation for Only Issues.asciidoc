@@ -6,14 +6,14 @@ These validations check for syntax and naming issues that can be detected by par
 
 == Test-Case: Header row Cell names should start with a capital letter validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -24,7 +24,7 @@ These validations check for syntax and naming issues that can be detected by par
 +
 |===
 | Node Path
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows
@@ -35,21 +35,21 @@ Name should start with a capital
 
 == Test-Case: Body row Cell names can be any case validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is present
 |===
 
-* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
 | Header
 |===
 
-* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -60,25 +60,25 @@ Name should start with a capital
 +
 |===
 | Node Path
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList/1
 |===
 
 * Then: The xtext plugin validate annotation will be empty
 
 == Test-Case: Test suite name should start with a capital letter validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
-| Test Suite Full Name
-| lowercase process
+| Test Suite Full Name    | Test Suite Name
+| specs/lowercase process | lowercase process
 |===
 
 * When: The xtext plugin validate action is performed as follows
 +
 |===
 | Node Path  
-| TestProject/TestSuiteList/1
+| TestProject/TestDocumentList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows
@@ -89,7 +89,7 @@ Name should start with a capital
 
 == Test-Case: Test case name should start with a capital letter validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList node is created as follows
 +
 |===
 | Test Case Name
@@ -100,7 +100,7 @@ Name should start with a capital
 +
 |===
 | Node Path
-| TestProject/TestSuiteList/1/TestStepContainerList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows
@@ -111,7 +111,7 @@ Name should start with a capital
 
 == Test-Case: Test step must have a valid object name validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
@@ -122,7 +122,7 @@ Name should start with a capital
 +
 |===
 | Node Path                                 
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows
@@ -140,7 +140,7 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 
 == Test-Case: Test step must have a valid step definition name validation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name          
@@ -151,7 +151,7 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 +
 |===
 | Node Path                                 
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 * Then: The xtext plugin validate annotation will be set as follows

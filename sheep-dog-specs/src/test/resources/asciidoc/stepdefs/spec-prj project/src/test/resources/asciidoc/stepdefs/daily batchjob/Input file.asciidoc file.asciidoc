@@ -38,20 +38,6 @@
 | Step Object Full Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1 node will be created as follows
-
-* Step-Parameters: Step Definition Name, Step Object Full Name
-+
-|===
-| Step Object Full Name | Step Definition Name
-|===
-
-* Step-Parameters: Step Definition Name, Step Object Full Name, Step Parameters Name
-+
-|===
-| Step Object Full Name | Step Definition Name | Step Parameters Name
-|===
-
 == Step-Definition: TestProject/TestDocumentList/1/Description node will be empty
 
 == Step-Definition: TestProject/TestDocumentList/1/Description/LineList node is created as follows
@@ -78,47 +64,7 @@
 | Step Definition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList node will be created as follows
-
-* Step-Parameters: Step Definition Name
-+
-|===
-| Step Definition Name
-|===
-
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList node will be empty
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node will be created as follows
-
-* Step-Parameters: Step Parameters Name
-+
-|===
-| Step Parameters Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
-
-* Step-Parameters: Cell Name
-+
-|===
-| Cell Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node will be created as follows
-
-* Step-Parameters: Cell Name
-+
-|===
-| Cell Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2/Table/RowList/1/CellList node will be created as follows
-
-* Step-Parameters: Cell Name
-+
-|===
-| Cell Name
-|===
 
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/2 node will be created as follows
 
@@ -130,9 +76,61 @@
 
 == Step-Definition: TestProject/TestDocumentList/2 node will be created as follows
 
+* Step-Parameters: Step Definition Name, Step Object Full Name
++
+|===
+| Step Object Full Name | Step Definition Name
+|===
+
+* Step-Parameters: Step Definition Name, Step Object Full Name, Step Parameters Name
++
+|===
+| Step Object Full Name | Step Definition Name | Step Parameters Name
+|===
+
 * Step-Parameters: Step Object Full Name
 +
 |===
 | Step Object Full Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2/StepDefinitionList node will be created as follows
+
+* Step-Parameters: Step Definition Name
++
+|===
+| Step Definition Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2/StepDefinitionList/1/StepParametersList node will be created as follows
+
+* Step-Parameters: Step Parameters Name
++
+|===
+| Step Parameters Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node will be created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2/StepDefinitionList/1/StepParametersList/2/Table/RowList/1/CellList node will be created as follows
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
 |===
 

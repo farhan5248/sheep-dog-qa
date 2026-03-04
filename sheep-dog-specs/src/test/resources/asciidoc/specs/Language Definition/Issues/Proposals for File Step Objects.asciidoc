@@ -14,7 +14,7 @@ The variables are:
 
 == Test-Case: No component no existing
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                      
@@ -26,7 +26,7 @@ The variables are:
 +
 |===
 | Node Path                                 
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/2
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
@@ -39,7 +39,7 @@ The variables are:
 
 == Test-Case: Has component no existing
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                      
@@ -51,7 +51,7 @@ The variables are:
 +
 |===
 | Node Path                                 
-| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/2
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
 * Then: The xtext plugin list proposals popup will be set as follows
@@ -64,21 +64,21 @@ The variables are:
 
 == Test-Case: No component no existing has background
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList node is created as follows
 +
 |===
 | Test Setup Name
 | Background
 |===
 
-* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                      
 | The daily batchjob Output file is present
 |===
 
-* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/2/TestStepList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
@@ -89,7 +89,7 @@ The variables are:
 +
 |===
 | Node Path                                 
-| TestProject/TestSuiteList/1/TestStepContainerList/2/TestStepList/1
+| TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList/1
 |===
 
 * Then: The list proposals popup will be set as follows
