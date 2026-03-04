@@ -1,45 +1,11 @@
 = Step-Object: edit document action
 
-== Step-Definition: is performed to add a Description
-
-== Step-Definition: is performed to add two Line
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
-
-== Step-Definition: is performed to add two Step Definition
-
-* Step-Parameters: Step Definition Name
-+
-|===
-| Step Definition Name
-|===
-
-== Step-Definition: is performed to modify Description
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
-
 == Step-Definition: is performed to modify Description with
 
 * Step-Parameters: Line Content
 +
 |===
 | Line Content
-|===
-
-== Step-Definition: is performed to modify StepDefinitionList
-
-* Step-Parameters: Step Definition Name
-+
-|===
-| Step Definition Name
 |===
 
 == Step-Definition: is performed to modify StepDefinitionList with
@@ -52,9 +18,9 @@
 
 == Step-Definition: is performed to modify StepObjectList with
 
-* Step-Parameters: Step Object Name
+* Step-Parameters: Step Object Full Name
 +
 |===
-| Step Object Name
+| Step Object Full Name
 |===
 

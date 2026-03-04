@@ -44,7 +44,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Object Description | Step Definition Name
+| Step Object Full Name                  | Step Object Description | Step Definition Name
 | daily batchjob/Input file.feature | Description             | is present
 |===
 
@@ -92,7 +92,7 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Object Description | Step Definition Name
+| Step Object Full Name                  | Step Object Description | Step Definition Name
 | daily batchjob/Input file.feature | Description             | is present
 |===
 

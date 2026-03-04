@@ -27,7 +27,7 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name
+| Step Object Full Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is present
 |===
 
@@ -60,7 +60,7 @@ It should show that if there's objects from more than one component, it only pic
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name
+| Step Object Full Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is present
 |===
 

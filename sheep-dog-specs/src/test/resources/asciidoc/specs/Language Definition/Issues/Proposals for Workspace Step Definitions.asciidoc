@@ -60,7 +60,7 @@ When the reference look-up is done, the step-object is located using the full pa
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Definition Description
+| Step Object Full Name                  | Step Definition Name | Step Definition Description
 | daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
@@ -91,7 +91,7 @@ When the reference look-up is done, the step-object is located using the full pa
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Definition Description
+| Step Object Full Name                  | Step Definition Name | Step Definition Description
 | daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 

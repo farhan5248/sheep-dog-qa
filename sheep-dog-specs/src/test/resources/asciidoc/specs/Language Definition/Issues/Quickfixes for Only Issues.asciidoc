@@ -23,7 +23,7 @@ These validations check for syntax and naming issues that can be detected by par
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Parameters Name
+| Step Object Full Name                  | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is present           | lowercase header
 |===
 

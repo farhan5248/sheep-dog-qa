@@ -41,7 +41,7 @@ The step object file doesn't exist for the component
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name
+| Step Object Full Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is absent
 |===
 
@@ -77,7 +77,7 @@ The step definition doesn't exist for the step object
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Parameters Name
+| Step Object Full Name                  | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | Existing Header
 |===
 
@@ -122,7 +122,7 @@ Step definitions for Text Content only have one parameter called "Content"
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Parameters Name
+| Step Object Full Name                  | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | Content
 |===
 
@@ -163,7 +163,7 @@ If there isn't a step definition in the step object file with a Content header, 
 * And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name
+| Step Object Full Name                  | Step Definition Name
 | daily batchjob/Input file.feature | is set as follows
 |===
 

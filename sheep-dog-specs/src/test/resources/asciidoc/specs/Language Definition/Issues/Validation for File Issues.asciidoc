@@ -10,7 +10,7 @@ For example not knowing which component an object belongs to gets in the way of 
 * Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
 +
 |===
-| Step Object Name                  | Step Definition Name | Step Definition Description
+| Step Object Full Name                  | Step Definition Name | Step Definition Description
 | daily batchjob/Input file.feature | is present           | Creates empty file
 |===
 
