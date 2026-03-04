@@ -4,16 +4,28 @@
 
 == Test-Case: Initial State
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
++
+|===
+| Step Object Full Name
+| First Step Object    
+|===
 
 * When: The xtext plugin edit document action is performed to modify StepObjectList with
 +
 |===
 | Step Object Full Name
-| A Step Object        
+| Second Step Object   
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node will be empty
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/2 node is created as follows
++
+|===
+| Step Object Full Name
+| Second Step Object   
+|===
+
+* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node will be empty
 
 * And: The Input file.asciidoc file Model/StepObjectList/1/Description node will be empty
 

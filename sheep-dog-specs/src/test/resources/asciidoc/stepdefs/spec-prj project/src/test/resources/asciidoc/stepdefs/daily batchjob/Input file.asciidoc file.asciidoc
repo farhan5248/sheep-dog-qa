@@ -128,5 +128,11 @@
 | Step Definition Name
 |===
 
-== Step-Definition: is created
+== Step-Definition: Model/StepObjectList/2 node is created as follows
+
+* Step-Parameters: Step Object Full Name
++
+|===
+| Step Object Full Name
+|===
 
