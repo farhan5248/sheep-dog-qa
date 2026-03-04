@@ -1,6 +1,6 @@
 = Step-Object: edit document action
 
-== Step-Definition: is performed to modify Description with
+== Step-Definition: is performed to modify LineList with
 
 * Step-Parameters: Line Content
 +

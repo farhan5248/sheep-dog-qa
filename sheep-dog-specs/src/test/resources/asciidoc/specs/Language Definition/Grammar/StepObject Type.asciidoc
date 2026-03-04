@@ -27,7 +27,7 @@
 
 * And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList node will be empty
 
-* And: The Input file.asciidoc file TestProject/TestDocumentList/1/Description node will be empty
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/Description/LineList node will be empty
 
 == Test-Case: Step Definition
 
@@ -75,7 +75,7 @@
 | First Line  
 |===
 
-* When: The xtext plugin edit document action is performed to modify Description with
+* When: The xtext plugin edit document action is performed to modify LineList with
 +
 |===
 | Line Content
