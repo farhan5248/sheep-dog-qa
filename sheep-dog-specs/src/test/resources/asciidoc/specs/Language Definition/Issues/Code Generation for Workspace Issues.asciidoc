@@ -18,7 +18,7 @@ There's 3 things to generate
 
 == Test-Case: This object doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -36,10 +36,10 @@ There's 3 things to generate
 +
 |===
 | Node Path                                                   
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1 node will be created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name
@@ -48,14 +48,14 @@ There's 3 things to generate
 
 == Test-Case: This object step definition doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name
@@ -73,10 +73,10 @@ There's 3 things to generate
 +
 |===
 | Node Path                                                   
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList node will be created as follows
 +
 |===
 | Step Definition Name
@@ -86,14 +86,14 @@ There's 3 things to generate
 
 == Test-Case: This object step definition parameter set doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                            
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -101,14 +101,14 @@ There's 3 things to generate
 | N2       
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | E1, E2, E3          
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -128,17 +128,17 @@ There's 3 things to generate
 +
 |===
 | Node Path                                                                   
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1 node will be created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name
 | daily batchjob/Input file.feature | is set as follows   
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList node will be created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node will be created as follows
 +
 |===
 | Step Parameters Name
@@ -146,7 +146,7 @@ There's 3 things to generate
 | N1, N2              
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList/2/Table/RowList/1/CellList node will be created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2/Table/RowList/1/CellList node will be created as follows
 +
 |===
 | Cell Name
@@ -156,21 +156,21 @@ There's 3 things to generate
 
 == Test-Case: This object step definition text parameter doesn't exist generation
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                            
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
 +
 |===
 | Text Content
 | Some text   
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name
@@ -188,17 +188,17 @@ There's 3 things to generate
 +
 |===
 | Node Path                                                         
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1 node will be created as follows
 +
 |===
 | Step Object Full Name             | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | Content             
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node will be created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node will be created as follows
 +
 |===
 | Cell Name

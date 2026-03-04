@@ -16,7 +16,7 @@
 | Step Definition Name
 |===
 
-== Step-Definition: is performed to modify StepObjectList with
+== Step-Definition: is performed to modify TestDocumentList with
 
 * Step-Parameters: Step Object Full Name
 +

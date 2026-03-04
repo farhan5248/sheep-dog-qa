@@ -1,6 +1,6 @@
 = Step-Object: ProcessIssues.asciidoc file
 
-== Step-Definition: Model/TestSuiteList node is created as follows
+== Step-Definition: TestProject/TestSuiteList node is created as follows
 
 * Step-Parameters: Test Suite Name
 +
@@ -8,7 +8,7 @@
 | Test Suite Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1 node will be created as follows
+== Step-Definition: TestProject/TestSuiteList/1 node will be created as follows
 
 * Step-Parameters: Test Suite Name
 +
@@ -16,7 +16,7 @@
 | Test Suite Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList node is created as follows
 
 * Step-Parameters: Test Case Name
 +
@@ -30,7 +30,7 @@
 | Test Setup Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1 node will be created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1 node will be created as follows
 
 * Step-Parameters: Test Case Name
 +
@@ -38,7 +38,7 @@
 | Test Case Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
@@ -46,7 +46,7 @@
 | Test Step Full Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -54,7 +54,7 @@
 | Cell Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -62,7 +62,7 @@
 | Cell Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
 
 * Step-Parameters: Cell Name
 +
@@ -70,7 +70,7 @@
 | Cell Name
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
 
 * Step-Parameters: Text Content
 +
@@ -78,7 +78,7 @@
 | Text Content
 |===
 
-== Step-Definition: Model/TestSuiteList/1/TestStepContainerList/2/TestStepList node is created as follows
+== Step-Definition: TestProject/TestSuiteList/1/TestStepContainerList/2/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +

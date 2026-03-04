@@ -9,7 +9,7 @@ There's 4 types of warnings, the scenarios below cover them.
 
 == Test-Case: This object doesn't exist quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
@@ -26,7 +26,7 @@ The step object file doesn't exist for the component
 +
 |===
 | Node Path                                 
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
@@ -38,14 +38,14 @@ The step object file doesn't exist for the component
 
 == Test-Case: This object step definition doesn't exist quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name                     
 | The daily batchjob Input file is present
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name                  | Step Definition Name
@@ -62,7 +62,7 @@ The step definition doesn't exist for the step object
 +
 |===
 | Node Path                                 
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
@@ -81,14 +81,14 @@ The step definition doesn't exist for the step object
 
 == Test-Case: This object step definition parameter set doesn't exist quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -96,14 +96,14 @@ The step definition doesn't exist for the step object
 | N2
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name                  | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -122,7 +122,7 @@ The step parameters don't exist for the step definition
 +
 |===
 | Node Path                                             
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows
@@ -141,28 +141,28 @@ The step parameters don't exist for the step definition
 
 == Test-Case: This object step definition text parameter exists quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
 +
 |===
 | Text Content
 | Some text
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name                  | Step Definition Name | Step Parameters Name
 | daily batchjob/Input file.feature | is set as follows    | Content
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
 +
 |===
 | Cell Name
@@ -175,28 +175,28 @@ The step parameters don't exist for the step definition
 +
 |===
 | Node Path                                       
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
 |===
 
 * Then: The xtext plugin list quickfixes popup will be empty
 
 == Test-Case: This object step definition text parameter doesn't exist quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList node is created as follows
 +
 |===
 | Test Step Full Name
 | The daily batchjob Input file is set as follows
 |===
 
-* And: The ProcessIssues.asciidoc file Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
+* And: The ProcessIssues.asciidoc file TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
 +
 |===
 | Text Content
 | Some text
 |===
 
-* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name                  | Step Definition Name
@@ -213,7 +213,7 @@ The step parameters don't exist for the step definition
 +
 |===
 | Node Path                                       
-| Model/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
+| TestProject/TestSuiteList/1/TestStepContainerList/1/TestStepList/1/Text/
 |===
 
 * Then: The xtext plugin list quickfixes popup will be set as follows

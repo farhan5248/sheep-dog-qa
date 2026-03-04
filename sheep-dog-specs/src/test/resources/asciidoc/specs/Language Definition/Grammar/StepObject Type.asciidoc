@@ -4,41 +4,41 @@
 
 == Test-Case: Initial State
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name
 | First Step Object    
 |===
 
-* When: The xtext plugin edit document action is performed to modify StepObjectList with
+* When: The xtext plugin edit document action is performed to modify TestDocumentList with
 +
 |===
 | Step Object Full Name
 | Second Step Object   
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/2 node is created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/2 node will be created as follows
 +
 |===
 | Step Object Full Name
 | Second Step Object   
 |===
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node will be empty
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList node will be empty
 
-* And: The Input file.asciidoc file Model/StepObjectList/1/Description node will be empty
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/Description node will be empty
 
 == Test-Case: Step Definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name
 | A Step Object        
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList node is created as follows
 +
 |===
 | Step Definition Name 
@@ -52,7 +52,7 @@
 | Second Step Definition
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/StepDefinitionList/2 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/2 node will be created as follows
 +
 |===
 | Step Definition Name  
@@ -61,14 +61,14 @@
 
 == Test-Case: Description
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
 +
 |===
 | Step Object Full Name
 | A Step Object        
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/Description/LineList node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/Description/LineList node is created as follows
 +
 |===
 | Line Content
@@ -82,7 +82,7 @@
 | Second Line 
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file Model/StepObjectList/1/Description/LineList/2 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/Description/LineList/2 node will be created as follows
 +
 |===
 | Line Content
