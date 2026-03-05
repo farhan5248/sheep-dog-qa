@@ -1,5 +1,13 @@
 = Step-Object: edit document action
 
+== Step-Definition: is performed to modify CellList with
+
+* Step-Parameters: Cell Name
++
+|===
+| Cell Name
+|===
+
 == Step-Definition: is performed to modify LineList with
 
 * Step-Parameters: Line Content
@@ -16,11 +24,33 @@
 | Step Definition Name
 |===
 
+== Step-Definition: is performed to modify StepParametersList with
+
+* Step-Parameters: Step Parameters Name
++
+|===
+| Step Parameters Name
+|===
+
 == Step-Definition: is performed to modify TestDocumentList with
 
 * Step-Parameters: Step Object Full Name
 +
 |===
 | Step Object Full Name
+|===
+
+* Step-Parameters: Test Suite Full Name
++
+|===
+| Test Suite Full Name
+|===
+
+== Step-Definition: is performed to modify TestStepContainerList with
+
+* Step-Parameters: Test Case Name
++
+|===
+| Test Case Name
 |===
 

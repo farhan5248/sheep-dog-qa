@@ -2,6 +2,12 @@
 
 == Step-Definition: TestProject/TestDocumentList node is created as follows
 
+* Step-Parameters: Test Suite Full Name
++
+|===
+| Test Suite Full Name
+|===
+
 * Step-Parameters: Test Suite Full Name, Test Suite Name
 +
 |===
@@ -14,6 +20,24 @@
 +
 |===
 | Test Suite Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/1/Description/LineList node is created as follows
+
+* Step-Parameters: Line Content
++
+|===
+| Line Content
+|===
+
+== Step-Definition: TestProject/TestDocumentList/1/Description/LineList node will be empty
+
+== Step-Definition: TestProject/TestDocumentList/1/Description/LineList/2 node will be created as follows
+
+* Step-Parameters: Line Content
++
+|===
+| Line Content
 |===
 
 == Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList node is created as follows
@@ -29,6 +53,8 @@
 |===
 | Test Setup Name
 |===
+
+== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList node will be empty
 
 == Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1 node will be created as follows
 
@@ -78,11 +104,27 @@
 | Text Content
 |===
 
+== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/2 node will be created as follows
+
+* Step-Parameters: Test Case Name
++
+|===
+| Test Case Name
+|===
+
 == Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList node is created as follows
 
 * Step-Parameters: Test Step Full Name
 +
 |===
 | Test Step Full Name
+|===
+
+== Step-Definition: TestProject/TestDocumentList/2 node will be created as follows
+
+* Step-Parameters: Test Suite Full Name, Test Suite Name
++
+|===
+| Test Suite Full Name | Test Suite Name
 |===
 
