@@ -1,0 +1,50 @@
+= Test-Suite: Grammar Type Table
+
+@sheep-dog-test
+
+== Test-Case: Row
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList node is created as follows
++
+|===
+| Row Content
+| First Row  
+|===
+
+* When: The xtext plugin edit document action is performed to modify RowList with
++
+|===
+| Row Content
+| Second Row 
+|===
+
+* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/2 node will be created as follows
++
+|===
+| Row Content
+| Second Row 
+|===
+
+== Test-Case: Cell
+
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList node is created as follows
++
+|===
+| Cell Name 
+| First Cell
+|===
+
+* When: The xtext plugin edit document action is performed to modify CellList with
++
+|===
+| Cell Name  
+| Second Cell
+|===
+
+* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList/2 node will be created as follows
++
+|===
+| Cell Name  
+| Second Cell
+|===
+

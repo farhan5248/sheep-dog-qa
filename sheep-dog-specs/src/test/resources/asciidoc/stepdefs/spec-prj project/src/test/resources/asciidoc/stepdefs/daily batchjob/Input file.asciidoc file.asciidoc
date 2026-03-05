@@ -48,23 +48,7 @@
 
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList node will be empty
 
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/Description/LineList node is created as follows
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
-
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/Description/LineList node will be empty
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/Description/LineList/2 node will be created as follows
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
 
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node is created as follows
 
@@ -76,39 +60,7 @@
 
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node will be empty
 
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/NestedDescription/LineList node is created as follows
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
-
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/NestedDescription/LineList node will be empty
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/NestedDescription/LineList/2 node will be created as follows
-
-* Step-Parameters: Line Content
-+
-|===
-| Line Content
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList node is created as follows
-
-* Step-Parameters: Cell Name
-+
-|===
-| Cell Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList/2 node will be created as follows
-
-* Step-Parameters: Cell Name
-+
-|===
-| Cell Name
-|===
 
 == Step-Definition: TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2 node will be created as follows
 

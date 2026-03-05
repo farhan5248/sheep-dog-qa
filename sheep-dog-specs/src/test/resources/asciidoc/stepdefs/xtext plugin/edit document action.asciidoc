@@ -16,6 +16,14 @@
 | Line Content
 |===
 
+== Step-Definition: is performed to modify RowList with
+
+* Step-Parameters: Row Content
++
+|===
+| Row Content
+|===
+
 == Step-Definition: is performed to modify StepDefinitionList with
 
 * Step-Parameters: Step Definition Name
@@ -30,6 +38,14 @@
 +
 |===
 | Step Parameters Name
+|===
+
+== Step-Definition: is performed to modify TestDataList with
+
+* Step-Parameters: Test Data Name
++
+|===
+| Test Data Name
 |===
 
 == Step-Definition: is performed to modify TestDocumentList with
@@ -52,5 +68,37 @@
 +
 |===
 | Test Case Name
+|===
+
+* Step-Parameters: Test Setup Name
++
+|===
+| Test Setup Name
+|===
+
+== Step-Definition: is performed to modify TestStepList with
+
+* Step-Parameters: And StepDefinition Name, And StepObject Name
++
+|===
+| And StepObject Name | And StepDefinition Name
+|===
+
+* Step-Parameters: Given StepDefinition Name, Given StepObject Name
++
+|===
+| Given StepObject Name | Given StepDefinition Name
+|===
+
+* Step-Parameters: Then StepDefinition Name, Then StepObject Name
++
+|===
+| Then StepObject Name | Then StepDefinition Name
+|===
+
+* Step-Parameters: When StepDefinition Name, When StepObject Name
++
+|===
+| When StepObject Name | When StepDefinition Name
 |===
 

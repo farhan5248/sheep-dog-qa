@@ -52,26 +52,32 @@
 | Second Step Definition
 |===
 
-== Test-Case: Description
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node will be empty
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/Description/LineList node is created as follows
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/Description/LineList node will be empty
+
+== Test-Case: Step Parameters
+
+* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList node is created as follows
 +
 |===
-| Line Content
-| First Line  
+| Step Parameters Name 
+| First Step Parameters
 |===
 
-* When: The xtext plugin edit document action is performed to modify LineList with
+* When: The xtext plugin edit document action is performed to modify StepParametersList with
 +
 |===
-| Line Content
-| Second Line 
+| Step Parameters Name  
+| Second Step Parameters
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/Description/LineList/2 node will be created as follows
+* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2 node will be created as follows
 +
 |===
-| Line Content
-| Second Line 
+| Step Parameters Name  
+| Second Step Parameters
 |===
+
+* And: The Input file.asciidoc file TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/1/NestedDescription/LineList node will be empty
 
