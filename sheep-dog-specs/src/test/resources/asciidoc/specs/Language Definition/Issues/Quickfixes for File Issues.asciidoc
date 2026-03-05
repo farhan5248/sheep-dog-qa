@@ -7,26 +7,26 @@ For example not knowing which component an object belongs to gets in the way of 
 
 == Test-Case: The first step needs to have a component specified quickfix
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                     
-| The daily batchjob Input file is present
-| The Input file is downloaded            
+| Node Path                                                           | Test Step Full Name
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The Input file is downloaded
 |===
 
-* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestProject/TestDocumentList node is created as follows
+* And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 +
 |===
-| Step Object Full Name                  | Step Definition Name
-| stepdefs/daily batchjob/Input file.feature | is present
+| Node Path                    | Step Object Full Name                      | Step Definition Name
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is present
 |===
 
-* And: The Input file.asciidoc file TestProject/TestDocumentList/2/StepDefinitionList/1/Description/LineList node is created as follows
+* And: The Input file.asciidoc file LineList node is created as follows
 +
 |===
-| Line Content
-| Creates empty file
+| Node Path                                                         | Line Content
+| TestProject/TestDocumentList/2/StepDefinitionList/1/Description/LineList | Creates empty file
 |===
 
 * And: The xtext plugin validate annotation is empty
@@ -34,7 +34,7 @@ For example not knowing which component an object belongs to gets in the way of 
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Node Path                      
+| Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
@@ -45,12 +45,12 @@ For example not knowing which component an object belongs to gets in the way of 
 The first step needs to have a component specified.
 The other steps default to that one.
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
+* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
-| Test Step Full Name                        
-| The Input file is present                  
-| The daily batchjob Input file is downloaded
+| Node Path                                                           | Test Step Full Name
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The Input file is present
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is downloaded
 |===
 
 * And: The xtext plugin validate annotation is set as follows
@@ -62,7 +62,7 @@ The first step must have a component
 * When: The xtext plugin list quickfixes action is performed as follows
 +
 |===
-| Node Path                      
+| Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 

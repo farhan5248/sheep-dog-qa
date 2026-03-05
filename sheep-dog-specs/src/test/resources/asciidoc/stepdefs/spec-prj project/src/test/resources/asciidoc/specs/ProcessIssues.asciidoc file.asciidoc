@@ -1,250 +1,220 @@
 = Step-Object: ProcessIssues.asciidoc file
 
-== Step-Definition: TestProject/TestDocumentList node is created as follows
+== Step-Definition: CellList node is created as follows
 
-* Step-Parameters: Test Suite Full Name
+* Step-Parameters: Cell Name, Node Path
 +
 |===
-| Test Suite Full Name
+| Node Path | Cell Name
 |===
 
-* Step-Parameters: Test Suite Full Name, Test Suite Name
+== Step-Definition: CellList node will be created as follows
+
+* Step-Parameters: Cell Name, Node Path
 +
 |===
-| Test Suite Full Name | Test Suite Name
+| Node Path | Cell Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1 node will be created as follows
+== Step-Definition: LineList node is created as follows
 
-* Step-Parameters: Test Suite Name
+* Step-Parameters: Line Content, Node Path
 +
 |===
-| Test Suite Name
+| Node Path | Line Content
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/Description/LineList node will be empty
+== Step-Definition: LineList node will be as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList node is created as follows
-
-* Step-Parameters: Test Case Name
+* Step-Parameters: Node Path, State
 +
 |===
-| Test Case Name
+| Node Path | State
 |===
 
-* Step-Parameters: Test Setup Name
+== Step-Definition: LineList node will be created as follows
+
+* Step-Parameters: Line Content, Node Path
 +
 |===
-| Test Setup Name
+| Node Path | Line Content
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList node will be empty
+== Step-Definition: RowList node is created as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1 node will be created as follows
-
-* Step-Parameters: Test Case Name
+* Step-Parameters: Node Path, Row Content
 +
 |===
-| Test Case Name
+| Node Path | Row Content
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/Description/LineList node will be empty
+== Step-Definition: RowList node will be created as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList node is created as follows
-
-* Step-Parameters: Test Data Name
+* Step-Parameters: Node Path, Row Content
 +
 |===
-| Test Data Name
+| Node Path | Row Content
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList node will be empty
+== Step-Definition: TestDataList node is created as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList node is created as follows
-
-* Step-Parameters: Line Content
+* Step-Parameters: Node Path, Test Data Name
 +
 |===
-| Line Content
+| Node Path | Test Data Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList node will be empty
+== Step-Definition: TestDataList node will be as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList/2 node will be created as follows
-
-* Step-Parameters: Line Content
+* Step-Parameters: Node Path, State
 +
 |===
-| Line Content
+| Node Path | State
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList node is created as follows
+== Step-Definition: TestDataList node will be created as follows
 
-* Step-Parameters: Row Content
+* Step-Parameters: Node Path, Test Data Name
 +
 |===
-| Row Content
+| Node Path | Test Data Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList node is created as follows
+== Step-Definition: TestDocumentList node is created as follows
 
-* Step-Parameters: Cell Name
+* Step-Parameters: Node Path, Test Suite Full Name
 +
 |===
-| Cell Name
+| Node Path | Test Suite Full Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList/2 node will be created as follows
-
-* Step-Parameters: Cell Name
+* Step-Parameters: Node Path, Test Suite Full Name, Test Suite Name
 +
 |===
-| Cell Name
+| Node Path | Test Suite Full Name | Test Suite Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/2 node will be created as follows
+== Step-Definition: TestDocumentList node will be created as follows
 
-* Step-Parameters: Row Content
+* Step-Parameters: Node Path, Test Suite Full Name, Test Suite Name
 +
 |===
-| Row Content
+| Node Path | Test Suite Full Name | Test Suite Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/2 node will be created as follows
-
-* Step-Parameters: Test Data Name
+* Step-Parameters: Node Path, Test Suite Name
 +
 |===
-| Test Data Name
+| Node Path | Test Suite Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node is created as follows
+== Step-Definition: TestStepContainerList node is created as follows
 
-* Step-Parameters: And StepDefinition Name, And StepObject Name
+* Step-Parameters: Node Path, Test Case Name
 +
 |===
-| And StepObject Name | And StepDefinition Name
+| Node Path | Test Case Name
 |===
 
-* Step-Parameters: Given StepDefinition Name, Given StepObject Name
+* Step-Parameters: Node Path, Test Setup Name
 +
 |===
-| Given StepObject Name | Given StepDefinition Name
+| Node Path | Test Setup Name
 |===
 
-* Step-Parameters: Test Step Full Name
+== Step-Definition: TestStepContainerList node will be as follows
+
+* Step-Parameters: Node Path, State
 +
 |===
-| Test Step Full Name
+| Node Path | State
 |===
 
-* Step-Parameters: Then StepDefinition Name, Then StepObject Name
+== Step-Definition: TestStepContainerList node will be created as follows
+
+* Step-Parameters: Node Path, Test Case Name
 +
 |===
-| Then StepObject Name | Then StepDefinition Name
+| Node Path | Test Case Name
 |===
 
-* Step-Parameters: When StepDefinition Name, When StepObject Name
+* Step-Parameters: Node Path, Test Setup Name
 +
 |===
-| When StepObject Name | When StepDefinition Name
+| Node Path | Test Setup Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList node will be empty
+== Step-Definition: TestStepList node is created as follows
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node is created as follows
-
-* Step-Parameters: Cell Name
+* Step-Parameters: And StepDefinition Name, And StepObject Name, Node Path
 +
 |===
-| Cell Name
+| Node Path | And StepObject Name | And StepDefinition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList node will be created as follows
-
-* Step-Parameters: Cell Name
+* Step-Parameters: Given StepDefinition Name, Given StepObject Name, Node Path
 +
 |===
-| Cell Name
+| Node Path | Given StepObject Name | Given StepDefinition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/2 node will be created as follows
-
-* Step-Parameters: Cell Name
+* Step-Parameters: Node Path, Test Step Full Name
 +
 |===
-| Cell Name
+| Node Path | Test Step Full Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList node is created as follows
-
-* Step-Parameters: Cell Name
+* Step-Parameters: Node Path, Then StepDefinition Name, Then StepObject Name
 +
 |===
-| Cell Name
+| Node Path | Then StepObject Name | Then StepDefinition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Text node is created as follows
-
-* Step-Parameters: Text Content
+* Step-Parameters: Node Path, When StepDefinition Name, When StepObject Name
 +
 |===
-| Text Content
+| Node Path | When StepObject Name | When StepDefinition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2 node will be created as follows
+== Step-Definition: TestStepList node will be as follows
 
-* Step-Parameters: And StepDefinition Name, And StepObject Name
+* Step-Parameters: Node Path, State
 +
 |===
-| And StepObject Name | And StepDefinition Name
+| Node Path | State
 |===
 
-* Step-Parameters: Given StepDefinition Name, Given StepObject Name
+== Step-Definition: TestStepList node will be created as follows
+
+* Step-Parameters: And StepDefinition Name, And StepObject Name, Node Path
 +
 |===
-| Given StepObject Name | Given StepDefinition Name
+| Node Path | And StepObject Name | And StepDefinition Name
 |===
 
-* Step-Parameters: Then StepDefinition Name, Then StepObject Name
+* Step-Parameters: Given StepDefinition Name, Given StepObject Name, Node Path
 +
 |===
-| Then StepObject Name | Then StepDefinition Name
+| Node Path | Given StepObject Name | Given StepDefinition Name
 |===
 
-* Step-Parameters: When StepDefinition Name, When StepObject Name
+* Step-Parameters: Node Path, Then StepDefinition Name, Then StepObject Name
 +
 |===
-| When StepObject Name | When StepDefinition Name
+| Node Path | Then StepObject Name | Then StepDefinition Name
 |===
 
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/2 node will be created as follows
-
-* Step-Parameters: Test Case Name
+* Step-Parameters: Node Path, When StepDefinition Name, When StepObject Name
 +
 |===
-| Test Case Name
+| Node Path | When StepObject Name | When StepDefinition Name
 |===
 
-* Step-Parameters: Test Setup Name
+== Step-Definition: Text node is created as follows
+
+* Step-Parameters: Node Path, Text Content
 +
 |===
-| Test Setup Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList node is created as follows
-
-* Step-Parameters: Test Step Full Name
-+
-|===
-| Test Step Full Name
-|===
-
-== Step-Definition: TestProject/TestDocumentList/2 node will be created as follows
-
-* Step-Parameters: Test Suite Full Name, Test Suite Name
-+
-|===
-| Test Suite Full Name | Test Suite Name
+| Node Path | Text Content
 |===
 
