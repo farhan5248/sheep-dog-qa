@@ -85,7 +85,7 @@ text1
 +
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputs("Empty");
+| isEmpty     | object.setInputOutputsState("Empty");
 |===
 
 == Test-Case: Layer 2 with datatable without DI
@@ -112,7 +112,7 @@ text1
 +
 |===
 | Method Name                      | Statement                                          
-| topSectionWillBeCreatedAsFollows | object.assertInputOutputs(dataTable, "TopSection");
+| topSectionWillBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection");
 |===
 
 == Test-Case: Layer 2 with datatable, negative without DI
@@ -125,7 +125,7 @@ text1
 +
 |===
 | Method Name                      | Statement                                                
-| topSectionWontBeCreatedAsFollows | object.assertInputOutputs(dataTable, "TopSection", true);
+| topSectionWontBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection", true);
 |===
 
 == Test-Case: Layer 2 with docstring without DI
@@ -145,7 +145,7 @@ text1
 +
 |===
 | Method Name        | Statement                                    
-| isCreatedAsFollows | object.setInputOutputs("Content", docString);
+| isCreatedAsFollows | object.setInputOutputsDocString("Content", docString);
 |===
 
 == Test-Case: Layer 3
@@ -196,7 +196,7 @@ text1
 +
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputs("Empty");
+| isEmpty     | object.setInputOutputsState("Empty");
 |===
 
 == Test-Case: Layer 2 without parameters with guice
@@ -231,6 +231,6 @@ text1
 +
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputs("Empty");
+| isEmpty     | object.setInputOutputsState("Empty");
 |===
 
