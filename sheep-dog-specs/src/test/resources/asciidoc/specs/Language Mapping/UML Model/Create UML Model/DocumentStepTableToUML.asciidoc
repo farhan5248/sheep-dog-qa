@@ -4,14 +4,14 @@
 
 == Test-Case: Three rows, three cells
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The Object page is created as follows
+=== Given: The Object page is created as follows
 +
 |===
 | h1 | h2 | h3
@@ -21,11 +21,11 @@
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                               | Argument Name | Annotation Detail   
@@ -37,14 +37,14 @@
 
 == Test-Case: Escaped cell data
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The Object page is created as follows
+=== Given: The Object page is created as follows
 +
 |===
 | h1
@@ -52,11 +52,11 @@
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                               | Argument Name | Annotation Detail   

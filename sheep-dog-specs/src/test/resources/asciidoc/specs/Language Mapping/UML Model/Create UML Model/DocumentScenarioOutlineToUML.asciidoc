@@ -4,21 +4,21 @@
 
 == Test-Case: No tags, no statement, one step, one example
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The blah application Object page is created as follows
+=== Given: The blah application Object page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
@@ -26,11 +26,11 @@
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                                                 | Argument Name | Annotation Detail
@@ -38,7 +38,7 @@
 | specs::Process::Submit | The blah application Object page is created as follows | dataTable     | 1 -} {h3} \|     
 |===
 
-* And: The uml/pst.uml file Interaction Annotations section will be created as follows
+=== And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
 |===
 | Interaction Name       | Annotation Name | Annotation Detail  
@@ -47,7 +47,7 @@
 
 == Test-Case: Three tags, three statements, three steps, three examples
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -59,42 +59,42 @@ Desc line 1
 Desc line 2
 Desc line 3
 
-* Given: The blah application Object1 page is created as follows
+=== Given: The blah application Object1 page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Given: The blah application Object2 page is created as follows
+=== Given: The blah application Object2 page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Given: The blah application Object3 page is created as follows
+=== Given: The blah application Object3 page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
 | v31
 |===
 
-* Test-Data: Examples 2
+=== Test-Data: Examples 2
 +
 |===
 | h3
 | v32
 |===
 
-* Test-Data: Examples 3
+=== Test-Data: Examples 3
 +
 |===
 | h3
@@ -102,39 +102,39 @@ Desc line 3
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Annotations section will be created as follows
+=== And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
 |===
 | Interaction Name       | Annotation Name | Annotation Detail
 | specs::Process::Submit | tags            | tag{Index}       
 |===
 
-* And: The uml/pst.uml file Interaction Comments section will be created as follows
+=== And: The uml/pst.uml file Interaction Comments section will be created as follows
 +
 |===
 | Interaction Name       | Comment                                                 
 | specs::Process::Submit | @tag1 @tag2 @tag3\nDesc line 1\nDesc line 2\nDesc line 3
 |===
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                                                       
 | specs::Process::Submit | The blah application Object{Index} page is created as follows
 |===
 
-* And: The uml/pst.uml file Interaction Annotations section will be created as follows
+=== And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
 |===
 | Interaction Name       | Annotation Name  | Annotation Detail        
 | specs::Process::Submit | Examples {Index} | Data -} h3\|\nv3{Index}\|
 |===
 
-* Test-Data: Indices
+=== Test-Data: Indices
 +
 |===
 | Index
@@ -145,7 +145,7 @@ Desc line 3
 
 == Test-Case: Selected tags
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -154,9 +154,9 @@ Desc line 3
 
 @tag1
 
-* Given: The blah application Object page is empty
+=== Given: The blah application Object page is empty
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
@@ -167,9 +167,9 @@ Desc line 3
 
 @tag2
 
-* Given: The blah application Object page is empty
+=== Given: The blah application Object page is empty
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
@@ -177,23 +177,23 @@ Desc line 3
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed with
+=== When: The maven plugin asciidoctor-to-uml goal is executed with
 +
 |===
 | Tags
 | tag1
 |===
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction section will be created as follows
+=== And: The uml/pst.uml file Interaction section will be created as follows
 +
 |===
 | Interaction Name      
 | specs::Process::Submit
 |===
 
-* And: The uml/pst.uml file Interaction section won't be created as follows
+=== And: The uml/pst.uml file Interaction section won't be created as follows
 +
 |===
 | Interaction Name       

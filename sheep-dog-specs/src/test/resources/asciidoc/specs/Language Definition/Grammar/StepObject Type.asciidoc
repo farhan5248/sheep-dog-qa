@@ -2,37 +2,45 @@
 
 @sheep-dog-test
 
+Step Object is a top-level grammar rule in SheepDog.xtext. A Step Object contains Step Definitions which contain Step Parameters.
+
 == Test-Case: Initial State
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+Step Object must have
+- Name
+and optionally have these
+- Description
+- Step Definition List
+
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 +
 |===
 | Node Path                    | Step Object Full Name     
 | TestProject/TestDocumentList | stepdefs/First Step Object
 |===
 
-* When: The xtext plugin edit document node action is performed to modify TestDocumentList with
+=== When: The xtext plugin edit document node action is performed to modify TestDocumentList with
 +
 |===
 | Node Path                    | Step Object Full Name      
 | TestProject/TestDocumentList | stepdefs/Second Step Object
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node will be created as follows
 +
 |===
 | Node Path                      | Step Object Full Name       | Step Object Name  
 | TestProject/TestDocumentList/2 | stepdefs/Second Step Object | Second Step Object
 |===
 
-* And: The Input file.asciidoc file StepDefinitionList node will be as follows
+=== And: The Input file.asciidoc file StepDefinitionList node will be as follows
 +
 |===
 | Node Path                                         | State
 | TestProject/TestDocumentList/1/StepDefinitionList | Empty
 |===
 
-* And: The Input file.asciidoc file Description node will be as follows
+=== And: The Input file.asciidoc file Description node will be as follows
 +
 |===
 | Node Path                                  | State
@@ -41,35 +49,41 @@
 
 == Test-Case: Step Definition
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
+Step Definition must have
+- Name
+and optionally have these
+- Description
+- Step Parameters List
+
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
 +
 |===
 | Node Path                                         | Step Definition Name 
 | TestProject/TestDocumentList/1/StepDefinitionList | First Step Definition
 |===
 
-* When: The xtext plugin edit document node action is performed to modify StepDefinitionList with
+=== When: The xtext plugin edit document node action is performed to modify StepDefinitionList with
 +
 |===
 | Node Path                                         | Step Definition Name  
 | TestProject/TestDocumentList/1/StepDefinitionList | Second Step Definition
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be created as follows
 +
 |===
 | Node Path                                           | Step Definition Name  
 | TestProject/TestDocumentList/1/StepDefinitionList/2 | Second Step Definition
 |===
 
-* And: The Input file.asciidoc file StepParametersList node will be as follows
+=== And: The Input file.asciidoc file StepParametersList node will be as follows
 +
 |===
 | Node Path                                                              | State
 | TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList | Empty
 |===
 
-* And: The Input file.asciidoc file Description node will be as follows
+=== And: The Input file.asciidoc file Description node will be as follows
 +
 |===
 | Node Path                                                       | State
@@ -78,35 +92,41 @@
 
 == Test-Case: Step Parameters
 
-* Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepParametersList node is created as follows
+Step Parameters must have
+- Name
+- Table
+and optionally have these
+- Description
+
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepParametersList node is created as follows
 +
 |===
 | Node Path                                                              | Step Parameters Name 
 | TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList | First Step Parameters
 |===
 
-* When: The xtext plugin edit document node action is performed to modify StepParametersList with
+=== When: The xtext plugin edit document node action is performed to modify StepParametersList with
 +
 |===
 | Node Path                                                              | Step Parameters Name  
 | TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList | Second Step Parameters
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepParametersList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepParametersList node will be created as follows
 +
 |===
 | Node Path                                                                | Step Parameters Name  
 | TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2 | Second Step Parameters
 |===
 
-* And: The Input file.asciidoc file NestedDescription node will be as follows
+=== And: The Input file.asciidoc file NestedDescription node will be as follows
 +
 |===
 | Node Path                                                                                  | State
 | TestProject/TestDocumentList/1/StepDefinitionList/1/StepParametersList/2/NestedDescription | Absent
 |===
 
-* And: The Input file.asciidoc file Table node will be as follows
+=== And: The Input file.asciidoc file Table node will be as follows
 +
 |===
 | Node Path                                                                           | State

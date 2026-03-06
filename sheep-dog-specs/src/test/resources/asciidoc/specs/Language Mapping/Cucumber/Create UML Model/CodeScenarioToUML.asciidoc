@@ -4,7 +4,7 @@
 
 == Test-Case: No tags, no statements, one step
 
-* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+=== Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -13,11 +13,11 @@ Feature: Process
     Given The blah application something/Object1 page is empty
 ----
 
-* When: The maven plugin cucumber-to-uml goal is executed
+=== When: The maven plugin cucumber-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                                              
@@ -26,7 +26,7 @@ Feature: Process
 
 == Test-Case: Three tags, three statements, three steps
 
-* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+=== Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -42,32 +42,32 @@ Feature: Process
     Given The blah application something/Object3 page is empty
 ----
 
-* When: The maven plugin cucumber-to-uml goal is executed
+=== When: The maven plugin cucumber-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Annotations section will be created as follows
+=== And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
 |===
 | Interaction Name       | Annotation Name | Annotation Detail
 | specs::Process::Submit | tags            | tag{Index}       
 |===
 
-* And: The uml/pst.uml file Interaction Comments section will be created as follows
+=== And: The uml/pst.uml file Interaction Comments section will be created as follows
 +
 |===
 | Interaction Name       | Comment                              
 | specs::Process::Submit | Desc line 1\nDesc line 2\nDesc line 3
 |===
 
-* And: The uml/pst.uml file Interaction Messages section will be created as follows
+=== And: The uml/pst.uml file Interaction Messages section will be created as follows
 +
 |===
 | Interaction Name       | Message                                                    
 | specs::Process::Submit | The blah application something/Object{Index} page is empty
 |===
 
-* Test-Data: Indices
+=== Test-Data: Indices
 
 +
 |===
@@ -79,7 +79,7 @@ Feature: Process
 
 == Test-Case: Selected tags
 
-* Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
+=== Given: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file is created as follows
 +
 ----
 Feature: Process
@@ -95,23 +95,23 @@ Feature: Process
     Given The Object1 page is empty
 ----
 
-* When: The maven plugin cucumber-to-uml goal is executed with
+=== When: The maven plugin cucumber-to-uml goal is executed with
 +
 |===
 | Tags
 | tag1
 |===
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction section will be created as follows
+=== And: The uml/pst.uml file Interaction section will be created as follows
 +
 |===
 | Interaction Name      
 | specs::Process::Submit
 |===
 
-* And: The uml/pst.uml file Interaction section won't be created as follows
+=== And: The uml/pst.uml file Interaction section won't be created as follows
 +
 |===
 | Interaction Name       

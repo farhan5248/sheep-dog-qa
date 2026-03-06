@@ -2,23 +2,28 @@
 
 @sheep-dog-test
 
+Table is a grammar rule in SheepDog.xtext used by Test Step, Step Parameters, and Test Data. A Table contains Rows which contain Cells.
+
 == Test-Case: Row
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node is created as follows
+Table must have
+- Row List
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node is created as follows
 +
 |===
 | Node Path                                                                           | Row Content
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
 |===
 
-* When: The xtext plugin edit document node action is performed to modify RowList with
+=== When: The xtext plugin edit document node action is performed to modify RowList with
 +
 |===
 | Node Path                                                                           | Row Content
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList | Second Row
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node will be created as follows
 +
 |===
 | Node Path                                                                             | Row Content
@@ -27,21 +32,26 @@
 
 == Test-Case: Cell
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
+Row must have
+- Cell List
+Cell must have
+- Name
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 +
 |===
 | Node Path                                                                                      | Cell Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | First Cell
 |===
 
-* When: The xtext plugin edit document node action is performed to modify CellList with
+=== When: The xtext plugin edit document node action is performed to modify CellList with
 +
 |===
 | Node Path                                                                                      | Cell Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | Second Cell
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node will be created as follows
 +
 |===
 | Node Path                                                                                        | Cell Name

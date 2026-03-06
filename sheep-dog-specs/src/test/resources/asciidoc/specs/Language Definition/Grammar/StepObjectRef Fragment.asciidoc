@@ -6,21 +6,23 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
+The component regex in StepObjectRefFragments captures the system name and type from a StepObjectRef. The StepObjectRef grammar rule is WORD+ followed by an object type keyword in SheepDog.xtext. When no component is present the result is empty.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
+=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
 +
 |===
 | Component   | Component Name   | Component Type  
 | {Component} | {Component Name} | {Component Type}
 |===
 
-* Test-Data: Component and object
+=== Test-Data: Component and object
 +
 |===
 | Test Step Full Name                                                   | Component                | Component Name | Component Type
@@ -31,21 +33,28 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Component Fragment Types
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
+The component type keywords are defined in StepObjectRefComponentTypes enum.
+- application - GUI web application
+- project - Collection of files such as a Maven project
+- service - RESTful or SOAP webservice
+- batchjob - EOD or ETL batchjob
+- plugin - Maven or Eclipse plugin
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
+=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
 +
 |===
 | Component Type   | Component Type Description  
 | {Component Type} | {Component Type Description}
 |===
 
-* Test-Data: Types
+=== Test-Data: Types
 +
 |===
 | Test Step Full Name           | Component Type | Component Type Description                 
@@ -58,21 +67,23 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
+The object regex in StepObjectRefFragments captures the object name and type from a StepObjectRef. The object type is the terminal keyword defined in the StepObjectRef grammar rule in SheepDog.xtext. Object types are split into vertex types (state holders) and edge types (actions).
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object fragment will be decomposed as follows
+=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object fragment will be decomposed as follows
 +
 |===
 | Object   | Object Name   | Object Type  
 | {Object} | {Object Name} | {Object Type}
 |===
 
-* Test-Data: Fragments
+=== Test-Data: Fragments
 +
 |===
 | Test Step Full Name                                                              | Object                  | Object Name     | Object Type
@@ -83,21 +94,32 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Vertex Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
+Vertex object types are defined in StepObjectRefObjectVertexTypes enum and represent state holders.
+- file - Any sort of file
+- directory - File directory
+- page - Web page
+- dialog - Window dialog box
+- response - Web service response
+- popup - List of options for quickfix or content proposal
+- annotation - Visual indicator for error or warning messages
+- hover - Popup displaying information on mouse hover
+- tooltip - Small popup displaying descriptive text
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object vertex fragment will be decomposed as follows
+=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object vertex fragment will be decomposed as follows
 +
 |===
 | Object Type   | Object Type Description  
 | {Object Type} | {Object Type Description}
 |===
 
-* Test-Data: Fragments
+=== Test-Data: Fragments
 +
 |===
 | Test Step Full Name                            | Object Type | Object Type Description                         
@@ -114,21 +136,27 @@ A StepObjectRef identifies the component and object in a test step.
 
 == Test-Case: Object Edge Fragment
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
+Edge object types are defined in StepObjectRefObjectEdgeTypes enum and represent actions or transitions.
+- request - Web-service request
+- goal - Maven plugin goal
+- action - Eclipse plugin action
+- job - EOD or ETL batchjob
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 +
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
-* Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object edge fragment will be decomposed as follows
+=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object edge fragment will be decomposed as follows
 +
 |===
 | Object Type   | Object Type Description  
 | {Object Type} | {Object Type Description}
 |===
 
-* Test-Data: Fragments
+=== Test-Data: Fragments
 +
 |===
 | Test Step Full Name                                                   | Object Type | Object Type Description

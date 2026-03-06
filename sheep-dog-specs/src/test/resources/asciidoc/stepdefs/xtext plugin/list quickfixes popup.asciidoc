@@ -2,13 +2,13 @@
 
 == Step-Definition: is set as follows
 
-* Step-Parameters: Proposal Description, Proposal Id
+=== Step-Parameters: Proposal Description, Proposal Id
 +
 |===
 | Proposal Id | Proposal Description
 |===
 
-* Step-Parameters: Proposal Description, Proposal Id, Proposal Value
+=== Step-Parameters: Proposal Description, Proposal Id, Proposal Value
 +
 |===
 | Proposal Id | Proposal Description | Proposal Value
@@ -18,13 +18,13 @@
 
 == Step-Definition: will be set as follows
 
-* Step-Parameters: Proposal Description, Proposal Id
+=== Step-Parameters: Proposal Description, Proposal Id
 +
 |===
 | Proposal Id | Proposal Description
 |===
 
-* Step-Parameters: Proposal Description, Proposal Id, Proposal Value
+=== Step-Parameters: Proposal Description, Proposal Id, Proposal Value
 +
 |===
 | Proposal Id | Proposal Description | Proposal Value

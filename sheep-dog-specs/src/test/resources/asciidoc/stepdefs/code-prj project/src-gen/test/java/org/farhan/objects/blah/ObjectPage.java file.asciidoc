@@ -2,13 +2,13 @@
 
 == Step-Definition: Header section will be created as follows
 
-* Step-Parameters: Import
+=== Step-Parameters: Import
 +
 |===
 | Import
 |===
 
-* Step-Parameters: Interface Name, Package
+=== Step-Parameters: Interface Name, Package
 +
 |===
 | Interface Name | Package
@@ -16,7 +16,7 @@
 
 == Step-Definition: Methods section will be created as follows
 
-* Step-Parameters: Method Name, Parameter Name, Parameter Type, Return Type, Visibility
+=== Step-Parameters: Method Name, Parameter Name, Parameter Type, Return Type, Visibility
 +
 |===
 | Method Name | Visibility | Return Type | Parameter Name | Parameter Type
@@ -24,7 +24,7 @@
 
 == Step-Definition: is created as follows
 
-* Step-Parameters: Content
+=== Step-Parameters: Content
 +
 |===
 | Content
@@ -32,7 +32,7 @@
 
 == Step-Definition: will be created as follows
 
-* Step-Parameters: Content
+=== Step-Parameters: Content
 +
 |===
 | Content

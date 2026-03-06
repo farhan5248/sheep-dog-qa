@@ -4,21 +4,21 @@
 
 == Test-Case: No tags, no statement, one step, one example
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The blah application Object page is created as follows
+=== Given: The blah application Object page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
@@ -26,22 +26,22 @@
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is deleted
+=== And: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is deleted
 
-* And: The maven plugin uml-to-asciidoctor goal is executed
+=== And: The maven plugin uml-to-asciidoctor goal is executed
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
-* And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
+=== And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
 +
 |===
 | Name   | Step                                                          
 | Submit | Given: The blah application Object page is created as follows
 |===
 
-* And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
+=== And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
 +
 |===
 | Name   | Examples   | Row
@@ -51,7 +51,7 @@
 
 == Test-Case: Three tags, three statements, three steps, three examples
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
@@ -63,42 +63,42 @@ Desc line 1
 Desc line 2
 Desc line 3
 
-* Given: The blah application Object page is created as follows
+=== Given: The blah application Object page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Given: The blah application Object2 page is created as follows
+=== Given: The blah application Object2 page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Given: The blah application Object3 page is created as follows
+=== Given: The blah application Object3 page is created as follows
 +
 |===
 | h1
 | {h3}
 |===
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 |===
 | h3
 | v31
 |===
 
-* Test-Data: Examples 2
+=== Test-Data: Examples 2
 +
 |===
 | h3
 | v32
 |===
 
-* Test-Data: Examples 3
+=== Test-Data: Examples 3
 +
 |===
 | h3
@@ -106,22 +106,22 @@ Desc line 3
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* And: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is deleted
+=== And: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is deleted
 
-* And: The maven plugin uml-to-asciidoctor goal is executed
+=== And: The maven plugin uml-to-asciidoctor goal is executed
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
-* And: The spec-prj project Process.asciidoc file Scenarios section will be created as follows
+=== And: The spec-prj project Process.asciidoc file Scenarios section will be created as follows
 +
 |===
 | Name   | Tags           | Description                          
 | Submit | tag1,tag2,tag3 | @tag1 @tag2 @tag3\nDesc line 1\nDesc line 2\nDesc line 3
 |===
 
-* And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
+=== And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
 +
 |===
 | Name   | Step                                                           
@@ -130,7 +130,7 @@ Desc line 3
 | Submit | Given: The blah application Object3 page is created as follows
 |===
 
-* And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
+=== And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
 +
 |===
 | Name   | Examples   | Row

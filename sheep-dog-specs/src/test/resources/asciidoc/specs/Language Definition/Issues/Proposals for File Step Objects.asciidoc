@@ -14,7 +14,9 @@ The variables are:
 
 == Test-Case: No component no existing
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+If a step has no component and no object, proposals come from objects referenced in previous steps within the same test case. Both the short form and fully qualified form are proposed.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
 | Node Path                                                           | Test Step Full Name
@@ -22,14 +24,14 @@ The variables are:
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | empty
 |===
 
-* When: The xtext plugin list proposals action is performed as follows
+=== When: The xtext plugin list proposals action is performed as follows
 +
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
-* Then: The xtext plugin list proposals popup will be set as follows
+=== Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Proposal Value                 | Proposal Id                | Proposal Description
@@ -39,7 +41,9 @@ The variables are:
 
 == Test-Case: Has component no existing
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+If a step has a component but no object, proposals still come from objects referenced in previous steps. The component doesn't filter the proposals from previous steps.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
 | Node Path                                                           | Test Step Full Name
@@ -47,14 +51,14 @@ The variables are:
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob
 |===
 
-* When: The xtext plugin list proposals action is performed as follows
+=== When: The xtext plugin list proposals action is performed as follows
 +
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/2
 |===
 
-* Then: The xtext plugin list proposals popup will be set as follows
+=== Then: The xtext plugin list proposals popup will be set as follows
 +
 |===
 | Proposal Value                 | Proposal Id                | Proposal Description
@@ -64,35 +68,37 @@ The variables are:
 
 == Test-Case: No component no existing has background
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+If a test case step has no component and no object, proposals include objects from the test setup (background) steps.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
 +
 |===
 | Node Path                                            | Test Setup Name
 | TestProject/TestDocumentList/1/TestStepContainerList | Background
 |===
 
-* And: The ProcessIssues.asciidoc file TestStepList node is created as follows
+=== And: The ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Output file is present
 |===
 
-* And: The ProcessIssues.asciidoc file TestStepList node is created as follows
+=== And: The ProcessIssues.asciidoc file TestStepList node is created as follows
 +
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList | empty
 |===
 
-* When: The xtext plugin list proposals action is performed as follows
+=== When: The xtext plugin list proposals action is performed as follows
 +
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/2/TestStepList/1
 |===
 
-* Then: The list proposals popup will be set as follows
+=== Then: The list proposals popup will be set as follows
 +
 |===
 | Proposal Value                 | Proposal Id                | Proposal Description

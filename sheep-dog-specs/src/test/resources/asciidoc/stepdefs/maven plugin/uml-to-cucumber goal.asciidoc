@@ -4,7 +4,7 @@
 
 == Step-Definition: is executed with
 
-* Step-Parameters: Tags
+=== Step-Parameters: Tags
 +
 |===
 | Tags

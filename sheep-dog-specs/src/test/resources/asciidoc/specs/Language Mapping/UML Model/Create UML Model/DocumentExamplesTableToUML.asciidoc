@@ -4,21 +4,21 @@
 
 == Test-Case: Three rows, three cells
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
 +
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
-* Given: The Object page is created as follows
+=== Given: The Object page is created as follows
 +
 |===
 | h1 | h2 | h3
 | {h1} | {h2} | {h3}
 |===
 
-* Test-Data: Examples 1
+=== Test-Data: Examples 1
 +
 @tag1 @tag2 @tag3
 Desc1
@@ -33,11 +33,11 @@ Desc3
 |===
 ----
 
-* When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed
 
-* Then: The spec-prj project uml/pst.uml file will be present
+=== Then: The spec-prj project uml/pst.uml file will be present
 
-* And: The uml/pst.uml file Interaction Annotations section will be created as follows
+=== And: The uml/pst.uml file Interaction Annotations section will be created as follows
 +
 |===
 | Interaction Name       | Annotation Name | Annotation Detail                                             

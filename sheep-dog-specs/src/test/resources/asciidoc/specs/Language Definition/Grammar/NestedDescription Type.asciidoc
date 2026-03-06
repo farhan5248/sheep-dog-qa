@@ -2,23 +2,28 @@
 
 @sheep-dog-test
 
+Nested Description is a grammar rule in SheepDog.xtext used by Step Parameters and Test Data. It is preceded by a block delimiter.
+
 == Test-Case: Initial State
 
-* Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file LineList node is created as follows
+Nested Description must have
+- Line List
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file LineList node is created as follows
 +
 |===
 | Node Path                                                                                        | Line Content
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList | First Line
 |===
 
-* When: The xtext plugin edit document node action is performed to modify LineList with
+=== When: The xtext plugin edit document node action is performed to modify LineList with
 +
 |===
 | Node Path                                                                                        | Line Content
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList | Second Line
 |===
 
-* Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file LineList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file LineList node will be created as follows
 +
 |===
 | Node Path                                                                                          | Line Content
