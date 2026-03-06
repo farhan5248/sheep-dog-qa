@@ -11,7 +11,7 @@
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
 |===
 
-* When: The xtext plugin edit document action is performed to modify RowList with
+* When: The xtext plugin edit document node action is performed to modify RowList with
 +
 |===
 | Node Path                                                                           | Row Content
@@ -34,7 +34,7 @@
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | First Cell
 |===
 
-* When: The xtext plugin edit document action is performed to modify CellList with
+* When: The xtext plugin edit document node action is performed to modify CellList with
 +
 |===
 | Node Path                                                                                      | Cell Name

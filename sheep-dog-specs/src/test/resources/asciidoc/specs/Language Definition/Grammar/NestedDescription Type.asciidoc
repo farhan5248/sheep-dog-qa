@@ -11,7 +11,7 @@
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/NestedDescription/LineList | First Line
 |===
 
-* When: The xtext plugin edit document action is performed to modify LineList with
+* When: The xtext plugin edit document node action is performed to modify LineList with
 +
 |===
 | Node Path                                                                                        | Line Content

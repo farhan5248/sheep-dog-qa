@@ -1,4 +1,4 @@
-= Step-Object: edit document action
+= Step-Object: edit document node action
 
 == Step-Definition: is performed to modify CellList with
 

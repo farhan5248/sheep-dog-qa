@@ -16,6 +16,14 @@
 | Node Path | Cell Name
 |===
 
+== Step-Definition: Description node will be as follows
+
+* Step-Parameters: Node Path, State
++
+|===
+| Node Path | State
+|===
+
 == Step-Definition: LineList node is created as follows
 
 * Step-Parameters: Line Content, Node Path
@@ -24,20 +32,20 @@
 | Node Path | Line Content
 |===
 
-== Step-Definition: LineList node will be as follows
-
-* Step-Parameters: Node Path, State
-+
-|===
-| Node Path | State
-|===
-
 == Step-Definition: LineList node will be created as follows
 
 * Step-Parameters: Line Content, Node Path
 +
 |===
 | Node Path | Line Content
+|===
+
+== Step-Definition: NestedDescription node will be as follows
+
+* Step-Parameters: Node Path, State
++
+|===
+| Node Path | State
 |===
 
 == Step-Definition: StepDefinitionList node is created as follows
@@ -86,6 +94,14 @@
 +
 |===
 | Node Path | Step Parameters Name
+|===
+
+== Step-Definition: Table node will be as follows
+
+* Step-Parameters: Node Path, State
++
+|===
+| Node Path | State
 |===
 
 == Step-Definition: TestDocumentList node is created as follows
