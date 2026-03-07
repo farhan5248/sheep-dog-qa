@@ -10,14 +10,14 @@ If the step object file doesn't exist in the workspace, no parameter proposals a
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name                                
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
+| Node Path                            | Test Step Full Name                                
+| TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
-| Node Path                                                                            
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| Test Suite Full Name         | Node Path                                             
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty
@@ -28,26 +28,26 @@ If the step object exists but the step definition doesn't match, no parameter pr
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name                                
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
+| Node Path                            | Test Step Full Name                                
+| TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
 |===
 
 === And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
-| Node Path                                                                                      | Cell Name
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
+| Node Path                                                       | Cell Name
+| TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
 |===
 
-=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 |===
-| Node Path                    | Step Object Full Name                      | Step Definition Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is present          
+| Step Definition Name
+| is present          
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
-| Node Path                                                                            
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| Test Suite Full Name         | Node Path                                             
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty
@@ -58,26 +58,26 @@ If the step definition exists but the test step uses a different step definition
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name                     
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
+| Node Path                            | Test Step Full Name                     
+| TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
 |===
 
 === And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
-| Node Path                                                                                      | Cell Name
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
+| Node Path                                                       | Cell Name
+| TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
 |===
 
-=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 |===
-| Node Path                    | Step Object Full Name                      | Step Definition Name  | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is created as follows | H1, H2, H3          
+| Step Definition Name  | Step Parameters Name
+| is created as follows | H1, H2, H3          
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
-| Node Path                                                                            
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| Test Suite Full Name         | Node Path                                             
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty
@@ -90,32 +90,32 @@ TODO I should add more parameter combinations to describe this better.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name                                
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
+| Node Path                            | Test Step Full Name                                
+| TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
 |===
 
 === And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
-| Node Path                                                                                      | Cell Name
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
+| Node Path                                                       | Cell Name
+| TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
 |===
 
-=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 |===
-| Node Path                    | Step Object Full Name                      | Step Definition Name  | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is created as follows | H1, H2, H3          
+| Step Definition Name  | Step Parameters Name
+| is created as follows | H1, H2, H3          
 |===
 
 === And: The Input file.asciidoc file LineList node is created as follows
 |===
-| Node Path                                                                                     | Line Content                
-| TestProject/TestDocumentList/2/StepDefinitionList/1/StepParametersList/1/Description/LineList | Header parameters for tables
+| Node Path                                                      | Line Content                
+| StepDefinitionList/1/StepParametersList/1/Description/LineList | Header parameters for tables
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
-| Node Path                                                                            
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| Test Suite Full Name         | Node Path                                             
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be set as follows
@@ -130,26 +130,26 @@ Content parameters shouldn't be proposed as they are for text blocks, not table 
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name                                
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
+| Node Path                            | Test Step Full Name                                
+| TestStepContainerList/1/TestStepList | The daily batchjob Input file is created as follows
 |===
 
 === And: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
-| Node Path                                                                                      | Cell Name
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
+| Node Path                                                       | Cell Name
+| TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | empty    
 |===
 
-=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
 |===
-| Node Path                    | Step Object Full Name                      | Step Definition Name  | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is created as follows | Content             
+| Step Definition Name  | Step Parameters Name
+| is created as follows | Content             
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
-| Node Path                                                                            
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1
+| Test Suite Full Name         | Node Path                                             
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty

@@ -1,0 +1,16 @@
+= Step-Object: add document action
+
+== Step-Definition: is performed to create a StepObject with
+
+=== Step-Parameters: Step Object Full Name
+|===
+| Step Object Full Name
+|===
+
+== Step-Definition: is performed to create a TestSuite with
+
+=== Step-Parameters: Test Suite Full Name
+|===
+| Test Suite Full Name
+|===
+

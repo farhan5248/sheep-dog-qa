@@ -21,20 +21,6 @@
 | Node Path | State
 |===
 
-== Step-Definition: LineList node is created as follows
-
-=== Step-Parameters: Line Content, Node Path
-|===
-| Node Path | Line Content
-|===
-
-== Step-Definition: LineList node will be created as follows
-
-=== Step-Parameters: Line Content, Node Path
-|===
-| Node Path | Line Content
-|===
-
 == Step-Definition: NestedDescription node will be as follows
 
 === Step-Parameters: Node Path, State
@@ -89,25 +75,6 @@
 === Step-Parameters: Node Path, Test Data Name
 |===
 | Node Path | Test Data Name
-|===
-
-== Step-Definition: TestDocumentList node is created as follows
-
-=== Step-Parameters: Node Path, Test Suite Full Name
-|===
-| Node Path | Test Suite Full Name
-|===
-
-=== Step-Parameters: Node Path, Test Suite Full Name, Test Suite Name
-|===
-| Node Path | Test Suite Full Name | Test Suite Name
-|===
-
-== Step-Definition: TestDocumentList node will be created as follows
-
-=== Step-Parameters: Node Path, Test Suite Name
-|===
-| Node Path | Test Suite Name
 |===
 
 == Step-Definition: TestStepContainerList node is created as follows
@@ -199,5 +166,21 @@
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
+|===
+
+== Step-Definition: is created
+
+== Step-Definition: is created as follows
+
+=== Step-Parameters: Test Suite Name
+|===
+| Test Suite Name
+|===
+
+== Step-Definition: will be created as follows
+
+=== Step-Parameters: Test Suite Name
+|===
+| Test Suite Name
 |===
 

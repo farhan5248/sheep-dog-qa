@@ -14,34 +14,30 @@ and optionally have these
 - Description
 - Test Step Container List
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDocumentList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file is created
+
+=== When: The xtext plugin add document action is performed to create a TestSuite with
 |===
-| Node Path                    | Test Suite Full Name  
-| TestProject/TestDocumentList | specs/ProcessIssues.asciidoc
+| Test Suite Full Name         
+| specs/ProcessIssues2.asciidoc
 |===
 
-=== When: The xtext plugin edit document node action is performed to modify TestDocumentList with
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues2.asciidoc file will be created as follows
 |===
-| Node Path                    | Test Suite Full Name   
-| TestProject/TestDocumentList | specs/ProcessIssues2.asciidoc
-|===
-
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues2.asciidoc file TestDocumentList node will be created as follows
-|===
-| Node Path                      | Test Suite Full Name       | Test Suite Name
-| TestProject/TestDocumentList/2 | specs/ProcessIssues2.asciidoc | ProcessIssues2
+| Test Suite Name
+| ProcessIssues2 
 |===
 
 === And: The ProcessIssues.asciidoc file TestStepContainerList node will be as follows
 |===
-| Node Path                                            | State
-| TestProject/TestDocumentList/1/TestStepContainerList | Empty
+| Node Path             | State
+| TestStepContainerList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
 |===
-| Node Path                                  | State 
-| TestProject/TestDocumentList/1/Description | Absent
+| Node Path   | State 
+| Description | Absent
 |===
 
 == Test-Case: Test Case
@@ -57,38 +53,38 @@ and optionally have these
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
 |===
-| Node Path                                            | Test Case Name 
-| TestProject/TestDocumentList/1/TestStepContainerList | First Test Case
+| Node Path             | Test Case Name 
+| TestStepContainerList | First Test Case
 |===
 
 === When: The xtext plugin edit document node action is performed to modify TestStepContainerList with
 |===
-| Node Path                                            | Test Case Name  
-| TestProject/TestDocumentList/1/TestStepContainerList | Second Test Case
+| Test Suite Full Name         | Node Path             | Test Case Name  
+| specs/ProcessIssues.asciidoc | TestStepContainerList | Second Test Case
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
 |===
-| Node Path                                              | Test Case Name  
-| TestProject/TestDocumentList/1/TestStepContainerList/2 | Second Test Case
+| Node Path               | Test Case Name  
+| TestStepContainerList/2 | Second Test Case
 |===
 
 === And: The ProcessIssues.asciidoc file TestStepList node will be as follows
 |===
-| Node Path                                                           | State
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | Empty
+| Node Path                            | State
+| TestStepContainerList/1/TestStepList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file TestDataList node will be as follows
 |===
-| Node Path                                                           | State
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList | Empty
+| Node Path                            | State
+| TestStepContainerList/1/TestDataList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
 |===
-| Node Path                                                          | State 
-| TestProject/TestDocumentList/1/TestStepContainerList/1/Description | Absent
+| Node Path                           | State 
+| TestStepContainerList/1/Description | Absent
 |===
 
 == Test-Case: Test Setup
@@ -103,32 +99,32 @@ and optionally have these
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
 |===
-| Node Path                                            | Test Setup Name 
-| TestProject/TestDocumentList/1/TestStepContainerList | First Test Setup
+| Node Path             | Test Setup Name 
+| TestStepContainerList | First Test Setup
 |===
 
 === When: The xtext plugin edit document node action is performed to modify TestStepContainerList with
 |===
-| Node Path                                            | Test Setup Name  
-| TestProject/TestDocumentList/1/TestStepContainerList | Second Test Setup
+| Test Suite Full Name         | Node Path             | Test Setup Name  
+| specs/ProcessIssues.asciidoc | TestStepContainerList | Second Test Setup
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
 |===
-| Node Path                                              | Test Setup Name  
-| TestProject/TestDocumentList/1/TestStepContainerList/2 | Second Test Setup
+| Node Path               | Test Setup Name  
+| TestStepContainerList/2 | Second Test Setup
 |===
 
 === And: The ProcessIssues.asciidoc file TestStepList node will be as follows
 |===
-| Node Path                                                           | State
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | Empty
+| Node Path                            | State
+| TestStepContainerList/1/TestStepList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
 |===
-| Node Path                                                          | State 
-| TestProject/TestDocumentList/1/TestStepContainerList/1/Description | Absent
+| Node Path                           | State 
+| TestStepContainerList/1/Description | Absent
 |===
 
 == Test-Case: Test Data
@@ -143,31 +139,31 @@ and optionally have these
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node is created as follows
 |===
-| Node Path                                                           | Test Data Name 
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList | First Test Data
+| Node Path                            | Test Data Name 
+| TestStepContainerList/1/TestDataList | First Test Data
 |===
 
 === When: The xtext plugin edit document node action is performed to modify TestDataList with
 |===
-| Node Path                                                           | Test Data Name  
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList | Second Test Data
+| Test Suite Full Name         | Node Path                            | Test Data Name  
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList | Second Test Data
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node will be created as follows
 |===
-| Node Path                                                             | Test Data Name  
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/2 | Second Test Data
+| Node Path                              | Test Data Name  
+| TestStepContainerList/1/TestDataList/2 | Second Test Data
 |===
 
 === And: The ProcessIssues.asciidoc file NestedDescription node will be as follows
 |===
-| Node Path                                                                         | State 
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Description | Absent
+| Node Path                                          | State 
+| TestStepContainerList/1/TestDataList/1/Description | Absent
 |===
 
 === And: The ProcessIssues.asciidoc file Table node will be as follows
 |===
-| Node Path                                                                   | State 
-| TestProject/TestDocumentList/1/TestStepContainerList/1/TestDataList/1/Table | Absent
+| Node Path                                    | State 
+| TestStepContainerList/1/TestDataList/1/Table | Absent
 |===
 

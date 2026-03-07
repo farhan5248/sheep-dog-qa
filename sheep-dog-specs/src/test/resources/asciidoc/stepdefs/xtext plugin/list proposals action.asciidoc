@@ -2,8 +2,8 @@
 
 == Step-Definition: is performed as follows
 
-=== Step-Parameters: Node Path
+=== Step-Parameters: Node Path, Test Suite Full Name
 |===
-| Node Path
+| Test Suite Full Name | Node Path
 |===
 

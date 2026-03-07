@@ -91,32 +91,29 @@
 | Node Path | State
 |===
 
-== Step-Definition: TestDocumentList node is created as follows
+== Step-Definition: is created
 
-=== Step-Parameters: Node Path, Step Definition Name, Step Object Full Name
-|===
-| Node Path | Step Object Full Name | Step Definition Name
-|===
+== Step-Definition: is created as follows
 
-=== Step-Parameters: Node Path, Step Definition Name, Step Object Full Name, Step Parameters Name
+=== Step-Parameters: Step Definition Name
 |===
-| Node Path | Step Object Full Name | Step Definition Name | Step Parameters Name
+| Step Definition Name
 |===
 
-=== Step-Parameters: Node Path, Step Object Full Name
+=== Step-Parameters: Step Definition Name, Step Parameters Name
 |===
-| Node Path | Step Object Full Name
-|===
-
-== Step-Definition: TestDocumentList node will be created as follows
-
-=== Step-Parameters: Node Path, Step Definition Name, Step Object Full Name
-|===
-| Node Path | Step Object Full Name | Step Definition Name
+| Step Definition Name | Step Parameters Name
 |===
 
-=== Step-Parameters: Node Path, Step Definition Name, Step Object Full Name, Step Parameters Name
+== Step-Definition: will be created as follows
+
+=== Step-Parameters: Step Definition Name
 |===
-| Node Path | Step Object Full Name | Step Definition Name | Step Parameters Name
+| Step Definition Name
+|===
+
+=== Step-Parameters: Step Definition Name, Step Parameters Name
+|===
+| Step Definition Name | Step Parameters Name
 |===
 

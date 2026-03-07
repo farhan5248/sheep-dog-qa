@@ -2,15 +2,15 @@
 
 == Step-Definition: is performed to add Table at
 
-=== Step-Parameters: Node Path
+=== Step-Parameters: Node Path, Test Suite Full Name
 |===
-| Node Path
+| Test Suite Full Name | Node Path
 |===
 
 == Step-Definition: is performed to add Text at
 
-=== Step-Parameters: Node Path
+=== Step-Parameters: Node Path, Test Suite Full Name
 |===
-| Node Path
+| Test Suite Full Name | Node Path
 |===
 
