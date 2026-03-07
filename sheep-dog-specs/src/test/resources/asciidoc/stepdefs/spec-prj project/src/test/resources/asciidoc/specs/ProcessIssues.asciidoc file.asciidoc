@@ -148,11 +148,6 @@
 
 == Step-Definition: TestStepList node is created as follows
 
-=== Step-Parameters: And StepDefinitionRef Name, And StepObjectRef Name, Node Path
-|===
-| Node Path | And StepObjectRef Name | And StepDefinitionRef Name
-|===
-
 === Step-Parameters: Given StepDefinitionRef Name, Given StepObjectRef Name, Node Path
 |===
 | Node Path | Given StepObjectRef Name | Given StepDefinitionRef Name
@@ -161,16 +156,6 @@
 === Step-Parameters: Node Path, Test Step Full Name
 |===
 | Node Path | Test Step Full Name
-|===
-
-=== Step-Parameters: Node Path, Then StepDefinitionRef Name, Then StepObjectRef Name
-|===
-| Node Path | Then StepObjectRef Name | Then StepDefinitionRef Name
-|===
-
-=== Step-Parameters: Node Path, When StepDefinitionRef Name, When StepObjectRef Name
-|===
-| Node Path | When StepObjectRef Name | When StepDefinitionRef Name
 |===
 
 == Step-Definition: TestStepList node will be as follows
@@ -184,22 +169,22 @@
 
 === Step-Parameters: And Full Name, And StepDefinitionRef Name, And StepObjectRef Name, Node Path
 |===
-| Node Path | And StepObjectRef Name | And StepDefinitionRef Name | And Full Name
+| Node Path | And Full Name | And StepObjectRef Name | And StepDefinitionRef Name
 |===
 
 === Step-Parameters: Given Full Name, Given StepDefinitionRef Name, Given StepObjectRef Name, Node Path
 |===
-| Node Path | Given StepObjectRef Name | Given StepDefinitionRef Name | Given Full Name
+| Node Path | Given Full Name | Given StepObjectRef Name | Given StepDefinitionRef Name
 |===
 
 === Step-Parameters: Node Path, Then Full Name, Then StepDefinitionRef Name, Then StepObjectRef Name
 |===
-| Node Path | Then StepObjectRef Name | Then StepDefinitionRef Name | Then Full Name
+| Node Path | Then Full Name | Then StepObjectRef Name | Then StepDefinitionRef Name
 |===
 
 === Step-Parameters: Node Path, When Full Name, When StepDefinitionRef Name, When StepObjectRef Name
 |===
-| Node Path | When StepObjectRef Name | When StepDefinitionRef Name | When Full Name
+| Node Path | When Full Name | When StepObjectRef Name | When StepDefinitionRef Name
 |===
 
 == Step-Definition: Text node is created as follows

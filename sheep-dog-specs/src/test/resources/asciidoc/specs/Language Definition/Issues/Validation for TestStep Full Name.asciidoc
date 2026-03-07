@@ -1,0 +1,85 @@
+= Test-Suite: Validation for TestStep Full Name
+
+@sheep-dog-test
+
+getTestStepFullName resolves shortened StepObjectRef Names by looking at previous steps to fill in missing component and object path.
+
+== Test-Case: With Path Resolution
+
+StepObjectRef Name has 3 parts: component, object path, and object name. The algorithm searches previous steps for a matching object name to borrow missing component or path. It stops at the first match with a component.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+|===
+| Node Path                                                           | Given StepObjectRef Name | Given StepDefinitionRef Name
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 1 StepObjectRef}   | is performed                
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 2 StepObjectRef}   | is performed                
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 3 StepObjectRef}   | is performed                
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 4 StepObjectRef}   | is performed                
+|===
+
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/app/Input file.asciidoc file TestDocumentList node is created as follows
+|===
+| Node Path                    | Step Object Full Name                          | Step Definition Name
+| TestProject/TestDocumentList | stepdefs/daily batchjob/app/Input file.feature | is performed        
+|===
+
+=== When: The xtext plugin validate action is performed as follows
+|===
+| Node Path                                                            
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/4
+|===
+
+=== Then: The xtext plugin validate annotation will be empty
+
+=== Test-Data: Full
+|===
+| Line 1 StepObjectRef              | Line 2 StepObjectRef              | Line 3 StepObjectRef              | Line 4 StepObjectRef             
+| The daily batchjob app/Input file | The daily batchjob app/Input file | The daily batchjob app/Input file | The daily batchjob app/Input file
+|===
+
+=== Test-Data: Name only
+|===
+| Line 1 StepObjectRef              | Line 2 StepObjectRef              | Line 3 StepObjectRef | Line 4 StepObjectRef
+| The daily batchjob app/Input file | The daily batchjob app/Input file | The app/Input file   | The Input file      
+| The daily batchjob app/Input file | The app2/Input file               | The app/Input file   | The Input file      
+|===
+
+=== Test-Data: Path and Name
+|===
+| Line 1 StepObjectRef                | Line 2 StepObjectRef              | Line 3 StepObjectRef | Line 4 StepObjectRef
+| The daily batchjob app/Input file   | The daily batchjob app/Input file | The app/Input file   | The app/Input file  
+| The nightly batchjob app/Input file | The daily batchjob app/Input file | The app/Input file   | The app/Input file  
+|===
+
+== Test-Case: Without Path Resolution
+
+StepObjectRef Name has 3 parts: component, object path, and object name. The algorithm searches previous steps for a matching object name to borrow missing component or path. It stops at the first match with a component.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+|===
+| Node Path                                                           | Given StepObjectRef Name | Given StepDefinitionRef Name
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 1 StepObjectRef}   | is performed                
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 2 StepObjectRef}   | is performed                
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | {Line 3 StepObjectRef}   | is performed                
+|===
+
+=== And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
+|===
+| Node Path                    | Step Object Full Name                      | Step Definition Name
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is performed        
+|===
+
+=== When: The xtext plugin validate action is performed as follows
+|===
+| Node Path                                                            
+| TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/3
+|===
+
+=== Then: The xtext plugin validate annotation will be empty
+
+=== Test-Data: Component and Name
+|===
+| Line 1 StepObjectRef              | Line 2 StepObjectRef | Line 3 StepObjectRef         
+| The daily batchjob app/Input file | The app/Input file   | The daily batchjob Input file
+|===
+

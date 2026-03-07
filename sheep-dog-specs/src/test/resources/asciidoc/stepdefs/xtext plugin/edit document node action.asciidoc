@@ -68,23 +68,8 @@
 
 == Step-Definition: is performed to modify TestStepList with
 
-=== Step-Parameters: And StepDefinitionRef Name, And StepObjectRef Name, Node Path
+=== Step-Parameters: Node Path, Test Step Full Name
 |===
-| Node Path | And StepObjectRef Name | And StepDefinitionRef Name
-|===
-
-=== Step-Parameters: Given StepDefinitionRef Name, Given StepObjectRef Name, Node Path
-|===
-| Node Path | Given StepObjectRef Name | Given StepDefinitionRef Name
-|===
-
-=== Step-Parameters: Node Path, Then StepDefinitionRef Name, Then StepObjectRef Name
-|===
-| Node Path | Then StepObjectRef Name | Then StepDefinitionRef Name
-|===
-
-=== Step-Parameters: Node Path, When StepDefinitionRef Name, When StepObjectRef Name
-|===
-| Node Path | When StepObjectRef Name | When StepDefinitionRef Name
+| Node Path | Test Step Full Name
 |===
 
