@@ -6,14 +6,12 @@ TODO add tests for document parameters
 == Test-Setup: Create a test case
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
 === Given: The blah application Object page is created as follows
-+
 |===
 | h1
 |===
@@ -22,14 +20,12 @@ TODO add tests for document parameters
 == Test-Case: No statement, one step parameter
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
-+
 ----
 = Step-Object: Object page
 
 == Step-Definition: is created as follows
 
 === Step-Parameters: 1
-+
 |===
 | h1
 |===
@@ -40,7 +36,6 @@ TODO add tests for document parameters
 === Then: The spec-prj project uml/pst.uml file will be present
 
 === And: The uml/pst.uml file Interaction Annotations section will be created as follows
-+
 |===
 | Interaction Name                                               | Annotation Name | Annotation Detail
 | stepdefs::blah application::Object page::is created as follows | 1               | 0 -} h1\|        
@@ -49,7 +44,6 @@ TODO add tests for document parameters
 == Test-Case: Three statements, three step parameters
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
-+
 ----
 = Step-Object: Object page
 
@@ -60,19 +54,16 @@ Desc line 2
 Desc line 3
 
 === Step-Parameters: 1
-+
 |===
 | h1
 |===
 
 === Step-Parameters: 2
-+
 |===
 | h2
 |===
 
 === Step-Parameters: 3
-+
 |===
 | h3
 |===
@@ -83,21 +74,18 @@ Desc line 3
 === Then: The spec-prj project uml/pst.uml file will be present
 
 === And: The uml/pst.uml file Interaction Comments section will be created as follows
-+
 |===
 | Interaction Name                                               | Comment                              
 | stepdefs::blah application::Object page::is created as follows | Desc line 1\nDesc line 2\nDesc line 3
 |===
 
 === And: The uml/pst.uml file Interaction Annotations section will be created as follows
-+
 |===
 | Interaction Name                                               | Annotation Name | Annotation Detail
 | stepdefs::blah application::Object page::is created as follows | {Index}         | 0 -} h{Index}\|  
 |===
 
 === Test-Data: Indices
-+
 |===
 | Index
 | 1    

@@ -3,7 +3,6 @@
 == Step-Definition: is performed as follows
 
 === Step-Parameters: Node Path
-+
 |===
 | Node Path
 |===

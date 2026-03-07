@@ -3,7 +3,6 @@
 == Step-Definition: is performed to modify CellList with
 
 === Step-Parameters: Cell Name, Node Path
-+
 |===
 | Node Path | Cell Name
 |===
@@ -11,7 +10,6 @@
 == Step-Definition: is performed to modify LineList with
 
 === Step-Parameters: Line Content, Node Path
-+
 |===
 | Node Path | Line Content
 |===
@@ -19,7 +17,6 @@
 == Step-Definition: is performed to modify RowList with
 
 === Step-Parameters: Node Path, Row Content
-+
 |===
 | Node Path | Row Content
 |===
@@ -27,7 +24,6 @@
 == Step-Definition: is performed to modify StepDefinitionList with
 
 === Step-Parameters: Node Path, Step Definition Name
-+
 |===
 | Node Path | Step Definition Name
 |===
@@ -35,7 +31,6 @@
 == Step-Definition: is performed to modify StepParametersList with
 
 === Step-Parameters: Node Path, Step Parameters Name
-+
 |===
 | Node Path | Step Parameters Name
 |===
@@ -43,7 +38,6 @@
 == Step-Definition: is performed to modify TestDataList with
 
 === Step-Parameters: Node Path, Test Data Name
-+
 |===
 | Node Path | Test Data Name
 |===
@@ -51,13 +45,11 @@
 == Step-Definition: is performed to modify TestDocumentList with
 
 === Step-Parameters: Node Path, Step Object Full Name
-+
 |===
 | Node Path | Step Object Full Name
 |===
 
 === Step-Parameters: Node Path, Test Suite Full Name
-+
 |===
 | Node Path | Test Suite Full Name
 |===
@@ -65,40 +57,34 @@
 == Step-Definition: is performed to modify TestStepContainerList with
 
 === Step-Parameters: Node Path, Test Case Name
-+
 |===
 | Node Path | Test Case Name
 |===
 
 === Step-Parameters: Node Path, Test Setup Name
-+
 |===
 | Node Path | Test Setup Name
 |===
 
 == Step-Definition: is performed to modify TestStepList with
 
-=== Step-Parameters: And StepDefinition Name, And StepObject Name, Node Path
-+
+=== Step-Parameters: And StepDefinitionRef Name, And StepObjectRef Name, Node Path
 |===
-| Node Path | And StepObject Name | And StepDefinition Name
-|===
-
-=== Step-Parameters: Given StepDefinition Name, Given StepObject Name, Node Path
-+
-|===
-| Node Path | Given StepObject Name | Given StepDefinition Name
+| Node Path | And StepObjectRef Name | And StepDefinitionRef Name
 |===
 
-=== Step-Parameters: Node Path, Then StepDefinition Name, Then StepObject Name
-+
+=== Step-Parameters: Given StepDefinitionRef Name, Given StepObjectRef Name, Node Path
 |===
-| Node Path | Then StepObject Name | Then StepDefinition Name
+| Node Path | Given StepObjectRef Name | Given StepDefinitionRef Name
 |===
 
-=== Step-Parameters: Node Path, When StepDefinition Name, When StepObject Name
-+
+=== Step-Parameters: Node Path, Then StepDefinitionRef Name, Then StepObjectRef Name
 |===
-| Node Path | When StepObject Name | When StepDefinition Name
+| Node Path | Then StepObjectRef Name | Then StepDefinitionRef Name
+|===
+
+=== Step-Parameters: Node Path, When StepDefinitionRef Name, When StepObjectRef Name
+|===
+| Node Path | When StepObjectRef Name | When StepDefinitionRef Name
 |===
 

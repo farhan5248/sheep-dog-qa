@@ -20,7 +20,6 @@ However, we then moved the "field1 is value, field2 is value" to a data table an
 The table formatting is off, this is intentional to check that the formatting works.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -34,7 +33,6 @@ Desc 2
 === Given: The blah application Object page is valid
 
 === Then: The blah application Object page is created as follows
-+
 \----
   text1
 
@@ -49,21 +47,18 @@ Desc 3
 === Given: The blah application Object page is invalid
 
 === When: The blah application Object page is created as follows
-+
 |===
 | grp | ins
 | 8 | {ins}
 |===
 
 === Test-Data: Some data
-+
 |===
 | ins
 | 4
 |===
 
 === Test-Data: Dataset 2
-+
 |===
 | ins
 | 5
@@ -72,7 +67,6 @@ Desc 3
 ----
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
-+
 ----
 = Step-Object: Object page
 
@@ -83,13 +77,11 @@ Desc 3
 == Step-Definition: is created as follows
 
 === Step-Parameters: 1
-+
 |===
 | grp | ins
 |===
 
 === Step-Parameters: 2
-+
 |===
 | Content
 |===
@@ -100,7 +92,6 @@ Desc 3
 === And: The maven plugin uml-to-asciidoctor goal is executed
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file will be created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -114,7 +105,6 @@ Desc 2
 === Given: The blah application Object page is valid
 
 === Then: The blah application Object page is created as follows
-+
 \----
   text1
 
@@ -129,21 +119,18 @@ Desc 3
 === Given: The blah application Object page is invalid
 
 === When: The blah application Object page is created as follows
-+
 |===
 | grp | ins  
 | 8   | {ins}
 |===
 
 === Test-Data: Some data
-+
 |===
 | ins
 | 4  
 |===
 
 === Test-Data: Dataset 2
-+
 |===
 | ins
 | 5  
@@ -152,20 +139,17 @@ Desc 3
 ----
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file will be created as follows
-+
 ----
 = Step-Object: Object page
 
 == Step-Definition: is created as follows
 
 === Step-Parameters: 1
-+
 |===
 | grp | ins
 |===
 
 === Step-Parameters: 2
-+
 |===
 | Content
 |===

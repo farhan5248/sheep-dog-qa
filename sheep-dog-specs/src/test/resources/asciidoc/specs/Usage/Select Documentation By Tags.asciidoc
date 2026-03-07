@@ -16,7 +16,6 @@ TODO Combine both asciidoc files into one asciidoc file. Keep the two different 
 The test was good enough to code what I wanted but I can see how if I break the code, the test will still pass
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -28,7 +27,6 @@ The test was good enough to code what I wanted but I can see how if I break the 
 ----
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -40,28 +38,24 @@ The test was good enough to code what I wanted but I can see how if I break the 
 ----
 
 === When: The maven plugin asciidoctor-to-uml goal is executed with
-+
 |===
 | Tags
 | tag1
 |===
 
 === And: The maven plugin asciidoctor-to-uml goal is executed with
-+
 |===
 | Tags
 | tag2
 |===
 
 === And: The maven plugin uml-to-cucumber goal is executed with
-+
 |===
 | Tags
 | tag1
 |===
 
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file will be created as follows
-+
 ----
 Feature: Process
 

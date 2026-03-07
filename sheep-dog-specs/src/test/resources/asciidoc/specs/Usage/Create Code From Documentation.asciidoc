@@ -17,7 +17,6 @@ You always need the Test-Suite and Step-Object files.
 The Test-Suite is what is tagged and the Step-Object has all the relevant step definitions.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -32,7 +31,6 @@ Desc 2
 === Given: The blah application Object page is valid
 
 === Then: The Object page is created as follows
-+
 \----
   text1
 
@@ -47,21 +45,18 @@ Desc 3
 === Given: The blah application Object page is invalid
 
 === When: The Object page is created as follows
-+
 |===
 | grp | ins
 | 8 | {ins}
 |===
 
 === Test-Data: Some data
-+
 |===
 | ins
 | 4
 |===
 
 === Test-Data: Dataset 2
-+
 |===
 | ins
 | 5
@@ -70,7 +65,6 @@ Desc 3
 ----
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
-+
 ----
 = Step-Object: Object page
 
@@ -81,13 +75,11 @@ Desc 3
 == Step-Definition: is created as follows
 
 === Step-Parameters: 1
-+
 |===
 | grp | ins
 |===
 
 === Step-Parameters: 2
-+
 |===
 | Content
 |===
@@ -100,7 +92,6 @@ Desc 3
 === When: The maven plugin uml-to-cucumber goal is executed
 
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/app/Process.feature file will be created as follows
-+
 ----
 @tag1
 Feature: Process
@@ -146,7 +137,6 @@ Feature: Process
 ----
 
 === And: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be created as follows
-+
 ----
 package org.farhan.objects.blah;
 
@@ -167,7 +157,6 @@ public interface ObjectPage {
 ----
 
 === And: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be created as follows
-+
 ----
 package org.farhan.stepdefs.blah;
 
@@ -205,7 +194,6 @@ Instead of running the uml-to-cucumber goal, you can run the spring one to creat
 === And: The maven plugin uml-to-cucumber-spring goal is executed
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be created as follows
-+
 ----
 package org.farhan.stepdefs.blah;
 
@@ -245,7 +233,6 @@ You can also run the uml-to-cucumber-guice goal to create code that uses Guice.
 === And: The maven plugin uml-to-cucumber-guice goal is executed
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be created as follows
-+
 ----
 package org.farhan.stepdefs.blah;
 

@@ -12,7 +12,6 @@ For this reason I'd at least keep the interfaces and make sure that the UML mode
 == Test-Setup: Create a test suite and step object
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -22,7 +21,6 @@ For this reason I'd at least keep the interfaces and make sure that the UML mode
 ----
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file is created as follows
-+
 ----
 = Step-Object: Object page
 
@@ -36,7 +34,6 @@ For this reason I'd at least keep the interfaces and make sure that the UML mode
 The isEmpty method is added to the step definition class and the isInvalid one isn't removed.
 
 === And: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file is created as follows
-+
 ----
 package org.farhan.stepdefs.blah;
 
@@ -63,7 +60,6 @@ public class BlahObjectPageSteps {
 === When: The maven plugin uml-to-cucumber goal is executed
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be created as follows
-+
 ----
 package org.farhan.stepdefs.blah;
 
@@ -96,7 +92,6 @@ public class BlahObjectPageSteps {
 Same as above but the interface is updated with a new method.
 
 === And: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file is created as follows
-+
 ----
 package org.farhan.objects.blah;
 
@@ -111,7 +106,6 @@ public interface ObjectPage {
 === When: The maven plugin uml-to-cucumber goal is executed
 
 === Then: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be created as follows
-+
 ----
 package org.farhan.objects.blah;
 

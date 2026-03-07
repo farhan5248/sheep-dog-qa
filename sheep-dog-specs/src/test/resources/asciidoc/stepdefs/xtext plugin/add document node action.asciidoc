@@ -3,7 +3,6 @@
 == Step-Definition: is performed to add Table at
 
 === Step-Parameters: Node Path
-+
 |===
 | Node Path
 |===
@@ -11,7 +10,6 @@
 == Step-Definition: is performed to add Text at
 
 === Step-Parameters: Node Path
-+
 |===
 | Node Path
 |===

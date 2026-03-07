@@ -5,7 +5,6 @@
 == Step-Definition: is set as follows
 
 === Step-Parameters: Content
-+
 |===
 | Content
 |===
@@ -15,7 +14,6 @@
 == Step-Definition: will be set as follows
 
 === Step-Parameters: Content
-+
 |===
 | Content
 |===

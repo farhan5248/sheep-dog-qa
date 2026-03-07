@@ -5,26 +5,22 @@
 == Test-Case: Three rows, three cells
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
 == Test-Case: Submit
 
 === Given: The Object page is created as follows
-+
 |===
 | h1 | h2 | h3
 | {h1} | {h2} | {h3}
 |===
 
 === Test-Data: Examples 1
-+
 @tag1 @tag2 @tag3
 Desc1
 Desc2
 Desc3
-+
 |===
 | h1 | h2 | h3
 | v1 | v2 | v3
@@ -42,7 +38,6 @@ Desc3
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
 === And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
-+
 |===
 | Name   | Examples   | Row       
 | Submit | Examples 1 | h1, h2, h3
@@ -52,7 +47,6 @@ Desc3
 |===
 
 === And: The spec-prj project Process.asciidoc file Scenario Outline Examples Table section will be created as follows
-+
 |===
 | Name   | Examples   | Tags           | Description        
 | Submit | Examples 1 | tag1,tag2,tag3 | @tag1 @tag2 @tag3\nDesc1\nDesc2\nDesc3

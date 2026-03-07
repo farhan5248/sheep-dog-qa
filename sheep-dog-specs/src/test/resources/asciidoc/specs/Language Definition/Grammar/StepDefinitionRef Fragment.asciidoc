@@ -15,21 +15,18 @@ The part regex in StepDefinitionRefFragments captures a grammar element name and
 - node - AST node elements in the parsed syntax tree
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name                                      
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepDefinitionRef part fragment will be decomposed as follows
-+
 |===
 | Part   | Part Description   | Part Type   | Part Type Description  
 | {Part} | {Part Description} | {Part Type} | {Part Type Description}
 |===
 
 === Test-Data: Fragments
-+
 |===
 | Step Definition Ref Name            | Part                      | Part Description | Part Type  | Part Type Description                                        
 | StepObjectRef type is absent        | StepObjectRef type        | StepObjectRef    | type       | Grammar types (non-terminal rules) defined in the .xtext file
@@ -49,21 +46,18 @@ The state regex in StepDefinitionRefFragments captures the verb and description 
 - won't be - Maps to assertion method for negative testing
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name                                      
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepDefinitionRef state fragment will be decomposed as follows
-+
 |===
 | State   | State Description   | State Type   | State Type Description  
 | {State} | {State Description} | {State Type} | {State Type Description}
 |===
 
 === Test-Data: Fragments
-+
 |===
 | Step Definition Ref Name    | State                       | State Type | State Description  | State Type Description                            
 | is created as follows       | is created as follows       | is         | created as follows | Maps to setter method                             

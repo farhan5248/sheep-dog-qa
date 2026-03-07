@@ -3,7 +3,6 @@
 == Step-Definition: CellList node is created as follows
 
 === Step-Parameters: Cell Name, Node Path
-+
 |===
 | Node Path | Cell Name
 |===
@@ -11,7 +10,6 @@
 == Step-Definition: CellList node will be created as follows
 
 === Step-Parameters: Cell Name, Node Path
-+
 |===
 | Node Path | Cell Name
 |===
@@ -19,7 +17,6 @@
 == Step-Definition: Description node will be as follows
 
 === Step-Parameters: Node Path, State
-+
 |===
 | Node Path | State
 |===
@@ -27,7 +24,6 @@
 == Step-Definition: LineList node is created as follows
 
 === Step-Parameters: Line Content, Node Path
-+
 |===
 | Node Path | Line Content
 |===
@@ -35,7 +31,6 @@
 == Step-Definition: LineList node will be created as follows
 
 === Step-Parameters: Line Content, Node Path
-+
 |===
 | Node Path | Line Content
 |===
@@ -43,7 +38,6 @@
 == Step-Definition: NestedDescription node will be as follows
 
 === Step-Parameters: Node Path, State
-+
 |===
 | Node Path | State
 |===
@@ -51,7 +45,6 @@
 == Step-Definition: StepDefinitionList node is created as follows
 
 === Step-Parameters: Node Path, Step Definition Name
-+
 |===
 | Node Path | Step Definition Name
 |===
@@ -59,7 +52,6 @@
 == Step-Definition: StepDefinitionList node will be as follows
 
 === Step-Parameters: Node Path, State
-+
 |===
 | Node Path | State
 |===
@@ -67,7 +59,6 @@
 == Step-Definition: StepDefinitionList node will be created as follows
 
 === Step-Parameters: Node Path, Step Definition Name
-+
 |===
 | Node Path | Step Definition Name
 |===
@@ -75,7 +66,6 @@
 == Step-Definition: StepParametersList node is created as follows
 
 === Step-Parameters: Node Path, Step Parameters Name
-+
 |===
 | Node Path | Step Parameters Name
 |===
@@ -83,7 +73,6 @@
 == Step-Definition: StepParametersList node will be as follows
 
 === Step-Parameters: Node Path, State
-+
 |===
 | Node Path | State
 |===
@@ -91,7 +80,6 @@
 == Step-Definition: StepParametersList node will be created as follows
 
 === Step-Parameters: Node Path, Step Parameters Name
-+
 |===
 | Node Path | Step Parameters Name
 |===
@@ -99,7 +87,6 @@
 == Step-Definition: Table node will be as follows
 
 === Step-Parameters: Node Path, State
-+
 |===
 | Node Path | State
 |===
@@ -107,19 +94,16 @@
 == Step-Definition: TestDocumentList node is created as follows
 
 === Step-Parameters: Node Path, Step Definition Name, Step Object Full Name
-+
 |===
 | Node Path | Step Object Full Name | Step Definition Name
 |===
 
 === Step-Parameters: Node Path, Step Definition Name, Step Object Full Name, Step Parameters Name
-+
 |===
 | Node Path | Step Object Full Name | Step Definition Name | Step Parameters Name
 |===
 
 === Step-Parameters: Node Path, Step Object Full Name
-+
 |===
 | Node Path | Step Object Full Name
 |===
@@ -127,19 +111,16 @@
 == Step-Definition: TestDocumentList node will be created as follows
 
 === Step-Parameters: Node Path, Step Definition Name, Step Object Full Name
-+
 |===
 | Node Path | Step Object Full Name | Step Definition Name
 |===
 
 === Step-Parameters: Node Path, Step Definition Name, Step Object Full Name, Step Parameters Name
-+
 |===
 | Node Path | Step Object Full Name | Step Definition Name | Step Parameters Name
 |===
 
 === Step-Parameters: Node Path, Step Object Full Name, Step Object Name
-+
 |===
 | Node Path | Step Object Full Name | Step Object Name
 |===

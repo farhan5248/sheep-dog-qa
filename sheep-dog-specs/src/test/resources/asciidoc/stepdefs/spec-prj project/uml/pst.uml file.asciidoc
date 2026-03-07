@@ -3,7 +3,6 @@
 == Step-Definition: Class Annotations section will be created as follows
 
 === Step-Parameters: Annotation Detail, Annotation Name, Class Name
-+
 |===
 | Class Name | Annotation Name | Annotation Detail
 |===
@@ -11,7 +10,6 @@
 == Step-Definition: Class Comments section will be created as follows
 
 === Step-Parameters: Class Name, Comment
-+
 |===
 | Class Name | Comment
 |===
@@ -19,7 +17,6 @@
 == Step-Definition: Class section will be created as follows
 
 === Step-Parameters: Class Name
-+
 |===
 | Class Name
 |===
@@ -27,7 +24,6 @@
 == Step-Definition: Class section won't be created as follows
 
 === Step-Parameters: Class Name
-+
 |===
 | Class Name
 |===
@@ -35,7 +31,6 @@
 == Step-Definition: Interaction Annotations section will be created as follows
 
 === Step-Parameters: Annotation Detail, Annotation Name, Interaction Name
-+
 |===
 | Interaction Name | Annotation Name | Annotation Detail
 |===
@@ -43,7 +38,6 @@
 == Step-Definition: Interaction Comments section will be created as follows
 
 === Step-Parameters: Comment, Interaction Name
-+
 |===
 | Interaction Name | Comment
 |===
@@ -51,13 +45,11 @@
 == Step-Definition: Interaction Messages section will be created as follows
 
 === Step-Parameters: Annotation Detail, Argument Name, Interaction Name, Message
-+
 |===
 | Interaction Name | Message | Argument Name | Annotation Detail
 |===
 
 === Step-Parameters: Interaction Name, Message
-+
 |===
 | Interaction Name | Message
 |===
@@ -65,7 +57,6 @@
 == Step-Definition: Interaction section will be created as follows
 
 === Step-Parameters: Interaction Name
-+
 |===
 | Interaction Name
 |===
@@ -73,7 +64,6 @@
 == Step-Definition: Interaction section won't be created as follows
 
 === Step-Parameters: Interaction Name
-+
 |===
 | Interaction Name
 |===

@@ -17,7 +17,6 @@ When the code files are reverse engineered into the UML model, it's only the fea
 This test is a reverse of the Create Code From Documentation test.
 
 === Given: The code-prj project src-gen/test/resources/cucumber/specs/app/Process.feature file is created as follows
-+
 ----
 @tag1
 Feature: Process
@@ -66,21 +65,18 @@ Feature: Process
 ----
 
 === When: The maven plugin cucumber-to-uml goal is executed with
-+
 |===
 | Tags
 | tag1
 |===
 
 === And: The maven plugin uml-to-asciidoctor goal is executed with
-+
 |===
 | Tags
 | tag1
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file will be created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -95,14 +91,12 @@ Desc 2
 === Given: The Search application Login page is valid
 
 === When: The Search application Home page is created as follows
-+
 |===
 | grp | ins
 | 10  | 5  
 |===
 
 === Then: The Search application Logout page is created as follows
-+
 \----
   text1
   
@@ -116,7 +110,6 @@ Desc 3
 === Given: The Search application Login page is invalid
 
 === When: The Search application Home page is created as follows
-+
 |===
 | grp | ins  
 | 8   | {ins}
@@ -125,14 +118,12 @@ Desc 3
 === Then: The Search application Logout page is invalid
 
 === Test-Data: Some data
-+
 |===
 | ins
 | 4  
 |===
 
 === Test-Data: Dataset 2
-+
 |===
 | ins
 | 5  

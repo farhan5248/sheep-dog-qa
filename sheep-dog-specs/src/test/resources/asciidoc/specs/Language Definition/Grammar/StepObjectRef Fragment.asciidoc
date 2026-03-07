@@ -9,21 +9,18 @@ A StepObjectRef identifies the component and object in a test step.
 The component regex in StepObjectRefFragments captures the system name and type from a StepObjectRef. The StepObjectRef grammar rule is WORD+ followed by an object type keyword in SheepDog.xtext. When no component is present the result is empty.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
-+
 |===
 | Component   | Component Name   | Component Type  
 | {Component} | {Component Name} | {Component Type}
 |===
 
 === Test-Data: Component and object
-+
 |===
 | Test Step Full Name                                                   | Component                | Component Name | Component Type
 | The graph-viewer application uml-to-cucumber request is executed with | graph-viewer application | graph-viewer   | application   
@@ -41,21 +38,18 @@ The component type keywords are defined in StepObjectRefComponentTypes enum.
 - plugin - Maven or Eclipse plugin
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef component fragment will be decomposed as follows
-+
 |===
 | Component Type   | Component Type Description  
 | {Component Type} | {Component Type Description}
 |===
 
 === Test-Data: Types
-+
 |===
 | Test Step Full Name           | Component Type | Component Type Description                 
 | The graph-viewer application  | application    | GUI web application                        
@@ -70,21 +64,18 @@ The component type keywords are defined in StepObjectRefComponentTypes enum.
 The object regex in StepObjectRefFragments captures the object name and type from a StepObjectRef. The object type is the terminal keyword defined in the StepObjectRef grammar rule in SheepDog.xtext. Object types are split into vertex types (state holders) and edge types (actions).
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object fragment will be decomposed as follows
-+
 |===
 | Object   | Object Name   | Object Type  
 | {Object} | {Object Name} | {Object Type}
 |===
 
 === Test-Data: Fragments
-+
 |===
 | Test Step Full Name                                                              | Object                  | Object Name     | Object Type
 | The graph-viewer application uml-to-cucumber request StepObjectRef type is empty | uml-to-cucumber request | uml-to-cucumber | request    
@@ -106,21 +97,18 @@ Vertex object types are defined in StepObjectRefObjectVertexTypes enum and repre
 - tooltip - Small popup displaying descriptive text
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object vertex fragment will be decomposed as follows
-+
 |===
 | Object Type   | Object Type Description  
 | {Object Type} | {Object Type Description}
 |===
 
 === Test-Data: Fragments
-+
 |===
 | Test Step Full Name                            | Object Type | Object Type Description                         
 | The xtext plugin input file is empty           | file        | Any sort of file                                
@@ -143,21 +131,18 @@ Edge object types are defined in StepObjectRefObjectEdgeTypes enum and represent
 - job - EOD or ETL batchjob
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
-+
 |===
 | Test Step Full Name  
 | {Test Step Full Name}
 |===
 
 === Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepObjectRef object edge fragment will be decomposed as follows
-+
 |===
 | Object Type   | Object Type Description  
 | {Object Type} | {Object Type Description}
 |===
 
 === Test-Data: Fragments
-+
 |===
 | Test Step Full Name                                                   | Object Type | Object Type Description
 | The graph-viewer application uml-to-cucumber request is executed with | request     | Web-service request    

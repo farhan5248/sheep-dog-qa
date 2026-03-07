@@ -9,28 +9,24 @@ These validations check for syntax and naming issues that can be detected by par
 The first row of a table contains header cells. CellIssueTypes.CELL_NAME_ONLY validates that header cell names start with a capital letter.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
-+
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
 |===
 
 === And: The ProcessIssues.asciidoc file CellList node is created as follows
-+
 |===
 | Node Path                                                                                      | Cell Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | header
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/1
 |===
 
 === Then: The xtext plugin validate annotation will be set as follows
-+
 ----
 Name should start with a capital
 ----
@@ -40,28 +36,24 @@ Name should start with a capital
 Body rows (non-header rows) contain data values. The capitalization rule only applies to header row cells.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
-+
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
 |===
 
 === And: The ProcessIssues.asciidoc file CellList node is created as follows
-+
 |===
 | Node Path                                                                                      | Cell Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | Header
 |===
 
 === And: The ProcessIssues.asciidoc file CellList node is created as follows
-+
 |===
 | Node Path                                                                                      | Cell Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList | value
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/2/CellList/1
@@ -74,21 +66,18 @@ Body rows (non-header rows) contain data values. The capitalization rule only ap
 TestSuiteIssueTypes.TEST_SUITE_NAME_ONLY validates that the test suite name starts with a capital letter.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDocumentList node is created as follows
-+
 |===
 | Node Path                    | Test Suite Full Name    | Test Suite Name
 | TestProject/TestDocumentList | specs/lowercase process | lowercase process
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1
 |===
 
 === Then: The xtext plugin validate annotation will be set as follows
-+
 ----
 Name should start with a capital
 ----
@@ -98,21 +87,18 @@ Name should start with a capital
 TestStepContainerIssueTypes.TEST_STEP_CONTAINER_NAME_ONLY validates that the test case name starts with a capital letter.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
-+
 |===
 | Node Path                                            | Test Case Name
 | TestProject/TestDocumentList/1/TestStepContainerList | lowercase test case
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
 === Then: The xtext plugin validate annotation will be set as follows
-+
 ----
 Name should start with a capital
 ----
@@ -122,21 +108,18 @@ Name should start with a capital
 TestStepIssueTypes.TEST_STEP_STEP_OBJECT_NAME_ONLY validates that the step object reference has a valid component and object. The validation message describes the expected format.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
-+
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The is present
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 === Then: The xtext plugin validate annotation will be set as follows
-+
 ----
 Every test case must have at least one component specified.
 This should be the first part of the test step name.
@@ -153,21 +136,18 @@ Examples are: "src/test/resources/file.txt file" or "Home page"
 TestStepIssueTypes.TEST_STEP_STEP_DEFINITION_NAME_ONLY validates that the step definition reference has a valid part and state. The validation message describes the expected format.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
-+
 |===
 | Node Path                                                           | Test Step Full Name
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file
 |===
 
 === When: The xtext plugin validate action is performed as follows
-+
 |===
 | Node Path
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1
 |===
 
 === Then: The xtext plugin validate annotation will be set as follows
-+
 ----
 After specifying the step object name, a step definition name is specified.
 It has a part (optional) and state.

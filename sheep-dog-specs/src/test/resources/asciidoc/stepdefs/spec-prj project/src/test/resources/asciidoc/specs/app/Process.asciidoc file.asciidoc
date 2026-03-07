@@ -3,7 +3,6 @@
 == Step-Definition: is created as follows
 
 === Step-Parameters: Content
-+
 |===
 | Content
 |===
@@ -11,7 +10,6 @@
 == Step-Definition: will be created as follows
 
 === Step-Parameters: Content
-+
 |===
 | Content
 |===

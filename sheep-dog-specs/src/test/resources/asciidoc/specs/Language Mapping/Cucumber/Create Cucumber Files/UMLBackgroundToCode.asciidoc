@@ -5,7 +5,6 @@
 == Test-Case: One statement, one step, one scenario
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -27,7 +26,6 @@ Desc line 1
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file will be present
 
 === And: The code-prj project Process.feature file Background section will be created as follows
-+
 |===
 | Name  | Description
 | Setup | Desc line 1
@@ -36,7 +34,6 @@ Desc line 1
 == Test-Case: No statement, one step, three scenarios
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -64,14 +61,12 @@ Desc line 1
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file will be present
 
 === And: The code-prj project Process.feature file Background Steps section will be created as follows
-+
 |===
 | Name  | Step                                            
 | Setup | Given The Unknown service Object0 page is valid
 |===
 
 === And: The code-prj project Process.feature file Scenarios Steps section will be created as follows
-+
 |===
 | Name     | Step                                            
 | Submit 1 | Given The Unknown service Object1 page is valid
@@ -82,7 +77,6 @@ Desc line 1
 == Test-Case: No statement, three steps, one scenario
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -104,14 +98,12 @@ Desc line 1
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file will be present
 
 === And: The code-prj project Process.feature file Background Steps section will be created as follows
-+
 |===
 | Name  | Step                                                  
 | Setup | Given The Unknown service Object{Index} page is valid
 |===
 
 === Test-Data: Indices
-+
 |===
 | Index
 | 1    

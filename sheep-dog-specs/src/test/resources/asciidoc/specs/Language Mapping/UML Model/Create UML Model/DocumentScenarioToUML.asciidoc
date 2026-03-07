@@ -5,7 +5,6 @@
 == Test-Case: No tags, no statements, one step
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -19,7 +18,6 @@
 === Then: The spec-prj project uml/pst.uml file will be present
 
 === And: The uml/pst.uml file Interaction Messages section will be created as follows
-+
 |===
 | Interaction Name       | Message                                   
 | specs::Process::Submit | The blah application Object page is empty
@@ -28,7 +26,6 @@
 == Test-Case: Three tags, three statements, three steps
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -51,7 +48,6 @@ Desc line 3
 === Then: The spec-prj project uml/pst.uml file will be present
 
 === And: The uml/pst.uml file Interaction Annotations section will be created as follows
-+
 |===
 | Interaction Name       | Annotation Name | Annotation Detail
 | specs::Process::Submit | tags            | tag1             
@@ -60,14 +56,12 @@ Desc line 3
 |===
 
 === And: The uml/pst.uml file Interaction Comments section will be created as follows
-+
 |===
 | Interaction Name       | Comment                              
 | specs::Process::Submit | @tag1 @tag2 @tag3\nDesc line 1\nDesc line 2\nDesc line 3
 |===
 
 === And: The uml/pst.uml file Interaction Messages section will be created as follows
-+
 |===
 | Interaction Name       | Message                                    
 | specs::Process::Submit | The blah application Object page is empty 
@@ -78,7 +72,6 @@ Desc line 3
 == Test-Case: Selected tags
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -96,7 +89,6 @@ Desc line 3
 ----
 
 === When: The maven plugin asciidoctor-to-uml goal is executed with
-+
 |===
 | Tags
 | tag1
@@ -105,14 +97,12 @@ Desc line 3
 === Then: The spec-prj project uml/pst.uml file will be present
 
 === And: The uml/pst.uml file Interaction section will be created as follows
-+
 |===
 | Interaction Name      
 | specs::Process::Submit
 |===
 
 === And: The uml/pst.uml file Interaction section won't be created as follows
-+
 |===
 | Interaction Name       
 | specs::Process::Submit2

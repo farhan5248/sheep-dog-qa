@@ -5,7 +5,6 @@
 == Test-Case: No tags, no statements
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 ----
@@ -19,7 +18,6 @@
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
 === And: The spec-prj project Process.asciidoc file Feature section will be created as follows
-+
 |===
 | Name   
 | Process
@@ -28,7 +26,6 @@
 == Test-Case: Three tags, three statements
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -48,7 +45,6 @@ Desc line 3
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
 === And: The spec-prj project Process.asciidoc file Feature section will be created as follows
-+
 |===
 | Name    | Statements                           
 | Process | Desc line 1\nDesc line 2\nDesc line 3

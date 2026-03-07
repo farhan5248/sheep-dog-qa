@@ -5,7 +5,6 @@
 == Test-Case: Convert step keywords
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -26,7 +25,6 @@
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
 === And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
-+
 |===
 | Name   | Step                                            
 | Submit | Given: The blah application Given page is empty
@@ -38,7 +36,6 @@
 == Test-Case: Convert apostrophes
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file is created as follows
-+
 ----
 = Test-Suite: Process
 
@@ -56,7 +53,6 @@
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
 === And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
-+
 |===
 | Name      | Step                                               
 | Submit's' | Given: The blah application Given page isn't empty
