@@ -6,6 +6,8 @@ Nested Description is a grammar rule in SheepDog.xtext used by Step Parameters a
 
 == Test-Case: Initial State
 
+@list
+
 Nested Description must have
 - Line List
 

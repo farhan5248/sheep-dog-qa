@@ -14,7 +14,7 @@ The tag regex in PhraseFragments captures at symbol prefixed words from a Phrase
 | {Line}
 |===
 
-=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file Phrase tag fragment will be decomposed as follows
+=== Then: The ProcessGrammarFragment.asciidoc file Phrase tag fragment will be decomposed as follows
 |===
 | Tag List  
 | {Tag List}
@@ -39,7 +39,7 @@ The todo regex in PhraseFragments captures the uppercase todo keyword and its de
 | {Line}
 |===
 
-=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file Phrase todo fragment will be decomposed as follows
+=== Then: The ProcessGrammarFragment.asciidoc file Phrase todo fragment will be decomposed as follows
 |===
 | Todo Type   | Todo Description  
 | {Todo Type} | {Todo Description}

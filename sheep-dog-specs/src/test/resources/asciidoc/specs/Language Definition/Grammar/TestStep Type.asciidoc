@@ -6,6 +6,8 @@ Test Step is a grammar rule in SheepDog.xtext with four keyword variants: Given,
 
 == Test-Case: Initial State Given
 
+@list
+
 Test Step must have
 - StepObjectRef Name
 - StepDefinitionRef Name
@@ -45,6 +47,8 @@ and optionally have one of these
 
 == Test-Case: Initial State When
 
+@list
+
 Verify the When keyword variant follows the same Test Step structure.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
@@ -79,6 +83,8 @@ Verify the When keyword variant follows the same Test Step structure.
 
 == Test-Case: Initial State Then
 
+@list
+
 Verify the Then keyword variant follows the same Test Step structure.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
@@ -112,6 +118,8 @@ Verify the Then keyword variant follows the same Test Step structure.
 |===
 
 == Test-Case: Initial State And
+
+@list
 
 Verify the And keyword variant follows the same Test Step structure.
 

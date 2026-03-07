@@ -10,31 +10,31 @@ Applying the quickfix capitalizes the first letter of the header cell name in pl
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
 |===
-| Node Path                                                           | Test Step Full Name
+| Node Path                                                           | Test Step Full Name                     
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
 |===
 
 === And: The ProcessIssues.asciidoc file CellList node is created as follows
 |===
-| Node Path                                                                                      | Cell Name
+| Node Path                                                                                      | Cell Name       
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | lowercase header
 |===
 
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
-| Proposal Id          | Proposal Description                    | Proposal Value
+| Proposal Id          | Proposal Description                    | Proposal Value  
 | Capitalize cell name | Capitalize the first letter of the name | Lowercase header
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Node Path
+| Node Path                                                                                       
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/1
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node will be created as follows
 |===
-| Node Path                                                                                      | Cell Name
+| Node Path                                                                                      | Cell Name       
 | TestProject/TestDocumentList/1/TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | Lowercase header
 |===
 
@@ -44,25 +44,25 @@ Applying the quickfix capitalizes the first letter of the test suite name in pla
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDocumentList node is created as follows
 |===
-| Node Path                    | Test Suite Full Name    | Test Suite Name
-| TestProject/TestDocumentList | specs/lowercase process | lowercase process
+| Node Path                    | Test Suite Full Name             | Test Suite Name  
+| TestProject/TestDocumentList | specs/lowercase process.asciidoc | lowercase process
 |===
 
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
-| Proposal Id                | Proposal Description                    | Proposal Value
+| Proposal Id                | Proposal Description                    | Proposal Value   
 | Capitalize test suite name | Capitalize the first letter of the name | Lowercase process
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Node Path
+| Node Path                     
 | TestProject/TestDocumentList/1
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDocumentList node will be created as follows
 |===
-| Node Path                      | Test Suite Name
+| Node Path                      | Test Suite Name  
 | TestProject/TestDocumentList/1 | Lowercase process
 |===
 
@@ -72,25 +72,25 @@ Applying the quickfix capitalizes the first letter of the test case name in plac
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
 |===
-| Node Path                                            | Test Case Name
+| Node Path                                            | Test Case Name     
 | TestProject/TestDocumentList/1/TestStepContainerList | lowercase test case
 |===
 
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
-| Proposal Id                         | Proposal Description                    | Proposal Value
+| Proposal Id                         | Proposal Description                    | Proposal Value     
 | Capitalize test step container name | Capitalize the first letter of the name | Lowercase test case
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Node Path
+| Node Path                                             
 | TestProject/TestDocumentList/1/TestStepContainerList/1
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
 |===
-| Node Path                                              | Test Case Name
+| Node Path                                              | Test Case Name     
 | TestProject/TestDocumentList/1/TestStepContainerList/1 | Lowercase test case
 |===
 

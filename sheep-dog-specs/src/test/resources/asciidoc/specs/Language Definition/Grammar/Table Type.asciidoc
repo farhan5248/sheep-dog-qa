@@ -6,6 +6,8 @@ Table is a grammar rule in SheepDog.xtext used by Test Step, Step Parameters, an
 
 == Test-Case: Row
 
+@list
+
 Table must have
 - Row List
 
@@ -28,6 +30,8 @@ Table must have
 |===
 
 == Test-Case: Cell
+
+@list
 
 Row must have
 - Cell List

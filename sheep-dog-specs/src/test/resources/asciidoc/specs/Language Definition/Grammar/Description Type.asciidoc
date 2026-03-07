@@ -6,6 +6,8 @@ Description is a grammar rule in SheepDog.xtext used by Step Object, Step Defini
 
 == Test-Case: Initial State
 
+@list
+
 Description must have
 - Line List
 

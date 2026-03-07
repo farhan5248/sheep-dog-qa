@@ -20,7 +20,7 @@ The part regex in StepDefinitionRefFragments captures a grammar element name and
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
-=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepDefinitionRef part fragment will be decomposed as follows
+=== Then: The ProcessGrammarFragment.asciidoc file StepDefinitionRef part fragment will be decomposed as follows
 |===
 | Part   | Part Description   | Part Type   | Part Type Description  
 | {Part} | {Part Description} | {Part Type} | {Part Type Description}
@@ -51,7 +51,7 @@ The state regex in StepDefinitionRefFragments captures the verb and description 
 | The daily batchjob Output file {Step Definition Ref Name}
 |===
 
-=== Then: The spec-prj project ProcessGrammarFragment.asciidoc file StepDefinitionRef state fragment will be decomposed as follows
+=== Then: The ProcessGrammarFragment.asciidoc file StepDefinitionRef state fragment will be decomposed as follows
 |===
 | State   | State Description   | State Type   | State Type Description  
 | {State} | {State Description} | {State Type} | {State Type Description}

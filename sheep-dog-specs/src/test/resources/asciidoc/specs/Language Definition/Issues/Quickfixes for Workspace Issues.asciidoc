@@ -31,7 +31,7 @@ The step object file doesn't exist for the component
 === Then: The xtext plugin list quickfixes popup will be set as follows
 |===
 | Proposal Id                                                      | Proposal Description
-| Generate Input file - stepdefs/daily batchjob/Input file.feature | empty
+| Generate Input file - stepdefs/daily batchjob/Input file.asciidoc | empty
 |===
 
 == Test-Case: This object step definition doesn't exist quickfix
@@ -47,7 +47,7 @@ The quickfix proposes two options: switching to an existing step definition, or 
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Step Object Full Name                      | Step Definition Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is absent
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is absent
 |===
 
 === And: The xtext plugin validate annotation is set as follows
@@ -93,7 +93,7 @@ The quickfix proposes two options: switching to an existing parameter set, or ge
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Step Object Full Name                      | Step Definition Name | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is set as follows    | E1, E2, E3
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is set as follows    | E1, E2, E3
 |===
 
 === And: The Input file.asciidoc file CellList node is created as follows
@@ -146,7 +146,7 @@ If the Content parameter exists in the step definition, no quickfix is needed fo
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Step Object Full Name                      | Step Definition Name | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is set as follows    | Content
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is set as follows    | Content
 |===
 
 === And: The Input file.asciidoc file CellList node is created as follows
@@ -184,7 +184,7 @@ The quickfix proposes generating the Content parameter in the step definition fo
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Step Object Full Name                      | Step Definition Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is set as follows
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is set as follows
 |===
 
 === And: The xtext plugin validate annotation is set as follows

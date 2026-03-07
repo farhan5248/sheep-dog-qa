@@ -23,7 +23,7 @@ The quickfix capitalizes the first letter of a header cell name that starts with
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Step Object Full Name                      | Step Definition Name | Step Parameters Name
-| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.feature | is present           | lowercase header
+| TestProject/TestDocumentList | stepdefs/daily batchjob/Input file.asciidoc | is present           | lowercase header
 |===
 
 === And: The xtext plugin validate annotation is set as follows
@@ -82,7 +82,7 @@ The quickfix capitalizes the first letter of a test suite name that starts with 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDocumentList node is created as follows
 |===
 | Node Path                    | Test Suite Full Name    | Test Suite Name
-| TestProject/TestDocumentList | specs/lowercase process | lowercase process
+| TestProject/TestDocumentList | specs/lowercase process.asciidoc | lowercase process
 |===
 
 === And: The xtext plugin validate annotation is set as follows

@@ -120,8 +120,3 @@
 | Node Path | Step Object Full Name | Step Definition Name | Step Parameters Name
 |===
 
-=== Step-Parameters: Node Path, Step Object Full Name, Step Object Name
-|===
-| Node Path | Step Object Full Name | Step Object Name
-|===
-
