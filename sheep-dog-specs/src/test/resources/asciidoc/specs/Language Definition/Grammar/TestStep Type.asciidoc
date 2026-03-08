@@ -193,7 +193,29 @@ Table and Text are mutually exclusive on a Test Step. A Test Step with Text cann
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file Table node will be as follows
 |===
-| Node Path                                    | State 
+| Node Path                                    | State
 | TestStepContainerList/1/TestStepList/1/Table | Absent
+|===
+
+== Test-Case: Duplicate Test Step
+
+Test Steps are a list and can have duplicate full names within a Test Step Container.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+|===
+| Node Path                            | Test Step Full Name
+| TestStepContainerList/1/TestStepList | The First action file is performed
+|===
+
+=== When: The xtext plugin edit document node action is performed to modify TestStepList with
+|===
+| Test Suite Full Name         | Node Path                            | Test Step Full Name
+| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList | The First action file is performed
+|===
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node will be created as follows
+|===
+| Node Path                              | Given Full Name                    | Given StepObjectRef Name | Given StepDefinitionRef Name
+| TestStepContainerList/1/TestStepList/2 | The First action file is performed | The First action file    | is performed
 |===
 
