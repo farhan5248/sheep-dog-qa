@@ -45,7 +45,7 @@
 
 === Then: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be present
 
-=== And: The code-prj project ObjectPage.java file Methods section will be created as follows
+=== And: The ObjectPage.java file Methods section will be created as follows
 |===
 | Method Name        | Visibility | Return Type | Parameter Name | Parameter Type        
 | assertTopSectionH1 | public     | void        | keyMap         | HashMap{String,String}

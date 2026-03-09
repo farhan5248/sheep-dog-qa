@@ -28,7 +28,7 @@
 
 === Then: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file will be present
 
-=== And: The spec-prj project Object page.asciidoc file Header section will be created as follows
+=== And: The Object page.asciidoc file Header section will be created as follows
 |===
 | Name       
 | Object page
@@ -64,7 +64,7 @@ Desc line 3
 
 === Then: The spec-prj project src/test/resources/asciidoc/stepdefs/blah application/Object page.asciidoc file will be present
 
-=== And: The spec-prj project Object page.asciidoc file Header section will be created as follows
+=== And: The Object page.asciidoc file Header section will be created as follows
 |===
 | Name        | Statements                           
 | Object page | Desc line 1\nDesc line 2\nDesc line 3

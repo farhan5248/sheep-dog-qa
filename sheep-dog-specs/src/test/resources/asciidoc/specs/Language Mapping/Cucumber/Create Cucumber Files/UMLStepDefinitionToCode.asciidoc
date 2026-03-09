@@ -66,13 +66,13 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Annotation                                             | Visibility | Return Type
 | isEmpty     | @Given("^The blah application Object page is empty$") | public     | void       
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
 | isEmpty     | object.setInputOutputsState("Empty");
@@ -84,21 +84,22 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Import                         
 | io.cucumber.datatable.DataTable
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name                      | Parameter Name | Parameter Type
 | topSectionWillBeCreatedAsFollows | dataTable      | DataTable     
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
-| Method Name                      | Statement                                          
+| Method Name                      | Statement
+| topSectionWillBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "TopSection");
 | topSectionWillBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection");
 |===
 
@@ -108,9 +109,10 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
-| Method Name                      | Statement                                                
+| Method Name                      | Statement
+| topSectionWontBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "TopSection", true);
 | topSectionWontBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection", true);
 |===
 
@@ -120,15 +122,16 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name        | Parameter Name | Parameter Type
 | isCreatedAsFollows | docString      | String        
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
-| Method Name        | Statement                                    
+| Method Name        | Statement
+| isCreatedAsFollows | object.setInputOutputsState("Created as follows");
 | isCreatedAsFollows | object.setInputOutputsDocString("Content", docString);
 |===
 
@@ -138,13 +141,15 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be present
 
-=== And: The code-prj project ObjectPage.java file Methods section will be created as follows
+=== And: The ObjectPage.java file Methods section will be created as follows
 |===
-| Method Name              | Visibility | Return Type | Parameter Name | Parameter Type        
-| setEmpty                 | public     | void        | keyMap         | HashMap{String,String}
-| assertTopSectionNegative | public     | void        | keyMap         | HashMap{String,String}
-| assertTopSectionH1       | public     | void        | keyMap         | HashMap{String,String}
-| setContent               | public     | void        | keyMap         | HashMap{String,String}
+| Method Name                      | Visibility | Return Type | Parameter Name | Parameter Type
+| setEmpty                         | public     | void        | keyMap         | HashMap{String,String}
+| assertTopSectionCreatedAsFollows | public     | void        | keyMap         | HashMap{String,String}
+| assertTopSectionNegative         | public     | void        | keyMap         | HashMap{String,String}
+| assertTopSectionH1               | public     | void        | keyMap         | HashMap{String,String}
+| setCreatedAsFollows              | public     | void        | keyMap         | HashMap{String,String}
+| setContent                       | public     | void        | keyMap         | HashMap{String,String}
 |===
 
 == Test-Case: Layer 2 without parameters with spring
@@ -153,26 +158,26 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Import                            
 | org.farhan.common.TestSteps       
 | org.farhan.objects.blah.ObjectPage
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Extends  
 | TestSteps
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Constructor Name    | Statement                       
 | BlahObjectPageSteps | super(object, "blah", "Object");
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
 | isEmpty     | object.setInputOutputsState("Empty");
@@ -184,26 +189,26 @@ text1
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be present
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Import                          
 | com.google.inject.Inject        
 | io.cucumber.guice.ScenarioScoped
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Class Annotation
 | ScenarioScoped  
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Header section will be created as follows
+=== And: The BlahObjectPageSteps.java file Header section will be created as follows
 |===
 | Constructor Name    | Constructor Annotation
 | BlahObjectPageSteps | Inject                
 |===
 
-=== And: The code-prj project BlahObjectPageSteps.java file Methods section will be created as follows
+=== And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
 | isEmpty     | object.setInputOutputsState("Empty");

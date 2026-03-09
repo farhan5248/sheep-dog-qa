@@ -27,19 +27,19 @@ Desc line 1
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
-=== And: The spec-prj project Process.asciidoc file Background section will be created as follows
+=== And: The Process.asciidoc file Background section will be created as follows
 |===
 | Name  | Description
 | Setup | Desc line 1
 |===
 
-=== And: The spec-prj project Process.asciidoc file Background Steps section will be created as follows
+=== And: The Process.asciidoc file Background Steps section will be created as follows
 |===
 | Name  | Step                            
 | Setup | Given: The Object0 page is valid
 |===
 
-=== And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
+=== And: The Process.asciidoc file Scenarios Steps section will be created as follows
 |===
 | Name   | Step                           
 | Submit | Given: The Object page is valid
@@ -76,13 +76,13 @@ Desc line 1
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
-=== And: The spec-prj project Process.asciidoc file Background Steps section will be created as follows
+=== And: The Process.asciidoc file Background Steps section will be created as follows
 |===
 | Name  | Step                            
 | Setup | Given: The Object0 page is valid
 |===
 
-=== And: The spec-prj project Process.asciidoc file Background Steps section will be created as follows
+=== And: The Process.asciidoc file Background Steps section will be created as follows
 |===
 | Name     | Step                            
 | Submit 1 | Given: The Object page is valid 
@@ -115,7 +115,7 @@ Desc line 1
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/Process.asciidoc file will be present
 
-=== And: The spec-prj project Process.asciidoc file Background Steps section will be created as follows
+=== And: The Process.asciidoc file Background Steps section will be created as follows
 |===
 | Name  | Step                            
 | Setup | Given: The Object page is valid 
@@ -123,7 +123,7 @@ Desc line 1
 | Setup | Given: The Object3 page is valid
 |===
 
-=== And: The spec-prj project Process.asciidoc file Scenarios Steps section will be created as follows
+=== And: The Process.asciidoc file Scenarios Steps section will be created as follows
 |===
 | Name   | Step                           
 | Submit | Given: The Object page is valid
