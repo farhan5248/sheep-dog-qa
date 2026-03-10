@@ -99,8 +99,8 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name                      | Statement
-| topSectionWillBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "TopSection");
-| topSectionWillBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection");
+| topSectionWillBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "Top section");
+| topSectionWillBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "Top section");
 |===
 
 == Test-Case: Layer 2 with datatable, negative without DI
@@ -112,8 +112,8 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name                      | Statement
-| topSectionWontBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "TopSection", true);
-| topSectionWontBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "TopSection", true);
+| topSectionWontBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "Top section", true);
+| topSectionWontBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "Top section", true);
 |===
 
 == Test-Case: Layer 2 with docstring without DI
