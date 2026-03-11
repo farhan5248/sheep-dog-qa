@@ -75,7 +75,7 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputsState("Empty");
+| isEmpty     | object.setVertexStep("", "", "is", "empty");
 |===
 
 == Test-Case: Layer 2 with datatable without DI
@@ -99,8 +99,7 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name                      | Statement
-| topSectionWillBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "Top section");
-| topSectionWillBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "Top section");
+| topSectionWillBeCreatedAsFollows | object.assertVertexStep("Top", "section", "will be", "created as follows", dataTable);
 |===
 
 == Test-Case: Layer 2 with datatable, negative without DI
@@ -112,8 +111,7 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name                      | Statement
-| topSectionWontBeCreatedAsFollows | object.assertInputOutputsState("Created as follows", "Top section", true);
-| topSectionWontBeCreatedAsFollows | object.assertInputOutputsDataTable(dataTable, "Top section", true);
+| topSectionWontBeCreatedAsFollows | object.assertVertexStep("Top", "section", "won't be", "created as follows", dataTable);
 |===
 
 == Test-Case: Layer 2 with docstring without DI
@@ -131,8 +129,7 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name        | Statement
-| isCreatedAsFollows | object.setInputOutputsState("Created as follows");
-| isCreatedAsFollows | object.setInputOutputsDocString("Content", docString);
+| isCreatedAsFollows | object.setVertexStep("", "", "is", "created as follows", docString);
 |===
 
 == Test-Case: Layer 3
@@ -180,7 +177,7 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputsState("Empty");
+| isEmpty     | object.setVertexStep("", "", "is", "empty");
 |===
 
 == Test-Case: Layer 2 without parameters with guice
@@ -211,6 +208,6 @@ text1
 === And: The BlahObjectPageSteps.java file Methods section will be created as follows
 |===
 | Method Name | Statement                       
-| isEmpty     | object.setInputOutputsState("Empty");
+| isEmpty     | object.setVertexStep("", "", "is", "empty");
 |===
 
