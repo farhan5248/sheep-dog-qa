@@ -26,10 +26,15 @@ Applying the quickfix creates the step object file with the first step definitio
 | TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+The step object file doesn't exist for the component
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
 | Proposal Id                                                       | Proposal Description
-| Generate Input file - stepdefs/daily batchjob/Input file.asciidoc | empty               
+| Generate Input file - stepdefs/daily batchjob/Input file.asciidoc | empty
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
@@ -60,15 +65,20 @@ Applying the quickfix adds the missing step definition to the existing step obje
 | is absent           
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+The step definition doesn't exist for the step object
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
 | Proposal Id         | Proposal Description
-| Generate is present | empty               
+| Generate is present | empty
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name         | Node Path                             
+| Test Suite Full Name         | Node Path
 | specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1
 |===
 
@@ -110,15 +120,20 @@ Applying the quickfix adds the new parameter set to the step definition in the s
 | StepDefinitionList/1/StepParametersList/1/Table/RowList/1/CellList | E3       
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+The step parameters don't exist for the step definition
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
 | Proposal Id     | Proposal Description
-| Generate N1, N2 | empty               
+| Generate N1, N2 | empty
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name         | Node Path                                             
+| Test Suite Full Name         | Node Path
 | specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1
 |===
 
@@ -164,15 +179,20 @@ Applying the quickfix adds the Content parameter to the step definition for text
 | is set as follows   
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+The step parameters don't exist for the step definition
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
 | Proposal Id      | Proposal Description
-| Generate Content | empty               
+| Generate Content | empty
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name         | Node Path                                   
+| Test Suite Full Name         | Node Path
 | specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Text/
 |===
 

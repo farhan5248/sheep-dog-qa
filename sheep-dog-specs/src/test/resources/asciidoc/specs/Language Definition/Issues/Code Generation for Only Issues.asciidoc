@@ -20,15 +20,20 @@ Applying the quickfix capitalizes the first letter of the header cell name in pl
 | TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList | lowercase header
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+Name should start with a capital
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
-| Proposal Id          | Proposal Description                    | Proposal Value  
+| Proposal Id          | Proposal Description                    | Proposal Value
 | Capitalize cell name | Capitalize the first letter of the name | Lowercase header
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name         | Node Path                                                        
+| Test Suite Full Name         | Node Path
 | specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1/Table/RowList/1/CellList/1
 |===
 
@@ -48,6 +53,11 @@ Applying the quickfix capitalizes the first letter of the test suite name in pla
 | process issues 
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+Name should start with a capital
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
 | Proposal Id                | Proposal Description                    | Proposal Value
@@ -56,7 +66,7 @@ Applying the quickfix capitalizes the first letter of the test suite name in pla
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name        
+| Test Suite Full Name
 | specs/ProcessIssues.asciidoc
 |===
 
@@ -76,15 +86,20 @@ Applying the quickfix capitalizes the first letter of the test case name in plac
 | TestStepContainerList | lowercase test case
 |===
 
+=== And: The xtext plugin validate annotation is set as follows
+----
+Name should start with a capital
+----
+
 === And: The xtext plugin list quickfixes popup is set as follows
 |===
-| Proposal Id                         | Proposal Description                    | Proposal Value     
+| Proposal Id                         | Proposal Description                    | Proposal Value
 | Capitalize test step container name | Capitalize the first letter of the name | Lowercase test case
 |===
 
 === When: The xtext plugin apply quickfix action is performed as follows
 |===
-| Test Suite Full Name         | Node Path              
+| Test Suite Full Name         | Node Path
 | specs/ProcessIssues.asciidoc | TestStepContainerList/1
 |===
 
