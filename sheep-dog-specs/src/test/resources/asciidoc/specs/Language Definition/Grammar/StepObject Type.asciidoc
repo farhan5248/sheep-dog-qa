@@ -108,7 +108,7 @@ and optionally have these
 | StepDefinitionList/1/StepParametersList/2 | Second Step Parameters
 |===
 
-=== And: The Input file.asciidoc file NestedDescription node will be as follows
+=== And: The Input file.asciidoc file Description node will be as follows
 |===
 | Node Path                                             | State 
 | StepDefinitionList/1/StepParametersList/2/Description | Absent

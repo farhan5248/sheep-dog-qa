@@ -21,13 +21,6 @@
 | Node Path | State
 |===
 
-== Step-Definition: NestedDescription node will be as follows
-
-=== Step-Parameters: Node Path, State
-|===
-| Node Path | State
-|===
-
 == Step-Definition: RowList node is created as follows
 
 === Step-Parameters: Node Path, Row Content

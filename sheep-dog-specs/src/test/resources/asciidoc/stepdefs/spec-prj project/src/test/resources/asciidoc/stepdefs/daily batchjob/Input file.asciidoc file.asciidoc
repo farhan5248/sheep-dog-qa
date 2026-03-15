@@ -35,13 +35,6 @@
 | Node Path | Line Content
 |===
 
-== Step-Definition: NestedDescription node will be as follows
-
-=== Step-Parameters: Node Path, State
-|===
-| Node Path | State
-|===
-
 == Step-Definition: StepDefinitionList node is created as follows
 
 === Step-Parameters: Node Path, Step Definition Name
