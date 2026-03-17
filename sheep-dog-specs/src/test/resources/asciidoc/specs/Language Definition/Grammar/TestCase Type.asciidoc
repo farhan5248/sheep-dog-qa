@@ -1,0 +1,97 @@
+= Test-Suite: TestCase Type
+
+@sheep-dog-test
+
+Test Case is a grammar rule in SheepDog.xtext contained within a Test Suite. These tests verify editing Test Case elements within a document.
+
+== Test-Case: Test Case
+
+@list
+
+Test Case must have
+- Name
+and optionally have these
+- Description
+- Test Step List
+- Test Data List
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+|===
+| Node Path             | Test Case Name
+| TestStepContainerList | First Test Case
+|===
+
+=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+|===
+| Test Suite Full Name         | Node Path             | Test Case Name
+| specs/ProcessIssues.asciidoc | TestStepContainerList | Second Test Case
+|===
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+|===
+| Node Path               | Test Case Name
+| TestStepContainerList/2 | Second Test Case
+|===
+
+=== And: The ProcessIssues.asciidoc file TestStepList node will be as follows
+|===
+| Node Path                            | State
+| TestStepContainerList/1/TestStepList | Empty
+|===
+
+=== And: The ProcessIssues.asciidoc file TestDataList node will be as follows
+|===
+| Node Path                            | State
+| TestStepContainerList/1/TestDataList | Empty
+|===
+
+=== And: The ProcessIssues.asciidoc file Description node will be as follows
+|===
+| Node Path                           | State
+| TestStepContainerList/1/Description | Absent
+|===
+
+== Test-Case: Duplicate Test Case Name
+
+Test Case name must be unique within a Test Suite. Creating a Test Case with an existing name returns the existing one.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+|===
+| Node Path             | Test Case Name
+| TestStepContainerList | First Test Case
+|===
+
+=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+|===
+| Test Suite Full Name         | Node Path             | Test Case Name
+| specs/ProcessIssues.asciidoc | TestStepContainerList | First Test Case
+|===
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be as follows
+|===
+| Node Path               | State
+| TestStepContainerList/2 | Absent
+|===
+
+== Test-Case: Test Case Insertion Order
+
+Test Cases maintain insertion order within a Test Suite.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+|===
+| Node Path             | Test Case Name
+| TestStepContainerList | Second Test Case
+|===
+
+=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+|===
+| Test Suite Full Name         | Node Path             | Test Case Name
+| specs/ProcessIssues.asciidoc | TestStepContainerList | First Test Case
+|===
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+|===
+| Node Path               | Test Case Name
+| TestStepContainerList/1 | Second Test Case
+| TestStepContainerList/2 | First Test Case
+|===

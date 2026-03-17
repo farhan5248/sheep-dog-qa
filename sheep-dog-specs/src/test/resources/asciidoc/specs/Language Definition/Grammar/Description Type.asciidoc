@@ -1,4 +1,4 @@
-= Test-Suite: Grammar Type Description
+= Test-Suite: Description Type
 
 @sheep-dog-test
 
@@ -14,13 +14,13 @@ Description must have
 === Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path            | Line Content
-| Description/LineList | First Line  
+| Description/LineList | First Line
 |===
 
-=== When: The xtext plugin edit document node action is performed to modify LineList with
+=== When: The xtext plugin edit document action is performed to modify LineList with
 |===
 | Step Object Full Name                       | Node Path            | Line Content
-| stepdefs/daily batchjob/Input file.asciidoc | Description/LineList | Second Line 
+| stepdefs/daily batchjob/Input file.asciidoc | Description/LineList | Second Line
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node will be created as follows
@@ -39,7 +39,7 @@ Lines maintain insertion order within a Description.
 | Description/LineList | Second Line
 |===
 
-=== When: The xtext plugin edit document node action is performed to modify LineList with
+=== When: The xtext plugin edit document action is performed to modify LineList with
 |===
 | Step Object Full Name                       | Node Path            | Line Content
 | stepdefs/daily batchjob/Input file.asciidoc | Description/LineList | First Line

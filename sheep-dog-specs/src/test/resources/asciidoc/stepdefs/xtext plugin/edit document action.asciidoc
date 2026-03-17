@@ -1,4 +1,18 @@
-= Step-Object: edit document node action
+= Step-Object: edit document action
+
+== Step-Definition: is performed to add Table at
+
+=== Step-Parameters: Node Path, Test Suite Full Name
+|===
+| Test Suite Full Name | Node Path
+|===
+
+== Step-Definition: is performed to add Text at
+
+=== Step-Parameters: Node Path, Test Suite Full Name
+|===
+| Test Suite Full Name | Node Path
+|===
 
 == Step-Definition: is performed to modify CellList with
 
