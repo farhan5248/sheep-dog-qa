@@ -32,7 +32,7 @@ scripts/forward-engineer.bat
 # Or manually:
 mvn clean
 mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-dev"
-mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-test"
+mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-grammar"
 mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip"
 ```
 
@@ -73,7 +73,7 @@ ollama run qakb
 
 ## Tags Used in This Repository
 - `sheep-dog-dev`: Development-focused specifications
-- `sheep-dog-test`: Test automation specifications  
+- `sheep-dog-grammar`: Test automation specifications  
 - `round-trip`: Round-trip engineering validation examples
 
 ## Central Coordination Role

@@ -1,6 +1,6 @@
 = Test-Suite: Proposals for Step Parameters
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 If the step definition has step parameters, they'll be proposed.
 

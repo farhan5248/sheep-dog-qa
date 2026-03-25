@@ -1,6 +1,6 @@
 = Test-Suite: Table Type
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 Table is a grammar rule in SheepDog.xtext used by Test Step, Step Parameters, and Test Data. A Table contains Rows which contain Cells.
 

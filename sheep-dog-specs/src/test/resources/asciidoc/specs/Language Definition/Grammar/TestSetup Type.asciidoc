@@ -1,6 +1,6 @@
 = Test-Suite: TestSetup Type
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 Test Setup is a grammar rule in SheepDog.xtext contained within a Test Suite. These tests verify editing Test Setup elements within a document.
 

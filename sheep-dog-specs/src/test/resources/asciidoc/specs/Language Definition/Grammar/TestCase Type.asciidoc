@@ -1,6 +1,6 @@
 = Test-Suite: TestCase Type
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 Test Case is a grammar rule in SheepDog.xtext contained within a Test Suite. These tests verify editing Test Case elements within a document.
 

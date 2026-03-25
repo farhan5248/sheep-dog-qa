@@ -1,6 +1,6 @@
 = Test-Suite: Proposals for Step Objects from Existing Ones
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 TODO Collapse all these tests into fewer ones using Test Data
 

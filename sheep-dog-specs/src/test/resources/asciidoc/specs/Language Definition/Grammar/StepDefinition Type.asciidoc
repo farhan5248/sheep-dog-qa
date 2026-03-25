@@ -1,6 +1,6 @@
 = Test-Suite: StepDefinition Type
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 Step Definition is a grammar rule in SheepDog.xtext contained within a Step Object. These tests verify editing Step Definition elements within a document.
 

@@ -1,6 +1,6 @@
 = Test-Suite: Proposals for Step Objects from Previous Steps
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 TODO Add more background tests
 

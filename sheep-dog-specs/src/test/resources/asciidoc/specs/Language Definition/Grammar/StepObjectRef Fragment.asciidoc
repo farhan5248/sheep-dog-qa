@@ -1,6 +1,6 @@
 = Test-Suite: Grammar StepObjectRef Fragments
 
-@sheep-dog-test
+@sheep-dog-grammar
 
 A StepObjectRef identifies the component and object in a test step.
 
