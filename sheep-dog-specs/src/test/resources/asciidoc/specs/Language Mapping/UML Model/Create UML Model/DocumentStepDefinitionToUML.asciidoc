@@ -1,6 +1,6 @@
 = Test-Suite: Document Step Definition To UML
 
-@sheep-dog-dev
+@sheep-dog-dev @api
 TODO add tests for document parameters
 
 == Test-Setup: Create a test case

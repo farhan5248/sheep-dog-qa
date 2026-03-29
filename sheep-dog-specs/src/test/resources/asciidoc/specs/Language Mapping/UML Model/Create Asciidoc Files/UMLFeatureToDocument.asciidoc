@@ -1,6 +1,6 @@
 = Test-Suite: UML Feature To Document
 
-@sheep-dog-dev
+@sheep-dog-dev @api
 
 == Test-Case: No tags, no statements
 
