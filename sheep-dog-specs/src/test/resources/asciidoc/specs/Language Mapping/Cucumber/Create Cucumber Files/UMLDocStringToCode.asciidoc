@@ -1,6 +1,6 @@
 = Test-Suite: UML Doc String To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: One line
 

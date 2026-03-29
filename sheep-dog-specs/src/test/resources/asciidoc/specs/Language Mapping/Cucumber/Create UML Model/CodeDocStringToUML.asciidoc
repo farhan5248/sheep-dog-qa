@@ -1,6 +1,6 @@
 = Test-Suite: Convert Doc String To UML
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: One line
 

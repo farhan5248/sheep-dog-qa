@@ -1,6 +1,6 @@
 = Test-Suite: UML Step To Document
 
-@sheep-dog-dev @api
+@api
 
 == Test-Case: Convert step keywords
 

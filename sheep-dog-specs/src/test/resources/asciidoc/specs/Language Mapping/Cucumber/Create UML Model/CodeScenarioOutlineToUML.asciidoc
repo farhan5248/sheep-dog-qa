@@ -1,6 +1,6 @@
 = Test-Suite: Code Scenario Outline To UML
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: No tags, no statement, one step, one example
 

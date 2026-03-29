@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Object To Document
 
-@sheep-dog-dev @api
+@api
 
 == Test-Case: No statements
 

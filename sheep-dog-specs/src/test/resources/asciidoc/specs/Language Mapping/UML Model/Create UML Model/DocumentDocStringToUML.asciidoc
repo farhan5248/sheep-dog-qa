@@ -1,6 +1,6 @@
 = Test-Suite: Document DocString To UML
 
-@sheep-dog-dev @api
+@api
 
 == Test-Case: One line
 

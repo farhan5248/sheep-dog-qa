@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Definition To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Setup: Create model
 

@@ -1,6 +1,6 @@
 = Test-Suite: Code Step To UML
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: Convert step keywords
 

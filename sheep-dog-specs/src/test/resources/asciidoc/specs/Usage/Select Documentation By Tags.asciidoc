@@ -1,6 +1,6 @@
 = Test-Suite: Select Documentation By Tags
 
-@sheep-dog-dev
+@gen
 @round-trip
 
 The goal is to specify that if you have two test cases with different tags you can generate two different models.

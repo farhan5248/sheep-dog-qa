@@ -1,6 +1,6 @@
 = Test-Suite: Document StepObject To UML
 
-@sheep-dog-dev @api
+@api
 I need a test here for selected tags that tests only objects referenced in a selected test case are reversed
 
 == Test-Case: No statements

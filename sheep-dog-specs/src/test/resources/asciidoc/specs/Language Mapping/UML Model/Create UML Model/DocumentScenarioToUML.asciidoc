@@ -1,6 +1,6 @@
 = Test-Suite: Document Scenario To UML
 
-@sheep-dog-dev @api
+@api
 
 == Test-Case: No tags, no statements, one step
 

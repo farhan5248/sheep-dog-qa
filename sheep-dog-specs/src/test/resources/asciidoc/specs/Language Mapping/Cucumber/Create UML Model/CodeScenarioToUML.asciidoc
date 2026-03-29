@@ -1,6 +1,6 @@
 = Test-Suite: Code Scenario To UML
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: No tags, no statements, one step
 

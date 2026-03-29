@@ -1,6 +1,6 @@
 = Test-Suite: Format Asciidoc Files
 
-@sheep-dog-dev
+@gen
 @round-trip
 
 TODO Make more changes to the source file to demonstrate all the formatting changes.

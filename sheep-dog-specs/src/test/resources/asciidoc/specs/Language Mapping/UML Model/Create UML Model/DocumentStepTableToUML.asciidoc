@@ -1,6 +1,6 @@
 = Test-Suite: Document Step Table To UML
 
-@sheep-dog-dev @api
+@api
 
 == Test-Case: Three rows, three cells
 

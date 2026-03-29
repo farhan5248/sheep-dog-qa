@@ -1,6 +1,6 @@
 = Test-Suite: UML Background To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: One statement, one step, one scenario
 

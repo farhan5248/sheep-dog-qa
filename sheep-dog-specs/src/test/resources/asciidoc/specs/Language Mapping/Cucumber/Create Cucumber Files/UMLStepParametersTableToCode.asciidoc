@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Parameters Table To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: Three cells
 

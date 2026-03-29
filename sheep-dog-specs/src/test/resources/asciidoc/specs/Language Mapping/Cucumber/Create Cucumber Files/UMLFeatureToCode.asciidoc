@@ -1,6 +1,6 @@
 = Test-Suite: UML Feature To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: No tags, no statements
 

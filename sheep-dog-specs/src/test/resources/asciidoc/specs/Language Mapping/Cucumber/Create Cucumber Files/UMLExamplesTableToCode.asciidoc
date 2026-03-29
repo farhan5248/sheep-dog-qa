@@ -1,6 +1,6 @@
 = Test-Suite: UML Examples Table To Code
 
-@sheep-dog-dev
+@gen
 
 == Test-Case: Three rows, three cells
 

@@ -1,6 +1,6 @@
 = Test-Suite: Create Code From Documentation
 
-@sheep-dog-dev
+@gen
 @round-trip
 
 This is the most common usage of the sheep-dog plugin, create test automation code from documentation. 
