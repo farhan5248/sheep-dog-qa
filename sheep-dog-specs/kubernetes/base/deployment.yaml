@@ -111,11 +111,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: sheep-dog-cucumber-gen-svc
+      component: sheep-dog-cucumber-gen-svc
   template:
     metadata:
       labels:
-        app: sheep-dog-cucumber-gen-svc
+        app: sheep-dog-dev
+        component: sheep-dog-cucumber-gen-svc
     spec:
       containers:
         - name: sheep-dog-cucumber-gen-svc

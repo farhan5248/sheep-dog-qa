@@ -39,7 +39,7 @@ metadata:
     app: sheep-dog-dev
 spec:
   selector:
-    app: sheep-dog-cucumber-gen-svc
+    component: sheep-dog-cucumber-gen-svc
   ports:
     - name: sheep-dog-cucumber-gen-svc
       port: 80
