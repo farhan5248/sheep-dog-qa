@@ -1,6 +1,6 @@
 = Test-Suite: Document Step Definition To UML
 
-@api
+@asciidoc-api
 TODO add tests for document parameters
 
 == Test-Setup: Create a test case

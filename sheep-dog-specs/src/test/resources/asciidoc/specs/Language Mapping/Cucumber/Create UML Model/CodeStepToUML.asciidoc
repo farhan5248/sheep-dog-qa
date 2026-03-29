@@ -1,6 +1,6 @@
 = Test-Suite: Code Step To UML
 
-@gen
+@cucumber-gen
 
 == Test-Case: Convert step keywords
 

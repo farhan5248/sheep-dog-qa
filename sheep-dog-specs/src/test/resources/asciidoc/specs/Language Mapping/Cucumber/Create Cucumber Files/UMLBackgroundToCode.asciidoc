@@ -1,6 +1,6 @@
 = Test-Suite: UML Background To Code
 
-@gen
+@cucumber-gen
 
 == Test-Case: One statement, one step, one scenario
 

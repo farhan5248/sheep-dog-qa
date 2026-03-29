@@ -1,6 +1,6 @@
 = Test-Suite: Document Feature To UML
 
-@api
+@asciidoc-api
 
 == Test-Case: No statements
 

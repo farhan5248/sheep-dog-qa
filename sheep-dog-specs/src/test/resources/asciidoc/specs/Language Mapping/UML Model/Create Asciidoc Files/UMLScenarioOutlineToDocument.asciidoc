@@ -1,6 +1,6 @@
 = Test-Suite: UML Scenario Outline To Document
 
-@api
+@asciidoc-api
 
 == Test-Case: No tags, no statement, one step, one example
 

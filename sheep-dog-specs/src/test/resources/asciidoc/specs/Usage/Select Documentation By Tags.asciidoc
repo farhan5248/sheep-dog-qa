@@ -1,7 +1,6 @@
 = Test-Suite: Select Documentation By Tags
 
-@gen
-@round-trip
+@cucumber-gen @cucumber-gen-svc @svc-maven-plugin
 
 The goal is to specify that if you have two test cases with different tags you can generate two different models.
 Each model will contain the test cases that are tagged with the same tag.

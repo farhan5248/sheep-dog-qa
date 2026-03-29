@@ -1,6 +1,6 @@
 = Test-Suite: Code Generation for Workspace Issues
 
-@sheep-dog-grammar
+@grammar
 
 TODO Add tests for each quickfix one
 TODO Add test step ensuring step object isn't changed until after the quickfix is applied

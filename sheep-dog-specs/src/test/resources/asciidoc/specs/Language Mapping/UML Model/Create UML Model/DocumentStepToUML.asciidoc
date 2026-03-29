@@ -1,6 +1,6 @@
 = Test-Suite: Document Step To UML
 
-@api
+@asciidoc-api
 
 == Test-Case: Convert step keywords
 

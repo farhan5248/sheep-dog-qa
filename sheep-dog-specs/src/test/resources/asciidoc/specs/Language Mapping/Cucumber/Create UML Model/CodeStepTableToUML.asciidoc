@@ -1,6 +1,6 @@
 = Test-Suite: Convert Step Table To UML
 
-@gen
+@cucumber-gen
 
 == Test-Case: Three rows, three cells
 

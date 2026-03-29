@@ -1,7 +1,6 @@
 = Test-Suite: Update Existing Code
 
-@gen
-@round-trip
+@cucumber-gen @cucumber-gen-svc @svc-maven-plugin
 
 By being able to generate test automation for selected test cases on demand, means you don't need to maintain the code.
 This is one of the advantages of model based testing.

@@ -1,6 +1,6 @@
 = Test-Suite: Proposals for Step Definitions
 
-@sheep-dog-grammar
+@grammar
 
 Because a step can have a component or not and the full path specified or not, you can have 4 keywords like:
 

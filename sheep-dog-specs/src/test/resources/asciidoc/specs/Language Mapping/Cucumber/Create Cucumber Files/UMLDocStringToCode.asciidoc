@@ -1,6 +1,6 @@
 = Test-Suite: UML Doc String To Code
 
-@gen
+@cucumber-gen
 
 == Test-Case: One line
 

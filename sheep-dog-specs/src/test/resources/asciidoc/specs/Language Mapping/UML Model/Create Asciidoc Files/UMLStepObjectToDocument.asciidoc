@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Object To Document
 
-@api
+@asciidoc-api
 
 == Test-Case: No statements
 

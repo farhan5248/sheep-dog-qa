@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Object To Code
 
-@gen
+@cucumber-gen
 
 TODO map uml layer 2 documentation to java code
 

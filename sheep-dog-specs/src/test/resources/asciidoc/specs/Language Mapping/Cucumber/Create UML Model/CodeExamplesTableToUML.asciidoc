@@ -1,6 +1,6 @@
 = Test-Suite: Code Examples Table To UML
 
-@gen
+@cucumber-gen
 
 == Test-Case: Three rows, three cells
 

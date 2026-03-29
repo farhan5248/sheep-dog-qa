@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Definition To Code
 
-@gen
+@cucumber-gen
 
 == Test-Setup: Create model
 

@@ -50,13 +50,13 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: sheep-dog-dev-mcp
+                name: sheep-dog-mcp-svc
                 port:
                   number: 80
           - path: /mcp
             pathType: Prefix
             backend:
               service:
-                name: sheep-dog-dev-mcp
+                name: sheep-dog-mcp-svc
                 port:
                   number: 80

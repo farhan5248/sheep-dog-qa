@@ -1,6 +1,6 @@
 = Test-Suite: Document Step Parameters Table To UML
 
-@api
+@asciidoc-api
 
 == Test-Setup: Create a test case
 

@@ -1,6 +1,6 @@
 = Test-Suite: Document Background To UML
 
-@api
+@asciidoc-api
 
 == Test-Case: One statement, one step, one scenario
 

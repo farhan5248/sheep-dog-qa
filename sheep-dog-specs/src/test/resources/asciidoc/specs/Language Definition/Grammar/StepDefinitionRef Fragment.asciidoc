@@ -1,6 +1,6 @@
 = Test-Suite: Grammar StepDefinitionRef Fragments
 
-@sheep-dog-grammar
+@grammar
 
 A StepDefinitionRef identifies the part and state in a test step.
 

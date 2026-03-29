@@ -1,7 +1,6 @@
 = Test-Suite: Format Asciidoc Files
 
-@api @asciidoc-api-svc
-@round-trip
+@asciidoc-api @asciidoc-api-svc @svc-maven-plugin
 
 TODO Make more changes to the source file to demonstrate all the formatting changes.
 

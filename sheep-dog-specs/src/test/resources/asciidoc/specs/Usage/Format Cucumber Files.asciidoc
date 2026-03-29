@@ -1,7 +1,6 @@
 = Test-Suite: Format Cucumber Files
 
-@gen
-@round-trip
+@cucumber-gen @cucumber-gen-svc @svc-maven-plugin
 
 TODO Make more changes to the source file to demonstrate all the formatting changes.
 

@@ -1,6 +1,6 @@
 = Test-Suite: Code Generation for Only Issues
 
-@sheep-dog-grammar
+@grammar
 
 These tests verify that code generation works correctly when names follow proper capitalization rules.
 

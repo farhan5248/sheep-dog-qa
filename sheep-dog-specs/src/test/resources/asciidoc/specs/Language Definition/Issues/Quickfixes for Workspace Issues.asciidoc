@@ -1,6 +1,6 @@
 = Test-Suite: Quickfixes for Workspace Issues
 
-@sheep-dog-grammar
+@grammar
 
 Some problems are fixed by code generation.
 They're typically things like keywords or objects that are not defined in the step objects layer.

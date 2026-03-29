@@ -1,6 +1,6 @@
 = Test-Suite: UML DocString To Document
 
-@api
+@asciidoc-api
 
 == Test-Case: One line
 

@@ -1,6 +1,6 @@
 = Test-Suite: UML Feature To Code
 
-@gen
+@cucumber-gen
 
 == Test-Case: No tags, no statements
 

@@ -1,6 +1,6 @@
 = Test-Suite: UML Step Table To Document
 
-@api
+@asciidoc-api
 
 == Test-Case: Three rows, three cells
 

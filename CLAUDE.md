@@ -19,7 +19,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 - **Ollama Integration**: AI-enhanced development support
 
 ### Maven Plugin Used
-- **Plugin**: `sheep-dog-dev-svc-maven-plugin:1.32`
+- **Plugin**: `sheep-dog-svc-maven-plugin:1.32`
 - **Key Feature**: Does NOT require `-DrepoDir` parameter (auto-handles repositories)
 
 ## QA Repository Commands
@@ -31,9 +31,9 @@ scripts/forward-engineer.bat
 
 # Or manually:
 mvn clean
-mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-dev"
-mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-grammar"
-mvn org.farhan:sheep-dog-dev-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip"
+mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-dev"
+mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-grammar"
+mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip"
 ```
 
 ### Reverse Engineering (Update Specifications from Code)
@@ -43,7 +43,7 @@ scripts/reverse-engineer.bat <tag_name>
 
 # Or manually:
 mvn clean
-mvn org.farhan:sheep-dog-dev-svc-maven-plugin:uml-to-asciidoctor -Dtags="<tag_name>"
+mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-asciidoctor -Dtags="<tag_name>"
 ```
 
 ## QA Repository-Specific Features
