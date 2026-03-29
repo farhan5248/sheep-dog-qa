@@ -105,21 +105,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sheep-dog-dev-svc
+  name: sheep-dog-cucumber-gen-svc
   labels:
     app: sheep-dog-dev
 spec:
   selector:
     matchLabels:
-      app: sheep-dog-dev-svc
+      app: sheep-dog-cucumber-gen-svc
   template:
     metadata:
       labels:
-        app: sheep-dog-dev-svc
+        app: sheep-dog-cucumber-gen-svc
     spec:
       containers:
-        - name: sheep-dog-dev-svc
-          image: ghcr.io/farhan5248/sheep-dog-dev-svc:latest
+        - name: sheep-dog-cucumber-gen-svc
+          image: ghcr.io/farhan5248/sheep-dog-cucumber-gen-svc:latest
           imagePullPolicy: "Always"
           env:
             - name: LOG_LEVEL
@@ -159,4 +159,4 @@ spec:
       volumes:
         - name: logs-volume
           persistentVolumeClaim:
-            claimName: sheep-dog-dev-svc-pvc
+            claimName: sheep-dog-cucumber-gen-svc-pvc

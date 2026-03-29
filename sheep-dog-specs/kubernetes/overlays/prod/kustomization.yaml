@@ -15,4 +15,4 @@ patches:
   - path: svc-pvc-patch.yaml
     target:
       kind: PersistentVolumeClaim
-      name: sheep-dog-dev-svc-pvc 
+      name: sheep-dog-cucumber-gen-svc-pvc 

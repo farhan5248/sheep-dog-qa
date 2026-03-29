@@ -34,14 +34,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sheep-dog-dev-svc
+  name: sheep-dog-cucumber-gen-svc
   labels:
     app: sheep-dog-dev
 spec:
   selector:
-    app: sheep-dog-dev-svc
+    app: sheep-dog-cucumber-gen-svc
   ports:
-    - name: sheep-dog-dev-svc
+    - name: sheep-dog-cucumber-gen-svc
       port: 80
       targetPort: 8080
   type: ClusterIP

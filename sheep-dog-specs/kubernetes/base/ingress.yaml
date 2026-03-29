@@ -28,7 +28,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sheep-dog-dev-svc-ingress
+  name: sheep-dog-cucumber-gen-svc-ingress
   labels:
     app: sheep-dog-dev
 spec:
@@ -39,6 +39,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sheep-dog-dev-svc
+                name: sheep-dog-cucumber-gen-svc
                 port:
                   number: 80

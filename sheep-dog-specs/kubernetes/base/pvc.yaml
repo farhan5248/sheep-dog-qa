@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sheep-dog-dev-svc-pvc
+  name: sheep-dog-cucumber-gen-svc-pvc
   labels:
     app: sheep-dog-dev
 spec:
