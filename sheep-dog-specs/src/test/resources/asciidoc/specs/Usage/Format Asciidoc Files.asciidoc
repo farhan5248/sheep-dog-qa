@@ -1,6 +1,6 @@
 = Test-Suite: Format Asciidoc Files
 
-@gen
+@api @asciidoc-api-svc
 @round-trip
 
 TODO Make more changes to the source file to demonstrate all the formatting changes.
