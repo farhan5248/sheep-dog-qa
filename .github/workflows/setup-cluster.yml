@@ -71,27 +71,29 @@ jobs:
         run: |
           kubectl create namespace $NAMESPACE --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Apply Kustomize overlay
+      - name: Apply shared infrastructure
+        run: |
+          kubectl apply -k kubernetes/shared/overlays/$NAMESPACE/
+
+      - name: Apply full stack
         run: |
           kubectl apply -k kubernetes/overlays/$NAMESPACE/
 
-      - name: Restart deployment
+      - name: Restart deployments
         run: |
-          kubectl rollout restart deployment sheep-dog-dev-svc -n $NAMESPACE
+          kubectl rollout restart deployment sheep-dog-asciidoc-api-svc -n $NAMESPACE
+          kubectl rollout restart deployment sheep-dog-cucumber-gen-svc -n $NAMESPACE
 
-      - name: Wait for rollout to complete
+      - name: Wait for rollouts to complete
         run: |
-          kubectl rollout status deployment sheep-dog-dev-svc -n $NAMESPACE
+          kubectl rollout status deployment sheep-dog-asciidoc-api-svc -n $NAMESPACE
+          kubectl rollout status deployment sheep-dog-cucumber-gen-svc -n $NAMESPACE
 
       - name: Wait for service external IP
         run: sleep 60
 
-      - name: Get service URL
+      - name: Get Ingress URL
         id: get_service_url
         run: |
-          SERVICE_URL=$(kubectl get service -n $NAMESPACE sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+          SERVICE_URL=$(kubectl get ingress -n $NAMESPACE sheep-dog-ingress -o jsonpath="{.spec.rules[0].host}")
           echo "service_url=$SERVICE_URL" >> $GITHUB_OUTPUT
-
-      - name: Get Ingress URL
-        run: |
-          kubectl get ingress -n $NAMESPACE sheep-dog-dev-ingress -o jsonpath="{.spec.rules[0].host}"

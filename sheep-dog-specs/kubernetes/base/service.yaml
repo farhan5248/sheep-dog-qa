@@ -1,42 +1,26 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sheep-dog-dev-amq
+  name: sheep-dog-asciidoc-api-svc
   labels:
-    app: sheep-dog-dev
+    app: sheep-dog
+    component: sheep-dog-asciidoc-api-svc
 spec:
   selector:
-    app: sheep-dog-dev-amq
+    component: sheep-dog-asciidoc-api-svc
   ports:
-    - port: 61616
-      targetPort: 61616
-      name: jms
-    - port: 8161
-      targetPort: 8161
-      name: console
-  type: NodePort
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: sheep-dog-dev-db
-  labels:
-    app: sheep-dog-dev
-spec:
-  selector:
-    app: sheep-dog-dev-db
-  ports:
-    - name: sheep-dog-dev-db
-      port: 3306
-      nodePort: 30306
-  type: NodePort
+    - name: sheep-dog-asciidoc-api-svc
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: sheep-dog-cucumber-gen-svc
   labels:
-    app: sheep-dog-dev
+    app: sheep-dog
+    component: sheep-dog-cucumber-gen-svc
 spec:
   selector:
     component: sheep-dog-cucumber-gen-svc

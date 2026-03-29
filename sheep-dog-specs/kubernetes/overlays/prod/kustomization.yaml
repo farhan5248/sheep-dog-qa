@@ -4,15 +4,11 @@ namespace: prod
 resources:
   - ../../base
 patches:
-  - path: service-patch-db.yaml
-    target:
-      kind: Service
-      name: sheep-dog-dev-db
-  - path: db-pvc-patch.yaml
-    target:
-      kind: PersistentVolumeClaim
-      name: sheep-dog-dev-db-pvc
   - path: svc-pvc-patch.yaml
     target:
       kind: PersistentVolumeClaim
-      name: sheep-dog-cucumber-gen-svc-pvc 
+      name: sheep-dog-asciidoc-api-svc-pvc
+  - path: svc-pvc-patch.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: sheep-dog-cucumber-gen-svc-pvc
