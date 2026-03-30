@@ -3,17 +3,18 @@ echo %time%
 echo Updating EKS cluster with new Docker image or Kubernetes configuration changes
 
 set SUFFIX=%1
+set NAMESPACE=%2
 set BASE_STACK_NAME=sheep-dog-aws
 set REGION=us-east-1
-set NAMESPACE=prod
 
 if "%SUFFIX%"=="" (
-    echo Usage: aws-setup-stack.bat [suffix]
-    echo Example with suffix: aws-setup-stack.bat 1
+    echo Usage: aws-setup-cluster.bat [suffix] [namespace]
+    echo Example: aws-setup-cluster.bat 1 prod
     exit /b 1
-) else (
-    set STACK_NAME=%BASE_STACK_NAME%-%SUFFIX%
 )
+set STACK_NAME=%BASE_STACK_NAME%-%SUFFIX%
+
+if "%NAMESPACE%"=="" set NAMESPACE=prod
 
 echo Checking if AWS CLI is installed...
 aws --version
@@ -49,7 +50,7 @@ for /f "tokens=*" %%i in ('aws cloudformation describe-stacks --stack-name %STAC
 
 if "%CLUSTER_NAME%"=="" (
     echo Failed to get EKS cluster name from CloudFormation stack.
-    echo Make sure the stack %STACK_NAME% exists and has been deployed using deploy-to-eks.bat.
+    echo Make sure the stack %STACK_NAME% exists and has been deployed using aws-setup-stack.bat.
     exit /b 1
 )
 
@@ -67,7 +68,7 @@ kubectl create namespace %NAMESPACE% --dry-run=client -o yaml | kubectl apply -f
 
 echo Applying Kustomize overlay...
 cd ..
-kubectl apply -k kubernetes/overlays/%NAMESPACE%/
+kubectl apply -k kubernetes/complete/overlays/%NAMESPACE%/
 
 if %ERRORLEVEL% neq 0 (
     echo Failed to apply Kubernetes configuration.
@@ -75,28 +76,26 @@ if %ERRORLEVEL% neq 0 (
 )
 cd scripts
 
-echo Restarting deployment to pull the latest image...
-kubectl rollout restart deployment sheep-dog-dev-svc -n %NAMESPACE%
+echo Restarting deployments to pull the latest images...
+kubectl rollout restart deployment -n %NAMESPACE% -l app=sheep-dog
 
-echo Waiting for rollout to complete...
-kubectl rollout status deployment sheep-dog-dev-svc -n %NAMESPACE%
+echo Waiting for rollouts to complete...
+kubectl rollout status deployment -n %NAMESPACE% -l app=sheep-dog
 
 if %ERRORLEVEL% neq 0 (
     echo Deployment rollout failed.
     exit /b 1
 )
 
-echo Waiting for service to get an external IP...
-echo This may take a few minutes...
+echo Waiting for services to stabilize...
 timeout /t 30
 
-echo Getting service URL...
-kubectl get service -n %NAMESPACE% sheep-dog-dev-svc -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"
+echo Getting Ingress URL...
+kubectl get ingress -n %NAMESPACE% -o jsonpath="{.items[0].spec.rules[0].host}"
 echo.
 
-echo Getting Ingress URL...
-kubectl get ingress -n %NAMESPACE% sheep-dog-dev-ingress -o jsonpath="{.spec.rules[0].host}"
-echo.
+echo Listing all services...
+kubectl get services -n %NAMESPACE%
 
 echo EKS cluster update completed successfully!
 

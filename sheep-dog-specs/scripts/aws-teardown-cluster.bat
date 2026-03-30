@@ -54,7 +54,7 @@ if not "%CLUSTER_NAME%"=="" (
     aws eks update-kubeconfig --name %CLUSTER_NAME% --region %REGION%
 
     echo Deleting Kubernetes resources...
-    kubectl delete -k ../kubernetes/overlays/%NAMESPACE%/
+    kubectl delete -k ../kubernetes/complete/overlays/%NAMESPACE%/
     
     echo Waiting for load balancers to be fully deleted...
     timeout /t 60
