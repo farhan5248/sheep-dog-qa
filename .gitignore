@@ -1,10 +1,15 @@
+release.properties
+.vscode/settings.json
+nul
+temp/*.*
+.venv/*
+**/log.txt
 **/target
 **/.gradle
 **/build
 **/out
 **/node_modules
 **/bin
-release.properties
 **/*._trace
 **/*.xtextbin
 **/*.xtendbin
@@ -30,4 +35,4 @@ release.properties
 **/*.env
 **/*.theia-workspace
 **/.classpath
-.vscode/settings.json
+**/__pycache__/*.*
