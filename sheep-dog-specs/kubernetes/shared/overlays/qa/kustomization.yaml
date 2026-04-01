@@ -8,3 +8,7 @@ patches:
     target:
       kind: Ingress
       name: sheep-dog-ingress
+  - path: db-service-patch.yaml
+    target:
+      kind: Service
+      name: sheep-dog-db
