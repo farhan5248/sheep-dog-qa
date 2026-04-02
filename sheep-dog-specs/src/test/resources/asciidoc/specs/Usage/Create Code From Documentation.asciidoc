@@ -19,7 +19,7 @@ The Test-Suite is what is tagged and the Step-Object has all the relevant step d
 ----
 = Test-Suite: Process
 
-@tag1
+@api-and-gen
 Desc 1
 
 == Test-Case: Story One
@@ -92,10 +92,10 @@ Desc 3
 
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/app/Process.feature file will be created as follows
 ----
-@tag1
+@api-and-gen
 Feature: Process
 
-  \@tag1
+  \@api-and-gen
   Desc 1
 
   @tag2

@@ -17,7 +17,7 @@ This test is a reverse of the Create Code From Documentation test.
 
 === Given: The code-prj project src-gen/test/resources/cucumber/specs/app/Process.feature file is created as follows
 ----
-@tag1
+@api-and-gen
 Feature: Process
 
   Desc 1
@@ -66,13 +66,13 @@ Feature: Process
 === When: The maven plugin cucumber-to-uml goal is executed with
 |===
 | Tags
-| tag1
+| api-and-gen
 |===
 
 === And: The maven plugin uml-to-asciidoctor goal is executed with
 |===
 | Tags
-| tag1
+| api-and-gen
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file will be created as follows

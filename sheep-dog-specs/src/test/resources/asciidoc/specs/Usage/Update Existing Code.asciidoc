@@ -14,6 +14,8 @@ For this reason I'd at least keep the interfaces and make sure that the UML mode
 ----
 = Test-Suite: Process
 
+@api-and-gen
+
 == Test-Case: Submit
 
 === Given: The blah application Object page is empty
@@ -26,7 +28,11 @@ For this reason I'd at least keep the interfaces and make sure that the UML mode
 == Step-Definition: is empty
 ----
 
-=== And: The maven plugin asciidoctor-to-uml goal is executed
+=== And: The maven plugin asciidoctor-to-uml goal is executed with
+|===
+| Tags
+| api-and-gen
+|===
 
 == Test-Case: Update existing step definitions with a new method
 
@@ -56,7 +62,11 @@ public class BlahObjectPageSteps {
 }
 ----
 
-=== When: The maven plugin uml-to-cucumber goal is executed
+=== When: The maven plugin uml-to-cucumber goal is executed with
+|===
+| Tags
+| api-and-gen
+|===
 
 === Then: The code-prj project src-gen/test/java/org/farhan/stepdefs/blah/BlahObjectPageSteps.java file will be created as follows
 ----
@@ -102,7 +112,11 @@ public interface ObjectPage {
 }
 ----
 
-=== When: The maven plugin uml-to-cucumber goal is executed
+=== When: The maven plugin uml-to-cucumber goal is executed with
+|===
+| Tags
+| api-and-gen
+|===
 
 === Then: The code-prj project src-gen/test/java/org/farhan/objects/blah/ObjectPage.java file will be created as follows
 ----

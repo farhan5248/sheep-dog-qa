@@ -22,6 +22,7 @@ The table formatting is off, this is intentional to check that the formatting wo
 ----
 = Test-Suite: Process
 
+@only-api
 Desc 1
 
 == Test-Case: Story One
@@ -86,14 +87,23 @@ Desc 3
 |===
 ----
 
-=== When: The maven plugin asciidoctor-to-uml goal is executed
+=== When: The maven plugin asciidoctor-to-uml goal is executed with
+|===
+| Tags
+| only-api
+|===
 
-=== And: The maven plugin uml-to-asciidoctor goal is executed
+=== And: The maven plugin uml-to-asciidoctor goal is executed with
+|===
+| Tags
+| only-api
+|===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/app/Process.asciidoc file will be created as follows
 ----
 = Test-Suite: Process
 
+@only-api
 Desc 1
 
 == Test-Case: Story One

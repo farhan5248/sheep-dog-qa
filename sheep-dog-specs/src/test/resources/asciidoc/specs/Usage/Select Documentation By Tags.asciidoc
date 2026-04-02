@@ -20,7 +20,7 @@ The test was good enough to code what I wanted but I can see how if I break the 
 
 == Test-Case: Submit
 
-@tag1
+@api-and-gen
 
 === Given: The Object1 page is empty
 ----
@@ -39,7 +39,7 @@ The test was good enough to code what I wanted but I can see how if I break the 
 === When: The maven plugin asciidoctor-to-uml goal is executed with
 |===
 | Tags
-| tag1
+| api-and-gen
 |===
 
 === And: The maven plugin asciidoctor-to-uml goal is executed with
@@ -51,17 +51,17 @@ The test was good enough to code what I wanted but I can see how if I break the 
 === And: The maven plugin uml-to-cucumber goal is executed with
 |===
 | Tags
-| tag1
+| api-and-gen
 |===
 
 === Then: The code-prj project src-gen/test/resources/cucumber/specs/Process.feature file will be created as follows
 ----
 Feature: Process
 
-  @tag1
+  @api-and-gen
   Scenario: Submit
 
-    \@tag1
+    \@api-and-gen
 
     Given The Unknown service Object1 page is empty
 ----
