@@ -28,6 +28,7 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
+        overwrite-settings: false
     - name: Asciidoctor to UML (round-trip)
       run: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip" -Dhost="${{ inputs.host }}"
       env:
