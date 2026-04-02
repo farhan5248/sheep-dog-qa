@@ -11,5 +11,4 @@ spec:
   ports:
     - name: sheep-dog-db
       port: 3306
-      nodePort: 30306
-  type: NodePort
+  type: ClusterIP

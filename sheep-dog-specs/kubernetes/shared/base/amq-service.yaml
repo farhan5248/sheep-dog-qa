@@ -15,4 +15,4 @@ spec:
     - port: 8161
       targetPort: 8161
       name: console
-  type: NodePort
+  type: ClusterIP
