@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with the sheep-dog-qa repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with the sheep-dog-specs repository.
 
 > **📚 Complete Documentation**: See the topic-specific files:
 > - `../sheep-dog-main/CLAUDE.md` - Cross-repository coordination
@@ -10,10 +10,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-**sheep-dog-qa** is the **central QA and specifications repository** with cloud deployment capabilities for the sheep-dog ecosystem.
+**sheep-dog-specs** is the **central QA and specifications repository** with cloud deployment capabilities for the sheep-dog ecosystem.
 
 ### Key Components
-- **sheep-dog-specs**: Core specification and documentation project
+- **sheep-dog-features**: Core specification and documentation project
 - **AWS/EKS Integration**: Cloud deployment configurations
 - **GitHub Actions**: CI/CD automation workflows  
 - **Ollama Integration**: AI-enhanced development support
@@ -26,7 +26,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ### Forward Engineering (Generate UML from Specifications)
 ```bash
-# Run from sheep-dog-specs directory
+# Run from sheep-dog-features directory
 scripts/forward-engineer.bat
 
 # Or manually:
@@ -38,7 +38,7 @@ mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip"
 
 ### Reverse Engineering (Update Specifications from Code)
 ```bash
-# Run from sheep-dog-specs directory  
+# Run from sheep-dog-features directory  
 scripts/reverse-engineer.bat <tag_name>
 
 # Or manually:
@@ -49,10 +49,10 @@ mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-asciidoctor -Dtags="<tag_name>"
 ## QA Repository-Specific Features
 
 ### Specification Management
-- **Primary Location**: `sheep-dog-specs/src/test/resources/asciidoc/specs/`
-- **Step Definitions**: `sheep-dog-specs/src/test/resources/asciidoc/stepdefs/`
-- **Generated Output**: `sheep-dog-specs/src-gen/` (target for other repositories)
-- **Automation Scripts**: `sheep-dog-specs/scripts/` for engineering workflows
+- **Primary Location**: `sheep-dog-features/src/test/resources/asciidoc/specs/`
+- **Step Definitions**: `sheep-dog-features/src/test/resources/asciidoc/stepdefs/`
+- **Generated Output**: `sheep-dog-features/src-gen/` (target for other repositories)
+- **Automation Scripts**: `sheep-dog-features/scripts/` for engineering workflows
 
 ### Ollama Integration
 AI-enhanced development with custom model:
@@ -63,7 +63,7 @@ ollama run qakb
 
 ### Container & Deployment Support
 - **Cheatsheet**: See `cheatsheet.txt` for Docker, Kubernetes, and Minikube commands
-- **AWS Scripts**: `sheep-dog-specs/scripts/aws-*` for EKS cluster management
+- **AWS Scripts**: `sheep-dog-features/scripts/aws-*` for EKS cluster management
 - **Kubernetes**: Deployment manifests for cloud testing
 
 ### GitHub Actions Workflows

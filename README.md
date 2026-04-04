@@ -1,19 +1,35 @@
-# Sheep Dog QA
+# Sheep Dog Specs
 
-QA specifications written in AsciiDoc, used to drive test generation across the ecosystem.
+The specification hub for the sheep-dog ecosystem, containing three types of specs:
+
+- **Architectural specs** (`site/`) — high-level architecture decisions and implementation guides
+- **Behavioral specs** (`sheep-dog-features/src/test/resources/asciidoc/`) — AsciiDoc documents that define system behavior, the single source of truth from which test automation code is generated
+- **Operational specs** (`sheep-dog-features/kubernetes/`) — Kubernetes deployment manifests for dev/qa environments
 
 ## Projects
 
-| Project | Description |
-|---------|-------------|
-| sheep-dog-specs | AsciiDoc specification files |
+| Directory | Description |
+|-----------|-------------|
+| site | Architectural and implementation documentation |
+| sheep-dog-features | BDD specifications, forward/reverse engineering scripts, Kubernetes deployment configs |
 
-## How to Use
+## Behavioral Specs
 
-Run the forward engineering scripts in `sheep-dog-specs/scripts/` to generate test code from the AsciiDoc specifications.
+Specifications are organized by tag, each targeting a different component:
+- **sheep-dog-grammar** — test automation specs for the core grammar project
+- **sheep-dog-dev** — development-focused specs for core libraries
+- **round-trip** — round-trip engineering validation between specs and code
+
+Forward engineering transforms AsciiDoc specs into Cucumber test code:
 
 ```
 scripts/forward-engineer.bat
 ```
 
-This invokes the `sheep-dog-svc-maven-plugin` to transform AsciiDoc specs into Cucumber test code for the target projects.
+Reverse engineering updates specs from existing test code:
+
+```
+scripts/reverse-engineer.bat <tag>
+```
+
+Both invoke the `sheep-dog-svc-maven-plugin` which calls the cloud services in sheep-dog-svc to perform the transformations.
