@@ -1,84 +1,25 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with the sheep-dog-specs repository.
+See [README.md](README.md) for project descriptions.
 
-> **📚 Complete Documentation**: See the topic-specific files:
-> - `../sheep-dog-main/CLAUDE.md` - Cross-repository coordination
-> - `CLAUDE.architecture.md` - System architecture & design patterns
-> - `CLAUDE.development.md` - Development workflows & practices  
-> - `CLAUDE.testing.md` - BDD/testing methodologies
+## Development Commands
 
-## Repository Overview
+### Forward Engineering (Generate test code from specifications)
 
-**sheep-dog-specs** is the **central QA and specifications repository** with cloud deployment capabilities for the sheep-dog ecosystem.
-
-### Key Components
-- **sheep-dog-features**: Core specification and documentation project
-- **AWS/EKS Integration**: Cloud deployment configurations
-- **GitHub Actions**: CI/CD automation workflows  
-- **Ollama Integration**: AI-enhanced development support
-
-### Maven Plugin Used
-- **Plugin**: `sheep-dog-svc-maven-plugin:1.32`
-- **Key Feature**: Does NOT require `-DrepoDir` parameter (auto-handles repositories)
-
-## QA Repository Commands
-
-### Forward Engineering (Generate UML from Specifications)
 ```bash
-# Run from sheep-dog-features directory
+# In sheep-dog-features directory
 scripts/forward-engineer.bat
-
-# Or manually:
-mvn clean
-mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-dev"
-mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="sheep-dog-grammar"
-mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags="round-trip"
 ```
 
-### Reverse Engineering (Update Specifications from Code)
+### Reverse Engineering (Update specifications from test code)
+
 ```bash
-# Run from sheep-dog-features directory  
-scripts/reverse-engineer.bat <tag_name>
-
-# Or manually:
-mvn clean
-mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-asciidoctor -Dtags="<tag_name>"
+# In sheep-dog-features directory
+scripts/reverse-engineer.bat <tag>
 ```
 
-## QA Repository-Specific Features
+### Tags
 
-### Specification Management
-- **Primary Location**: `sheep-dog-features/src/test/resources/asciidoc/specs/`
-- **Step Definitions**: `sheep-dog-features/src/test/resources/asciidoc/stepdefs/`
-- **Generated Output**: `sheep-dog-features/src-gen/` (target for other repositories)
-- **Automation Scripts**: `sheep-dog-features/scripts/` for engineering workflows
-
-### Ollama Integration
-AI-enhanced development with custom model:
-```bash
-ollama create qakb -f ./Modelfile
-ollama run qakb
-```
-
-### Container & Deployment Support
-- **Cheatsheet**: See `cheatsheet.txt` for Docker, Kubernetes, and Minikube commands
-- **AWS Scripts**: `sheep-dog-features/scripts/aws-*` for EKS cluster management
-- **Kubernetes**: Deployment manifests for cloud testing
-
-### GitHub Actions Workflows
-- **forward-engineer.yml**: Automated specification processing
-- **AWS deployment workflows**: Cloud testing and deployment automation
-- **Cross-repository coordination**: Triggers for dependent repositories
-
-## Tags Used in This Repository
-- `sheep-dog-dev`: Development-focused specifications
-- `sheep-dog-grammar`: Test automation specifications  
-- `round-trip`: Round-trip engineering validation examples
-
-## Central Coordination Role
-This repository serves as the **specification hub** for the entire sheep-dog ecosystem:
-- **Source of Truth**: All specifications originate here
-- **Cross-Repository**: Other repos reference these specs for code generation
-- **Cloud Deployment**: Provides deployment configurations for the ecosystem
-- **Documentation Hub**: Hosts comprehensive CLAUDE.md documentation suite
+- `sheep-dog-grammar` — test automation specs for the core grammar project
+- `sheep-dog-dev` — development-focused specs for core libraries
+- `round-trip` — round-trip engineering validation between specs and code
