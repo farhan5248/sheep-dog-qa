@@ -21,16 +21,6 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>github</id>
-			<url>https://maven.pkg.github.com/farhan5248/sheep-dog-cloud</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>github-main</id>
 			<url>https://maven.pkg.github.com/farhan5248/sheep-dog-main</url>
 			<releases>
 				<enabled>true</enabled>
@@ -44,16 +34,6 @@
 	<repositories>
 		<repository>
 			<id>github</id>
-			<url>https://maven.pkg.github.com/farhan5248/sheep-dog-cloud</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>github-main</id>
 			<url>https://maven.pkg.github.com/farhan5248/sheep-dog-main</url>
 			<releases>
 				<enabled>true</enabled>
