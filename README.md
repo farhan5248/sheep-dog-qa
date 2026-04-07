@@ -16,9 +16,13 @@ The specification hub for the sheep-dog ecosystem, containing three types of spe
 ## Behavioral Specs
 
 Specifications are organized by tag, each targeting a different component:
-- **sheep-dog-grammar** — test automation specs for the core grammar project
-- **sheep-dog-dev** — development-focused specs for core libraries
-- **round-trip** — round-trip engineering validation between specs and code
+- **asciidoc-api** — AsciiDoc to UML API library
+- **cucumber-gen** — Cucumber code generation library
+- **grammar** — core grammar project
+- **svc-maven-plugin** — service Maven plugin
+- **asciidoc-api-svc** — AsciiDoc API microservice
+- **cucumber-gen-svc** — Cucumber code generation microservice
+- **mcp-svc** — MCP server implementation
 
 Forward engineering transforms AsciiDoc specs into Cucumber test code:
 
