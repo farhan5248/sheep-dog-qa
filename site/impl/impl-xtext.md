@@ -47,7 +47,6 @@ The Xtext grammar is defined in a `.xtext` file (e.g., `SheepDog.xtext`). These 
 
 - [Xtext Grammar Examples](impl-xtext-grammar.md)
 - [Xtext Formatting Examples](impl-xtext-format.md)
-- [Xtext Logging Examples](impl-xtext-logging.md)
 
 ## UI
 
