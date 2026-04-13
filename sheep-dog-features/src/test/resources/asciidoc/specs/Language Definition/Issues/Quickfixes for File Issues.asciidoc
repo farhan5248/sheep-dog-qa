@@ -9,11 +9,11 @@ For example not knowing which component an object belongs to gets in the way of 
 
 If the first step has a component, no quickfix is needed.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name                     
-| TestStepContainerList/1/TestStepList | The daily batchjob Input file is present
-| TestStepContainerList/1/TestStepList | The Input file is downloaded            
+| testStepContainerList/1/testStepList | The daily batchjob Input file is present
+| testStepContainerList/1/testStepList | The Input file is downloaded            
 |===
 
 === And: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -25,7 +25,7 @@ If the first step has a component, no quickfix is needed.
 === And: The Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path                                 | Line Content      
-| StepDefinitionList/1/Description/LineList | Creates empty file
+| stepDefinitionList/1/description/lineList | Creates empty file
 |===
 
 === And: The xtext plugin validate annotation is empty
@@ -33,7 +33,7 @@ If the first step has a component, no quickfix is needed.
 === When: The xtext plugin list quickfixes action is performed as follows
 |===
 | Test Suite Full Name         | Node Path              
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1
 |===
 
 === Then: The xtext plugin list quickfixes popup will be empty
@@ -43,11 +43,11 @@ If the first step has a component, no quickfix is needed.
 The first step needs to have a component specified.
 The other steps default to that one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name                        
-| TestStepContainerList/1/TestStepList | The Input file is present                  
-| TestStepContainerList/1/TestStepList | The daily batchjob Input file is downloaded
+| testStepContainerList/1/testStepList | The Input file is present                  
+| testStepContainerList/1/testStepList | The daily batchjob Input file is downloaded
 |===
 
 === And: The xtext plugin validate annotation is set as follows
@@ -58,7 +58,7 @@ The first step must have a component
 === When: The xtext plugin list quickfixes action is performed as follows
 |===
 | Test Suite Full Name         | Node Path              
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1
 |===
 
 === Then: The xtext plugin list quickfixes popup will be empty

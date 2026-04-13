@@ -14,65 +14,65 @@ and optionally have these
 - Description
 - Test Step List
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Setup Name
-| TestStepContainerList | First Test Setup
+| testStepContainerList | First Test Setup
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Setup Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | Second Test Setup
+| specs/ProcessIssues.asciidoc | testStepContainerList | Second Test Setup
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be created as follows
 |===
 | Node Path               | Test Setup Name
-| TestStepContainerList/1 | First Test Setup
-| TestStepContainerList/2 | Second Test Setup
+| testStepContainerList/1 | First Test Setup
+| testStepContainerList/2 | Second Test Setup
 |===
 
 == Test-Case: Duplicate Test Setup Name
 
 Test Setup name must be unique within a Test Suite. Creating a Test Setup with an existing name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Setup Name
-| TestStepContainerList | Background
+| testStepContainerList | Background
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Setup Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | Background
+| specs/ProcessIssues.asciidoc | testStepContainerList | Background
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be as follows
 |===
 | Node Path               | State
-| TestStepContainerList/2 | Absent
+| testStepContainerList/2 | Absent
 |===
 
 == Test-Case: Test Setup Is First
 
 Test Setup is always at position 1 in the Test Step Container list, even when added after Test Cases.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Case Name
-| TestStepContainerList | First Test Case
+| testStepContainerList | First Test Case
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Setup Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | Background
+| specs/ProcessIssues.asciidoc | testStepContainerList | Background
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be created as follows
 |===
 | Node Path               | Test Setup Name
-| TestStepContainerList/1 | Background
+| testStepContainerList/1 | Background
 |===

@@ -8,13 +8,13 @@ getTestStepFullName resolves shortened StepObjectRef Names by looking at previou
 
 StepObjectRef Name has 3 parts: component, object path, and object name. The algorithm searches previous steps for a matching object name to borrow missing component or path. It stops at the first match with a component.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Given StepObjectRef Name | Given StepDefinitionRef Name
-| TestStepContainerList/1/TestStepList | {Line 1 StepObjectRef}   | is performed                
-| TestStepContainerList/1/TestStepList | {Line 2 StepObjectRef}   | is performed                
-| TestStepContainerList/1/TestStepList | {Line 3 StepObjectRef}   | is performed                
-| TestStepContainerList/1/TestStepList | {Line 4 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 1 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 2 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 3 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 4 StepObjectRef}   | is performed                
 |===
 
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/app/Input file.asciidoc file is created as follows
@@ -26,7 +26,7 @@ StepObjectRef Name has 3 parts: component, object path, and object name. The alg
 === When: The xtext plugin validate action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/4
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/4
 |===
 
 === Then: The xtext plugin validate annotation will be empty
@@ -55,12 +55,12 @@ StepObjectRef Name has 3 parts: component, object path, and object name. The alg
 
 StepObjectRef Name has 3 parts: component, object path, and object name. The algorithm searches previous steps for a matching object name to borrow missing component or path. It stops at the first match with a component.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Given StepObjectRef Name | Given StepDefinitionRef Name
-| TestStepContainerList/1/TestStepList | {Line 1 StepObjectRef}   | is performed                
-| TestStepContainerList/1/TestStepList | {Line 2 StepObjectRef}   | is performed                
-| TestStepContainerList/1/TestStepList | {Line 3 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 1 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 2 StepObjectRef}   | is performed                
+| testStepContainerList/1/testStepList | {Line 3 StepObjectRef}   | is performed                
 |===
 
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -72,7 +72,7 @@ StepObjectRef Name has 3 parts: component, object path, and object name. The alg
 === When: The xtext plugin validate action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/3
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/3
 |===
 
 === Then: The xtext plugin validate annotation will be empty

@@ -28,10 +28,10 @@ and optionally have these
 | Input2 file
 |===
 
-=== And: The Input file.asciidoc file StepDefinitionList node will be as follows
+=== And: The Input file.asciidoc file stepDefinitionList node will be as follows
 |===
 | Node Path          | State
-| StepDefinitionList | Empty
+| stepDefinitionList | Empty
 |===
 
 === And: The Input file.asciidoc file Description node will be as follows
@@ -44,10 +44,10 @@ and optionally have these
 
 Step Object full name must be unique within a Test Project. Creating a Step Object with an existing full name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node is created as follows
 |===
 | Node Path          | Step Definition Name
-| StepDefinitionList | First Step Definition
+| stepDefinitionList | First Step Definition
 |===
 
 === When: The xtext plugin add document action is performed to create a StepObject with
@@ -56,8 +56,8 @@ Step Object full name must be unique within a Test Project. Creating a Step Obje
 | stepdefs/daily batchjob/Input file.asciidoc
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node will be created as follows
 |===
 | Node Path            | Step Definition Name
-| StepDefinitionList/1 | First Step Definition
+| stepDefinitionList/1 | First Step Definition
 |===

@@ -49,28 +49,28 @@
 | Node Path | State
 |===
 
-== Step-Definition: TestDataList node is created as follows
+== Step-Definition: testDataList node is created as follows
 
 === Step-Parameters: Node Path, Test Data Name
 |===
 | Node Path | Test Data Name
 |===
 
-== Step-Definition: TestDataList node will be as follows
+== Step-Definition: testDataList node will be as follows
 
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
 |===
 
-== Step-Definition: TestDataList node will be created as follows
+== Step-Definition: testDataList node will be created as follows
 
 === Step-Parameters: Node Path, Test Data Name
 |===
 | Node Path | Test Data Name
 |===
 
-== Step-Definition: TestStepContainerList node is created as follows
+== Step-Definition: testStepContainerList node is created as follows
 
 === Step-Parameters: Node Path, Test Case Name
 |===
@@ -82,14 +82,14 @@
 | Node Path | Test Setup Name
 |===
 
-== Step-Definition: TestStepContainerList node will be as follows
+== Step-Definition: testStepContainerList node will be as follows
 
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
 |===
 
-== Step-Definition: TestStepContainerList node will be created as follows
+== Step-Definition: testStepContainerList node will be created as follows
 
 === Step-Parameters: Node Path, Test Case Name
 |===
@@ -101,7 +101,7 @@
 | Node Path | Test Setup Name
 |===
 
-== Step-Definition: TestStepList node is created as follows
+== Step-Definition: testStepList node is created as follows
 
 === Step-Parameters: Given StepDefinitionRef Name, Given StepObjectRef Name, Node Path
 |===
@@ -113,14 +113,14 @@
 | Node Path | Test Step Full Name
 |===
 
-== Step-Definition: TestStepList node will be as follows
+== Step-Definition: testStepList node will be as follows
 
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
 |===
 
-== Step-Definition: TestStepList node will be created as follows
+== Step-Definition: testStepList node will be created as follows
 
 === Step-Parameters: And Full Name, And StepDefinitionRef Name, And StepObjectRef Name, Node Path
 |===

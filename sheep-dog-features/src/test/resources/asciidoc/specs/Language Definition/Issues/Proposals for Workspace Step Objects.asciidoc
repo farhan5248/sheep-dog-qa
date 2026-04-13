@@ -18,16 +18,16 @@ Without a component and without workspace step objects, no proposals are availab
 
 TODO make this an outline with various steps like "The" or "The batchjob" etc
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name
-| TestStepContainerList/1/TestStepList | empty              
+| testStepContainerList/1/testStepList | empty              
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty
@@ -36,10 +36,10 @@ TODO make this an outline with various steps like "The" or "The batchjob" etc
 
 Without a component but with workspace step objects, all step objects are proposed with their description from the step object file.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name
-| TestStepContainerList/1/TestStepList | empty              
+| testStepContainerList/1/testStepList | empty              
 |===
 
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -51,13 +51,13 @@ Without a component but with workspace step objects, all step objects are propos
 === And: The Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path            | Line Content
-| Description/LineList | Description 
+| description/lineList | Description 
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be set as follows
@@ -70,16 +70,16 @@ Without a component but with workspace step objects, all step objects are propos
 
 With a component but without workspace step objects for it, no proposals are available.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name
-| TestStepContainerList/1/TestStepList | The daily batchjob 
+| testStepContainerList/1/testStepList | The daily batchjob 
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be empty
@@ -88,10 +88,10 @@ With a component but without workspace step objects for it, no proposals are ava
 
 With a component and workspace step objects, step objects matching the component are proposed with their description.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepList node is created as follows
 |===
 | Node Path                            | Test Step Full Name
-| TestStepContainerList/1/TestStepList | The daily batchjob 
+| testStepContainerList/1/testStepList | The daily batchjob 
 |===
 
 === And: The src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file is created as follows
@@ -103,13 +103,13 @@ With a component and workspace step objects, step objects matching the component
 === And: The Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path            | Line Content
-| Description/LineList | Description 
+| description/lineList | Description 
 |===
 
 === When: The xtext plugin list proposals action is performed as follows
 |===
 | Test Suite Full Name         | Node Path                             
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestStepList/1
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testStepList/1
 |===
 
 === Then: The xtext plugin list proposals popup will be set as follows

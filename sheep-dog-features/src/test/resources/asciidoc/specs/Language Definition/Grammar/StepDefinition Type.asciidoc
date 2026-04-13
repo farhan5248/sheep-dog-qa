@@ -14,77 +14,77 @@ and optionally have these
 - Description
 - Step Parameters List
 
-=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node is created as follows
 |===
 | Node Path          | Step Definition Name
-| StepDefinitionList | First Step Definition
+| stepDefinitionList | First Step Definition
 |===
 
-=== When: The xtext plugin edit document action is performed to modify StepDefinitionList with
+=== When: The xtext plugin edit document action is performed to modify stepDefinitionList with
 |===
 | Step Object Full Name                       | Node Path          | Step Definition Name
-| stepdefs/daily batchjob/Input file.asciidoc | StepDefinitionList | Second Step Definition
+| stepdefs/daily batchjob/Input file.asciidoc | stepDefinitionList | Second Step Definition
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node will be created as follows
 |===
 | Node Path            | Step Definition Name
-| StepDefinitionList/2 | Second Step Definition
+| stepDefinitionList/2 | Second Step Definition
 |===
 
-=== And: The Input file.asciidoc file StepParametersList node will be as follows
+=== And: The Input file.asciidoc file stepParametersList node will be as follows
 |===
 | Node Path                               | State
-| StepDefinitionList/1/StepParametersList | Empty
+| stepDefinitionList/1/stepParametersList | Empty
 |===
 
 === And: The Input file.asciidoc file Description node will be as follows
 |===
 | Node Path                        | State
-| StepDefinitionList/1/Description | Absent
+| stepDefinitionList/1/description | Absent
 |===
 
 == Test-Case: Duplicate Step Definition Name
 
 Step Definition name must be unique within a Step Object. Creating a Step Definition with an existing name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node is created as follows
 |===
 | Node Path          | Step Definition Name
-| StepDefinitionList | First Step Definition
+| stepDefinitionList | First Step Definition
 |===
 
-=== When: The xtext plugin edit document action is performed to modify StepDefinitionList with
+=== When: The xtext plugin edit document action is performed to modify stepDefinitionList with
 |===
 | Step Object Full Name                       | Node Path          | Step Definition Name
-| stepdefs/daily batchjob/Input file.asciidoc | StepDefinitionList | First Step Definition
+| stepdefs/daily batchjob/Input file.asciidoc | stepDefinitionList | First Step Definition
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node will be as follows
 |===
 | Node Path            | State
-| StepDefinitionList/2 | Absent
+| stepDefinitionList/2 | Absent
 |===
 
 == Test-Case: Sorted Step Definition Name
 
 Step Definitions are sorted alphabetically by name within a Step Object.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node is created as follows
 |===
 | Node Path          | Step Definition Name
-| StepDefinitionList | Second Step Definition
+| stepDefinitionList | Second Step Definition
 |===
 
-=== When: The xtext plugin edit document action is performed to modify StepDefinitionList with
+=== When: The xtext plugin edit document action is performed to modify stepDefinitionList with
 |===
 | Step Object Full Name                       | Node Path          | Step Definition Name
-| stepdefs/daily batchjob/Input file.asciidoc | StepDefinitionList | First Step Definition
+| stepdefs/daily batchjob/Input file.asciidoc | stepDefinitionList | First Step Definition
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file StepDefinitionList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file stepDefinitionList node will be created as follows
 |===
 | Node Path            | Step Definition Name
-| StepDefinitionList/1 | First Step Definition
-| StepDefinitionList/2 | Second Step Definition
+| stepDefinitionList/1 | First Step Definition
+| stepDefinitionList/2 | Second Step Definition
 |===

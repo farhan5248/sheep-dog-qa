@@ -28,10 +28,10 @@ and optionally have these
 | ProcessIssues2
 |===
 
-=== And: The ProcessIssues.asciidoc file TestStepContainerList node will be as follows
+=== And: The ProcessIssues.asciidoc file testStepContainerList node will be as follows
 |===
 | Node Path             | State
-| TestStepContainerList | Empty
+| testStepContainerList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
@@ -44,10 +44,10 @@ and optionally have these
 
 Test Suite full name must be unique within a Test Project. Creating a Test Suite with an existing full name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Case Name
-| TestStepContainerList | First Test Case
+| testStepContainerList | First Test Case
 |===
 
 === When: The xtext plugin add document action is performed to create a TestSuite with
@@ -56,8 +56,8 @@ Test Suite full name must be unique within a Test Project. Creating a Test Suite
 | specs/ProcessIssues.asciidoc
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be created as follows
 |===
 | Node Path               | Test Case Name
-| TestStepContainerList/1 | First Test Case
+| testStepContainerList/1 | First Test Case
 |===

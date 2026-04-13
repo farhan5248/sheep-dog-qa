@@ -14,19 +14,19 @@ Table must have
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node is created as follows
 |===
 | Node Path                                            | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
+| testStepContainerList/1/testDataList/1/table/rowList | First Row
 |===
 
 === When: The xtext plugin edit document action is performed to modify RowList with
 |===
 | Test Suite Full Name         | Node Path                                            | Row Content
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList/1/Table/RowList | Second Row
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList/1/table/rowList | Second Row
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node will be created as follows
 |===
 | Node Path                                              | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList/2 | Second Row
+| testStepContainerList/1/testDataList/1/table/rowList/2 | Second Row
 |===
 
 == Test-Case: Cell
@@ -41,19 +41,19 @@ Cell must have
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
 | Node Path                                                       | Cell Name
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | First Cell
+| testStepContainerList/1/testDataList/1/table/rowList/1/cellList | First Cell
 |===
 
 === When: The xtext plugin edit document action is performed to modify CellList with
 |===
 | Test Suite Full Name         | Node Path                                                       | Cell Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | Second Cell
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList/1/table/rowList/1/cellList | Second Cell
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node will be created as follows
 |===
 | Node Path                                                         | Cell Name
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList/2 | Second Cell
+| testStepContainerList/1/testDataList/1/table/rowList/1/cellList/2 | Second Cell
 |===
 
 == Test-Case: Duplicate Row
@@ -63,19 +63,19 @@ Rows are a list and can have duplicate content within a Table.
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node is created as follows
 |===
 | Node Path                                            | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
+| testStepContainerList/1/testDataList/1/table/rowList | First Row
 |===
 
 === When: The xtext plugin edit document action is performed to modify RowList with
 |===
 | Test Suite Full Name         | Node Path                                            | Row Content
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList/1/table/rowList | First Row
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node will be created as follows
 |===
 | Node Path                                              | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList/2 | First Row
+| testStepContainerList/1/testDataList/1/table/rowList/2 | First Row
 |===
 
 == Test-Case: Row Insertion Order
@@ -85,20 +85,20 @@ Rows maintain insertion order within a Table.
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node is created as follows
 |===
 | Node Path                                            | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList | Second Row
+| testStepContainerList/1/testDataList/1/table/rowList | Second Row
 |===
 
 === When: The xtext plugin edit document action is performed to modify RowList with
 |===
 | Test Suite Full Name         | Node Path                                            | Row Content
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList/1/Table/RowList | First Row
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList/1/table/rowList | First Row
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file RowList node will be created as follows
 |===
 | Node Path                                              | Row Content
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1 | Second Row
-| TestStepContainerList/1/TestDataList/1/Table/RowList/2 | First Row
+| testStepContainerList/1/testDataList/1/table/rowList/1 | Second Row
+| testStepContainerList/1/testDataList/1/table/rowList/2 | First Row
 |===
 
 == Test-Case: Cell Insertion Order
@@ -108,18 +108,18 @@ Cells maintain insertion order within a Row.
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node is created as follows
 |===
 | Node Path                                                       | Cell Name
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | Second Cell
+| testStepContainerList/1/testDataList/1/table/rowList/1/cellList | Second Cell
 |===
 
 === When: The xtext plugin edit document action is performed to modify CellList with
 |===
 | Test Suite Full Name         | Node Path                                                       | Cell Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList | First Cell
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList/1/table/rowList/1/cellList | First Cell
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file CellList node will be created as follows
 |===
 | Node Path                                                         | Cell Name
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList/1 | Second Cell
-| TestStepContainerList/1/TestDataList/1/Table/RowList/1/CellList/2 | First Cell
+| testStepContainerList/1/testDataList/1/table/rowList/1/cellList/1 | Second Cell
+| testStepContainerList/1/testDataList/1/table/rowList/1/cellList/2 | First Cell
 |===

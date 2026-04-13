@@ -35,42 +35,42 @@
 | Node Path | Line Content
 |===
 
-== Step-Definition: StepDefinitionList node is created as follows
+== Step-Definition: stepDefinitionList node is created as follows
 
 === Step-Parameters: Node Path, Step Definition Name
 |===
 | Node Path | Step Definition Name
 |===
 
-== Step-Definition: StepDefinitionList node will be as follows
+== Step-Definition: stepDefinitionList node will be as follows
 
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
 |===
 
-== Step-Definition: StepDefinitionList node will be created as follows
+== Step-Definition: stepDefinitionList node will be created as follows
 
 === Step-Parameters: Node Path, Step Definition Name
 |===
 | Node Path | Step Definition Name
 |===
 
-== Step-Definition: StepParametersList node is created as follows
+== Step-Definition: stepParametersList node is created as follows
 
 === Step-Parameters: Node Path, Step Parameters Name
 |===
 | Node Path | Step Parameters Name
 |===
 
-== Step-Definition: StepParametersList node will be as follows
+== Step-Definition: stepParametersList node will be as follows
 
 === Step-Parameters: Node Path, State
 |===
 | Node Path | State
 |===
 
-== Step-Definition: StepParametersList node will be created as follows
+== Step-Definition: stepParametersList node will be created as follows
 
 === Step-Parameters: Node Path, Step Parameters Name
 |===

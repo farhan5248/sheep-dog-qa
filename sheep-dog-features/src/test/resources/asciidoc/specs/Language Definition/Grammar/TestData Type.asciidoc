@@ -14,77 +14,77 @@ and optionally have these
 - Description
 - Table
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node is created as follows
 |===
 | Node Path                            | Test Data Name
-| TestStepContainerList/1/TestDataList | First Test Data
+| testStepContainerList/1/testDataList | First Test Data
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestDataList with
+=== When: The xtext plugin edit document action is performed to modify testDataList with
 |===
 | Test Suite Full Name         | Node Path                            | Test Data Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList | Second Test Data
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList | Second Test Data
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node will be created as follows
 |===
 | Node Path                              | Test Data Name
-| TestStepContainerList/1/TestDataList/2 | Second Test Data
+| testStepContainerList/1/testDataList/2 | Second Test Data
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
 |===
 | Node Path                                          | State
-| TestStepContainerList/1/TestDataList/1/Description | Absent
+| testStepContainerList/1/testDataList/1/description | Absent
 |===
 
 === And: The ProcessIssues.asciidoc file Table node will be as follows
 |===
 | Node Path                                    | State
-| TestStepContainerList/1/TestDataList/1/Table | Absent
+| testStepContainerList/1/testDataList/1/table | Absent
 |===
 
 == Test-Case: Duplicate Test Data Name
 
 Test Data name must be unique within a Test Case. Creating Test Data with an existing name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node is created as follows
 |===
 | Node Path                            | Test Data Name
-| TestStepContainerList/1/TestDataList | First Test Data
+| testStepContainerList/1/testDataList | First Test Data
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestDataList with
+=== When: The xtext plugin edit document action is performed to modify testDataList with
 |===
 | Test Suite Full Name         | Node Path                            | Test Data Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList | First Test Data
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList | First Test Data
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node will be as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node will be as follows
 |===
 | Node Path                              | State
-| TestStepContainerList/1/TestDataList/2 | Absent
+| testStepContainerList/1/testDataList/2 | Absent
 |===
 
 == Test-Case: Test Data Insertion Order
 
 Test Data entries maintain insertion order within a Test Case.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node is created as follows
 |===
 | Node Path                            | Test Data Name
-| TestStepContainerList/1/TestDataList | Second Test Data
+| testStepContainerList/1/testDataList | Second Test Data
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestDataList with
+=== When: The xtext plugin edit document action is performed to modify testDataList with
 |===
 | Test Suite Full Name         | Node Path                            | Test Data Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList/1/TestDataList | First Test Data
+| specs/ProcessIssues.asciidoc | testStepContainerList/1/testDataList | First Test Data
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestDataList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testDataList node will be created as follows
 |===
 | Node Path                              | Test Data Name
-| TestStepContainerList/1/TestDataList/1 | Second Test Data
-| TestStepContainerList/1/TestDataList/2 | First Test Data
+| testStepContainerList/1/testDataList/1 | Second Test Data
+| testStepContainerList/1/testDataList/2 | First Test Data
 |===

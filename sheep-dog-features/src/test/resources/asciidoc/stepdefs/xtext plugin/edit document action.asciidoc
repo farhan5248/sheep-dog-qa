@@ -35,28 +35,28 @@
 | Test Suite Full Name | Node Path | Row Content
 |===
 
-== Step-Definition: is performed to modify StepDefinitionList with
+== Step-Definition: is performed to modify stepDefinitionList with
 
 === Step-Parameters: Node Path, Step Definition Name, Step Object Full Name
 |===
 | Step Object Full Name | Node Path | Step Definition Name
 |===
 
-== Step-Definition: is performed to modify StepParametersList with
+== Step-Definition: is performed to modify stepParametersList with
 
 === Step-Parameters: Node Path, Step Object Full Name, Step Parameters Name
 |===
 | Step Object Full Name | Node Path | Step Parameters Name
 |===
 
-== Step-Definition: is performed to modify TestDataList with
+== Step-Definition: is performed to modify testDataList with
 
 === Step-Parameters: Node Path, Test Data Name, Test Suite Full Name
 |===
 | Test Suite Full Name | Node Path | Test Data Name
 |===
 
-== Step-Definition: is performed to modify TestStepContainerList with
+== Step-Definition: is performed to modify testStepContainerList with
 
 === Step-Parameters: Node Path, Test Case Name, Test Suite Full Name
 |===
@@ -68,7 +68,7 @@
 | Test Suite Full Name | Node Path | Test Setup Name
 |===
 
-== Step-Definition: is performed to modify TestStepList with
+== Step-Definition: is performed to modify testStepList with
 
 === Step-Parameters: Node Path, Test Step Full Name, Test Suite Full Name
 |===

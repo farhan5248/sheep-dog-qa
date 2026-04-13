@@ -15,83 +15,83 @@ and optionally have these
 - Test Step List
 - Test Data List
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Case Name
-| TestStepContainerList | First Test Case
+| testStepContainerList | First Test Case
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Case Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | Second Test Case
+| specs/ProcessIssues.asciidoc | testStepContainerList | Second Test Case
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be created as follows
 |===
 | Node Path               | Test Case Name
-| TestStepContainerList/2 | Second Test Case
+| testStepContainerList/2 | Second Test Case
 |===
 
-=== And: The ProcessIssues.asciidoc file TestStepList node will be as follows
+=== And: The ProcessIssues.asciidoc file testStepList node will be as follows
 |===
 | Node Path                            | State
-| TestStepContainerList/1/TestStepList | Empty
+| testStepContainerList/1/testStepList | Empty
 |===
 
-=== And: The ProcessIssues.asciidoc file TestDataList node will be as follows
+=== And: The ProcessIssues.asciidoc file testDataList node will be as follows
 |===
 | Node Path                            | State
-| TestStepContainerList/1/TestDataList | Empty
+| testStepContainerList/1/testDataList | Empty
 |===
 
 === And: The ProcessIssues.asciidoc file Description node will be as follows
 |===
 | Node Path                           | State
-| TestStepContainerList/1/Description | Absent
+| testStepContainerList/1/description | Absent
 |===
 
 == Test-Case: Duplicate Test Case Name
 
 Test Case name must be unique within a Test Suite. Creating a Test Case with an existing name returns the existing one.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Case Name
-| TestStepContainerList | First Test Case
+| testStepContainerList | First Test Case
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Case Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | First Test Case
+| specs/ProcessIssues.asciidoc | testStepContainerList | First Test Case
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be as follows
 |===
 | Node Path               | State
-| TestStepContainerList/2 | Absent
+| testStepContainerList/2 | Absent
 |===
 
 == Test-Case: Test Case Insertion Order
 
 Test Cases maintain insertion order within a Test Suite.
 
-=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node is created as follows
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node is created as follows
 |===
 | Node Path             | Test Case Name
-| TestStepContainerList | Second Test Case
+| testStepContainerList | Second Test Case
 |===
 
-=== When: The xtext plugin edit document action is performed to modify TestStepContainerList with
+=== When: The xtext plugin edit document action is performed to modify testStepContainerList with
 |===
 | Test Suite Full Name         | Node Path             | Test Case Name
-| specs/ProcessIssues.asciidoc | TestStepContainerList | First Test Case
+| specs/ProcessIssues.asciidoc | testStepContainerList | First Test Case
 |===
 
-=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file TestStepContainerList node will be created as follows
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessIssues.asciidoc file testStepContainerList node will be created as follows
 |===
 | Node Path               | Test Case Name
-| TestStepContainerList/1 | Second Test Case
-| TestStepContainerList/2 | First Test Case
+| testStepContainerList/1 | Second Test Case
+| testStepContainerList/2 | First Test Case
 |===

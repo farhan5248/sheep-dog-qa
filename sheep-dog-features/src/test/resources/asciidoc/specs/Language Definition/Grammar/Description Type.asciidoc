@@ -14,19 +14,19 @@ Description must have
 === Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path            | Line Content
-| Description/LineList | First Line
+| description/lineList | First Line
 |===
 
 === When: The xtext plugin edit document action is performed to modify LineList with
 |===
 | Step Object Full Name                       | Node Path            | Line Content
-| stepdefs/daily batchjob/Input file.asciidoc | Description/LineList | Second Line
+| stepdefs/daily batchjob/Input file.asciidoc | description/lineList | Second Line
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node will be created as follows
 |===
 | Node Path              | Line Content
-| Description/LineList/2 | Second Line
+| description/lineList/2 | Second Line
 |===
 
 == Test-Case: Line Insertion Order
@@ -36,18 +36,18 @@ Lines maintain insertion order within a Description.
 === Given: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node is created as follows
 |===
 | Node Path            | Line Content
-| Description/LineList | Second Line
+| description/lineList | Second Line
 |===
 
 === When: The xtext plugin edit document action is performed to modify LineList with
 |===
 | Step Object Full Name                       | Node Path            | Line Content
-| stepdefs/daily batchjob/Input file.asciidoc | Description/LineList | First Line
+| stepdefs/daily batchjob/Input file.asciidoc | description/lineList | First Line
 |===
 
 === Then: The spec-prj project src/test/resources/asciidoc/stepdefs/daily batchjob/Input file.asciidoc file LineList node will be created as follows
 |===
 | Node Path              | Line Content
-| Description/LineList/1 | Second Line
-| Description/LineList/2 | First Line
+| description/lineList/1 | Second Line
+| description/lineList/2 | First Line
 |===
