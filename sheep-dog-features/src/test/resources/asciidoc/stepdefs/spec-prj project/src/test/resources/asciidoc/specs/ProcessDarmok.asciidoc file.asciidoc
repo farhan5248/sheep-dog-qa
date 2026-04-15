@@ -9,6 +9,11 @@
 
 == Step-Definition: will be as follows
 
+=== Step-Parameters: State
+|===
+| State
+|===
+
 == Step-Definition: will be created as follows
 
 === Step-Parameters: Content

@@ -2,3 +2,8 @@
 
 == Step-Definition: is executed with
 
+=== Step-Parameters: ModelComparison, ModelGreen, ModelRefactor
+|===
+| ModelComparison | ModelGreen | ModelRefactor
+|===
+

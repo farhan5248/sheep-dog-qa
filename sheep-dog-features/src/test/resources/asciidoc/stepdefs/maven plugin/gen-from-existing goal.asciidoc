@@ -4,3 +4,8 @@
 
 == Step-Definition: is executed with
 
+=== Step-Parameters: ModelGreen, ModelRefactor, Stage
+|===
+| Stage | ModelGreen | ModelRefactor
+|===
+
