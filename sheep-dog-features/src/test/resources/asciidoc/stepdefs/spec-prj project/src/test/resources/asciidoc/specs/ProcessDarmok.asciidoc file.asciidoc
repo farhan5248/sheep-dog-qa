@@ -7,3 +7,12 @@
 | Content
 |===
 
+== Step-Definition: will be as follows
+
+== Step-Definition: will be created as follows
+
+=== Step-Parameters: Content
+|===
+| Content
+|===
+
