@@ -1,0 +1,9 @@
+= Step-Object: ProcessDarmok.asciidoc file
+
+== Step-Definition: is created as follows
+
+=== Step-Parameters: Content
+|===
+| Content
+|===
+

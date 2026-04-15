@@ -1,0 +1,35 @@
+= Test-Suite: Run RGR With No Scenarios
+
+@darmok-maven-plugin
+
+The simplest possible Darmok run: when the project has no scenarios-list.txt file, the cleanup preamble runs, the scenario loop finds nothing to process, and the goal completes.
+Uses only presence-level assertions so the DSL authors can validate the basic shape.
+
+== Test-Case: Scenarios-list.txt is absent
+
+=== Given: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State 
+| Absent
+|===
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State 
+| Absent
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| State  
+| Present
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| State
+| Empty
+|===
+

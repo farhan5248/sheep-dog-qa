@@ -1,0 +1,11 @@
+= Step-Object: scenarios-list.txt file
+
+== Step-Definition: is created as follows
+
+=== Step-Parameters: Content
+|===
+| Content
+|===
+
+== Step-Definition: will be as follows
+
