@@ -1,0 +1,56 @@
+= Test-Suite: Run RGR With Missing Asciidoc File
+
+@darmok-maven-plugin
+
+The scenarios-list references an asciidoc file by path, and Darmok assumes that file exists on disk before the Red phase runs.
+When the referenced file is missing, Darmok logs a `File not found` warning but continues into the Red phase — where `mvn asciidoctor-to-uml` fails deterministically because its input isn't present.
+This Test-Case pins the observable behavior: a warn line, an attempted mvn call, and the failure-driven absence of any `Red: Completed` or later-phase markers.
+The goal ultimately throws `MojoExecutionException("rgr-red failed with exit code N")`.
+
+== Test-Case: Referenced asciidoc file does not exist
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be as follows
+|===
+| State
+| Absent
+|===
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| WARN  | mojo     | File not found: features/login.asciidoc
+| INFO  | mojo     | Red: Running maven...
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file won't be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Red: Completed maven
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | RGR Automation Complete!
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
+|===

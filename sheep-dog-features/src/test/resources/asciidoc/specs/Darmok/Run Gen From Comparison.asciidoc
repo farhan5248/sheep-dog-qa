@@ -37,8 +37,8 @@ This Test-Case verifies the comparison call is made, that it doesn't interfere w
 
 === When: The maven plugin gen-from-comparison goal is executed with
 |===
-| ModelComparison | ModelGreen | ModelRefactor | Pipeline
-| sonnet          | sonnet     | sonnet        | forward
+| ModelComparison | ModelGreen | ModelRefactor
+| sonnet          | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows

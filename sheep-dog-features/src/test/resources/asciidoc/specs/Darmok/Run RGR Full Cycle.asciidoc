@@ -41,13 +41,13 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 
 === When: The maven plugin gen-from-existing goal is executed with
 |===
-| Stage | ModelGreen | ModelRefactor | Pipeline
-| false | sonnet     | sonnet        | forward 
+| Stage | ModelGreen | ModelRefactor
+| false | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
 |===
-| State  
+| State
 | Present
 |===
 
@@ -106,8 +106,8 @@ Intermediate `Red: Committing` and `Green: Committing` markers are absent from t
 
 === When: The maven plugin gen-from-existing goal is executed with
 |===
-| Stage | ModelGreen | ModelRefactor | Pipeline
-| true  | sonnet     | sonnet        | forward
+| Stage | ModelGreen | ModelRefactor
+| true  | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows

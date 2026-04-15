@@ -1,0 +1,65 @@
+= Test-Suite: Run RGR Multiple Scenarios
+
+@darmok-maven-plugin
+
+The scenarios-list can hold multiple entries, and Darmok processes them one at a time in file order.
+After each successful scenario the processed entry is removed from the list and the loop fetches the next one; the goal completes when the list is empty.
+This Test-Case covers the multi-scenario loop with both scenarios' implementations already present, so each red phase exits 0 via the already-passing short-circuit — isolating the loop's iteration behavior from the Red / Green / Refactor phase outcomes (which other suites cover).
+
+== Test-Case: Two scenarios processed in one run, in file order
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+  Scenario: User logs out successfully
+    Tag: logoutHappyPath
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LogoutHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs out successfully [logoutHappyPath]
+| INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 2
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| Any   | Any      | Any
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| Any   | Any      | Any
+| DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
+| Any   | Any      | Any
+| DEBUG | runner   | Running: mvn test -Dtest=logoutHappyPathTest
+| Any   | Any      | Any
+| DEBUG | runner   | Running: git commit -m run-rgr red User logs out successfully
+|===
