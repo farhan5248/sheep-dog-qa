@@ -1,0 +1,120 @@
+= Test-Suite: Run RGR With Tag Handling
+
+@darmok-maven-plugin
+
+Before the Red phase, Darmok inserts the scenario's tag into the target asciidoc file's `Test-Case` block.
+Three variations cover the observable behaviors: the target tag is already present, the test-case line carries a different tag, or the test-case has no tag line yet.
+All three Test-Cases use an implementation that already satisfies the scenario, so the Red phase finishes quickly and Green / Refactor are skipped — the differences are isolated to the tag-insertion log markers and the final asciidoc file state.
+
+== Test-Setup: A scenario whose implementation already exists
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+== Test-Case: The target tag is already present on the test-case
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+@loginHappyPath
+Some description
+----
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+@loginHappyPath
+Some description
+----
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Tag @loginHappyPath already present in file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Green: Skipped (tests already passing)
+|===
+
+== Test-Case: The test-case has a different tag line
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+@otherTag
+Some description
+----
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+@otherTag @loginHappyPath
+Some description
+----
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Green: Skipped (tests already passing)
+|===
+
+== Test-Case: The test-case has no tag line yet
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+@loginHappyPath
+Some description
+----
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Green: Skipped (tests already passing)
+|===

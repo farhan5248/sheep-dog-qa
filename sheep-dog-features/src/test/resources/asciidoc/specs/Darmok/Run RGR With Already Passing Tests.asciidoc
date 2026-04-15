@@ -1,0 +1,74 @@
+= Test-Suite: Run RGR With Already Passing Tests
+
+@darmok-maven-plugin
+
+When the red phase's `mvn test` invocation exits 0 (the scenario's implementation already exists), `runRgrRed` returns the special value 100 and Darmok skips the Green and Refactor phases.
+A single commit is made with the red-phase message, the scenarios-list entry is removed, and no Claude subprocess is invoked.
+
+== Test-Setup: A scenario whose implementation already exists
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+== Test-Case: Red tests already pass, green and refactor are skipped
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+=== And: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 1
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
+|===

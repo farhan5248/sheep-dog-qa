@@ -1,0 +1,85 @@
+= Test-Suite: Run Gen From Comparison
+
+@darmok-maven-plugin
+
+The `gen-from-comparison` goal invokes the `/rgr-gen-from-comparison` Claude skill before each scenario-processing iteration.
+When the comparison skill succeeds, the subsequent RGR cycle runs normally; when it fails, the mojo aborts before any scenario is handled (failure path deferred to #258).
+
+== Test-Setup: A pending scenario with implementation absent
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Absent
+|===
+
+== Test-Case: Comparison skill runs, then the normal RGR cycle completes
+
+=== When: The maven plugin gen-from-comparison goal is executed with
+|===
+| ModelComparison | ModelGreen | ModelRefactor | Pipeline
+| sonnet          | sonnet     | sonnet        | forward
+|===
+
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+=== And: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-comparison)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Green: Committing
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Refactor: Committing
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 1
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| Any   | Any      | Any
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-gen-from-comparison darmok-prj
+| Any   | Any      | Any
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| Any   | Any      | Any
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
+| Any   | Any      | Any
+|===

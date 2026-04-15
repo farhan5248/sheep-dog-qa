@@ -80,17 +80,74 @@ Some description
 
 === And: The code-prj project target/darmok/darmok.runners.log file will be as follows
 |===
-| Level | Category | Content                                                                                                                                 
-| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true   
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
-| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest                                                                                             
-| DEBUG | runner   | Running: git add .                                                                                                                      
-| DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully                                                                            
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath                            
-| DEBUG | runner   | Running: git add .                                                                                                                      
-| DEBUG | runner   | Running: git commit -m run-rgr green User logs in successfully                                                                          
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj                                
-| DEBUG | runner   | Running: git add .                                                                                                                      
-| DEBUG | runner   | Running: git commit -m run-rgr refactor User logs in successfully                                                                       
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr green User logs in successfully
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr refactor User logs in successfully
+|===
+
+== Test-Case: Red fails, green and refactor succeed, single combined commit
+
+With `stage` set to true, Darmok still runs all three phases but only commits once at the end of the scenario with a combined `run-rgr <scenario>` message.
+
+=== When: The maven plugin gen-from-existing goal is executed with
+|===
+| Stage | ModelGreen | ModelRefactor | Pipeline
+| true  | sonnet     | sonnet        | forward
+|===
+
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
+|===
+| State
+| Present
+|===
+
+=== And: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | Any
+| INFO  | mojo     | Refactor: Committing
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | Any
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 1
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
 |===
 

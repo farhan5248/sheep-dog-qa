@@ -2,14 +2,14 @@
 
 @darmok-maven-plugin
 
-The simplest possible Darmok run: when the project has no scenarios-list.txt file, the cleanup preamble runs, the scenario loop finds nothing to process, and the goal completes.
-Uses only presence-level assertions so the DSL authors can validate the basic shape.
+When Darmok is invoked against a project where no work is queued, the goal completes without entering the Red / Green / Refactor loop.
+The three Test-Cases below cover the three "no work" paths: the file is absent, the file exists but is empty, and the file lists a single entry whose tag is the sentinel `NoTag`.
 
 == Test-Case: Scenarios-list.txt is absent
 
 === Given: The code-prj project scenarios-list.txt file will be as follows
 |===
-| State 
+| State
 | Absent
 |===
 
@@ -17,14 +17,77 @@ Uses only presence-level assertions so the DSL authors can validate the basic sh
 
 === Then: The code-prj project scenarios-list.txt file will be as follows
 |===
-| State 
+| State
 | Absent
 |===
 
 === And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
 |===
-| State  
+| State
 | Present
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| State
+| Empty
+|===
+
+== Test-Case: Scenarios-list.txt exists but is empty
+
+=== Given: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 0
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| State
+| Empty
+|===
+
+== Test-Case: Scenarios-list entry has tag NoTag
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: features/login.asciidoc
+  Scenario: User logs in successfully
+    Tag: NoTag
+----
+
+=== When: The maven plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project scenarios-list.txt file will be as follows
+|===
+| State
+| Empty
+|===
+
+=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [NoTag]
+| INFO  | mojo     | Skipping (NoTag)
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 1
 |===
 
 === And: The code-prj project target/darmok/darmok.runners.log file will be as follows
