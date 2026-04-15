@@ -31,6 +31,10 @@ Some description
 
 == Test-Case: Red tests already pass, green and refactor are skipped
 
+A scenario can arrive in the queue even though its underlying feature is already implemented — someone may have hand-written the code ahead of enqueueing, or a prior run may have generated it but gotten interrupted before removing the entry.
+In this case the red-phase `mvn test` exits 0 on the first try, which Darmok interprets via the special return code 100 as "nothing to do here."
+Green and Refactor are skipped to avoid Claude spinning on a problem that doesn't exist, but a red commit is still made so git history marks the scenario as processed and the scenarios-list entry is removed so the queue advances.
+
 === When: The maven plugin gen-from-existing goal is executed
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows

@@ -35,6 +35,10 @@ Some description
 
 == Test-Case: Red fails, green and refactor succeed, one commit per phase
 
+The default (`stage=false`) flow gives each RGR phase its own commit so git history shows the Red → Green → Refactor progression explicitly.
+Someone reading the log later can walk the commits backwards to see what the failing test looked like, what code was generated to pass it, and how the refactor stabilized it.
+This Test-Case exercises the happy path end-to-end: red fails as expected, green generates the implementation, and refactor stabilizes without issues.
+
 === When: The maven plugin gen-from-existing goal is executed with
 |===
 | Stage | ModelGreen | ModelRefactor | Pipeline
@@ -97,6 +101,8 @@ Some description
 == Test-Case: Red fails, green and refactor succeed, single combined commit
 
 With `stage` set to true, Darmok still runs all three phases but only commits once at the end of the scenario with a combined `run-rgr <scenario>` message.
+The intent is for continuous-integration runs where intermediate Red / Green states aren't interesting to reviewers — the per-scenario commit is the reviewable unit of work.
+Intermediate `Red: Committing` and `Green: Committing` markers are absent from the mojo log because those commits never happen in staged mode.
 
 === When: The maven plugin gen-from-existing goal is executed with
 |===

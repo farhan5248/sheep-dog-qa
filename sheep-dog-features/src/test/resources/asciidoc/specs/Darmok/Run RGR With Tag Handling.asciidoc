@@ -23,6 +23,10 @@ File: features/login.asciidoc
 
 == Test-Case: The target tag is already present on the test-case
 
+Tag insertion must be idempotent.
+Re-running the same scenario (or running after a manual edit that already added the tag) should not duplicate tags or rewrite the asciidoc file, since the downstream `asciidoctor-to-uml` step is sensitive to duplicates and a no-op commit would muddy git history.
+Darmok detects the target tag is already present, skips the file mutation, and logs the detection at DEBUG.
+
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
 ----
 = Test-Suite: Login
@@ -56,6 +60,10 @@ Some description
 
 == Test-Case: The test-case has a different tag line
 
+When the test-case already carries a tag line (for a different concern — category, ownership, priority), the new RGR tag should be appended to that same line rather than added on a fresh line.
+Asciidoctor and the UML generator treat multiple tags on the same line as a set, but introduce a semantic shift if they land on separate lines.
+The intent is to preserve whatever tagging convention the author was using.
+
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
 ----
 = Test-Suite: Login
@@ -88,6 +96,10 @@ Some description
 |===
 
 == Test-Case: The test-case has no tag line yet
+
+The most common starting state: a freshly-authored asciidoc test-case has no tags at all.
+Darmok inserts a new tag line directly below the `Test-Case:` heading (and above the test-case body) so the tag attaches cleanly during asciidoctor parsing.
+The blank-line separation between heading, tag, and body is deliberate — it's the formatting asciidoctor expects for tag attachment.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
 ----

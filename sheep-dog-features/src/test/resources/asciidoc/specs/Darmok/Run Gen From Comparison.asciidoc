@@ -3,7 +3,7 @@
 @darmok-maven-plugin
 
 The `gen-from-comparison` goal invokes the `/rgr-gen-from-comparison` Claude skill before each scenario-processing iteration.
-When the comparison skill succeeds, the subsequent RGR cycle runs normally; when it fails, the mojo aborts before any scenario is handled (failure path deferred to #258).
+When the comparison skill succeeds, the subsequent RGR cycle runs normally; when it fails, the mojo aborts before any scenario is handled.
 
 == Test-Setup: A pending scenario with implementation absent
 
@@ -30,6 +30,10 @@ Some description
 |===
 
 == Test-Case: Comparison skill runs, then the normal RGR cycle completes
+
+The `gen-from-comparison` goal exists so Darmok can compare two implementation candidates (e.g. a prior run's code vs a fresh generation) before deciding which to keep.
+The `/rgr-gen-from-comparison` Claude skill runs once at the start of each scenario iteration to perform that comparison analysis; if it succeeds, the standard Red → Green → Refactor flow proceeds exactly as in `gen-from-existing`.
+This Test-Case verifies the comparison call is made, that it doesn't interfere with the core RGR cycle, and that the observable scenarios-processed outcome is the same.
 
 === When: The maven plugin gen-from-comparison goal is executed with
 |===
