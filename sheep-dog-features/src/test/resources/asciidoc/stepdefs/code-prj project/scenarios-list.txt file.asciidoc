@@ -11,10 +11,14 @@
 
 == Step-Definition: isn't created
 
+== Step-Definition: will be absent
+
 == Step-Definition: will be as follows
 
 === Step-Parameters: State
 |===
 | State
 |===
+
+== Step-Definition: will be empty
 

@@ -33,17 +33,9 @@ Green and Refactor are skipped to avoid Claude spinning on a problem that doesn'
 
 === When: The maven plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be as follows
-|===
-| State
-| Present
-|===
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
 
-=== And: The code-prj project scenarios-list.txt file will be as follows
-|===
-| State
-| Empty
-|===
+=== And: The code-prj project scenarios-list.txt file will be empty
 
 === And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
 |===
