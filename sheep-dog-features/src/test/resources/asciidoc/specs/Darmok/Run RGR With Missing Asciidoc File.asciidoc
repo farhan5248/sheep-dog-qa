@@ -11,7 +11,7 @@ The goal ultimately throws `MojoExecutionException("rgr-red failed with exit cod
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
-File: features/login
+File: ProcessDarmok
   Scenario: User logs in successfully
     Tag: loginHappyPath
 ----
@@ -22,7 +22,7 @@ File: features/login
 
 === Then: The code-prj project scenarios-list.txt file is created as follows
 ----
-File: features/login
+File: ProcessDarmok
   Scenario: User logs in successfully
     Tag: loginHappyPath
 ----
@@ -31,8 +31,8 @@ File: features/login
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
-| INFO  | mojo     | Processing Scenario: features/login/User logs in successfully [loginHappyPath]
-| WARN  | mojo     | File not found: features/login.asciidoc
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
+| WARN  | mojo     | File not found: ProcessDarmok.asciidoc
 | INFO  | mojo     | Red: Running maven...
 |===
 
