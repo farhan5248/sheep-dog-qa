@@ -1,11 +1,8 @@
 = Step-Object: LoginHappyPath.java file
 
-== Step-Definition: is created as follows
+== Step-Definition: is created
 
-=== Step-Parameters: State
-|===
-| State
-|===
+== Step-Definition: isn't created
 
 == Step-Definition: will be as follows
 

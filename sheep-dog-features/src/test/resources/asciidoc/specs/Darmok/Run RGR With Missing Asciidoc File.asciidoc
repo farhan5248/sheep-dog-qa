@@ -16,11 +16,7 @@ File: features/login.asciidoc
     Tag: loginHappyPath
 ----
 
-=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
-|===
-| State
-| Absent
-|===
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file isn't created
 
 === When: The maven plugin gen-from-existing goal is executed
 

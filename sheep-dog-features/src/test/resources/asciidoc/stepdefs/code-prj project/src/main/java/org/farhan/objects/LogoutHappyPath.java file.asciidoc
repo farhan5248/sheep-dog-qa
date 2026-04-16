@@ -1,16 +1,4 @@
 = Step-Object: LogoutHappyPath.java file
 
-== Step-Definition: is created as follows
-
-=== Step-Parameters: State
-|===
-| State
-|===
-
-== Step-Definition: will be as follows
-
-=== Step-Parameters: State
-|===
-| State
-|===
+== Step-Definition: is created
 

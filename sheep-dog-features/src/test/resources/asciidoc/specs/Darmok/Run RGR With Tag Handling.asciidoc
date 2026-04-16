@@ -15,11 +15,7 @@ File: features/login.asciidoc
     Tag: loginHappyPath
 ----
 
-=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created as follows
-|===
-| State
-| Present
-|===
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
 
 == Test-Case: The target tag is already present on the test-case
 

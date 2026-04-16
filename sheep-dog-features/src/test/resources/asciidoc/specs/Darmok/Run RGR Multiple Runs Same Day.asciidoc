@@ -20,11 +20,7 @@ File: features/login.asciidoc
     Tag: loginHappyPath
 ----
 
-=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created as follows
-|===
-| State
-| Present
-|===
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
 
 === When: The maven plugin gen-from-existing goal is executed
 
