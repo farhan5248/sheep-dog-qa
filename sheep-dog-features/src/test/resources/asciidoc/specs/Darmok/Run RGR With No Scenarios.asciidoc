@@ -70,7 +70,7 @@ The entry should be removed from the list so it doesn't block subsequent scenari
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
-File: features/login.asciidoc
+File: features/login
   Scenario: User logs in successfully
     Tag: NoTag
 ----
@@ -87,7 +87,7 @@ File: features/login.asciidoc
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
-| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [NoTag]
+| INFO  | mojo     | Processing Scenario: features/login/User logs in successfully [NoTag]
 | INFO  | mojo     | Skipping (NoTag)
 | INFO  | mojo     | RGR Automation Complete!
 | INFO  | mojo     | Total scenarios processed: 1

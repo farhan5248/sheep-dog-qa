@@ -9,7 +9,7 @@ When the comparison skill succeeds, the subsequent RGR cycle runs normally; when
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
-File: features/login.asciidoc
+File: features/login
   Scenario: User logs in successfully
     Tag: loginHappyPath
 ----
@@ -53,7 +53,7 @@ This Test-Case verifies the comparison call is made, that it doesn't interfere w
 |===
 | Level | Category | Content                                                                                
 | INFO  | mojo     | RGR Automation Plugin (gen-from-comparison)                                            
-| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| INFO  | mojo     | Processing Scenario: features/login/User logs in successfully [loginHappyPath]
 | DEBUG | mojo     | Added tag @loginHappyPath to file                                                      
 | INFO  | mojo     | Red: Running maven...                                                                  
 | INFO  | mojo     | Any                                                                                    

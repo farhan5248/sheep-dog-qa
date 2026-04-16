@@ -9,7 +9,7 @@ A single commit is made with the red-phase message, the scenarios-list entry is 
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
-File: features/login.asciidoc
+File: features/login
   Scenario: User logs in successfully
     Tag: loginHappyPath
 ----
@@ -49,7 +49,7 @@ Green and Refactor are skipped to avoid Claude spinning on a problem that doesn'
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
-| INFO  | mojo     | Processing Scenario: features/login.asciidoc/User logs in successfully [loginHappyPath]
+| INFO  | mojo     | Processing Scenario: features/login/User logs in successfully [loginHappyPath]
 | DEBUG | mojo     | Added tag @loginHappyPath to file
 | INFO  | mojo     | Red: Running maven...
 | INFO  | mojo     | Any
