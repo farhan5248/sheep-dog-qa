@@ -11,7 +11,7 @@ Darmok should treat a missing scenarios-list as "work queue is empty" rather tha
 This lets a CI workflow run the goal unconditionally on every push without needing a guard for first-time invocations.
 The goal prints the banner, cleans up, finds no entries, and completes with zero scenarios processed.
 
-=== Given: The code-prj project scenarios-list.txt file will be as follows
+=== Given: The code-prj project scenarios-list.txt file is created as follows
 |===
 | State
 | Absent
@@ -43,7 +43,7 @@ An empty scenarios-list is the natural end-state after the last pending scenario
 Darmok should treat it the same as a missing file: parse yields zero entries, nothing to do, complete cleanly.
 This keeps re-runs idempotent once the backlog drains.
 
-=== Given: The code-prj project scenarios-list.txt file will be as follows
+=== Given: The code-prj project scenarios-list.txt file is created as follows
 |===
 | State
 | Empty
