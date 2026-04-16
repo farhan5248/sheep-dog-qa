@@ -45,7 +45,7 @@ This keeps re-runs idempotent once the backlog drains.
 
 == Test-Case: Scenarios-list entry has tag NoTag
 
-`NoTag` is the sentinel the pre-processor emits when a scenario's associated asciidoc file hasn't been tagged for RGR yet (or a developer wants to queue the scenario name but hold off on the RGR cycle).
+`NoTag` is the sentinel that `generate_scenarios_list.py` emits when an asciidoc Test-Case has no tag. This happens when a scenario is freshly authored or the author hasn't tagged it for RGR yet. Rather than silently dropping untagged scenarios or crashing on an empty tag, the pre-processor queues them with `NoTag` so Darmok can skip them cleanly.
 The entry should be removed from the list so it doesn't block subsequent scenarios, but no maven, claude, or git work should happen — no commits, no tag insertion, nothing.
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
