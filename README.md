@@ -25,7 +25,7 @@ Documentation is split across several locations, each with a distinct purpose. C
 | `site/arch/` | **Architecture specs** — cross-cutting framework behavior, patterns, and hierarchy decisions |
 | `site/impl/` | **Implementation contracts** — handcrafted code choices (impl class rules, reference TestObject samples) |
 | `site/impl/samples/` | **Canonical source samples** — reference `.java` files that every project's equivalent must match |
-| `<repo>/.claude/skills/` | **Auto-generation rules** — skills that drive rgr-red/green/refactor and other automated workflows |
+| `<repo>/.claude/skills/` | **Auto-generation rules** — skills that drive rgr-green/refactor and other automated workflows (Red phase is run by the darmok-maven-plugin) |
 | `<project>/site/uml/` | **Project-specific patterns** — UML and spec files that constrain the generated code in one project |
 
 Rule of thumb: if a piece of knowledge applies to every project, it belongs in `site/arch` or `site/impl`. If it applies to one project only, it belongs in that project's `site/uml`. If it drives code generation rather than describing the result, it belongs in a skill.
