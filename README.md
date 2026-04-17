@@ -13,6 +13,23 @@ The specification hub for the sheep-dog ecosystem, containing three types of spe
 | site | Architectural and implementation documentation |
 | sheep-dog-features | BDD specifications, forward/reverse engineering scripts, Kubernetes deployment configs |
 
+## Documentation map
+
+Documentation is split across several locations, each with a distinct purpose. Consult the home that matches the kind of information you are looking for.
+
+| Location | Purpose |
+|----------|---------|
+| `<repo>/CLAUDE.md` | Project instructions for Claude Code — conventions, workflows, ecosystem coordination |
+| `<repo>/README.md` | Human-facing overview of a repository or project |
+| `sheep-dog-features/src/test/resources/asciidoc/` | **Behavioral specs** — AsciiDoc files that define system behavior; generated test code flows from these |
+| `site/arch/` | **Architecture specs** — cross-cutting framework behavior, patterns, and hierarchy decisions |
+| `site/impl/` | **Implementation contracts** — handcrafted code choices (impl class rules, reference TestObject samples) |
+| `site/impl/samples/` | **Canonical source samples** — reference `.java` files that every project's equivalent must match |
+| `<repo>/.claude/skills/` | **Auto-generation rules** — skills that drive rgr-red/green/refactor and other automated workflows |
+| `<project>/site/uml/` | **Project-specific patterns** — UML and spec files that constrain the generated code in one project |
+
+Rule of thumb: if a piece of knowledge applies to every project, it belongs in `site/arch` or `site/impl`. If it applies to one project only, it belongs in that project's `site/uml`. If it drives code generation rather than describing the result, it belongs in a skill.
+
 ## Behavioral Specs
 
 Specifications are organized by tag, each targeting a different component:
