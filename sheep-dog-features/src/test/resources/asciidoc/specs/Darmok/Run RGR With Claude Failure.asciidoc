@@ -1,0 +1,79 @@
+= Test-Suite: Run RGR With Claude Failure
+
+@darmok-maven-plugin
+
+When the claude command exits non-zero with output that does not match any RETRYABLE_PATTERN, ClaudeRunner treats the failure as non-retryable: a single attempt, no sleep, no retry markers, the failing exit code propagated. Three variants are documented — an exit-1 that looks retryable-ish but doesn't match (e.g. "500 Server Error" without the "API Error:" prefix), and the two common process-signal exits (137 SIGKILL, 130 SIGINT).
+
+== Test-Setup: A failing scenario that enters the green phase
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Claude exits 1 with an opaque failure
+
+Output contains text superficially similar to a retryable pattern ("500 Server Error") but lacks the `API Error:` prefix, so the retry-pattern detector doesn't match. ClaudeRunner makes a single attempt and returns exit 1.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is executed but failed non-retryably
+|===
+| Exit | Output
+| 1    | 500 Server Error occurred (no API Error: prefix)
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | Claude CLI exited with code 1
+|===
+
+== Test-Case: Claude exits 137 (SIGKILL)
+
+A killed subprocess (OS OOM-killer, external kill, or future time-budget enforcement) returns exit 137. ClaudeRunner propagates the exit without retry.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is executed but failed non-retryably
+|===
+| Exit
+| 137
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | Claude CLI exited with code 137
+|===
+
+== Test-Case: Claude exits 130 (SIGINT)
+
+A Ctrl-C interrupt returns exit 130. Same no-retry contract as SIGKILL.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is executed but failed non-retryably
+|===
+| Exit
+| 130
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | Claude CLI exited with code 130
+|===

@@ -1,0 +1,77 @@
+= Test-Suite: Run RGR With Maven Failures
+
+@darmok-maven-plugin
+
+During the red phase Darmok invokes three maven commands in sequence: `asciidoctor-to-uml`, `uml-to-cucumber-guice`, and `test`. Today only the final `mvn test` exit code drives the red-phase return value. Non-zero exits from the earlier two commands are captured in the runner log but don't halt red — the failure is visible, just not acted on. This Test-Suite pins that current behavior across the three failure points so a future change to halt on intermediate failures surfaces as an expected test break.
+
+== Test-Setup: A failing scenario that enters the red phase
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+== Test-Case: The asciidoctor-to-uml command fails
+
+The first red-phase maven invocation fails (e.g. the AsciiDoc API service is unreachable). The failure output reaches the runner log but red proceeds to the next step.
+
+=== Given: The darmok plugin gen-from-existing goal mvn asciidoctor-to-uml command is executed but failed
+|===
+| Exit | Output
+| 1    | svc unreachable: connection refused
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | svc unreachable: connection refused
+|===
+
+== Test-Case: The uml-to-cucumber-guice command fails
+
+The second red-phase maven invocation fails (e.g. the Cucumber gen service rate-limited the request). Same contract — captured in the log, not acted on.
+
+=== Given: The darmok plugin gen-from-existing goal mvn uml-to-cucumber-guice command is executed but failed
+|===
+| Exit | Output
+| 1    | TooManyRequests: upstream rate limit
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | TooManyRequests: upstream rate limit
+|===
+
+== Test-Case: The generated runner class fails to compile
+
+The red phase writes a cucumber runner class (`<Tag>Test.java`) and then runs `mvn test` on it. If the generated source has a compile error, `mvn test` exits non-zero — which is exactly how Darmok distinguishes "tests failing, green phase should fire" from "tests passing, skip green". Under current semantics, this failure mode collapses into "tests failing" and green phase runs, potentially wasting a claude invocation on a problem that was actually a codegen bug.
+
+=== Given: The darmok plugin gen-from-existing goal mvn test command is executed but failed
+|===
+| Exit | Output
+| 1    | COMPILATION ERROR : [ERROR] /suites/loginHappyPathTest.java:[3,1] cannot find symbol
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| DEBUG | runner   | COMPILATION ERROR : [ERROR] /suites/loginHappyPathTest.java:[3,1] cannot find symbol
+|===

@@ -1,0 +1,60 @@
+= Step-Object: gen-from-existing goal
+
+== Step-Definition: claude /rgr-green command is executed and successful after retries
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
+|===
+
+== Step-Definition: claude /rgr-green command is executed but failed non-retryably
+
+=== Step-Parameters: Exit
+|===
+| Exit
+|===
+
+=== Step-Parameters: Exit, Output
+|===
+| Exit | Output
+|===
+
+== Step-Definition: claude /rgr-green command is executed but fails after reaching retry limit
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
+|===
+
+== Step-Definition: claude /rgr-refactor command is executed and successful after retries
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
+|===
+
+== Step-Definition: git command is executed to verify the workspace is clean
+
+== Step-Definition: is executed
+
+== Step-Definition: mvn asciidoctor-to-uml command is executed but failed
+
+=== Step-Parameters: Exit, Output
+|===
+| Exit | Output
+|===
+
+== Step-Definition: mvn test command is executed but failed
+
+=== Step-Parameters: Exit, Output
+|===
+| Exit | Output
+|===
+
+== Step-Definition: mvn uml-to-cucumber-guice command is executed but failed
+
+=== Step-Parameters: Exit, Output
+|===
+| Exit | Output
+|===
+
