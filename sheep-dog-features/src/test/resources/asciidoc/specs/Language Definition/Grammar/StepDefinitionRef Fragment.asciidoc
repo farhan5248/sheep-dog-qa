@@ -13,6 +13,9 @@ The part regex in StepDefinitionRefFragments captures a grammar element name and
 - fragment - Test step regex fragments defining type enumerations
 - scope - Issue scope levels from TypeIssueTypes enum
 - node - AST node elements in the parsed syntax tree
+- command - Subprocess commands invoked by goals (e.g. git, claude, maven)
+- stage - Pipeline stages
+- phase - RGR workflow phases (red, green, refactor)
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessGrammarFragment.asciidoc file TestStep type is created as follows
 |===
@@ -28,13 +31,16 @@ The part regex in StepDefinitionRefFragments captures a grammar element name and
 
 === Test-Data: Fragments
 |===
-| Step Definition Ref Name            | Part                      | Part Description | Part Type  | Part Type Description                                        
+| Step Definition Ref Name            | Part                      | Part Description | Part Type  | Part Type Description
 | StepObjectRef type is absent        | StepObjectRef type        | StepObjectRef    | type       | Grammar types (non-terminal rules) defined in the .xtext file
-| SheepDog language is absent         | SheepDog language         | SheepDog         | language   | The name of the Xtext grammar/language implementation        
-| StepObjectName assignment is absent | StepObjectName assignment | StepObjectName   | assignment | Named assignments within grammar rules                       
-| Component fragment is absent        | Component fragment        | Component        | fragment   | Test step regex fragments defining type enumerations         
-| Only scope is absent                | Only scope                | Only             | scope      | Issue scope levels from TypeIssueTypes enum                  
-| StepObjectRef node is absent        | StepObjectRef node        | StepObjectRef    | node       | AST node elements in the parsed syntax tree                  
+| SheepDog language is absent         | SheepDog language         | SheepDog         | language   | The name of the Xtext grammar/language implementation
+| StepObjectName assignment is absent | StepObjectName assignment | StepObjectName   | assignment | Named assignments within grammar rules
+| Component fragment is absent        | Component fragment        | Component        | fragment   | Test step regex fragments defining type enumerations
+| Only scope is absent                | Only scope                | Only             | scope      | Issue scope levels from TypeIssueTypes enum
+| StepObjectRef node is absent        | StepObjectRef node        | StepObjectRef    | node       | AST node elements in the parsed syntax tree
+| git command is executed             | git command               | git              | command    | Subprocess commands invoked by goals (e.g. git, claude, maven)
+| deploy stage is executed            | deploy stage              | deploy           | stage      | Pipeline stages
+| red phase is executed               | red phase                 | red              | phase      | RGR workflow phases (red, green, refactor)
 |===
 
 == Test-Case: State Fragment
