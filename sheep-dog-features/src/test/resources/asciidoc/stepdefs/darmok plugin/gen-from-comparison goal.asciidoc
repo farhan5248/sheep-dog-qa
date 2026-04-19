@@ -1,0 +1,9 @@
+= Step-Object: gen-from-comparison goal
+
+== Step-Definition: is executed with
+
+=== Step-Parameters: ModelComparison, ModelGreen, ModelRefactor
+|===
+| ModelComparison | ModelGreen | ModelRefactor
+|===
+

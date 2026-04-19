@@ -5,6 +5,9 @@ temp/*.*
 .venv/*
 **/log.txt
 **/target
+# Stepdef asciidocs live under src/test/resources/.../target/ — re-include them
+!sheep-dog-features/src/test/resources/asciidoc/stepdefs/**/target/
+!sheep-dog-features/src/test/resources/asciidoc/stepdefs/**/target/**
 **/.gradle
 **/build
 **/out

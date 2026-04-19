@@ -1,0 +1,9 @@
+= Step-Object: metrics.csv file
+
+== Step-Definition: will be as follows
+
+=== Step-Parameters: Commit, PhaseGreenMs, PhaseRedMs, PhaseRefactorMs, PhaseTotalMs, Scenario, Timestamp
+|===
+| Timestamp | Commit | Scenario | PhaseRedMs | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+|===
+

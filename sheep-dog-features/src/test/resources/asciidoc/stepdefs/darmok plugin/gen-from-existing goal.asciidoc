@@ -37,6 +37,13 @@
 
 == Step-Definition: is executed
 
+== Step-Definition: is executed with
+
+=== Step-Parameters: ModelGreen, ModelRefactor, Stage
+|===
+| Stage | ModelGreen | ModelRefactor
+|===
+
 == Step-Definition: mvn asciidoctor-to-uml command is executed but failed
 
 === Step-Parameters: Exit, Output
