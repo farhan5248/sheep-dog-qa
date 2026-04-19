@@ -1,0 +1,49 @@
+= Test-Suite: Run RGR For Process Charts
+
+@darmok-maven-plugin
+
+Darmok runs are governed by process behaviour charts (Shewhart / XmR). The cycle time of each scenario becomes one data point on the chart; the chart surfaces whether a slow or fast run sits within the process's natural variation (common cause) or outside it (special cause, demanding investigation).
+
+For a flagged point to be actionable, it must be attributable. When a run sits above the upper control limit, the operator needs to know which commit produced that point so the suspect change can be reviewed. Without a commit SHA on every data point, the chart flags a problem but gives no lead.
+
+This Test-Suite exists because commit capture is silent instrumentation — it produces a log line but no failure. Without a dedicated assertion, the capture code could be deleted tomorrow and the full TDD suite would still pass: every other test focuses on RGR flow correctness and none of them care about commits. The cost of that gap only shows up later, when a PBC chart surfaces a special-cause point and no commit is attached.
+
+The NoTag skip path is covered by `Run RGR With No Scenarios` — that spec's "runners.log will be empty" assertion transitively proves no `git rev-parse` fires on skipped scenarios.
+
+== Test-Case: Commit SHA is recorded before RGR phases begin
+
+A tagged scenario triggers a `git rev-parse HEAD` subprocess before any Red / Green / Refactor work starts, and the resulting SHA is written to the mojo log as `Commit: <sha>`.
+The canned SHA `abc1234567890abcdef1234567890abcdef12345` comes from the `FakeProcessStarter` test seam — production runs would see the actual HEAD commit.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
+| INFO  | mojo     | Commit: abc1234567890abcdef1234567890abcdef12345
+|===
+
+=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: git rev-parse HEAD
+|===
