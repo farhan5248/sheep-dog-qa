@@ -1,0 +1,176 @@
+= Test-Suite: Run RGR With Phase Timeout
+
+@darmok-maven-plugin
+
+Each claude call inside the green and refactor phases is bounded by maxClaudeSeconds (default 720, i.e. 12 min — the number comes from the UCL of the per-scenario runtime distribution on the SPC dashboard). When the timer fires, Darmok destroys the subprocess, then runs `mvn clean install` on the target project to decide whether the killed session produced usable code: install passing means the claude call is treated as having completed cleanly; install failing means the session is resumed with the literal message `pls continue` and install is re-checked. The loop is bounded by maxTimeoutAttempts (default 2). Timeout recovery sits between the claude call and the 155 verify loop, so a recovered phase still runs verify on top.
+
+== Test-Setup: A pending scenario
+
+The scenario itself is the same shape as Run RGR Full Cycle — one entry, missing impl class. Every Test-Case passes `MaxClaudeSeconds=1` and `MaxTimeoutAttempts=2` on its When step so the kill path actually fires within the suite's runtime budget.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Green claude killed and install passes, refactor unaffected
+
+The first claude invocation hangs past the 1-second timeout and gets destroyed. The killed session happens to have produced working code, so the first `mvn clean install` returns 0 and Darmok treats the phase as complete — no resume is needed, and control flows into the 155 verify loop exactly as if claude had returned 0. Refactor runs its normal claude call within the timeout.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is hung until killed
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| WARN  | mojo     | Green: Claude timed out after 1s, killing...
+| INFO  | mojo     | Green: Running mvn clean install to check phase state...
+| INFO  | mojo     | Green: Install passed, proceeding
+| INFO  | mojo     | Green: Verify running...
+| INFO  | mojo     | Refactor: Running...
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Running: mvn clean install
+|===
+
+== Test-Case: Green killed, install fails, resumed claude fixes it
+
+First claude hangs and is killed. First install fails (killed session left incomplete code). Darmok resumes the session with the literal message `pls continue`; that call returns within 1 second. Second install passes, so control proceeds.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is hung on first call then completed on resume
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails then passes in the green phase
+|===
+| Attempt | Exit
+| 1       | 1
+| 2       | 0
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | mojo     | Green: Claude timed out after 1s, killing...
+| INFO  | mojo     | Green: Install failed, resuming claude (attempt 2 of 2)...
+| INFO  | mojo     | Green: Install passed, proceeding
+| INFO  | mojo     | Green: Verify running...
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Running: mvn clean install
+| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet pls continue
+| DEBUG | runner   | Running: mvn clean install
+|===
+
+== Test-Case: Green timeouts exhaust max attempts
+
+Every claude call — the initial one and every resume — is killed by the timeout, and every `mvn clean install` still fails. After maxTimeoutAttempts (2), Darmok gives up with a MojoExecutionException and refactor never runs.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is hung on every call
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails on every call in the green phase
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be absent
+
+=== And: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| WARN  | mojo     | Green: Claude timed out after 1s, killing...
+| ERROR | mojo     | Green: Timeout exhausted after 2 attempts
+|===
+
+== Test-Case: Refactor killed, install fails, resumed claude fixes it
+
+Symmetric with the green-phase resume-recovery case, proving the timeout loop lives in both phase objects. Green proceeds normally inside its timeout; the first refactor claude call hangs, is killed, the first install fails, the resumed call completes, and the second install passes.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-refactor command is hung on first call then completed on resume
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails then passes in the refactor phase
+|===
+| Attempt | Exit
+| 1       | 1
+| 2       | 0
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Refactor: Running...
+| WARN  | mojo     | Refactor: Claude timed out after 1s, killing...
+| INFO  | mojo     | Refactor: Install failed, resuming claude (attempt 2 of 2)...
+| INFO  | mojo     | Refactor: Install passed, proceeding
+| INFO  | mojo     | Refactor: Verify running...
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Running: mvn clean install
+| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet pls continue
+| DEBUG | runner   | Running: mvn clean install
+|===
+
+== Test-Case: Refactor timeouts exhaust max attempts
+
+Every refactor claude call is killed and every refactor install fails, so the goal aborts with a refactor-specific message. Green already succeeded, so its commit remains in history (stage=false); no refactor commit is made.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-refactor command is hung on every call
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails on every call in the refactor phase
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| WARN  | mojo     | Refactor: Claude timed out after 1s, killing...
+| ERROR | mojo     | Refactor: Timeout exhausted after 2 attempts
+|===

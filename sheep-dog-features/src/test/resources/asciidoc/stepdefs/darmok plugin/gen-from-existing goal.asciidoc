@@ -26,12 +26,22 @@
 | Pattern
 |===
 
+== Step-Definition: claude /rgr-green command is hung on every call
+
+== Step-Definition: claude /rgr-green command is hung on first call then completed on resume
+
+== Step-Definition: claude /rgr-green command is hung until killed
+
 == Step-Definition: claude /rgr-refactor command is executed and successful after retries
 
 === Step-Parameters: Pattern
 |===
 | Pattern
 |===
+
+== Step-Definition: claude /rgr-refactor command is hung on every call
+
+== Step-Definition: claude /rgr-refactor command is hung on first call then completed on resume
 
 == Step-Definition: git command is executed to report the current branch
 
@@ -51,6 +61,11 @@
 | GitBranch
 |===
 
+=== Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+|===
+
 === Step-Parameters: ModelGreen, ModelRefactor, Stage
 |===
 | Stage | ModelGreen | ModelRefactor
@@ -61,6 +76,24 @@
 === Step-Parameters: Exit, Output
 |===
 | Exit | Output
+|===
+
+== Step-Definition: mvn clean install command is executed and fails on every call in the green phase
+
+== Step-Definition: mvn clean install command is executed and fails on every call in the refactor phase
+
+== Step-Definition: mvn clean install command is executed and fails then passes in the green phase
+
+=== Step-Parameters: Attempt, Exit
+|===
+| Attempt | Exit
+|===
+
+== Step-Definition: mvn clean install command is executed and fails then passes in the refactor phase
+
+=== Step-Parameters: Attempt, Exit
+|===
+| Attempt | Exit
 |===
 
 == Step-Definition: mvn clean verify command is executed but fails for all attempts
