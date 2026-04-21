@@ -34,7 +34,17 @@ Some description
 
 === And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== And: The darmok plugin gen-from-existing goal git command is executed to report the current branch
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| GitBranch
+| Rebuild30
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -46,11 +56,12 @@ Some description
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
+| DEBUG | runner   | Running: git rev-parse --abbrev-ref HEAD
 | DEBUG | runner   | Running: git rev-parse HEAD
 |===
 
 === And: The code-prj project metrics.csv file will be as follows
 |===
-| Timestamp | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
-| Timestamp | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+| Timestamp | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
 |===

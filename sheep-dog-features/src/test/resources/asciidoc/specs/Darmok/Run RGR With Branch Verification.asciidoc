@@ -1,0 +1,146 @@
+= Test-Suite: Run RGR With Branch Verification
+
+@darmok-maven-plugin
+
+Each Darmok run declares which branch it was configured for via the `gitBranch` parameter. That name is written to the `git_branch` column of every `metrics.csv` row the run produces, so the SPC dashboard can colour and filter points by run. Init verifies the declared branch against the current git HEAD before any scenario work begins: if the parameter is unset, or if it disagrees with `git rev-parse --abbrev-ref HEAD`, the goal logs an ERROR to the mojo log and aborts. This makes it impossible to silently produce commits on the wrong branch and pollute the SPC dataset with mislabelled points.
+
+The check fires after log initialisation but before `runCleanUp`, so a failed run leaves no `target/` side effects and `metrics.csv` is never opened. The empty runners log and the absent metrics file are the observable evidence that the abort took effect before any scenario work started.
+
+== Test-Case: GitBranch parameter is required
+
+Without a `gitBranch` parameter there is no run identity, so every row appended to `metrics.csv` would be indistinguishable from every other run. Rather than default to the current HEAD (which hides misconfiguration), the goal logs the required-parameter error to the mojo log and aborts. The null-check runs before the git subprocess fires, so the runners log stays empty.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| GitBranch
+| Empty
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| ERROR | mojo     | gitBranch parameter is required
+|===
+
+=== And: The code-prj project darmok.runners.log file will be empty
+
+=== And: The code-prj project metrics.csv file will be absent
+
+== Test-Case: GitBranch mismatch aborts the run
+
+The `gitBranch` parameter disagrees with the current HEAD. The goal shells out to `git rev-parse --abbrev-ref HEAD` to learn the actual branch, compares, and logs an ERROR naming both sides to the mojo log so the operator can see exactly what was misconfigured. No cleanup, no scenario processing, no metrics row — the check fires immediately after init logs are opened.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The darmok plugin gen-from-existing goal git command is executed to report the current branch
+|===
+| GitBranch
+| main
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| ERROR | mojo     | Darmok configured for branch 'Rebuild30' but current HEAD is on 'main'. Aborting.
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: git rev-parse --abbrev-ref HEAD
+|===
+
+=== And: The code-prj project metrics.csv file will be absent
+
+== Test-Case: Detached HEAD aborts the run
+
+When the working tree is in a detached-HEAD state (mid-rebase, checked-out SHA, etc.), `git rev-parse --abbrev-ref HEAD` returns the literal string `HEAD`. That collapses into the same mismatch branch of the check — a detached state is never what Darmok was configured for, so the goal logs an ERROR with `actualBranch=HEAD` and aborts.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The darmok plugin gen-from-existing goal git command is executed to report the current branch
+|===
+| GitBranch
+| HEAD
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| ERROR | mojo     | Darmok configured for branch 'Rebuild30' but current HEAD is on 'HEAD'. Aborting.
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: git rev-parse --abbrev-ref HEAD
+|===
+
+== Test-Case: Matching branch records git_branch on every metrics row
+
+When the declared branch matches the current HEAD, init passes and control flows into the normal RGR cycle. The branch name is written to the `git_branch` column of every row appended to `metrics.csv` for that run — it is stable across rows because it is set once at init. The SPC dashboard joins on this column to overlay runs.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+=== And: The darmok plugin gen-from-existing goal git command is executed to report the current branch
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project metrics.csv file will be as follows
+|===
+| Timestamp | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+|===

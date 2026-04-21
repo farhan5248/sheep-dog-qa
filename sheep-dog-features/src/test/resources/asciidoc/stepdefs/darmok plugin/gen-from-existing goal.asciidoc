@@ -33,11 +33,23 @@
 | Pattern
 |===
 
+== Step-Definition: git command is executed to report the current branch
+
+=== Step-Parameters: GitBranch
+|===
+| GitBranch
+|===
+
 == Step-Definition: git command is executed to verify the workspace is clean
 
 == Step-Definition: is executed
 
 == Step-Definition: is executed with
+
+=== Step-Parameters: GitBranch
+|===
+| GitBranch
+|===
 
 === Step-Parameters: ModelGreen, ModelRefactor, Stage
 |===
