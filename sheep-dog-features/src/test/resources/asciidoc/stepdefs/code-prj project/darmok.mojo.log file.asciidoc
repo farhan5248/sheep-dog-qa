@@ -7,6 +7,13 @@
 | Level | Category | Content
 |===
 
+== Step-Definition: will be as follows with this failure
+
+=== Step-Parameters: Category, Content, Level
+|===
+| Level | Category | Content
+|===
+
 == Step-Definition: will be present
 
 == Step-Definition: won't be as follows

@@ -1,0 +1,171 @@
+= Test-Suite: Run RGR With Phase Verification
+
+@darmok-maven-plugin
+
+Verify is the deterministic sub-step that guards each non-deterministic claude phase. After claude `/rgr-green` returns 0 darmok runs `mvn clean verify` on the target project; if it fails, darmok resumes the same claude session with the literal message `mvn clean verify failures should be fixed` and re-runs verify, bounded by `maxVerifyAttempts` (default 3). The refactor phase carries the same verify + resume loop. These Test-Cases pin down the observable contract of that loop — the new phase-verify log lines, the `claude --resume` subprocess, and the failure message when the loop exhausts. Refactor-phase cases are symmetric with green-phase cases and prove the loop is phase-parametric, not bolted to green.
+
+== Test-Setup: A failing scenario that reaches the verify sub-step
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Green verify passes on the first attempt
+
+Default happy path for the green phase. Claude generates a correct impl, `mvn clean verify` passes on the first try, and the scenario proceeds into refactor. Pins down the new `Green: Verify running` log line and the `mvn clean verify` subprocess so a regression that drops the verify sub-step is caught explicitly, not just implied by Run RGR Full Cycle's phase-level assertions.
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Green: Verify running...
+| INFO  | mojo     | Refactor: Running...
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Running: mvn clean verify
+|===
+
+== Test-Case: Refactor verify passes on the first attempt
+
+Symmetric with the green-verify happy-path case. Confirms verify runs inside refactor too — the sub-step is not accidentally bound to green.
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | Refactor: Verify running...
+| INFO  | mojo     | Refactor: Committing
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Running: mvn clean verify
+|===
+
+== Test-Case: Green verify fails once then succeeds after resume
+
+The first `mvn clean verify` after green returns non-zero. Darmok logs a WARN, invokes `claude --resume` with the literal continuation message, and re-runs verify. The second attempt passes and the scenario proceeds into refactor normally. Exactly one green commit is made — it captures the original green output plus the fix from the resumed claude session.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails once then succeeds
+|===
+| Phase
+| Green
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Verify running...
+| WARN  | mojo     | Green: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Green: Verify running...
+| INFO  | mojo     | Refactor: Running...
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn clean verify
+| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet mvn clean verify failures should be fixed
+| DEBUG | runner   | Running: mvn clean verify
+|===
+
+== Test-Case: Green verify fails for every attempt
+
+Every `mvn clean verify` in the green phase returns non-zero. Darmok retries up to `maxVerifyAttempts` (default 3), each retry preceded by `claude --resume`, except the final attempt which aborts without another resume. The goal fails with an exception naming the phase and attempt count, the refactor phase is never reached, and no green commit is made.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Green
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Verify running...
+| WARN  | mojo     | Green: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Green: Verify running...
+| WARN  | mojo     | Green: Verify failed (attempt 2/3), resuming claude...
+| INFO  | mojo     | Green: Verify running...
+| ERROR | mojo     | Green: Verify failed after 3 attempts, aborting
+|===
+
+== Test-Case: Refactor verify fails once then succeeds after resume
+
+Symmetric with the green-phase recovery case. Proves the resume loop is phase-parametric.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails once then succeeds
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Refactor: Verify running...
+| WARN  | mojo     | Refactor: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Refactor: Verify running...
+| INFO  | mojo     | Refactor: Committing
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn clean verify
+| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet mvn clean verify failures should be fixed
+| DEBUG | runner   | Running: mvn clean verify
+|===
+
+== Test-Case: Refactor verify fails for every attempt
+
+Symmetric with the green-phase exhaustion case. No refactor commit is made; the green commit from this scenario remains in git history.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| INFO  | mojo     | Refactor: Verify running...
+| WARN  | mojo     | Refactor: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Refactor: Verify running...
+| WARN  | mojo     | Refactor: Verify failed (attempt 2/3), resuming claude...
+| INFO  | mojo     | Refactor: Verify running...
+| ERROR | mojo     | Refactor: Verify failed after 3 attempts, aborting
+|===

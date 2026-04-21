@@ -63,6 +63,20 @@
 | Exit | Output
 |===
 
+== Step-Definition: mvn clean verify command is executed but fails for all attempts
+
+=== Step-Parameters: Phase
+|===
+| Phase
+|===
+
+== Step-Definition: mvn clean verify command is executed but fails once then succeeds
+
+=== Step-Parameters: Phase
+|===
+| Phase
+|===
+
 == Step-Definition: mvn test command is executed but failed
 
 === Step-Parameters: Exit, Output
