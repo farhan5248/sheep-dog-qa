@@ -10,9 +10,10 @@ This Test-Suite exists because commit capture is silent instrumentation — it p
 
 The NoTag skip path is covered by `Run RGR With No Scenarios` — that spec's "runners.log will be empty" assertion transitively proves no `git rev-parse` fires on skipped scenarios.
 
-== Test-Case: Commit SHA is recorded before RGR phases begin
+== Test-Case: Commit SHA is recorded after RGR phases complete
 
-A tagged scenario triggers a `git rev-parse HEAD` subprocess before any Red / Green / Refactor work starts, and the resulting SHA is written to the mojo log as `Commit: <sha>`.
+A tagged scenario triggers a `git rev-parse HEAD` subprocess after Red / Green / Refactor have all committed their output, and the resulting SHA is written to the mojo log as `Commit: <sha>`.
+Capturing the HEAD *after* the phases means the recorded SHA is the commit this scenario produced (the refactor commit for `stage=false`, the combined commit for `stage=true`, or the red commit for the tests-already-passing skip path) — attributable to the scenario's cycle time, not just the starting state.
 The canned SHA `abc1234567890abcdef1234567890abcdef12345` comes from the `FakeProcessStarter` test seam — production runs would see the actual HEAD commit.
 
 === Given: The code-prj project scenarios-list.txt file is created as follows

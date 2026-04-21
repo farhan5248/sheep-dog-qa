@@ -57,5 +57,5 @@ Green and Refactor are skipped to avoid Claude spinning on a problem that doesn'
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
-| DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
 |===
