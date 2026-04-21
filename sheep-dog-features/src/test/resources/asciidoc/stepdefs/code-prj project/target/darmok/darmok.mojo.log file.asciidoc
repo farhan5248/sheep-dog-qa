@@ -1,9 +1,0 @@
-= Step-Object: darmok.mojo.log file
-
-== Step-Definition: will be as follows
-
-=== Step-Parameters: Category, Content, Level
-|===
-| Level | Category | Content
-|===
-

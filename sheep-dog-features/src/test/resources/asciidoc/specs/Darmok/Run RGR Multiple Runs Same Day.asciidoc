@@ -24,7 +24,7 @@ File: ProcessDarmok
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== Then: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)

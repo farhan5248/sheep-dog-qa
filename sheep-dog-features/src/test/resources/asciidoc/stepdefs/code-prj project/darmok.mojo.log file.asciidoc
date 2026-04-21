@@ -1,0 +1,18 @@
+= Step-Object: darmok.mojo.log file
+
+== Step-Definition: will be as follows
+
+=== Step-Parameters: Category, Content, Level
+|===
+| Level | Category | Content
+|===
+
+== Step-Definition: will be present
+
+== Step-Definition: won't be as follows
+
+=== Step-Parameters: Category, Content, Level
+|===
+| Level | Category | Content
+|===
+

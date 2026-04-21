@@ -27,7 +27,7 @@ File: ProcessDarmok
     Tag: loginHappyPath
 ----
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -36,7 +36,7 @@ File: ProcessDarmok
 | INFO  | mojo     | Red: Running maven...
 |===
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file won't be as follows
+=== And: The code-prj project darmok.mojo.log file won't be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | Red: Completed maven
@@ -45,7 +45,7 @@ File: ProcessDarmok
 | INFO  | mojo     | RGR Automation Complete!
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true

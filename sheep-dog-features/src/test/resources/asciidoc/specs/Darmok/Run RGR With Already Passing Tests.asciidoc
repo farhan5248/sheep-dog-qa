@@ -37,7 +37,7 @@ Green and Refactor are skipped to avoid Claude spinning on a problem that doesn'
 
 === And: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -50,7 +50,7 @@ Green and Refactor are skipped to avoid Claude spinning on a problem that doesn'
 | INFO  | mojo     | Total scenarios processed: 1
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true

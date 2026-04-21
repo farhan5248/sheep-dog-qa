@@ -25,7 +25,7 @@ File: ProcessDarmok
 
 === Then: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -39,7 +39,7 @@ File: ProcessDarmok
 | INFO  | mojo     | Total scenarios processed: 2
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest

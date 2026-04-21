@@ -36,7 +36,7 @@ On the first invocation claude emits `API Error: 500` and exits non-zero; the re
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== Then: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | WARN  | runner   | Retryable error detected: API Error: 500
@@ -56,7 +56,7 @@ Same retry shape, different pattern. Verifies the detector matches `API Error: 5
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== Then: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | WARN  | runner   | Retryable error detected: API Error: 529
@@ -76,7 +76,7 @@ Same retry shape, different pattern. Catches the generic upstream message where 
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== Then: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | WARN  | runner   | Retryable error detected: Internal server error
@@ -96,7 +96,7 @@ Same retry shape, different pattern. Catches the upstream-overload message.
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== Then: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | WARN  | runner   | Retryable error detected: overloaded
@@ -116,7 +116,7 @@ Every attempt (up to maxRetries) returns the same retryable pattern. The retry l
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
 | Level | Category | Content
 | ERROR | runner   | Retryable error detected: API Error: 500
@@ -136,7 +136,7 @@ Same exhaustion shape, different pattern.
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
 | Level | Category | Content
 | ERROR | runner   | Retryable error detected: API Error: 529
@@ -156,7 +156,7 @@ Same exhaustion shape, different pattern.
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
 | Level | Category | Content
 | ERROR | runner   | Retryable error detected: Internal server error
@@ -176,7 +176,7 @@ Same exhaustion shape, different pattern.
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
 | Level | Category | Content
 | ERROR | runner   | Retryable error detected: overloaded
@@ -196,7 +196,7 @@ The retry loop lives inside ClaudeRunner, so it applies identically to the green
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== Then: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | WARN  | runner   | Retryable error detected: API Error: 500

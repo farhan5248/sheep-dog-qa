@@ -45,7 +45,7 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 
 === And: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -63,7 +63,7 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 | INFO  | mojo     | Total scenarios processed: 1
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
@@ -95,7 +95,7 @@ Intermediate `Red: Committing` and `Green: Committing` markers are absent from t
 
 === And: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -109,7 +109,7 @@ Intermediate `Red: Committing` and `Green: Committing` markers are absent from t
 | INFO  | mojo     | Total scenarios processed: 1
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true

@@ -35,20 +35,20 @@ Some description
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== Then: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
 | INFO  | mojo     | Commit: abc1234567890abcdef1234567890abcdef12345
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be as follows
+=== And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
 | DEBUG | runner   | Running: git rev-parse HEAD
 |===
 
-=== And: The code-prj project target/darmok/metrics.csv file will be as follows
+=== And: The code-prj project metrics.csv file will be as follows
 |===
 | Timestamp | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
 | Timestamp | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds

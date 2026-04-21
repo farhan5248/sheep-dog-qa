@@ -17,9 +17,9 @@ The goal prints the banner, cleans up, finds no entries, and completes with zero
 
 === Then: The code-prj project scenarios-list.txt file will be absent
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be present
+=== And: The code-prj project darmok.mojo.log file will be present
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be empty
+=== And: The code-prj project darmok.runners.log file will be empty
 
 == Test-Case: Scenarios-list.txt exists but is empty
 
@@ -33,7 +33,7 @@ This keeps re-runs idempotent once the backlog drains.
 
 === Then: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -41,7 +41,7 @@ This keeps re-runs idempotent once the backlog drains.
 | INFO  | mojo     | Total scenarios processed: 0
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be empty
+=== And: The code-prj project darmok.runners.log file will be empty
 
 == Test-Case: Scenarios-list entry has tag NoTag
 
@@ -59,7 +59,7 @@ File: ProcessDarmok
 
 === Then: The code-prj project scenarios-list.txt file will be empty
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
@@ -69,5 +69,5 @@ File: ProcessDarmok
 | INFO  | mojo     | Total scenarios processed: 1
 |===
 
-=== And: The code-prj project target/darmok/darmok.runners.log file will be empty
+=== And: The code-prj project darmok.runners.log file will be empty
 

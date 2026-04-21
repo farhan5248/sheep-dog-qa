@@ -45,7 +45,7 @@ Some description
 Some description
 ----
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
@@ -82,7 +82,7 @@ Some description
 Some description
 ----
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
@@ -119,7 +119,7 @@ Some description
 Some description
 ----
 
-=== And: The code-prj project target/darmok/darmok.mojo.log file will be as follows
+=== And: The code-prj project darmok.mojo.log file will be as follows
 |===
 | Level | Category | Content
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]

@@ -36,7 +36,7 @@ Claude writes stdout and then the process exits 137 (e.g. killed by the OS). The
 
 === When: The darmok plugin gen-from-existing goal is executed
 
-=== Then: The code-prj project target/darmok/darmok.runners.log file will be as follows with this failure
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
 | Level | Category | Content
 | DEBUG | runner   | partial output before the kill
