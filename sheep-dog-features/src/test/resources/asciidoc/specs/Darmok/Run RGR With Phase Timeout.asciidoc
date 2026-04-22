@@ -174,3 +174,24 @@ Every refactor claude call is killed and every refactor install fails, so the go
 | WARN  | mojo     | Refactor: Claude timed out after 1s, killing...
 | ERROR | mojo     | Refactor: Timeout exhausted after 2 attempts
 |===
+
+== Test-Case: Claude process exits but stdout stays open, reader-side timeout fires
+
+Covers issue 290. The claude subprocess signals exit promptly (`process.waitFor` returns true within the budget) but a grandchild keeps the stdout pipe open past `maxClaudeSeconds`. Without a bounded wait on the stdout-reader thread, the main thread would sit in `readerThread.join()` for the grandchild's full runtime. The bounded `readerThread.join(maxClaudeSeconds * 1000L)` forces the reader half of `executeCommand` to honour the same budget as the process-handle half — on timeout we `destroyForcibly()` to release the pipe and treat the call as a timeout, so the phase runs the normal install-check recovery.
+
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is exited but its stdout stays open
+
+=== When: The darmok plugin gen-from-existing goal is executed with
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | mojo     | Green: Claude timed out after 1s, killing...
+| INFO  | mojo     | Green: Running mvn clean install to check phase state...
+| INFO  | mojo     | Green: Install passed, proceeding
+| INFO  | mojo     | Green: Verify running...
+|===

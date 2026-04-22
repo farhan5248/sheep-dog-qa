@@ -26,6 +26,8 @@
 | Pattern
 |===
 
+== Step-Definition: claude /rgr-green command is exited but its stdout stays open
+
 == Step-Definition: claude /rgr-green command is hung on every call
 
 == Step-Definition: claude /rgr-green command is hung on first call then completed on resume
