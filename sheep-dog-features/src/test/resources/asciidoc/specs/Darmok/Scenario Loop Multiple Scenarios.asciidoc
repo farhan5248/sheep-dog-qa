@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR Multiple Scenarios
+= Test-Suite: Scenario Loop Multiple Scenarios
 
 @darmok-maven-plugin
 

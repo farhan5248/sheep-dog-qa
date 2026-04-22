@@ -1,10 +1,11 @@
-= Test-Suite: Run RGR With Clean Workspace
+= Test-Suite: Red Phase Already Passing
 
 @darmok-maven-plugin
 
-When the workspace has no staged changes at the point a commit would be made, Darmok's commitIfChanged skips the commit rather than creating an empty commit. This avoids cluttering git history with no-op entries when a phase produced no file changes. The pickled-state equivalent: if `git diff --cached --quiet` reports a clean workspace, there is nothing to record.
+When the red phase's `mvn test` invocation exits 0 (the scenario's implementation already exists), `runRgrRed` returns the special value 100 and Darmok skips the Green and Refactor phases.
+A single commit is made with the red-phase message, the scenarios-list entry is removed, and no Claude subprocess is invoked.
 
-== Test-Setup: An already-passing scenario backed by a clean workspace
+== Test-Setup: A scenario whose implementation already exists
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
@@ -24,11 +25,11 @@ Some description
 
 === And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
 
-=== And: The darmok plugin gen-from-existing goal git command is executed to verify the workspace is clean
+== Test-Case: Red tests already pass, green and refactor are skipped
 
-== Test-Case: Red commit is skipped when nothing is staged
-
-The red phase's `mvn test` exits 0 (impl already present), so the special return code 100 sends control directly to the commit step. With `git diff --cached --quiet` reporting clean, commitIfChanged observes there is nothing to record and skips the commit rather than creating an empty one. The scenarios-list entry is still removed so the queue advances.
+A scenario can arrive in the queue even though its underlying feature is already implemented — someone may have hand-written the code ahead of enqueueing, or a prior run may have generated it but gotten interrupted before removing the entry.
+In this case the red-phase `mvn test` exits 0 on the first try, which Darmok interprets via the special return code 100 as "nothing to do here."
+Green and Refactor are skipped to avoid Claude spinning on a problem that doesn't exist, but a red commit is still made so git history marks the scenario as processed and the scenarios-list entry is removed so the queue advances.
 
 === When: The darmok plugin gen-from-existing goal is executed
 
@@ -44,6 +45,7 @@ The red phase's `mvn test` exits 0 (impl already present), so the special return
 | DEBUG | mojo     | Added tag @loginHappyPath to file
 | INFO  | mojo     | Red: Running maven...
 | INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
 | INFO  | mojo     | RGR Automation Complete!
 | INFO  | mojo     | Total scenarios processed: 1
 |===
@@ -55,5 +57,5 @@ The red phase's `mvn test` exits 0 (impl already present), so the special return
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
-| DEBUG | runner   | Running: git diff --cached --quiet
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
 |===

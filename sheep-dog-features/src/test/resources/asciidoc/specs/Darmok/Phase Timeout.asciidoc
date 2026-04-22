@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Phase Timeout
+= Test-Suite: Phase Timeout
 
 @darmok-maven-plugin
 

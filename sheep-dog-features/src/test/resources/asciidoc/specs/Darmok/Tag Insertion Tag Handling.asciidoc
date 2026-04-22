@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Tag Handling
+= Test-Suite: Tag Insertion Tag Handling
 
 @darmok-maven-plugin
 

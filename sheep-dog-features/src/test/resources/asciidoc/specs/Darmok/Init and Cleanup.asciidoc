@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR Multiple Runs Same Day
+= Test-Suite: Init and Cleanup
 
 @darmok-maven-plugin
 

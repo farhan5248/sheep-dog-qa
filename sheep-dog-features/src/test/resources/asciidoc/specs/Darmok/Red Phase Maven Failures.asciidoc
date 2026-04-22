@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Maven Failures
+= Test-Suite: Red Phase Maven Failures
 
 @darmok-maven-plugin
 

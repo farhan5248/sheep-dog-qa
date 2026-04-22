@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Branch Verification
+= Test-Suite: Branch Verification
 
 @darmok-maven-plugin
 

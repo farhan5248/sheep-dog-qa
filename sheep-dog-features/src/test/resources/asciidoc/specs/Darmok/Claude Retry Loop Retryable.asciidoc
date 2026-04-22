@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Claude Retries
+= Test-Suite: Claude Retry Loop Retryable
 
 @darmok-maven-plugin
 

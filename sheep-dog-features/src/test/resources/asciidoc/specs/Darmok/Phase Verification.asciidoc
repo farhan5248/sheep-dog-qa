@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Phase Verification
+= Test-Suite: Phase Verification
 
 @darmok-maven-plugin
 

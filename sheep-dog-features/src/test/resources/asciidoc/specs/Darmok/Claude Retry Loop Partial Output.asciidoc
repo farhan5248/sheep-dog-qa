@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR With Partial Claude Output
+= Test-Suite: Claude Retry Loop Partial Output
 
 @darmok-maven-plugin
 

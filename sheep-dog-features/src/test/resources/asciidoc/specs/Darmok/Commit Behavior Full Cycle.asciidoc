@@ -1,4 +1,4 @@
-= Test-Suite: Run RGR Full Cycle
+= Test-Suite: Commit Behavior Full Cycle
 
 @darmok-maven-plugin
 

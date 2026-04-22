@@ -1,4 +1,4 @@
-= Test-Suite: Run Gen From Comparison
+= Test-Suite: Gen From Comparison
 
 @darmok-maven-plugin
 

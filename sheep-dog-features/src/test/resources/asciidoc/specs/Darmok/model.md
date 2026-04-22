@@ -1,10 +1,17 @@
 # Darmok control flow model
 
-Migrated from `sheep-dog-svc/darmok-maven-plugin/tests.md` per [#292](https://github.com/farhan5248/sheep-dog-main/issues/292) (split from [#285](https://github.com/farhan5248/sheep-dog-main/issues/285)).
-
 Source of truth: `DarmokMojo.java` and its helpers (`GenFromExistingMojo`, `GenFromComparisonMojo`, `ClaudeRunner`, `GitRunner`, `MavenRunner`, `ProcessRunner`).
 
-**The PlantUML text below IS the model.** No rendering required — same posture as the ASCII art it replaces. PlantUML (not Mermaid) was chosen to keep a future Graphwalker migration cheap.
+**The PlantUML text below IS the model.** No rendering required. PlantUML (not Mermaid) was chosen to keep a future Graphwalker migration cheap.
+
+## Filename convention
+
+Each sub-machine below owns one or more asciidoc files under this directory. Filename stem = sub-machine name; a qualifier is appended when multiple files share a sub-machine. The convention is the mapping — no lookup table.
+
+Examples:
+
+- `Branch Verification` sub-machine → `Branch Verification.asciidoc`
+- `Commit Behavior` sub-machine → `Commit Behavior Clean Workspace.asciidoc`, `Commit Behavior Full Cycle.asciidoc`, `Commit Behavior Process Charts.asciidoc`
 
 ## Goals
 
@@ -15,13 +22,15 @@ Source of truth: `DarmokMojo.java` and its helpers (`GenFromExistingMojo`, `GenF
 
 ---
 
-## Top-level state machine — happy path
+## Overview
 
-Captures the successful end-to-end flow: init, cleanup, loop over scenarios, RGR per scenario, commit, next. Non-happy paths (aborts, retries, timeouts, verify failures) are deferred to per-phase sub-machines below.
+Navigation diagram showing how the 10 leaf sub-machines connect on the happy path: init, cleanup, loop over scenarios, RGR per scenario, commit, next. Non-happy paths (aborts, retries, timeouts, verify failures) live in the leaf sub-machines below.
+
+Overview is navigation-only. It has no dedicated asciidoc file — every transition in it delegates to a leaf sub-machine whose file(s) own the tests. The end-to-end happy path it depicts is exercised in aggregate by `Commit Behavior Full Cycle.asciidoc` (single scenario, stage flag variants) and `Scenario Loop Multiple Scenarios.asciidoc` (N > 1 scenarios). The N:1 filename-to-sub-machine rule applies to the 10 leaf sub-machines; Overview is exempt.
 
 ```plantuml
 @startuml
-title Darmok top-level (happy path)
+title Overview
 
 [*] --> Init
 Init --> CleanUp : gitBranch matches HEAD
@@ -50,18 +59,20 @@ Guards on the happy path:
 - `Init → CleanUp` assumes `gitBranch` param is set and equals `git rev-parse --abbrev-ref HEAD`.
 - `RedPhase → CommitRed` fires on exit 100 (src/main already implements the tag) — green and refactor are skipped; commit message `run-rgr red <scenario>`.
 - `RefactorPhase → CommitAll` fires on exit 0. Commit shape depends on `stage`:
-  - `stage=false` → three commits (`run-rgr red|green|refactor <scenario>`), interleaved with the phase transitions (not shown in the top-level diagram — see **Commit behavior** below).
+  - `stage=false` → three commits (`run-rgr red|green|refactor <scenario>`), interleaved with the phase transitions (not shown in the top-level diagram — see **Commit Behavior** below).
   - `stage=true` → one commit (`run-rgr <scenario>`) at the end.
+
+Green and Refactor in this diagram are shorthand for the claude-invoking phase. Each is implemented by three nested sub-machines applied in sequence: **Claude Retry Loop** → **Phase Timeout** → **Phase Verification** → phase commit. Those three are phase-agnostic — they apply identically to green and to refactor.
 
 ---
 
-## Sub-machine — Preamble: branch verification
+## Branch Verification
 
 `init()` resolves `baseDir`, opens the two log files, then validates the `gitBranch` parameter against the current HEAD before any subprocess is spawned. All failures emit an ERROR line to `darmok.mojo.<date>.log` and throw `MojoExecutionException` with a message that matches the log line verbatim.
 
 ```plantuml
 @startuml
-title Preamble — branch verification
+title Branch Verification
 
 [*] --> ParamCheck
 ParamCheck --> AbortUnset    : gitBranch is unset/empty
@@ -75,46 +86,51 @@ Proceed       : gitBranch value flows to the git_branch column on every metrics 
 
 AbortUnset    --> [*] : FAIL
 AbortMismatch --> [*] : FAIL
-Proceed       --> [*] : hands off to runCleanUp
+Proceed       --> [*] : hands off to Init and Cleanup
 
 @enduml
 ```
 
 Notes:
 
-- `AbortUnset` short-circuits before `git rev-parse`, so `darmok.runners.<date>.log` is **empty** for BV-1.
+- `AbortUnset` short-circuits before `git rev-parse`, so `darmok.runners.<date>.log` is empty.
 - `AbortMismatch` runs `git rev-parse --abbrev-ref HEAD` once; runner log has exactly that DEBUG line.
 - Detached HEAD collapses into `AbortMismatch` with `actualBranch="HEAD"`.
 
 ---
 
-## Sub-machine — Preamble: init + runCleanUp
+## Init and Cleanup
 
-Runs on every successful branch-verification. Deletes stale NUL-files in the parent tree and the `target/` directory, then re-creates `target/darmok/` for the two log files.
+Runs on every successful branch-verification. Opens the two dated log files (`darmok.mojo.<date>.log`, `darmok.runners.<date>.log`), deletes stale NUL-files in the parent tree, then deletes and re-creates the `target/` directory.
 
 ```plantuml
 @startuml
-title Preamble — runCleanUp
+title Init and Cleanup
 
-[*] --> DeleteNulFiles
+[*] --> OpenLogs
+OpenLogs --> DeleteNulFiles : create-or-append for today's date
 DeleteNulFiles --> DeleteTarget : logs "Deleted N NUL files"
 DeleteTarget   --> Ready        : logs "Deleted target directory"
 DeleteTarget   --> FailCleanup  : deleteDirectory throws
 FailCleanup --> [*] : FAIL "Clean up failed with exit code N"
-Ready       --> [*] : hands off to loop
+Ready       --> [*] : hands off to Scenario Loop
 
 @enduml
 ```
 
-Invariant: by the time this sub-machine exits `Ready`, both `target/darmok/darmok.mojo.<date>.log` and `target/darmok/darmok.runners.<date>.log` are present (opened by `init()`). These two files are the primary observable contract for every downstream state.
+Invariant: by the time this sub-machine exits `Ready`, both log files are present and writable. They are the primary observable contract for every downstream state.
+
+Same-day re-run: `OpenLogs` uses the date-stamped filename, so a second invocation on the same date appends to the existing log files rather than rotating. This is the observable captured by the `Init and Cleanup` asciidoc file (previously `Run RGR Multiple Runs Same Day`).
 
 ---
 
-## Sub-machine — Loop entry + scenario filter
+## Scenario Loop
+
+Walks `scenarios-list.txt` one entry at a time, skipping `NoTag` rows silently, handing regular-tag rows off to `Tag Insertion`.
 
 ```plantuml
 @startuml
-title Loop entry and scenario filter
+title Scenario Loop
 
 [*] --> ReadNext
 ReadNext --> Done         : file absent
@@ -124,59 +140,67 @@ FilterTag --> SkipNoTag   : entry.tag == "NoTag"
 FilterTag --> HandOff     : regular tag
 SkipNoTag --> RemoveEntry : logs "Skipping (NoTag)"
 RemoveEntry --> ReadNext
-HandOff   --> [*]         : hands off to TagInsert
+HandOff   --> [*]         : hands off to Tag Insertion
 Done      --> [*]         : logs "RGR Automation Complete! Total scenarios processed: N"
 
 @enduml
 ```
 
-NoTag rows are consumed silently (entry removed, no commit, no phase logs).
+Files under this sub-machine:
+
+- `Scenario Loop No Scenarios.asciidoc` — list absent · list empty · single `NoTag` entry.
+- `Scenario Loop Multiple Scenarios.asciidoc` — N ≥ 2 entries, processed in file order.
 
 ---
 
-## Sub-machine — Tag insertion
+## Tag Insertion
 
-Applies only when the scenario has a regular tag. Four observable outcomes, flows into RedPhase in all four.
+Applies only when the scenario has a regular tag. Four observable outcomes; all four flow into `Red Phase`.
 
 ```plantuml
 @startuml
-title Tag insertion (addTagToAsciidoc)
+title Tag Insertion
 
 [*] --> InspectFile
-InspectFile --> WarnMissing        : asciidoc file absent
-InspectFile --> AlreadyPresent     : target @tag already on Test-Case
+InspectFile --> WarnMissing          : asciidoc file absent
+InspectFile --> AlreadyPresent       : target @tag already on Test-Case
 InspectFile --> AppendToExistingLine : other tags present, not target
-InspectFile --> InsertNewLine      : no tag line under Test-Case
+InspectFile --> InsertNewLine        : no tag line under Test-Case
 
-WarnMissing         : WARN mojo "File not found: <file>.asciidoc"
-AlreadyPresent      : DEBUG mojo "Tag @<t> already present in file"
+WarnMissing          : WARN mojo "File not found: <file>.asciidoc"
+AlreadyPresent       : DEBUG mojo "Tag @<t> already present in file"
 AppendToExistingLine : DEBUG mojo "Added tag @<t> to file"
-InsertNewLine       : DEBUG mojo "Added tag @<t> to file"
+InsertNewLine        : DEBUG mojo "Added tag @<t> to file"
 
-WarnMissing        --> [*]
-AlreadyPresent     --> [*]
+WarnMissing          --> [*]
+AlreadyPresent       --> [*]
 AppendToExistingLine --> [*]
-InsertNewLine      --> [*]
+InsertNewLine        --> [*]
 
 @enduml
 ```
 
-All four exits hand off to RedPhase. `WarnMissing` does not abort; the red-phase mvn call will fail naturally and drop into the GreenPhase sub-machine.
+Files under this sub-machine:
+
+- `Tag Insertion Missing File.asciidoc` — `WarnMissing` transition only.
+- `Tag Insertion Tag Handling.asciidoc` — the three `Already / Append / Insert` transitions.
+
+`WarnMissing` does not abort; the subsequent red-phase mvn call will fail naturally and drop into the `Claude Retry Loop` sub-machine.
 
 ---
 
-## Sub-machine — Red phase
+## Red Phase
 
 ```plantuml
 @startuml
-title Red phase (runRgrRed)
+title Red Phase
 
 [*] --> MvnA2U
-MvnA2U --> MvnU2C : exit 0
-MvnU2C --> WriteRunner : exit 0
+MvnA2U --> MvnU2C       : exit 0
+MvnU2C --> WriteRunner  : exit 0
 WriteRunner --> MvnTest : runner source written under src/test/java/.../suites/<tag>Test.java
-MvnTest --> TestsPass : exit 0
-MvnTest --> TestsFail : exit non-zero
+MvnTest --> TestsPass   : exit 0
+MvnTest --> TestsFail   : exit non-zero
 
 TestsPass : return 100 — signal "nothing to do"
 TestsFail : return 0 — signal "proceed to green"
@@ -191,108 +215,112 @@ MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 @enduml
 ```
 
-Known gap (#285, part F): `WriteRunner` emits a `.java` file whose content is never asserted by any current Test-Case. That's the `RedPhase.generateRunnerClassContent` case the parent issue exists to fix.
+Files under this sub-machine:
+
+- `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor).
+- `Red Phase Maven Failures.asciidoc` — `MvnA2U` / `MvnU2C` / `WriteRunner` (compile) failure transitions.
+
+Known gap: `WriteRunner` emits a `.java` file whose content is not asserted by any current Test-Case — the generated runner class could silently change and all tests would still pass. This is the trigger case for the parent issue.
 
 ---
 
-## Sub-machine — Green phase (outer, retry loop)
+## Claude Retry Loop
 
-The outer loop handles retryable Anthropic API errors (500 / 529 / `Internal server error` / `overloaded`). Retries and timeouts are independent axes: retries consume `maxRetries`, timeouts consume `maxTimeoutAttempts`.
+Wraps every claude invocation inside the green phase and the refactor phase. Phase-agnostic — the diagram below uses `<phase>` as a placeholder for either. The outer loop handles retryable Anthropic API errors (`API Error: 500`, `API Error: 529`, `Internal server error`, `overloaded`). Retries and timeouts are independent axes: retries consume `maxRetries`; timeouts consume `maxTimeoutAttempts`.
 
 ```plantuml
 @startuml
-title Green phase — outer (API retry loop)
+title Claude Retry Loop (per phase)
 
-[*] --> ClaudeGreen
-ClaudeGreen --> Timeout140   : runtime > maxClaudeSeconds
-ClaudeGreen --> Retryable    : exit non-zero, stdout matches API-error pattern
-ClaudeGreen --> NonRetryable : exit non-zero, no pattern match
-ClaudeGreen --> Verify155    : exit 0
-Retryable --> ClaudeGreen    : attempt < maxRetries (WARN markers)
+[*] --> ClaudePhase
+ClaudePhase --> Timeout      : runtime > maxClaudeSeconds
+ClaudePhase --> Retryable    : exit non-zero, stdout matches API-error pattern
+ClaudePhase --> NonRetryable : exit non-zero, no pattern match
+ClaudePhase --> Verify       : exit 0
+Retryable --> ClaudePhase    : attempt < maxRetries (WARN markers)
 Retryable --> Exhaust        : attempt == maxRetries (ERROR markers)
-NonRetryable --> [*] : FAIL "rgr-green failed with exit code N"
-Exhaust      --> [*] : FAIL "rgr-green failed with exit code N"
-Timeout140   --> [*] : delegated to 140 sub-machine
-Verify155    --> [*] : delegated to 155 sub-machine
+NonRetryable --> [*] : FAIL "rgr-<phase> failed with exit code N"
+Exhaust      --> [*] : FAIL "rgr-<phase> failed with exit code N"
+Timeout      --> [*] : delegated to Phase Timeout sub-machine
+Verify       --> [*] : delegated to Phase Verification sub-machine
 
 @enduml
 ```
 
-Both `Timeout140` and `Verify155` re-enter this state machine via the 140 and 155 sub-machines below; on their successful exits, control continues to the green commit.
+Files under this sub-machine:
+
+- `Claude Retry Loop Non-Retryable.asciidoc` — `NonRetryable` transition (opaque exit codes, SIGKILL, SIGINT).
+- `Claude Retry Loop Retryable.asciidoc` — `Retryable` + `Exhaust` transitions across all four patterns, both phases.
+- `Claude Retry Loop Partial Output.asciidoc` — stdout mirroring observable on the `NonRetryable` transition: the runner log captures whatever claude printed before the failure marker.
+
+Both `Timeout` and `Verify` re-enter this state machine via the sub-machines below; on their successful exits, control continues to the phase commit.
 
 ---
 
-## Sub-machine — Green phase 140 (timeout + install-check recovery)
+## Phase Timeout
 
-`maxClaudeSeconds` bounds both the process-handle `waitFor` and the stdout reader's `join` — either hitting the bound drops into this sub-machine. Budget default: 720s (UCL of per-scenario runtime on the SPC dashboard).
+`maxClaudeSeconds` bounds both the process-handle `waitFor` and the stdout reader's `join` — either hitting the bound drops into this sub-machine. Default 720s (UCL of per-scenario runtime on the SPC dashboard).
 
 ```plantuml
 @startuml
-title Green 140 — timeout and install-check
+title Phase Timeout (per phase)
 
 [*] --> Kill
 Kill --> MvnInstall : destroyForcibly()
-MvnInstall --> Verify155 : exit 0 — killed session left working code
+MvnInstall --> Verify : exit 0 — killed session left working code
 MvnInstall --> ClaudeResume : exit non-zero, attempt < maxTimeoutAttempts
 MvnInstall --> ExhaustTimeout : exit non-zero, attempt == maxTimeoutAttempts
 ClaudeResume --> MvnInstall : claude --resume "pls continue" returns
-ExhaustTimeout --> [*] : FAIL "rgr-green timed out after N attempts"
-Verify155 --> [*] : hands off to 155
+ExhaustTimeout --> [*] : FAIL "rgr-<phase> timed out after N attempts"
+Verify --> [*] : hands off to Phase Verification
 
 @enduml
 ```
 
-Counting rule (Path 27): on exhaustion, `mvn clean install` was invoked `maxTimeoutAttempts` times and `claude --resume` exactly `maxTimeoutAttempts - 1` times — no resume after the final failing install.
+Files under this sub-machine:
 
-Reader half (Path 31): if the process handle exits but the stdout pipe stays open (Windows `claude.cmd` → grandchild `node`), the reader-side `join` trips the same `Kill` transition. Observably identical to a process-side timeout.
+- `Phase Timeout.asciidoc` — all timeout transitions, both phases, including the reader-half case (process exits but stdout pipe stays open).
+
+Counting rule: on exhaustion, `mvn clean install` was invoked `maxTimeoutAttempts` times and `claude --resume` exactly `maxTimeoutAttempts - 1` times — no resume after the final failing install.
+
+Reader-half: if the process handle exits but the stdout pipe stays open (Windows `claude.cmd` → grandchild `node`), the reader-side `join` trips the same `Kill` transition. Observably identical to a process-side timeout.
 
 ---
 
-## Sub-machine — Green phase 155 (verify + claude --resume)
+## Phase Verification
 
-`mvn clean verify` runs after every successful green claude call (including recovered timeouts). On failure, Darmok resumes the claude session with `"mvn clean verify failures should be fixed"` and re-runs verify. Bounded by `maxVerifyAttempts` (default 3). Verify happens before the green commit, so a verify failure never produces a green commit.
+`mvn clean verify` runs after every successful claude call (including recovered timeouts). On failure, Darmok resumes the claude session with `"mvn clean verify failures should be fixed"` and re-runs verify. Bounded by `maxVerifyAttempts` (default 3). Verify happens before the phase commit, so a verify failure never produces a commit for that phase.
 
 ```plantuml
 @startuml
-title Green 155 — verify loop
+title Phase Verification (per phase)
 
 [*] --> MvnVerify
-MvnVerify --> CommitGreen : exit 0
+MvnVerify --> CommitPhase : exit 0
 MvnVerify --> ClaudeResume : exit non-zero, attempt < maxVerifyAttempts
 MvnVerify --> ExhaustVerify : exit non-zero, attempt == maxVerifyAttempts
 ClaudeResume --> MvnVerify : claude --resume returns
-ExhaustVerify --> [*] : FAIL "rgr-green verify failed after N attempts"
-CommitGreen --> [*] : hands off to green commit
+ExhaustVerify --> [*] : FAIL "rgr-<phase> verify failed after N attempts"
+CommitPhase --> [*] : hands off to the phase's commit in Commit Behavior
 
 @enduml
 ```
 
-Counting rule (Path 20): on exhaustion, `mvn clean verify` was invoked `maxVerifyAttempts` times and `claude --resume` exactly `maxVerifyAttempts - 1` times.
+Files under this sub-machine:
+
+- `Phase Verification.asciidoc` — all verify transitions, both phases.
+
+Counting rule: on exhaustion, `mvn clean verify` was invoked `maxVerifyAttempts` times and `claude --resume` exactly `maxVerifyAttempts - 1` times.
 
 ---
 
-## Sub-machine — Refactor phase
+## Commit Behavior
 
-Structurally identical to green. Substitute:
-
-- Outer: `ClaudeGreen` → `ClaudeRefactor` (skill `/rgr-refactor <pipeline> <artifactId>`; `pipeline` default `forward`).
-- 140 timeout: same shape, resume prompt unchanged (`"pls continue"`).
-- 155 verify: same shape, resume prompt unchanged (`"mvn clean verify failures should be fixed"`).
-- FAIL messages swap `rgr-green` → `rgr-refactor` and `Green:` → `Refactor:` in all mojo log lines.
-
-No separate diagram — the green diagrams above are the source; refactor is a textual rename.
-
-There is no "refactor-only" path: refactor is only reached after green. The tree shape is `Red → (Green → Refactor)` or `Red alone`.
-
----
-
-## Sub-machine — Commit behavior
-
-`commitIfChanged` runs `git diff --cached --quiet` before every commit; an empty stage produces no commit (observable gap in current tests). The commit messages and counts depend on `stage` and on which phases executed.
+`commitIfChanged` runs `git diff --cached --quiet` before every commit; an empty stage produces no commit. The commit messages and counts depend on `stage` and on which phases executed.
 
 ```plantuml
 @startuml
-title Commit behavior per scenario
+title Commit Behavior
 
 state "red exit 100" as R100
 state "red exit 0, stage=false" as R0F
@@ -317,21 +345,40 @@ CommitCombined --> [*] : "run-rgr <scenario>"
 @enduml
 ```
 
-If a phase fails:
+Files under this sub-machine:
 
-- Red pass + green fail impossible (red pass short-circuits to commit).
+- `Commit Behavior Clean Workspace.asciidoc` — `commitIfChanged` skip-on-empty-stage.
+- `Commit Behavior Full Cycle.asciidoc` — per-phase vs combined commits (`stage` flag).
+- `Commit Behavior Process Charts.asciidoc` — `metrics.csv` commit-SHA column on every row.
+
+Phase-failure implications:
+
+- Red pass + green fail — impossible (red pass short-circuits to commit).
 - Red fail + green fail (non-retryable/exhausted/timeout/verify) — if `stage=false` the red commit stands; if `stage=true` nothing is committed for this scenario.
 - Red fail + green OK + refactor fail — green commit stands under `stage=false`; nothing committed under `stage=true`.
 
+`metrics.csv` row contract (one row per successful scenario, appended atomically):
+
+| Column | Source | Notes |
+|---|---|---|
+| `Timestamp` | `init()` wallclock per scenario | |
+| `GitBranch` | `gitBranch` parameter | Validated at init against `git rev-parse --abbrev-ref HEAD`. Stable across all rows of a run. |
+| `Commit` | `git rev-parse HEAD` after `CommitCombined` / `CommitRefactorF` / `Commit1` | 40-char SHA of whichever commit this scenario produced last. |
+| `Scenario` | scenario name from `scenarios-list.txt` | |
+| `PhaseRedMs` | millis elapsed in `Red Phase` | |
+| `PhaseGreenMs` | millis elapsed in `Claude Retry Loop` + `Phase Timeout` + `Phase Verification` for green | 0 when red exit 100 |
+| `PhaseRefactorMs` | same three sub-machines, refactor side | 0 when red exit 100 |
+| `PhaseTotalMs` | scenario wall-clock | |
+
 ---
 
-## Sub-machine — gen-from-comparison pre-step
+## Gen From Comparison
 
 Wraps the standard scenario iteration with one claude call per loop.
 
 ```plantuml
 @startuml
-title gen-from-comparison pre-step
+title Gen From Comparison
 
 [*] --> ClaudeComparison
 ClaudeComparison --> [*] : FAIL "rgr-gen-from-comparison failed with exit code N"
@@ -341,58 +388,15 @@ ScenarioIteration --> [*] : matches whichever phase path applies
 @enduml
 ```
 
-A comparison failure aborts before any `Processing Scenario:` / phase lines hit the log.
+Files under this sub-machine:
+
+- `Gen From Comparison.asciidoc` — skill-success (full cycle below follows) and skill-fail (abort before any `Processing Scenario:` line).
 
 ---
 
-## State → old-path-ID → asciidoc Test-Case mapping
+## Input dimensions
 
-Anchors each state transition to the `tests.md` path ID it replaced and to the existing asciidoc Test-Case that covers it (if any). Empty **Test-Case** cells are known gaps and feed the #285 audit.
-
-| State / transition | Old path | Test-Case |
-|---|---|---|
-| Preamble → AbortUnset | BV-1 | *Run RGR With Branch Verification* |
-| Preamble → AbortMismatch | BV-2, BV-3 | *Run RGR With Branch Verification* |
-| Preamble → Proceed | BV-4 | *Run RGR Full Cycle* |
-| CleanUp fresh checkout | 0a | *Run RGR With Clean Workspace* |
-| CleanUp prior artifacts | 0b | *Run RGR With Clean Workspace* |
-| CleanUp fail | 17 | *(gap — exception branch)* |
-| Loop entry — list absent | 1 | *Run RGR With No Scenarios* |
-| Loop entry — list empty | 2 | *Run RGR With No Scenarios* |
-| Scenario filter — NoTag | 3 | *Run RGR With Tag Handling* |
-| TagInsert — file absent | 4 | *Run RGR With Missing Asciidoc File* |
-| TagInsert — already present | 5 | *Run RGR With Tag Handling* |
-| TagInsert — append to existing line | 6 | *Run RGR With Tag Handling* |
-| TagInsert — insert new line | 7 | *Run RGR With Tag Handling* |
-| Red → CommitRed (exit 100) | 8 | *Run RGR With Already Passing Tests* |
-| Red → Green (exit 0), stage=false | 9 | *Run RGR Full Cycle* |
-| Red → Green (exit 0), stage=true | 10 | *Run RGR Full Cycle* |
-| Green NonRetryable | 11 | *Run RGR With Claude Failure* |
-| Green Retryable recovers | 12 | *Run RGR With Claude Retries* |
-| Green Exhaust | 13 | *Run RGR With Claude Retries* |
-| Refactor NonRetryable | 14 | *Run RGR With Claude Failure* |
-| Comparison skill OK | 15 | *Run Gen From Comparison* |
-| Comparison skill fail | 16 | *Run Gen From Comparison* |
-| 155 — verify passes | 18 | *Run RGR With Phase Verification* |
-| 155 — verify resume recovers (green) | 19 | *Run RGR With Phase Verification* |
-| 155 — verify exhaust (green) | 20 | *Run RGR With Phase Verification* |
-| 155 — verify passes (refactor) | 21 | *Run RGR With Phase Verification* |
-| 155 — verify resume recovers (refactor) | 22 | *Run RGR With Phase Verification* |
-| 155 — verify exhaust (refactor) | 23 | *Run RGR With Phase Verification* |
-| 140 — claude in budget (green) | 24 | *Run RGR With Phase Timeout* |
-| 140 — killed + install passes (green) | 25 | *Run RGR With Phase Timeout* |
-| 140 — killed + resume recovers (green) | 26 | *Run RGR With Phase Timeout* |
-| 140 — timeout exhaust (green) | 27 | *Run RGR With Phase Timeout* |
-| 140 — claude in budget (refactor) | 28 | *Run RGR With Phase Timeout* |
-| 140 — killed + resume recovers (refactor) | 29 | *Run RGR With Phase Timeout* |
-| 140 — timeout exhaust (refactor) | 30 | *Run RGR With Phase Timeout* |
-| 140 — reader-half timeout | 31 | *Run RGR With Phase Timeout* |
-| `WriteRunner` output content | (new, #285 F) | *(gap — no Test-Case asserts generated runner)* |
-| `commitIfChanged` skip-on-empty-stage | (new, observation 3) | *(gap)* |
-
----
-
-## Input dimensions (unchanged from tests.md)
+Parameters that change observable behavior:
 
 | Dimension | Values |
 |---|---|
@@ -418,23 +422,19 @@ Anchors each state transition to the `tests.md` path ID it replaced and to the e
 
 ## Observations
 
-1. **Branch-verification + init + runCleanUp are invariants** — every run passes through them. Could become a shared `Test-Setup`.
-2. **Paths 4–7 (tag variations) are orthogonal to Paths 8–14 (phase outcomes)**. Full matrix would be 4 × 7 = 28; the current shape is 4 tag specs × 1 default phase + 7 phase specs × 1 default tag = 11. The cross-product isn't worth the maintenance.
-3. **`commitIfChanged` skip-on-empty-stage** (`git diff --cached --quiet`) is a nuance not covered by any current Test-Case.
+1. **Branch Verification, Init and Cleanup are invariants** — every run passes through them. Could become a shared `Test-Setup`.
+2. **Tag Insertion and the phase sub-machines are orthogonal.** Full matrix would be 4 × 7 = 28; current shape is 4 tag specs × 1 default phase + 7 phase specs × 1 default tag = 11. The cross-product isn't worth the maintenance.
+3. **`commitIfChanged` skip-on-empty-stage** (`git diff --cached --quiet`) is covered by `Commit Behavior Clean Workspace`.
 4. **`pipeline` parameter** (`forward` / `reverse`) only changes the refactor prompt string; observable diff is limited to the `claude` runner log line.
-5. **Metrics** — every successful scenario emits four `METRIC` lines (red-maven / green / refactor / total). Consumed by `pbc-report-plantuml`, so the format is part of the contract.
-   - **`git_branch` column** — `metrics.csv` gains a stable `git_branch` column populated from the `gitBranch` param (validated at init). The SPC dashboard joins on it.
+5. **Metrics** — every successful scenario emits four `METRIC` log lines plus a `metrics.csv` row. Consumed by `pbc-report-plantuml`, so the format is part of the contract. See **Commit Behavior** for the row shape.
 6. **`LOG_PATH` env var** — if set, logs land elsewhere. One spec covering "LOG_PATH set" is enough.
 7. **No refactor-only path** — tree shape is `Red → (Green → Refactor)` or `Red alone`.
-8. **Verify is a sub-step, not a phase** — 155 lives inside green and inside refactor, not beside them. Phase paths that succeed (9, 10, 12, 26) transitively include the Path 18 verify assertions.
-9. **Timeout is a sub-step, also inside each phase** — 140 order: claude (bounded by `maxClaudeSeconds`) → timeout-recovery loop → 155 verify loop → commit. Timeouts are not API errors and don't consume `maxRetries`.
+8. **Phase Verification is a sub-step, not a phase** — it lives inside green and inside refactor, after the Claude Retry Loop and Phase Timeout sub-machines have reached exit 0.
+9. **Phase Timeout is also a sub-step** — order within each phase is: Claude Retry Loop → Phase Timeout (only fires if the claude call exceeded `maxClaudeSeconds`) → Phase Verification → phase commit. Timeouts are not API errors and don't consume `maxRetries`.
 10. **`maxClaudeSeconds` source** — default 720 comes from the UCL of the per-scenario runtime distribution on the SPC dashboard. When grafana becomes queryable from the plugin (future issue), this property becomes the fallback for "grafana unavailable", not the default value.
-11. **RedPhase.generateRunnerClassContent** — the runner `.java` produced by `WriteRunner` is written to disk but never read back by any current Test-Case. This is the known gap that spawned [#285](https://github.com/farhan5248/sheep-dog-main/issues/285).
 
 ---
 
 ## Notes
 
-- Anchors (`BV-1`, `Path 5`, etc.) are retained for traceability during the migration; once all audit follow-ups from #285 have landed they can be dropped in favour of state names.
 - Regenerate when `DarmokMojo` or its helpers gain a new branch point. The file is the model; the code is the ground truth.
-- Parent issues: [#292](https://github.com/farhan5248/sheep-dog-main/issues/292), [#285](https://github.com/farhan5248/sheep-dog-main/issues/285).
