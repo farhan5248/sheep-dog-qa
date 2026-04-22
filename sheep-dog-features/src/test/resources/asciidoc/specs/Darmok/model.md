@@ -32,37 +32,62 @@ Overview is navigation-only. It has no dedicated asciidoc file — every transit
 @startuml
 title Overview
 
-[*] --> Init
-Init --> CleanUp : gitBranch matches HEAD
-CleanUp --> LoopEntry : target/ cleared
-LoopEntry --> ComparisonSkill : goal = gen-from-comparison
-LoopEntry --> NextScenario   : goal = gen-from-existing
-ComparisonSkill --> NextScenario : skill exit 0
-NextScenario --> Done          : scenarios-list empty / absent
-NextScenario --> ProcessScenario : entry read
-ProcessScenario --> NextScenario : entry.tag == NoTag
-ProcessScenario --> TagInsert    : regular tag
-TagInsert --> RedPhase
-RedPhase  --> CommitRed  : red exit 100 (already passing)
-RedPhase  --> GreenPhase : red exit 0 (tests failing)
-GreenPhase    --> RefactorPhase : phase OK
-RefactorPhase --> CommitAll     : phase OK
-CommitRed --> NextScenario
-CommitAll --> NextScenario
-Done --> [*]
+state "Branch Verification" as BranchVerification
+state "Init and Cleanup" as InitAndCleanup
+state "Scenario Loop" as ScenarioLoop
+state "Gen From Comparison" as GenFromComparison
+state "Tag Insertion" as TagInsertion
+state "Red Phase" as RedPhase
+state "Commit Behavior" as CommitBehavior
+
+state "green phase" as Green {
+  state "Claude Retry Loop" as GreenClaudeRetryLoop
+  state "Phase Timeout" as GreenPhaseTimeout
+  state "Phase Verification" as GreenPhaseVerification
+  [*] --> GreenClaudeRetryLoop
+  GreenClaudeRetryLoop --> GreenPhaseTimeout : runtime > maxClaudeSeconds
+  GreenClaudeRetryLoop --> GreenPhaseVerification : claude exit 0
+  GreenPhaseTimeout --> GreenPhaseVerification : install passes
+  GreenPhaseVerification --> [*] : verify passes
+}
+
+state "refactor phase" as Refactor {
+  state "Claude Retry Loop" as RefactorClaudeRetryLoop
+  state "Phase Timeout" as RefactorPhaseTimeout
+  state "Phase Verification" as RefactorPhaseVerification
+  [*] --> RefactorClaudeRetryLoop
+  RefactorClaudeRetryLoop --> RefactorPhaseTimeout : runtime > maxClaudeSeconds
+  RefactorClaudeRetryLoop --> RefactorPhaseVerification : claude exit 0
+  RefactorPhaseTimeout --> RefactorPhaseVerification : install passes
+  RefactorPhaseVerification --> [*] : verify passes
+}
+
+[*] --> BranchVerification
+BranchVerification --> InitAndCleanup : gitBranch matches HEAD
+InitAndCleanup --> ScenarioLoop : target/ cleared
+ScenarioLoop --> GenFromComparison : goal = gen-from-comparison
+GenFromComparison --> ScenarioLoop : skill exit 0
+ScenarioLoop --> TagInsertion : regular-tag entry
+ScenarioLoop --> [*] : scenarios-list empty / absent
+TagInsertion --> RedPhase
+RedPhase --> CommitBehavior : red exit 100 (already passing)
+RedPhase --> Green : red exit 0 (tests failing)
+Green --> Refactor : green phase OK
+Refactor --> CommitBehavior : refactor phase OK
+CommitBehavior --> ScenarioLoop
 
 @enduml
 ```
 
+Every node is a sub-machine (by name). The two composite states `green phase` and `refactor phase` group the three sub-machines (`Claude Retry Loop`, `Phase Timeout`, `Phase Verification`) that run in sequence per phase. Lower-case `phase` is deliberate — those composites are not themselves sub-machines, they're just sequencing annotations over the three that are.
+
 Guards on the happy path:
 
-- `Init → CleanUp` assumes `gitBranch` param is set and equals `git rev-parse --abbrev-ref HEAD`.
-- `RedPhase → CommitRed` fires on exit 100 (src/main already implements the tag) — green and refactor are skipped; commit message `run-rgr red <scenario>`.
-- `RefactorPhase → CommitAll` fires on exit 0. Commit shape depends on `stage`:
-  - `stage=false` → three commits (`run-rgr red|green|refactor <scenario>`), interleaved with the phase transitions (not shown in the top-level diagram — see **Commit Behavior** below).
+- `BranchVerification → InitAndCleanup` assumes the `gitBranch` param is set and equals `git rev-parse --abbrev-ref HEAD`.
+- `RedPhase → CommitBehavior` (exit 100 branch) fires when src/main already implements the tag — both phases skipped; commit message `run-rgr red <scenario>`.
+- `Refactor → CommitBehavior` commit shape depends on `stage`:
+  - `stage=false` → three commits (`run-rgr red|green|refactor <scenario>`), interleaved with each phase's exit (not shown — see **Commit Behavior** below).
   - `stage=true` → one commit (`run-rgr <scenario>`) at the end.
-
-Green and Refactor in this diagram are shorthand for the claude-invoking phase. Each is implemented by three nested sub-machines applied in sequence: **Claude Retry Loop** → **Phase Timeout** → **Phase Verification** → phase commit. Those three are phase-agnostic — they apply identically to green and to refactor.
 
 ---
 
