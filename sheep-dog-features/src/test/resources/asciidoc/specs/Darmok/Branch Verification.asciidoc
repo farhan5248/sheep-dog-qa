@@ -17,7 +17,7 @@ File: ProcessDarmok
     Tag: loginHappyPath
 ----
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
 | GitBranch
 | Empty
@@ -44,13 +44,13 @@ File: ProcessDarmok
     Tag: loginHappyPath
 ----
 
-=== And: The darmok plugin gen-from-existing goal git command is executed to report the current branch
+=== And: The darmok plugin gen-from-existing goal git command is executed and succeeds with
 |===
-| GitBranch
-| main
+| Command Parameters          | GitBranch
+| rev-parse --abbrev-ref HEAD | main
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
 | GitBranch
 | Rebuild30

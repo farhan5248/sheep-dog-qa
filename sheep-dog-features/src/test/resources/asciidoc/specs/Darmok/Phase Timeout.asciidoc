@@ -32,7 +32,7 @@ The first claude invocation hangs past the 1-second timeout and gets destroyed. 
 
 === Given: The darmok plugin gen-from-existing goal claude /rgr-green command is hung until killed
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2
@@ -69,7 +69,7 @@ First claude hangs and is killed. First install fails (killed session left incom
 | 2       | 0
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2
@@ -101,7 +101,7 @@ Every claude call — the initial one and every resume — is killed by the time
 
 === Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails on every call in the green phase
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2
@@ -129,7 +129,7 @@ Symmetric with the green-phase resume-recovery case, proving the timeout loop li
 | 2       | 0
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2
@@ -162,7 +162,7 @@ Every refactor claude call is killed and every refactor install fails, so the go
 
 === Given: The darmok plugin gen-from-existing goal mvn clean install command is executed and fails on every call in the refactor phase
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2
@@ -181,7 +181,7 @@ Covers issue 290. The claude subprocess signals exit promptly (`process.waitFor`
 
 === Given: The darmok plugin gen-from-existing goal claude /rgr-green command is exited but its stdout stays open
 
-=== When: The darmok plugin gen-from-existing goal is executed with
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
 | 1                | 2

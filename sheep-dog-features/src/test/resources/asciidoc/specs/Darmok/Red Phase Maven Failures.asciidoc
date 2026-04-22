@@ -32,7 +32,7 @@ The first red-phase maven invocation fails (e.g. the AsciiDoc API service is unr
 | 1    | svc unreachable: connection refused
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
@@ -50,7 +50,7 @@ The second red-phase maven invocation fails (e.g. the Cucumber gen service rate-
 | 1    | TooManyRequests: upstream rate limit
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===
@@ -68,7 +68,7 @@ The red phase writes a cucumber runner class (`<Tag>Test.java`) and then runs `m
 | 1    | COMPILATION ERROR : [ERROR] /suites/loginHappyPathTest.java:[3,1] cannot find symbol
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===

@@ -1,13 +1,13 @@
 = Step-Object: gen-from-existing goal
 
-== Step-Definition: claude /rgr-green command is executed and successful after retries
+== Step-Definition: claude /rgr-green command is executed and succeeds with
 
 === Step-Parameters: Pattern
 |===
 | Pattern
 |===
 
-== Step-Definition: claude /rgr-green command is executed but failed non-retryably
+== Step-Definition: claude /rgr-green command is executed but fails with
 
 === Step-Parameters: Exit
 |===
@@ -18,8 +18,6 @@
 |===
 | Exit | Output
 |===
-
-== Step-Definition: claude /rgr-green command is executed but fails after reaching retry limit
 
 === Step-Parameters: Pattern
 |===
@@ -34,7 +32,7 @@
 
 == Step-Definition: claude /rgr-green command is hung until killed
 
-== Step-Definition: claude /rgr-refactor command is executed and successful after retries
+== Step-Definition: claude /rgr-refactor command is executed and succeeds with
 
 === Step-Parameters: Pattern
 |===
@@ -45,18 +43,40 @@
 
 == Step-Definition: claude /rgr-refactor command is hung on first call then completed on resume
 
-== Step-Definition: git command is executed to report the current branch
+== Step-Definition: git command is executed and succeeds with
+
+=== Step-Parameters: Command Parameters
+|===
+| Command Parameters
+|===
+
+=== Step-Parameters: Command Parameters, GitBranch
+|===
+| Command Parameters | GitBranch
+|===
+
+== Step-Definition: is executed and succeeds
+
+== Step-Definition: is executed and succeeds with
 
 === Step-Parameters: GitBranch
 |===
 | GitBranch
 |===
 
-== Step-Definition: git command is executed to verify the workspace is clean
+=== Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts
+|===
+| MaxClaudeSeconds | MaxTimeoutAttempts
+|===
 
-== Step-Definition: is executed
+=== Step-Parameters: ModelGreen, ModelRefactor, Stage
+|===
+| Stage | ModelGreen | ModelRefactor
+|===
 
-== Step-Definition: is executed with
+== Step-Definition: is executed but fails
+
+== Step-Definition: is executed but fails with
 
 === Step-Parameters: GitBranch
 |===

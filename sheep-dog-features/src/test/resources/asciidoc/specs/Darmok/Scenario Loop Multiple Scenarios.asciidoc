@@ -21,7 +21,7 @@ File: ProcessDarmok
 
 === And: The code-prj project src/main/java/org/farhan/objects/LogoutHappyPath.java file is created
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project scenarios-list.txt file will be empty
 

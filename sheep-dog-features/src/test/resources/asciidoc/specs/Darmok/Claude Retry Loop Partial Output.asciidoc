@@ -28,13 +28,13 @@ Some description
 
 Claude writes stdout and then the process exits 137 (e.g. killed by the OS). The stdout must appear in the runner log before the failure marker. If the streamed reader were to drop data on failure, downstream diagnostics would be blind to what claude was doing just before the kill.
 
-=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is executed but failed non-retryably
+=== Given: The darmok plugin gen-from-existing goal claude /rgr-green command is executed but fails with
 |===
 | Exit | Output
 | 137  | partial output before the kill
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.runners.log file will be as follows with this failure
 |===

@@ -18,7 +18,7 @@ File: ProcessDarmok
 
 === And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file isn't created
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project scenarios-list.txt file is created as follows
 ----

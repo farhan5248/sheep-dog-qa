@@ -28,7 +28,7 @@ Some description
 
 Default happy path for the green phase. Claude generates a correct impl, `mvn clean verify` passes on the first try, and the scenario proceeds into refactor. Pins down the new `Green: Verify running` log line and the `mvn clean verify` subprocess so a regression that drops the verify sub-step is caught explicitly, not just implied by Run RGR Full Cycle's phase-level assertions.
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -49,7 +49,7 @@ Default happy path for the green phase. Claude generates a correct impl, `mvn cl
 
 Symmetric with the green-verify happy-path case. Confirms verify runs inside refactor too — the sub-step is not accidentally bound to green.
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -76,7 +76,7 @@ The first `mvn clean verify` after green returns non-zero. Darmok logs a WARN, i
 | Green
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -105,7 +105,7 @@ Every `mvn clean verify` in the green phase returns non-zero. Darmok retries up 
 | Green
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
 |===
@@ -128,7 +128,7 @@ Symmetric with the green-phase recovery case. Proves the resume loop is phase-pa
 | Refactor
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -157,7 +157,7 @@ Symmetric with the green-phase exhaustion case. No refactor commit is made; the 
 | Refactor
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed
+=== When: The darmok plugin gen-from-existing goal is executed but fails
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
 |===

@@ -1,6 +1,6 @@
 = Step-Object: gen-from-comparison goal
 
-== Step-Definition: is executed with
+== Step-Definition: is executed and succeeds with
 
 === Step-Parameters: ModelComparison, ModelGreen, ModelRefactor
 |===
