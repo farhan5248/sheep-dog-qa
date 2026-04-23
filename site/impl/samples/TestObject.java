@@ -253,6 +253,12 @@ public abstract class TestObject {
         }
     }
 
+    /**
+     * Wraps the Impl getter's return value in a store map for the assertion loop.
+     * Default: {@code {"default": value}}. When the value is a uuid-token key populated
+     * by {@link #setUuidProperty}, returns that key's pre-populated multi-store map
+     * instead. See arch-test.md § Multi-store assertions.
+     */
     @SuppressWarnings("unchecked")
     private static Map<String, String> toStoreMap(Object returnValue) {
         if (returnValue instanceof String key) {
@@ -267,6 +273,11 @@ public abstract class TestObject {
         return stores;
     }
 
+    /**
+     * Stashes a store-labeled value under {@code uuid} for multi-store Impl getters.
+     * The Impl calls this once per store, then returns {@code uuid} as its result;
+     * {@link #toStoreMap} retrieves the map and drives the comparison loop.
+     */
     @SuppressWarnings("unchecked")
     protected static void setUuidProperty(String uuid, String store, String value) {
         Map<String, String> stores = (Map<String, String>) properties.get(uuid);

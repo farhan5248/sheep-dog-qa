@@ -4,6 +4,10 @@ This file specifies the handcrafted contract every `{ObjectName}{ObjectType}Impl
 
 ## Impl class contract
 
+### Why the rules below exist
+
+Impl classes are AI-generated. A model that cheats by hardcoding return values could pass every assertion it made — so the framework does not let Impls assert. Impls supply values; `TestObject` performs all comparisons (`assertEquals`, `assertNotNull`, …) and is the sole arbiter of test outcome. The rules in this section exist to keep Impls narrow enough that their trust surface stays small.
+
 ### Extend the bounded-context TestObject
 
 An impl class must extend the TestObject subclass for its project's bounded context, never `TestObject` directly. The subclass is chosen from the hierarchy in [../arch/arch-test.md](../arch/arch-test.md).
@@ -65,6 +69,28 @@ The impl for a file-like object simply returns the file body (or `null` if missi
 **Content inspection** — per-column getters like `getContent`, `getLevel`, `getCategory`. These are what `processInputOutputsTable` and `processInputOutputsText` call. They differ per impl because the shape of what is being inspected differs (a file body vs a log entry vs a dialog field).
 
 Do not conflate the two. The existence gate is boilerplate; the content inspection carries the domain-specific shape.
+
+## Multi-store getters (uuid-token carrier)
+
+A content-inspection getter that needs to cross-check against a second backing source (for trust/forgery-detection, not a domain-observable output) uses the uuid-token pattern from [../arch/arch-test.md § Multi-store assertions](../arch/arch-test.md#multi-store-assertions). Shape:
+
+```java
+@Override
+public String getContent(HashMap<String, String> keyMap) {
+    String uuid = this.toString();
+    setUuidProperty(uuid, "default", primarySource.matchAndGetContent(keyMap));
+    if (isCrossCheckableRow(keyMap)) {
+        setUuidProperty(uuid, "eventlog", secondarySource.matchAndGetContent(keyMap));
+    }
+    return uuid;
+}
+```
+
+The framework's `toStoreMap` recognizes the returned uuid as a `properties` key, retrieves the store map, and iterates. One spec cell constrains every store the Impl populated.
+
+Gating the secondary `setUuidProperty` call (via a `keyMap` predicate) is how an Impl opts rows in or out of the cross-check. Rows that opt out stay single-store and pass if the primary source agrees — the secondary is simply not consulted.
+
+If instead each source is a domain-observable output the spec should talk about, model each as its own `FileImpl` / sibling Impl with its own Then-step table. Fan-out inside one Impl is for backend-only cross-checks.
 
 ## Maven-scoped: getContent delegation
 
