@@ -71,6 +71,11 @@
 
 == Step-Definition: is executed and succeeds with
 
+=== Step-Parameters: BaselineVerifyEnabled
+|===
+| BaselineVerifyEnabled
+|===
+
 === Step-Parameters: ClaudeSessionIdEnabled
 |===
 | ClaudeSessionIdEnabled
@@ -94,6 +99,11 @@
 == Step-Definition: is executed but fails
 
 == Step-Definition: is executed but fails with
+
+=== Step-Parameters: BaselineVerifyEnabled
+|===
+| BaselineVerifyEnabled
+|===
 
 === Step-Parameters: GitBranch
 |===
@@ -133,6 +143,13 @@
 === Step-Parameters: Attempt, Exit
 |===
 | Attempt | Exit
+|===
+
+== Step-Definition: mvn clean install command is executed but fails with
+
+=== Step-Parameters: Phase
+|===
+| Phase
 |===
 
 == Step-Definition: mvn clean verify command is executed but fails for all attempts

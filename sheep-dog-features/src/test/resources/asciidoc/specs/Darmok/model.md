@@ -34,6 +34,7 @@ title Overview
 
 state "Branch Verification" as BranchVerification
 state "Init and Cleanup" as InitAndCleanup
+state "Baseline Verification" as BaselineVerification
 state "Scenario Loop" as ScenarioLoop
 state "Gen From Comparison" as GenFromComparison
 state "Tag Insertion" as TagInsertion
@@ -68,7 +69,8 @@ state "refactor phase" as Refactor {
 
 [*] --> BranchVerification
 BranchVerification --> InitAndCleanup : gitBranch matches HEAD
-InitAndCleanup --> ScenarioLoop : target/ cleared
+InitAndCleanup --> BaselineVerification : target/ cleared
+BaselineVerification --> ScenarioLoop : mvn clean install exit 0\n(or flag off)
 ScenarioLoop --> GenFromComparison : goal = gen-from-comparison
 GenFromComparison --> ScenarioLoop : skill exit 0
 ScenarioLoop --> TagInsertion : regular-tag entry
@@ -150,6 +152,43 @@ Ready       --> [*] : hands off to Scenario Loop
 Invariant: by the time this sub-machine exits `Ready`, both log files are present and writable. They are the primary observable contract for every downstream state.
 
 Same-day re-run: `OpenLogs` uses the date-stamped filename, so a second invocation on the same date appends to the existing log files rather than rotating. This is the observable captured by the `Init and Cleanup` asciidoc file (previously `Run RGR Multiple Runs Same Day`).
+
+---
+
+## Baseline Verification
+
+Runs after `Init and Cleanup` (so `target/` has been cleared) and before the scenario loop reads `scenarios-list.txt`. Invokes `mvn clean install` in the target project's `baseDir` to confirm the working state is green before any scenario commits land on top of it. A non-zero exit emits an ERROR line to `darmok.mojo.<date>.log` and throws `MojoExecutionException`; `metrics.csv` is never opened, matching the Branch Verification abort invariant.
+
+Gated by the `baselineVerifyEnabled` maven parameter (issue #312). Pass-1 rollout ships with the default `false` so every pre-existing spec continues to pass without changes; the two GH312 Test-Cases explicitly set the flag `true` in their When step. Pass 2 flips the default to `true` and sweeps the other specs — tracked separately.
+
+```plantuml
+@startuml
+title Baseline Verification
+
+[*] --> CheckFlag
+CheckFlag --> Skip        : baselineVerifyEnabled = false
+CheckFlag --> MvnInstall  : baselineVerifyEnabled = true
+MvnInstall --> Proceed    : exit 0
+MvnInstall --> AbortFail  : exit non-zero
+
+AbortFail : ERROR mojo "Baseline build failed. Aborting."
+
+Skip      --> [*] : hands off to Scenario Loop
+Proceed   --> [*] : hands off to Scenario Loop
+AbortFail --> [*] : FAIL
+
+@enduml
+```
+
+Notes:
+
+- `Skip` is observable-empty: no mvn subprocess fires, no runner-log entry, no mojo-log entry. Every existing spec (which doesn't set the flag) takes this transition.
+- `Proceed` runs exactly one `mvn clean install` subprocess — runner log captures the DEBUG invocation line; mojo log is silent on success.
+- `AbortFail` fires before any scenario is read, so `scenarios-list.txt` state is irrelevant and `metrics.csv` stays absent.
+
+Files under this sub-machine:
+
+- `Baseline Verification.asciidoc` — both flag-on transitions (`Proceed`, `AbortFail`).
 
 ---
 
@@ -473,6 +512,7 @@ Parameters that change observable behavior:
 | Dimension | Values |
 |---|---|
 | `gitBranch` param | unset · matches HEAD · mismatches HEAD · detached HEAD |
+| `baselineVerifyEnabled` param | `false` (pass-1 default — sub-machine skipped) · `true` · baseline exit 0 · baseline exit non-zero |
 | `scenariosFile` state | absent · empty · N entries |
 | `scenario.tag` | `NoTag` · regular |
 | asciidoc file state | missing · target tag present · other tags present · no tag line |
