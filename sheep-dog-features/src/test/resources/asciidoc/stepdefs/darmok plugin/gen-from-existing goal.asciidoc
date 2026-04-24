@@ -101,6 +101,11 @@
 | Stage | ModelGreen | ModelRefactor
 |===
 
+=== Step-Parameters: RefactorSessionMode
+|===
+| RefactorSessionMode
+|===
+
 == Step-Definition: is executed but fails
 
 == Step-Definition: is executed but fails with

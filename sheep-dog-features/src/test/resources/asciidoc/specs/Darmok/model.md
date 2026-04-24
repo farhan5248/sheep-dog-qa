@@ -298,6 +298,8 @@ Wraps every claude invocation inside the green phase and the refactor phase. Pha
 
 Session ID (issue #311): before the first call of the phase, Darmok generates a fresh UUID and passes it on the initial `claude --print` invocation as `--session-id <uuid>`. The UUID is captured on the per-phase `ClaudeRunner` instance (green and refactor each have their own) and reused by every `--resume` in the downstream sub-machines (Phase Timeout, Directory Allowlist, Phase Verification) as `claude --resume <uuid> <message>`. The Claude CLI requires a valid session ID when `--resume` is combined with `--print`; without the pre-generated ID, every resume call rejects in ~1.5s and burns a recovery attempt. Retried initial calls (the `Retryable --> ClaudePhase` loop edge) re-send the same UUID — session creation is idempotent on the CLI side.
 
+Refactor-phase session handling is further parameterized by `refactorSessionMode` (issue #287) — in `continue` mode the refactor `ClaudeRunner` reuses green's UUID instead of generating a fresh one, and a `/compact` resume fires before refactor's first timed call. See **Refactor Session Mode** below.
+
 ```plantuml
 @startuml
 title Claude Retry Loop (per phase)
@@ -424,6 +426,42 @@ Resume call (issue #311): `claude --resume <session-id> "mvn clean verify failur
 
 ---
 
+## Refactor Session Mode
+
+Refactor-only sub-machine. Decides whether the refactor `ClaudeRunner` starts a fresh Claude session (today's behavior — separate UUID from green) or continues the green session (reuse green's UUID, scoping refactor's review to the files green just touched). Gated by the `refactorSessionMode` maven parameter (issue #287). Pass-1 rollout ships with default `fresh` so every pre-existing spec continues to pass without changes; the GH287 Test-Cases explicitly set the parameter to `continue` in their When step. Pass 2 flips the default and sweeps the other specs — tracked separately.
+
+```plantuml
+@startuml
+title Refactor Session Mode
+
+[*] --> CheckMode
+CheckMode --> Fresh    : refactorSessionMode = fresh
+CheckMode --> Continue : refactorSessionMode = continue
+Fresh    --> InitFresh    : ClaudeRunner generates new UUID
+Continue --> Compact      : reuse green's UUID
+Compact  --> InitContinue : claude --resume <green-uuid> /compact returns (not timed)
+InitFresh    --> [*] : refactor's Claude Retry Loop starts with --session-id <refactor-uuid>
+InitContinue --> [*] : refactor's Claude Retry Loop starts with --resume <green-uuid> /rgr-refactor
+
+@enduml
+```
+
+Notes:
+
+- `Fresh` is observable-empty beyond the existing refactor session-id observables already pinned down by `Claude Retry Loop Session ID.asciidoc`. Every pre-existing spec takes this transition because the parameter default is `fresh`.
+- `Continue` adds exactly one extra `claude --resume <green-uuid> /compact` line to `darmok.runners.<date>.log` immediately before refactor's first `/rgr-refactor` call. The compact call carries green's UUID, not a fresh refactor UUID.
+- In `Continue`, refactor's first timed claude invocation is `claude --resume <green-uuid> --print --dangerously-skip-permissions --model sonnet /rgr-refactor <pipeline> code-prj` — there is no `--session-id` flag and no separate refactor UUID, because the runner is reusing green's session.
+- The `/compact` call is **not timed** — `phase_refactor_ms` starts after compact returns. Compact runtime is logged in the runner log (DEBUG line) but excluded from the metrics row.
+- Every downstream refactor sub-machine (Phase Timeout, Directory Allowlist, Phase Verification) reuses green's UUID for its `--resume` calls in `Continue` mode, since the refactor `ClaudeRunner` captured green's UUID rather than generating its own.
+
+Files under this sub-machine:
+
+- `Refactor Session Mode.asciidoc` — `Continue` transitions only (initial call uses green's UUID after `/compact`; downstream resume reuses green's UUID).
+
+`Fresh` is covered by the existing session-id spec.
+
+---
+
 ## Commit Behavior
 
 `commitIfChanged` runs `git diff --cached --quiet` before every commit; an empty stage produces no commit. The commit messages and counts depend on `stage` and on which phases executed.
@@ -520,6 +558,7 @@ Parameters that change observable behavior:
 | green outcome | success · non-retryable fail · retryable-recover · retryable-exhaust |
 | refactor outcome | success · fail (mirrors green axes) |
 | `stage` | `true` (combined commit) · `false` (per-phase commits) |
+| `refactorSessionMode` | `fresh` (pass-1 default — refactor generates its own UUID) · `continue` (reuse green's UUID after un-timed `/compact`) |
 | `pipeline` | `forward` · `reverse` (refactor prompt only) |
 | `onlyChanges` | `true` · `false` (svc-plugin goals only) |
 | `LOG_PATH` env | unset (`target/darmok/`) · set |

@@ -1,0 +1,78 @@
+= Test-Suite: Refactor Session Mode
+
+@darmok-maven-plugin
+
+The refactor phase normally starts a fresh Claude session — its `ClaudeRunner` generates its own UUID, distinct from green's, and pays the full review cost of re-reading the project to find UML violations. The `refactorSessionMode` maven parameter lets the refactor `ClaudeRunner` instead reuse green's UUID so the review is naturally scoped to the files green just touched. When mode is `continue`, an un-timed `/compact` resume on green's session fires before refactor's first timed call so the metric `phase_refactor_ms` measures refactor work only. See issue 287 for the motivation.
+
+The maven parameter `refactorSessionMode` defaults to `fresh` (current behavior — green and refactor each have their own session, pinned down by `Claude Retry Loop Session ID.asciidoc`). These GH287 Test-Cases explicitly set the parameter to `continue` in their When step. Pass 2 will flip the default and sweep the other specs — tracked separately.
+
+The UUID supplier is the same injected seam introduced in issue 311 (`Supplier<String>` on `ClaudeRunner`). In `continue` mode the supplier is consumed exactly once for the whole scenario — green's initial call — and refactor reuses that captured value rather than calling the supplier again. Test default:
+
+- Green phase UUID: `00000000-0000-0000-0000-000000000001`
+- Refactor phase UUID in `continue` mode: same as green — `00000000-0000-0000-0000-000000000001`
+
+== Test-Setup: A failing scenario that reaches both phases
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Continue mode runs compact then starts refactor on green session
+
+In `continue` mode, refactor's first observable claude line is a `/compact` resume on green's UUID, followed immediately by `/rgr-refactor` carried by `--resume <green-uuid>` rather than `--session-id <fresh-uuid>`. Pins down two observables together because they appear in the same runner-log sequence: the compact preamble, and the absence of a fresh refactor UUID on the initial refactor call.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| RefactorSessionMode
+| continue
+|===
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /compact
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+|===
+
+== Test-Case: Continue mode refactor verify-fail resume stays on green session
+
+After a failed `mvn clean verify` during the refactor phase, the resume call carries `--resume <green-uuid>` — the same UUID green used. Proves that the `continue`-mode capture flows through every downstream refactor sub-machine (Phase Verification here, transitively Phase Timeout and Directory Allowlist), not just the initial `/rgr-refactor` call.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails once then succeeds
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| RefactorSessionMode
+| continue
+|===
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Running: mvn clean verify
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /compact
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Running: mvn clean verify
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet mvn clean verify failures should be fixed
+| DEBUG | runner   | Running: mvn clean verify
+|===
