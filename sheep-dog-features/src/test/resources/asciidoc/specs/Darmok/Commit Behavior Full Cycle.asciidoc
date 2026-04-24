@@ -81,9 +81,10 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 
 == Test-Case: Red fails, green and refactor succeed, single combined commit
 
-With `stage` set to true, Darmok still runs all three phases but only commits once at the end of the scenario with a combined `run-rgr <scenario>` message.
-The intent is for continuous-integration runs where intermediate Red / Green states aren't interesting to reviewers — the per-scenario commit is the reviewable unit of work.
-Intermediate `Red: Committing` and `Green: Committing` markers are absent from the mojo log because those commits never happen in staged mode.
+With `stage` set to true, Darmok produces one commit per scenario with a `run-rgr <scenario>` message ? unchanged as an observable outcome.
+Internally the shape shifts per issue 141: red commits first (with the stage-combined message), green skips its commit, and refactor amends red's commit with `git commit --amend --no-edit`.
+This way the working tree between phases is never polluted with accumulated red+green+refactor output ? each phase's downstream gates (allowlist, verify) see only that phase's delta.
+A `Red: Committing` marker now appears in the mojo log; `Green: Committing` is still absent because green does not commit under staged mode; `Refactor: Committing` logs the amend.
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
@@ -102,6 +103,7 @@ Intermediate `Red: Committing` and `Green: Committing` markers are absent from t
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
 | DEBUG | mojo     | Added tag @loginHappyPath to file
 | INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Red: Committing
 | INFO  | mojo     | Green: Running...
 | INFO  | mojo     | Refactor: Running...
 | INFO  | mojo     | Refactor: Committing
@@ -116,10 +118,11 @@ Intermediate `Red: Committing` and `Green: Committing` markers are absent from t
 | DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-guice -Dtags=loginHappyPath -Dhost=dev.sheepdog.io -DonlyChanges=true
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
 | DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
 | DEBUG | runner   | Running: git add .
-| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
+| DEBUG | runner   | Running: git commit --amend --no-edit
 |===
 

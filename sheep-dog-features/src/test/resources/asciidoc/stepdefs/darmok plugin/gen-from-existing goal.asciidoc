@@ -43,6 +43,18 @@
 
 == Step-Definition: claude /rgr-refactor command is hung on first call then completed on resume
 
+== Step-Definition: claude command is executed and succeeds with
+
+=== Step-Parameters: Attempt, Command Parameters, Path
+|===
+| Command Parameters | Attempt | Path
+|===
+
+=== Step-Parameters: Command Parameters, Path
+|===
+| Command Parameters | Path
+|===
+
 == Step-Definition: git command is executed and succeeds with
 
 === Step-Parameters: Command Parameters

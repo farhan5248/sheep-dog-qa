@@ -43,22 +43,26 @@ state "Commit Behavior" as CommitBehavior
 state "green phase" as Green {
   state "Claude Retry Loop" as GreenClaudeRetryLoop
   state "Phase Timeout" as GreenPhaseTimeout
+  state "Directory Allowlist" as GreenDirectoryAllowlist
   state "Phase Verification" as GreenPhaseVerification
   [*] --> GreenClaudeRetryLoop
   GreenClaudeRetryLoop --> GreenPhaseTimeout : runtime > maxClaudeSeconds
-  GreenClaudeRetryLoop --> GreenPhaseVerification : claude exit 0
-  GreenPhaseTimeout --> GreenPhaseVerification : install passes
+  GreenClaudeRetryLoop --> GreenDirectoryAllowlist : claude exit 0
+  GreenPhaseTimeout --> GreenDirectoryAllowlist : install passes
+  GreenDirectoryAllowlist --> GreenPhaseVerification : paths within allowlist
   GreenPhaseVerification --> [*] : verify passes
 }
 
 state "refactor phase" as Refactor {
   state "Claude Retry Loop" as RefactorClaudeRetryLoop
   state "Phase Timeout" as RefactorPhaseTimeout
+  state "Directory Allowlist" as RefactorDirectoryAllowlist
   state "Phase Verification" as RefactorPhaseVerification
   [*] --> RefactorClaudeRetryLoop
   RefactorClaudeRetryLoop --> RefactorPhaseTimeout : runtime > maxClaudeSeconds
-  RefactorClaudeRetryLoop --> RefactorPhaseVerification : claude exit 0
-  RefactorPhaseTimeout --> RefactorPhaseVerification : install passes
+  RefactorClaudeRetryLoop --> RefactorDirectoryAllowlist : claude exit 0
+  RefactorPhaseTimeout --> RefactorDirectoryAllowlist : install passes
+  RefactorDirectoryAllowlist --> RefactorPhaseVerification : paths within allowlist
   RefactorPhaseVerification --> [*] : verify passes
 }
 
@@ -87,7 +91,7 @@ Guards on the happy path:
 - `RedPhase → CommitBehavior` (exit 100 branch) fires when src/main already implements the tag — both phases skipped; commit message `run-rgr red <scenario>`.
 - `Refactor → CommitBehavior` commit shape depends on `stage`:
   - `stage=false` → three commits (`run-rgr red|green|refactor <scenario>`), interleaved with each phase's exit (not shown — see **Commit Behavior** below).
-  - `stage=true` → one commit (`run-rgr <scenario>`) at the end.
+  - `stage=true` → red commits `"run-rgr <scenario>"` before green starts; green skips its commit; refactor `git commit --amend --no-edit` folds its delta into red's commit. Net observable: one commit per scenario (unchanged); the shift is that red output is committed up-front so downstream gates (allowlist, verify) see only the current phase's delta.
 
 ---
 
@@ -261,13 +265,13 @@ title Claude Retry Loop (per phase)
 ClaudePhase --> Timeout      : runtime > maxClaudeSeconds
 ClaudePhase --> Retryable    : exit non-zero, stdout matches API-error pattern
 ClaudePhase --> NonRetryable : exit non-zero, no pattern match
-ClaudePhase --> Verify       : exit 0
+ClaudePhase --> Allowlist    : exit 0
 Retryable --> ClaudePhase    : attempt < maxRetries (WARN markers)
 Retryable --> Exhaust        : attempt == maxRetries (ERROR markers)
 NonRetryable --> [*] : FAIL "rgr-<phase> failed with exit code N"
 Exhaust      --> [*] : FAIL "rgr-<phase> failed with exit code N"
 Timeout      --> [*] : delegated to Phase Timeout sub-machine
-Verify       --> [*] : delegated to Phase Verification sub-machine
+Allowlist    --> [*] : delegated to Directory Allowlist sub-machine
 
 @enduml
 ```
@@ -278,7 +282,7 @@ Files under this sub-machine:
 - `Claude Retry Loop Retryable.asciidoc` — `Retryable` + `Exhaust` transitions across all four patterns, both phases.
 - `Claude Retry Loop Partial Output.asciidoc` — stdout mirroring observable on the `NonRetryable` transition: the runner log captures whatever claude printed before the failure marker.
 
-Both `Timeout` and `Verify` re-enter this state machine via the sub-machines below; on their successful exits, control continues to the phase commit.
+`Timeout`, `Allowlist`, and (transitively) `Phase Verification` re-enter this state machine via the sub-machines below; on their successful exits, control continues to the phase commit.
 
 ---
 
@@ -312,9 +316,43 @@ Reader-half: if the process handle exits but the stdout pipe stays open (Windows
 
 ---
 
+## Directory Allowlist
+
+After every successful claude call (including the recovered-timeout path) darmok inspects the working tree against a fixed directory allowlist before handing off to `mvn clean verify`. Claude is only allowed to modify files under `src/main/java/` and `src/test/java/org/farhan/impl/`; anything else — including red-phase-generated runner classes under `src/test/java/org/farhan/suites/` — is a contract violation, see issue #141. On violation darmok reverts the offending paths with `git checkout HEAD -- <paths>` and resumes the same claude session with a literal correction message, bounded by `maxAllowlistAttempts` (default 2). A working tree whose changes all fall inside the allowlist hands off to Phase Verification.
+
+```plantuml
+@startuml
+title Directory Allowlist (per phase)
+
+[*] --> GitStatus
+GitStatus --> Verify           : all paths within allowlist
+GitStatus --> RevertAndResume  : path outside allowlist, attempt < maxAllowlistAttempts
+GitStatus --> ExhaustAllowlist : path outside allowlist, attempt == maxAllowlistAttempts
+RevertAndResume --> GitStatus  : git checkout HEAD -- <paths> then claude --resume returns
+ExhaustAllowlist --> [*] : FAIL "rgr-<phase> modified disallowed paths after N attempts"
+Verify --> [*] : hands off to Phase Verification
+
+@enduml
+```
+
+Files under this sub-machine:
+
+- `Directory Allowlist.asciidoc` — all allowlist transitions, both phases.
+
+Counting rule: on exhaustion, `git status --porcelain` was inspected `maxAllowlistAttempts` times and `claude --resume` exactly `maxAllowlistAttempts - 1` times — no resume after the final failing inspection. Mirrors Phase Timeout and Phase Verification.
+
+Allowlist (verbatim per issue #141):
+
+- `src/main/java/`
+- `src/test/java/org/farhan/impl/`
+
+Resume message: literal string `"only modify files under src/main/java or src/test/java/org/farhan/impl"` — exact wording is part of the observable contract.
+
+---
+
 ## Phase Verification
 
-`mvn clean verify` runs after every successful claude call (including recovered timeouts). On failure, Darmok resumes the claude session with `"mvn clean verify failures should be fixed"` and re-runs verify. Bounded by `maxVerifyAttempts` (default 3). Verify happens before the phase commit, so a verify failure never produces a commit for that phase.
+`mvn clean verify` runs after every successful Directory Allowlist check (which itself runs after every successful claude call, including recovered timeouts). On failure, Darmok resumes the claude session with `"mvn clean verify failures should be fixed"` and re-runs verify. Bounded by `maxVerifyAttempts` (default 3). Verify happens before the phase commit, so a verify failure never produces a commit for that phase.
 
 ```plantuml
 @startuml
@@ -363,9 +401,10 @@ CommitRedF --> CommitGreenF : after green
 CommitGreenF --> CommitRefactorF : after refactor
 CommitRefactorF --> [*] : "run-rgr refactor <scenario>"
 
-R0T  --> NoInterimCommits : red, green phases run
-NoInterimCommits --> CommitCombined : after refactor
-CommitCombined --> [*] : "run-rgr <scenario>"
+R0T  --> CommitRedT   : "run-rgr <scenario>"
+CommitRedT --> GreenNoCommit : after green
+GreenNoCommit --> RefactorAmend : after refactor
+RefactorAmend --> [*] : git commit --amend --no-edit
 
 @enduml
 ```
@@ -379,8 +418,8 @@ Files under this sub-machine:
 Phase-failure implications:
 
 - Red pass + green fail — impossible (red pass short-circuits to commit).
-- Red fail + green fail (non-retryable/exhausted/timeout/verify) — if `stage=false` the red commit stands; if `stage=true` nothing is committed for this scenario.
-- Red fail + green OK + refactor fail — green commit stands under `stage=false`; nothing committed under `stage=true`.
+- Red fail + green fail (non-retryable/exhausted/timeout/verify/allowlist) — red commit stands in both modes (red always commits now).
+- Red fail + green OK + refactor fail — under `stage=false` green's commit stands; under `stage=true` red's commit stands (not amended, since refactor never reached its commit step).
 
 `metrics.csv` row contract (one row per successful scenario, appended atomically):
 
@@ -388,7 +427,7 @@ Phase-failure implications:
 |---|---|---|
 | `Timestamp` | `init()` wallclock per scenario | |
 | `GitBranch` | `gitBranch` parameter | Validated at init against `git rev-parse --abbrev-ref HEAD`. Stable across all rows of a run. |
-| `Commit` | `git rev-parse HEAD` after `CommitCombined` / `CommitRefactorF` / `Commit1` | 40-char SHA of whichever commit this scenario produced last. |
+| `Commit` | `git rev-parse HEAD` after `RefactorAmend` / `CommitRefactorF` / `Commit1` | 40-char SHA of whichever commit this scenario produced last. Under `stage=true` the SHA is red's post-amend SHA (refactor's `--amend` rewrites it). |
 | `Scenario` | scenario name from `scenarios-list.txt` | |
 | `PhaseRedMs` | millis elapsed in `Red Phase` | |
 | `PhaseGreenMs` | millis elapsed in `Claude Retry Loop` + `Phase Timeout` + `Phase Verification` for green | 0 when red exit 100 |
@@ -438,10 +477,12 @@ Parameters that change observable behavior:
 | `LOG_PATH` env | unset (`target/darmok/`) · set |
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |
+| `maxAllowlistAttempts` | 2 (default) · N |
 | `maxVerifyAttempts` | 3 (default) · N |
 | `maxRetries` | default · N |
 | per-attempt claude runtime | ≤ timeout · > timeout → kill |
 | post-kill install outcome | exit 0 · exit non-zero |
+| allowlist outcome | pass-first-try · recover-after-revert-and-resume · exhaust |
 
 ---
 
@@ -454,8 +495,8 @@ Parameters that change observable behavior:
 5. **Metrics** — every successful scenario emits four `METRIC` log lines plus a `metrics.csv` row. Consumed by `pbc-report-plantuml`, so the format is part of the contract. See **Commit Behavior** for the row shape.
 6. **`LOG_PATH` env var** — if set, logs land elsewhere. One spec covering "LOG_PATH set" is enough.
 7. **No refactor-only path** — tree shape is `Red → (Green → Refactor)` or `Red alone`.
-8. **Phase Verification is a sub-step, not a phase** — it lives inside green and inside refactor, after the Claude Retry Loop and Phase Timeout sub-machines have reached exit 0.
-9. **Phase Timeout is also a sub-step** — order within each phase is: Claude Retry Loop → Phase Timeout (only fires if the claude call exceeded `maxClaudeSeconds`) → Phase Verification → phase commit. Timeouts are not API errors and don't consume `maxRetries`.
+8. **Phase Verification is a sub-step, not a phase** — it lives inside green and inside refactor, after the Claude Retry Loop, Phase Timeout, and Directory Allowlist sub-machines have reached exit 0.
+9. **Phase Timeout and Directory Allowlist are also sub-steps** — order within each phase is: Claude Retry Loop → Phase Timeout (only fires if the claude call exceeded `maxClaudeSeconds`) → Directory Allowlist → Phase Verification → phase commit. Allowlist exhaustion aborts the phase without a commit, same as a verify exhaustion. Timeouts are not API errors and don't consume `maxRetries`; allowlist violations don't consume `maxRetries` or `maxVerifyAttempts` either.
 10. **`maxClaudeSeconds` source** — default 720 comes from the UCL of the per-scenario runtime distribution on the SPC dashboard. When grafana becomes queryable from the plugin (future issue), this property becomes the fallback for "grafana unavailable", not the default value.
 
 ---
