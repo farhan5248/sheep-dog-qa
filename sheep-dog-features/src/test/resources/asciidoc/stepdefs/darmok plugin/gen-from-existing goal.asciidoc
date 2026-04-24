@@ -71,6 +71,11 @@
 
 == Step-Definition: is executed and succeeds with
 
+=== Step-Parameters: ClaudeSessionIdEnabled
+|===
+| ClaudeSessionIdEnabled
+|===
+
 === Step-Parameters: GitBranch
 |===
 | GitBranch

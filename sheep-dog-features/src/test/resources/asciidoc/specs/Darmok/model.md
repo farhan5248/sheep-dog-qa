@@ -257,6 +257,8 @@ Known gap: `WriteRunner` emits a `.java` file whose content is not asserted by a
 
 Wraps every claude invocation inside the green phase and the refactor phase. Phase-agnostic — the diagram below uses `<phase>` as a placeholder for either. The outer loop handles retryable Anthropic API errors (`API Error: 500`, `API Error: 529`, `Internal server error`, `overloaded`). Retries and timeouts are independent axes: retries consume `maxRetries`; timeouts consume `maxTimeoutAttempts`.
 
+Session ID (issue #311): before the first call of the phase, Darmok generates a fresh UUID and passes it on the initial `claude --print` invocation as `--session-id <uuid>`. The UUID is captured on the per-phase `ClaudeRunner` instance (green and refactor each have their own) and reused by every `--resume` in the downstream sub-machines (Phase Timeout, Directory Allowlist, Phase Verification) as `claude --resume <uuid> <message>`. The Claude CLI requires a valid session ID when `--resume` is combined with `--print`; without the pre-generated ID, every resume call rejects in ~1.5s and burns a recovery attempt. Retried initial calls (the `Retryable --> ClaudePhase` loop edge) re-send the same UUID — session creation is idempotent on the CLI side.
+
 ```plantuml
 @startuml
 title Claude Retry Loop (per phase)
@@ -312,6 +314,8 @@ Files under this sub-machine:
 
 Counting rule: on exhaustion, `mvn clean install` was invoked `maxTimeoutAttempts` times and `claude --resume` exactly `maxTimeoutAttempts - 1` times — no resume after the final failing install.
 
+Resume call (issue #311): `claude --resume <session-id> "pls continue"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
+
 Reader-half: if the process handle exits but the stdout pipe stays open (Windows `claude.cmd` → grandchild `node`), the reader-side `join` trips the same `Kill` transition. Observably identical to a process-side timeout.
 
 ---
@@ -348,6 +352,8 @@ Allowlist (verbatim per issue #141):
 
 Resume message: literal string `"only modify files under src/main/java or src/test/java/org/farhan/impl"` — exact wording is part of the observable contract.
 
+Resume call (issue #311): `claude --resume <session-id> "only modify files under src/main/java or src/test/java/org/farhan/impl"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
+
 ---
 
 ## Phase Verification
@@ -374,6 +380,8 @@ Files under this sub-machine:
 - `Phase Verification.asciidoc` — all verify transitions, both phases.
 
 Counting rule: on exhaustion, `mvn clean verify` was invoked `maxVerifyAttempts` times and `claude --resume` exactly `maxVerifyAttempts - 1` times.
+
+Resume call (issue #311): `claude --resume <session-id> "mvn clean verify failures should be fixed"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
 
 ---
 

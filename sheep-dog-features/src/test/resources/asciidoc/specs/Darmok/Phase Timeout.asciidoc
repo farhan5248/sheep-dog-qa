@@ -52,7 +52,7 @@ The first claude invocation hangs past the 1-second timeout and gets destroyed. 
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
 | DEBUG | runner   | Running: mvn clean install
 |===
 
@@ -87,9 +87,9 @@ First claude hangs and is killed. First install fails (killed session left incom
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
 | DEBUG | runner   | Running: mvn clean install
-| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet pls continue
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet pls continue
 | DEBUG | runner   | Running: mvn clean install
 |===
 
@@ -148,9 +148,9 @@ Symmetric with the green-phase resume-recovery case, proving the timeout loop li
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
 | DEBUG | runner   | Running: mvn clean install
-| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet pls continue
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000002 --print --dangerously-skip-permissions --model sonnet pls continue
 | DEBUG | runner   | Running: mvn clean install
 |===
 

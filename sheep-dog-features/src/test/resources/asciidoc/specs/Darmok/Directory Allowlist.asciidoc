@@ -26,6 +26,8 @@ Some description
 
 == Test-Case: Green allowlist passes on the first attempt
 
+@GH141
+
 Default happy path for the green phase. Claude writes only inside the allowlist (`src/main/java/...LoginHappyPath.java` and the matching impl under `src/test/java/org/farhan/impl/`), `git status --porcelain` reports zero out-of-allowlist paths, and the scenario proceeds into Phase Verification. Pins down the new `Green: Allowlist check running` log line and the `git status --porcelain` subprocess so a regression that drops the allowlist gate is caught explicitly.
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds
@@ -42,11 +44,13 @@ Default happy path for the green phase. Claude writes only inside the allowlist 
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
 == Test-Case: Refactor allowlist passes on the first attempt
+
+@GH141
 
 Symmetric with the green-allowlist happy-path case. Confirms the allowlist check runs inside refactor too — the sub-step is not accidentally bound to green.
 
@@ -64,11 +68,13 @@ Symmetric with the green-allowlist happy-path case. Confirms the allowlist check
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
 == Test-Case: Green allowlist fails once then succeeds after revert and resume
+
+@GH141
 
 The first claude call writes an out-of-allowlist path (`pom.xml`). Darmok logs a WARN, runs `git checkout HEAD -- pom.xml` to revert it, invokes `claude --resume` with the literal correction message, and re-runs `git status --porcelain`. The second inspection finds only allowlist-internal paths and the scenario proceeds into Phase Verification normally. Exactly one green commit is made — it captures the allowlist-clean output from the resumed claude session.
 
@@ -93,14 +99,16 @@ The first claude call writes an out-of-allowlist path (`pom.xml`). Darmok logs a
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green code-prj loginHappyPath
 | DEBUG | runner   | Running: git status --porcelain
 | DEBUG | runner   | Running: git checkout HEAD -- pom.xml
-| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
 == Test-Case: Green allowlist fails for every attempt
+
+@GH141
 
 Every `git status --porcelain` in the green phase finds an out-of-allowlist path. Darmok retries up to `maxAllowlistAttempts` (default 2), each retry preceded by a revert and a `claude --resume`, except the final attempt which aborts without another resume. The goal fails with an exception naming the phase and attempt count, the refactor phase is never reached, and no green commit is made.
 
@@ -122,6 +130,8 @@ Every `git status --porcelain` in the green phase finds an out-of-allowlist path
 |===
 
 == Test-Case: Refactor allowlist fails once then succeeds after revert and resume
+
+@GH141
 
 Symmetric with the green-phase recovery case. Proves the revert-and-resume loop is phase-parametric.
 
@@ -146,14 +156,16 @@ Symmetric with the green-phase recovery case. Proves the revert-and-resume loop 
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
 | DEBUG | runner   | Running: git status --porcelain
 | DEBUG | runner   | Running: git checkout HEAD -- pom.xml
-| DEBUG | runner   | Executing: claude --resume --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000002 --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
 == Test-Case: Refactor allowlist fails for every attempt
+
+@GH141
 
 Symmetric with the green-phase exhaustion case. No refactor commit is made; the green commit from this scenario remains in git history under `stage=false` (nothing is committed under `stage=true`).
 

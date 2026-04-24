@@ -71,10 +71,10 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr green User logs in successfully
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr refactor User logs in successfully
 |===
@@ -119,9 +119,9 @@ A `Red: Committing` marker now appears in the mojo log; `Green: Committing` is s
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
 | DEBUG | runner   | Running: git add .
-| DEBUG | runner   | Executing: claude --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit --amend --no-edit
 |===
