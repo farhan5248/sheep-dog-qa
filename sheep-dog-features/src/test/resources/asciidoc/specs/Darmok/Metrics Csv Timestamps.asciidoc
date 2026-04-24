@@ -8,6 +8,8 @@ Gated by the `tzAwareTimestampsEnabled` maven parameter. Pass-1 rollout (issue 3
 
 == Test-Case: Timestamp is written in timezone-aware ISO format when flag is on
 
+@GH316
+
 The metrics.csv row emitted after a scenario's RGR cycle holds a Timestamp column whose value parses as ISO-8601 with a numeric offset suffix. The shape is pinned via the `TimestampTz` placeholder — any value that fails to parse as `yyyy-MM-dd'T'HH:mm:ss.SSSXXX` (including the legacy naive format without an offset) fails this assertion.
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
