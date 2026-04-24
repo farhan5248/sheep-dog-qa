@@ -141,22 +141,29 @@ private List<Either<Command, CodeAction>> createCodeActions(Options options, Dia
 VS Code uses a command-based approach for code generation instead of automatic generation on file save.
 
 The `{Language}CommandService` implements `IExecutableCommandService` to handle LSP commands.
+Two commands are exposed — one scoped to the active file, one to the whole workspace.
 
 ```java
 public class {Language}CommandService implements IExecutableCommandService {
 
 	@Override
 	public List<String> initialize() {
-		return List.of("{language}.generate");
+		return List.of("{language}.generateActive", "{language}.generateAll");
 	}
 
 	@Override
 	public Object execute(ExecuteCommandParams params, ILanguageServerAccess access,
 			CancelIndicator cancelIndicator) {
-		if ("{language}.generate".equals(params.getCommand())) {
+		if ("{language}.generateActive".equals(params.getCommand())) {
 			String uri = (String) params.getArguments().get(0);
 			return access.doRead(uri, (context) -> {
 				return {Language}Generator.generateFromResource(context.getResource());
+			}).get();
+		}
+		if ("{language}.generateAll".equals(params.getCommand())) {
+			return access.doReadIndex((indexContext) -> {
+				// Iterate all indexed resources and generate each
+				return "Code generation completed for workspace";
 			}).get();
 		}
 		return "Unknown command";
@@ -182,31 +189,51 @@ public class {Language}Generator extends AbstractGenerator {
 }
 ```
 
-Register the command in `package.json`.
+Register both commands in `package.json`. The active-file command is bound to the editor right-click menu and a keybinding; the all-files command is exposed only through the command palette.
 
 ```json
 {
 	"contributes": {
-		"commands": [{
-			"command": "{language}.server.generateCode",
-			"title": "Generate Code",
-			"category": "{Language} Server"
-		}],
+		"commands": [
+			{
+				"command": "{language}.server.generateActive",
+				"title": "Generate Code (Active File)",
+				"category": "{Language} Server"
+			},
+			{
+				"command": "{language}.server.generateAll",
+				"title": "Generate Code (All Files)",
+				"category": "{Language} Server"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{ "command": "{language}.server.generateActive", "when": "false" },
+				{ "command": "{language}.server.generateAll" }
+			],
+			"editor/context": [
+				{
+					"command": "{language}.server.generateActive",
+					"when": "editorLangId == {language}",
+					"group": "1_modification"
+				}
+			]
+		},
 		"keybindings": [{
-			"command": "{language}.server.generateCode",
-			"key": "ctrl+shift+g",
-			"mac": "cmd+shift+g",
+			"command": "{language}.server.generateActive",
+			"key": "ctrl+shift+alt+g",
+			"mac": "cmd+shift+alt+g",
 			"when": "editorLangId == {language}"
 		}]
 	}
 }
 ```
 
-Register the command handler in `extension.ts`.
+Register both command handlers in `extension.ts`.
 
 ```typescript
-const generateCodeCommand = vscode.commands.registerCommand(
-	'{language}.server.generateCode',
+const generateActiveCommand = vscode.commands.registerCommand(
+	'{language}.server.generateActive',
 	async () => {
 		const activeEditor = vscode.window.activeTextEditor;
 		if (!activeEditor || activeEditor.document.languageId !== '{language}') {
@@ -215,11 +242,20 @@ const generateCodeCommand = vscode.commands.registerCommand(
 		}
 		const documentUri = activeEditor.document.uri.toString();
 		const result = await vscode.commands.executeCommand(
-			'{language}.generate', documentUri);
+			'{language}.generateActive', documentUri);
 		vscode.window.showInformationMessage(`Code generation result: ${result}`);
 	}
 );
-context.subscriptions.push(generateCodeCommand);
+
+const generateAllCommand = vscode.commands.registerCommand(
+	'{language}.server.generateAll',
+	async () => {
+		const result = await vscode.commands.executeCommand('{language}.generateAll');
+		vscode.window.showInformationMessage(`Code generation result: ${result}`);
+	}
+);
+
+context.subscriptions.push(generateActiveCommand, generateAllCommand);
 ```
 
 ## Syntax Colouring
