@@ -68,7 +68,7 @@ Symmetric with the green-allowlist happy-path case. Confirms the allowlist check
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
@@ -156,10 +156,10 @@ Symmetric with the green-phase recovery case. Proves the revert-and-resume loop 
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward code-prj
 | DEBUG | runner   | Running: git status --porcelain
 | DEBUG | runner   | Running: git checkout HEAD -- pom.xml
-| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000002 --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
+| DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet only modify files under src/main/java or src/test/java/org/farhan/impl
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
