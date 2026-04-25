@@ -448,7 +448,7 @@ InitContinue --> [*] : refactor's Claude Retry Loop starts with --resume <green-
 
 Notes:
 
-- `Continue` (the default) adds exactly one extra `claude --resume <green-uuid> /compact` line to `darmok.runners.<date>.log` immediately before refactor's first `/rgr-refactor` call. The compact call carries green's UUID, not a fresh refactor UUID. Refactor's first timed claude invocation is `claude --resume <green-uuid> --print --dangerously-skip-permissions --model sonnet /rgr-refactor <pipeline> code-prj` — there is no `--session-id` flag and no separate refactor UUID, because the runner is reusing green's session.
+- `Continue` (the default) adds exactly one extra `claude --resume <green-uuid> /compact` line to `darmok.runners.<date>.log` immediately before refactor's first `/rgr-refactor` call. The compact call carries green's UUID, not a fresh refactor UUID. Refactor's first timed claude invocation is `claude --resume <green-uuid> --print --dangerously-skip-permissions --model opus /rgr-refactor <pipeline> code-prj` — there is no `--session-id` flag and no separate refactor UUID, because the runner is reusing green's session.
 - The `/compact` call is **not timed** — `phase_refactor_ms` starts after compact returns (the call is issued from `RefactorPhase.prepareSession`, which `DarmokMojo.processScenario` invokes before `refactorPhase.run(state)`). Compact runtime is logged in the runner log (DEBUG line) but excluded from the metrics row.
 - Every downstream refactor sub-machine (Phase Timeout, Directory Allowlist, Phase Verification) reuses green's UUID for its `--resume` calls in `Continue` mode, since the refactor `ClaudeRunner` captured green's UUID rather than generating its own.
 - `Fresh` is observable-empty: the legacy shape (separate refactor UUID, no `/compact` preamble) is still reachable via `refactorSessionMode=fresh` but no test spec sets it; the parameter remains as a redundant knob.
@@ -557,7 +557,7 @@ Parameters that change observable behavior:
 | `stage` | `true` (combined commit) · `false` (per-phase commits) |
 | `refactorSessionMode` | `continue` (default — reuse green's UUID after un-timed `/compact`) · `fresh` (refactor generates its own UUID, legacy shape, no test spec sets it) |
 | `pipeline` | `forward` · `reverse` (refactor prompt only) |
-| `onlyChanges` | `true` · `false` (svc-plugin goals only) |
+| `onlyChanges` | `false` (default) · `true` (svc-plugin goals only) |
 | `LOG_PATH` env | unset (`target/darmok/`) · set |
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |
