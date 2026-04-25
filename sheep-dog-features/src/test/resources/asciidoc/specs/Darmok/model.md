@@ -159,7 +159,7 @@ Same-day re-run: `OpenLogs` uses the date-stamped filename, so a second invocati
 
 Runs after `Init and Cleanup` (so `target/` has been cleared) and before the scenario loop reads `scenarios-list.txt`. Invokes `mvn clean install` in the target project's `baseDir` to confirm the working state is green before any scenario commits land on top of it. A non-zero exit emits an ERROR line to `darmok.mojo.<date>.log` and throws `MojoExecutionException`; `metrics.csv` is never opened, matching the Branch Verification abort invariant.
 
-Gated by the `baselineVerifyEnabled` maven parameter (issue #312). Pass-1 rollout ships with the default `false` so every pre-existing spec continues to pass without changes; the two GH312 Test-Cases explicitly set the flag `true` in their When step. Pass 2 flips the default to `true` and sweeps the other specs — tracked separately.
+Gated by the `baselineVerifyEnabled` maven parameter, on by default (issue #312 introduced the flag default-off; #320 flipped the default).
 
 ```plantuml
 @startuml
@@ -182,7 +182,7 @@ AbortFail --> [*] : FAIL
 
 Notes:
 
-- `Skip` is observable-empty: no mvn subprocess fires, no runner-log entry, no mojo-log entry. Every existing spec (which doesn't set the flag) takes this transition.
+- `Skip` is observable-empty: no mvn subprocess fires, no runner-log entry, no mojo-log entry. Reached only when a spec explicitly sets the flag off.
 - `Proceed` runs exactly one `mvn clean install` subprocess — runner log captures the DEBUG invocation line; mojo log is silent on success.
 - `AbortFail` fires before any scenario is read, so `scenarios-list.txt` state is irrelevant and `metrics.csv` stays absent.
 
@@ -555,7 +555,7 @@ Parameters that change observable behavior:
 | Dimension | Values |
 |---|---|
 | `gitBranch` param | unset · matches HEAD · mismatches HEAD · detached HEAD |
-| `baselineVerifyEnabled` param | `false` (pass-1 default — sub-machine skipped) · `true` · baseline exit 0 · baseline exit non-zero |
+| `baselineVerifyEnabled` param | `true` (default — sub-machine runs) · `false` (sub-machine skipped) · baseline exit 0 · baseline exit non-zero |
 | `scenariosFile` state | absent · empty · N entries |
 | `scenario.tag` | `NoTag` · regular |
 | asciidoc file state | missing · target tag present · other tags present · no tag line |
