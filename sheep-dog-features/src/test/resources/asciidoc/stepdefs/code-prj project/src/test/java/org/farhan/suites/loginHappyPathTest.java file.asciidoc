@@ -1,0 +1,9 @@
+= Step-Object: loginHappyPathTest.java file
+
+== Step-Definition: will be created as follows
+
+=== Step-Parameters: Content
+|===
+| Content
+|===
+

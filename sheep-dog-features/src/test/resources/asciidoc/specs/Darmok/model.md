@@ -285,10 +285,8 @@ MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 
 Files under this sub-machine:
 
-- `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor).
+- `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor); also asserts `WriteRunner` content (issue 297).
 - `Red Phase Maven Failures.asciidoc` — `MvnA2U` / `MvnU2C` / `WriteRunner` (compile) failure transitions.
-
-Known gap: `WriteRunner` emits a `.java` file whose content is not asserted by any current Test-Case — the generated runner class could silently change and all tests would still pass. This is the trigger case for the parent issue.
 
 ---
 
