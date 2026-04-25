@@ -195,8 +195,6 @@ Symmetric with the green-phase exhaustion case. No refactor commit is made; the 
 
 == Test-Case: Green allowlist passes when an extra path is added via allowlistAdditionalPaths
 
-@GH314
-
 The base allowlist stays at its default (`src/main/java/`, `src/test/java/org/farhan/impl/`); the project extends it with `allowlistAdditionalPaths=src/test/resources/mojo-defaults.properties` so the green claude session can edit that one file too. 
 The motivating case from issue 314: on issue 311 the new `claudeSessionIdEnabled` default value had to be added to `mojo-defaults.properties`, but that path was outside the legacy hardcoded allowlist and Darmok exhausted on the violation. 
 With the additional path declared, the same write passes the allowlist gate first try — no violation log line, no revert, no resume.
@@ -222,8 +220,6 @@ With the additional path declared, the same write passes the allowlist gate firs
 |===
 
 == Test-Case: Green allowlist fails when allowlistBasePaths narrows below default
-
-@GH314
 
 The project tightens the base allowlist to `src/main/java/` only, dropping the `src/test/java/org/farhan/impl/` entry from the default. 
 Claude's green call writes to a path that *was* allowed under the default base but is no longer — the gate now flags it as a violation, reverts it, and resumes the session with the standard correction message. 
