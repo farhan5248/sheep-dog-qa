@@ -363,7 +363,9 @@ Reader-half: if the process handle exits but the stdout pipe stays open (Windows
 
 ## Directory Allowlist
 
-After every successful claude call (including the recovered-timeout path) darmok inspects the working tree against a fixed directory allowlist before handing off to `mvn clean verify`. Claude is only allowed to modify files under `src/main/java/` and `src/test/java/org/farhan/impl/`; anything else — including red-phase-generated runner classes under `src/test/java/org/farhan/suites/` — is a contract violation, see issue #141. On violation darmok reverts the offending paths with `git checkout HEAD -- <paths>` and resumes the same claude session with a literal correction message, bounded by `maxAllowlistAttempts` (default 2). A working tree whose changes all fall inside the allowlist hands off to Phase Verification.
+After every successful claude call (including the recovered-timeout path) darmok inspects the working tree against a directory allowlist before handing off to `mvn clean verify`. The effective allowlist is the union of two CSV mojo params (issue #314): `allowlistBasePaths` (default `src/main/java/,src/test/java/org/farhan/impl/` — the legacy hardcoded list, rarely overridden, only to *tighten*) and `allowlistAdditionalPaths` (default empty — the param projects use to *add* exceptions on top of the base, e.g. `src/test/resources/mojo-defaults.properties` for the case that originally surfaced #314 on #311). Anything that doesn't match — including red-phase-generated runner classes under `src/test/java/org/farhan/suites/` — is a contract violation, see issue #141. On violation darmok reverts the offending paths with `git checkout HEAD -- <paths>` and resumes the same claude session with a literal correction message, bounded by `maxAllowlistAttempts` (default 2). A working tree whose changes all fall inside the effective allowlist hands off to Phase Verification.
+
+The allowlist gate runs before scenarios-list.txt is modified — see **Commit Behavior** for the reorder. Phase commits never include scenarios-list deltas; the file is the next-iteration cursor and lives in the post-refactor commit only.
 
 ```plantuml
 @startuml
@@ -386,12 +388,12 @@ Files under this sub-machine:
 
 Counting rule: on exhaustion, `git status --porcelain` was inspected `maxAllowlistAttempts` times and `claude --resume` exactly `maxAllowlistAttempts - 1` times — no resume after the final failing inspection. Mirrors Phase Timeout and Phase Verification.
 
-Allowlist (verbatim per issue #141):
+Default `allowlistBasePaths` (per issue #141):
 
 - `src/main/java/`
 - `src/test/java/org/farhan/impl/`
 
-Resume message: literal string `"only modify files under src/main/java or src/test/java/org/farhan/impl"` — exact wording is part of the observable contract.
+Resume message: literal string `"only modify files under src/main/java or src/test/java/org/farhan/impl"` — exact wording is part of the observable contract. The message stays static even when `allowlistAdditionalPaths` extends the effective list; per-project guidance for the extra paths belongs in the project's CLAUDE.md, not in the resume prompt.
 
 Resume call (issue #311): `claude --resume <session-id> "only modify files under src/main/java or src/test/java/org/farhan/impl"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
 
@@ -463,6 +465,8 @@ Files under this sub-machine:
 
 `commitIfChanged` runs `git diff --cached --quiet` before every commit; an empty stage produces no commit. The commit messages and counts depend on `stage` and on which phases executed.
 
+`removeFirstScenarioFromFile()` runs **after** the refactor-phase Directory Allowlist check (issue #314). The scenarios-list.txt delta lands in whichever commit closes the scenario — refactor's commit under `stage=false`, or the post-`--amend` red commit under `stage=true`. Neither phase's allowlist `git status --porcelain` ever sees scenarios-list.txt as a changed path. The red-exit-100 path keeps its inline `removeFirstScenarioFromFile()` call (no green/refactor phase runs, so there is no allowlist gate to defer behind).
+
 ```plantuml
 @startuml
 title Commit Behavior
@@ -475,18 +479,22 @@ state "red exit 0, stage=true"  as R0T
 [*] --> R0F  : red phase
 [*] --> R0T  : red phase
 
-R100 --> Commit1 : "run-rgr red <scenario>"
+R100 --> RemoveScenarioR100 : remove scenario from list
+RemoveScenarioR100 --> Commit1 : "run-rgr red <scenario>"
 Commit1 --> [*]
 
 R0F  --> CommitRedF   : "run-rgr red <scenario>"
-CommitRedF --> CommitGreenF : after green
-CommitGreenF --> CommitRefactorF : after refactor
-CommitRefactorF --> [*] : "run-rgr refactor <scenario>"
+CommitRedF --> GreenNoScenarioRemove : after green allowlist + verify
+GreenNoScenarioRemove --> CommitGreenF : "run-rgr green <scenario>"
+CommitGreenF --> RemoveScenarioF : after refactor allowlist + verify
+RemoveScenarioF --> CommitRefactorF : "run-rgr refactor <scenario>"
+CommitRefactorF --> [*]
 
 R0T  --> CommitRedT   : "run-rgr <scenario>"
-CommitRedT --> GreenNoCommit : after green
-GreenNoCommit --> RefactorAmend : after refactor
-RefactorAmend --> [*] : git commit --amend --no-edit
+CommitRedT --> GreenNoCommit : after green allowlist + verify
+GreenNoCommit --> RemoveScenarioT : after refactor allowlist + verify
+RemoveScenarioT --> RefactorAmend : git commit --amend --no-edit
+RefactorAmend --> [*]
 
 @enduml
 ```
@@ -494,7 +502,7 @@ RefactorAmend --> [*] : git commit --amend --no-edit
 Files under this sub-machine:
 
 - `Commit Behavior Clean Workspace.asciidoc` — `commitIfChanged` skip-on-empty-stage.
-- `Commit Behavior Full Cycle.asciidoc` — per-phase vs combined commits (`stage` flag).
+- `Commit Behavior Full Cycle.asciidoc` — per-phase vs combined commits (`stage` flag), including the GH314 Test-Case that pins down scenarios-list mod happening after both phases' allowlist checks (refactor allowlist's `git status --porcelain` does not list scenarios-list.txt).
 - `Commit Behavior Process Charts.asciidoc` — `metrics.csv` commit-SHA column on every row.
 
 Phase-failure implications:
@@ -562,6 +570,8 @@ Parameters that change observable behavior:
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |
 | `maxAllowlistAttempts` | 2 (default) · N |
+| `allowlistBasePaths` | `src/main/java/,src/test/java/org/farhan/impl/` (default) · narrowed (tightening) |
+| `allowlistAdditionalPaths` | empty (default) · CSV of extra paths (the common knob, e.g. `src/test/resources/mojo-defaults.properties`) |
 | `maxVerifyAttempts` | 3 (default) · N |
 | `maxRetries` | default · N |
 | per-attempt claude runtime | ≤ timeout · > timeout → kill |

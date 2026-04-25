@@ -71,6 +71,11 @@
 
 == Step-Definition: is executed and succeeds with
 
+=== Step-Parameters: AllowlistAdditionalPaths
+|===
+| AllowlistAdditionalPaths
+|===
+
 === Step-Parameters: BaselineVerifyEnabled
 |===
 | BaselineVerifyEnabled
@@ -104,6 +109,11 @@
 == Step-Definition: is executed but fails
 
 == Step-Definition: is executed but fails with
+
+=== Step-Parameters: AllowlistBasePaths
+|===
+| AllowlistBasePaths
+|===
 
 === Step-Parameters: BaselineVerifyEnabled
 |===
