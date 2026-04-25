@@ -4,7 +4,7 @@
 
 The scenarios-list can hold multiple entries, and Darmok processes them one at a time in file order.
 After each successful scenario the processed entry is removed from the list and the loop fetches the next one; the goal completes when the list is empty.
-This Test-Case covers the multi-scenario loop with both scenarios' implementations already present, so each red phase exits 0 via the already-passing short-circuit — isolating the loop's iteration behavior from the Red / Green / Refactor phase outcomes (which other suites cover).
+These Test-Cases cover the multi-scenario loop with both scenarios' implementations already present, so each red phase exits 0 via the already-passing short-circuit — isolating the loop's iteration behavior from the Red / Green / Refactor phase outcomes (which other suites cover).
 
 == Test-Case: Two scenarios processed in one run, in file order
 
@@ -13,6 +13,54 @@ This Test-Case covers the multi-scenario loop with both scenarios' implementatio
 File: ProcessDarmok
   Scenario: User logs in successfully
     Tag: loginHappyPath
+  Scenario: User logs out successfully
+    Tag: logoutHappyPath
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LogoutHappyPath.java file is created
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project scenarios-list.txt file will be empty
+
+=== And: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | RGR Automation Plugin (gen-from-existing)
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
+| INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs out successfully [logoutHappyPath]
+| INFO  | mojo     | Green: Skipped (tests already passing)
+| INFO  | mojo     | Red: Committing
+| INFO  | mojo     | RGR Automation Complete!
+| INFO  | mojo     | Total scenarios processed: 2
+|===
+
+=== And: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
+| DEBUG | runner   | Running: mvn test -Dtest=logoutHappyPathTest
+| DEBUG | runner   | Running: git commit -m run-rgr User logs out successfully
+|===
+
+== Test-Case: Two scenarios from separate File blocks
+
+The `generate_scenarios_list.py` script emits multiple `File:` blocks (one per source asciidoc file) separated by a blank line.
+After processing the first scenario, `removeFirstScenarioFromFile` skips the blank line and recognises that the next entry has its own `File:` header, so it does not re-prepend the previous block's `File:` line.
+Loop behaviour matches the same-block case; this Test-Case pins down the fixture-shape variant.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+
+File: ProcessDarmok
   Scenario: User logs out successfully
     Tag: logoutHappyPath
 ----
