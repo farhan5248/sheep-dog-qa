@@ -506,6 +506,8 @@ Files under this sub-machine:
 - `Commit Behavior Clean Workspace.asciidoc` — `commitIfChanged` skip-on-empty-stage.
 - `Commit Behavior Full Cycle.asciidoc` — per-phase vs combined commits (`stage` flag), including the GH314 Test-Case that pins down scenarios-list mod happening after both phases' allowlist checks (refactor allowlist's `git status --porcelain` does not list scenarios-list.txt).
 - `Commit Behavior Process Charts.asciidoc` — `metrics.csv` commit-SHA column on every row.
+- `Metrics Csv Timestamps.asciidoc` — `metrics.csv` timestamp column ISO-8601-with-offset format (issue 316).
+- `Metrics Csv Special Characters.asciidoc` — `DarmokMojoMetrics` `escape` + `parse` + `splitCsv` round-trip (issue 302): scenario names containing `,` and `"`, plus pre-populated metrics.csv fixtures that exercise the parser's blank-middle-line and short-row branches that real Darmok runs never produce. Residual: `escape` newline branch (scenarioName never carries `\n` because parseScenarios reads it line-by-line); `parse` null/missing-file branches and `column`/`findNext` no-match branches (asserting on null via the table-driven assertion path requires either a TestState extension or a new step phrase, deferred).
 
 Phase-failure implications:
 

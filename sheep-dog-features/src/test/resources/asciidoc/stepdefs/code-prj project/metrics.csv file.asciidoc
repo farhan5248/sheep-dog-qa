@@ -1,5 +1,12 @@
 = Step-Object: metrics.csv file
 
+== Step-Definition: is created as follows
+
+=== Step-Parameters: Content
+|===
+| Content
+|===
+
 == Step-Definition: will be absent
 
 == Step-Definition: will be as follows

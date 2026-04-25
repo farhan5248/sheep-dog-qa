@@ -1,0 +1,86 @@
+= Test-Suite: Metrics Csv Special Characters
+
+@darmok-maven-plugin
+
+The `metrics.csv` row writer (`DarmokMojoMetrics.append`) escapes scenario-name fields that contain commas or double-quotes per RFC-4180 — the field is wrapped in double-quotes and any embedded `"` is doubled to `""`.
+The matching read-side parser (`splitCsv` + `parse`) inverts this when test assertions read columns back.
+This Test-Suite pins the escape + parse round-trip so a regression on either side surfaces — without it, `Commit Behavior Process Charts` only exercises the simple-identifier path where neither escape nor quoted-field parsing fires.
+
+== Test-Setup: A scenario whose implementation already exists
+
+=== Given: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+=== And: The darmok plugin gen-from-existing goal git command is executed and succeeds with
+|===
+| Command Parameters          | GitBranch
+| rev-parse --abbrev-ref HEAD | Rebuild30
+|===
+
+== Test-Case: Scenario name contains a comma
+
+A comma in the scenario name forces `escape` to wrap the field in double-quotes when writing the metrics row.
+On read-back, `splitCsv` recognises the opening quote, suppresses the in-field comma's separator role, and closes on the matching quote.
+The Scenario column returned by `matchAndGetScenario` round-trips the original literal — comma intact, quotes stripped.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in, successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in, successfully
+
+Some description
+----
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project metrics.csv file will be as follows
+|===
+| Timestamp | GitBranch | Commit                                   | Scenario                   | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in, successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+|===
+
+== Test-Case: Scenario name contains a double quote
+
+A double-quote in the scenario name forces `escape` to wrap the field AND double the embedded `"` to `""`.
+On read-back, `splitCsv`'s `""` lookahead collapses the doubled quotes back to a single literal `"` while staying in-quoted-field mode.
+The Scenario column round-trips with the original quote characters preserved.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User says "hi" successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User says "hi" successfully
+
+Some description
+----
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project metrics.csv file will be as follows
+|===
+| Timestamp | GitBranch | Commit                                   | Scenario                   | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User says "hi" successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+|===
+
