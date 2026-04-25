@@ -4,7 +4,7 @@
 
 Before any scenario work, Darmok verifies the target project builds cleanly with `mvn clean install`. A non-zero exit aborts the run with an ERROR line to `darmok.mojo.<date>.log` and a `MojoExecutionException`, so a red working tree can't silently accumulate scenario commits on top of itself — the first failing test would otherwise be ambiguous between "my new change broke it" and "it was already broken". The check fires after `cleanWorkspace` (so `target/` is freshly gone) and before `scenarios-list.txt` is read.
 
-Gated by the `baselineVerifyEnabled` maven parameter, on by default (issue #320 flipped the pass-1 default).
+Gated by the `baselineVerifyEnabled` maven parameter, on by default (issue 320 flipped the pass-1 default).
 
 == Test-Case: Baseline build passes and scenario loop proceeds
 

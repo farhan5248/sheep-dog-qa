@@ -161,3 +161,19 @@ The corollary observable lives in the runner log line order — `Running: git st
 | DEBUG | runner   | Running: git commit --amend --no-edit
 |===
 
+== Test-Case: Scenarios-list deletion survives refactor allowlist gate under stage true
+
+Pins down the state observable for the issue 314 control-flow reorder, made testable by the issue 322 fake fix. The test fake now synthesizes `git status --porcelain` from in-memory filesystem state, so a broken implementation that runs `removeFirstScenarioFromFile` before refactor's allowlist gate would surface scenarios-list.txt as an out-of-allowlist staged change at gate time, the gate would revert it, and the deletion would never reach any commit — leaving scenarios-list.txt at its pre-run one-entry content.
+Asserting that scenarios-list.txt is empty after a successful run is the direct state observable: no log-line ordering required, no negative assertion needed, the assertion flips when the reorder is undone.
+Complements Test-Case 3 which captures the same property as a runner-log line-order observable.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| Stage | ModelGreen | ModelRefactor
+| true  | sonnet     | sonnet
+|===
+
+=== Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
+
+=== And: The code-prj project scenarios-list.txt file will be empty
+
