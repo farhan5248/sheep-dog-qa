@@ -223,6 +223,8 @@ With the additional path declared, the same write passes the allowlist gate firs
 
 == Test-Case: Green allowlist fails when allowlistBasePaths narrows below default
 
+@GH314
+
 The project tightens the base allowlist to `src/main/java/` only, dropping the `src/test/java/org/farhan/impl/` entry from the default. 
 Claude's green call writes to a path that *was* allowed under the default base but is no longer — the gate now flags it as a violation, reverts it, and resumes the session with the standard correction message. 
 After the second attempt the same write recurs and the loop exhausts. 
