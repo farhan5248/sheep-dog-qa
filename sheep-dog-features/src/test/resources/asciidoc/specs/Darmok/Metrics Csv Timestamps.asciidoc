@@ -2,15 +2,13 @@
 
 @darmok-maven-plugin
 
-The `metrics.csv` file that Darmok appends after every successful scenario holds one column — `Timestamp` — that Grafana reads as the x-axis for the XmR process-behaviour charts. For Grafana's Infinity datasource to place a row at the right point in time, the timestamp must be unambiguous: a naive local-time string is interpreted as UTC by the parser, and the dashboard's `timezone: browser` conversion then shifts every point by the local offset (e.g. a 14:32 run renders at 10:32 in a UTC-4 browser). Fixing that means emitting a timezone-aware ISO-8601 timestamp `yyyy-MM-dd'T'HH:mm:ss.SSSXXX`, so the parser knows the instant without guessing.
+The `metrics.csv` file that Darmok appends after every successful scenario holds one column — `Timestamp` — that Grafana reads as the x-axis for the XmR process-behaviour charts. For Grafana's Infinity datasource to place a row at the right point in time, the timestamp must be unambiguous: a naive local-time string is interpreted as UTC by the parser, and the dashboard's `timezone: browser` conversion then shifts every point by the local offset (e.g. a 14:32 run renders at 10:32 in a UTC-4 browser). Emitting a timezone-aware ISO-8601 timestamp `yyyy-MM-dd'T'HH:mm:ss.SSSXXX` lets the parser resolve the instant without guessing. Issue 316.
 
-Gated by the `tzAwareTimestampsEnabled` maven parameter. Pass-1 rollout (issue 316) ships with default `false` so every pre-existing spec that asserts the `Timestamp` shape via the `Timestamp` TestState enum keeps passing without changes; this GH316 Test-Case explicitly sets the flag `true` in the When step and asserts the new shape via the `TimestampTz` TestState enum. Pass 2 flips the default, sweeps other specs to `TimestampTz`, and removes the flag — tracked separately.
-
-== Test-Case: Timestamp is written in timezone-aware ISO format when flag is on
+== Test-Case: Timestamp is written in timezone-aware ISO format
 
 @GH316
 
-The metrics.csv row emitted after a scenario's RGR cycle holds a Timestamp column whose value parses as ISO-8601 with a numeric offset suffix. The shape is pinned via the `TimestampTz` placeholder — any value that fails to parse as `yyyy-MM-dd'T'HH:mm:ss.SSSXXX` (including the legacy naive format without an offset) fails this assertion.
+The metrics.csv row emitted after a scenario's RGR cycle holds a Timestamp column whose value parses as ISO-8601 with a numeric offset suffix. The shape is pinned via the `Timestamp` placeholder — any value that fails to parse as `yyyy-MM-dd'T'HH:mm:ss.SSSXXX` fails this assertion.
 
 === Given: The code-prj project scenarios-list.txt file is created as follows
 ----
@@ -38,12 +36,12 @@ Some description
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| GitBranch | TzAwareTimestampsEnabled
-| Rebuild30 | true
+| GitBranch
+| Rebuild30
 |===
 
 === Then: The code-prj project metrics.csv file will be as follows
 |===
-| Timestamp   | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
-| TimestampTz | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+| Timestamp | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
 |===

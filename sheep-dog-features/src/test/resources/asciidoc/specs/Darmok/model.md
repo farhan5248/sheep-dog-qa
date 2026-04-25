@@ -507,7 +507,7 @@ Phase-failure implications:
 
 | Column | Source | Notes |
 |---|---|---|
-| `Timestamp` | `init()` wallclock per scenario | Shape depends on `tzAwareTimestampsEnabled` (issue 316). Default `false` → naive local `yyyy-MM-dd'T'HH:mm:ss.SSS` (same format since the metrics file was introduced). `true` → timezone-aware ISO-8601 with numeric offset `yyyy-MM-dd'T'HH:mm:ss.SSSXXX` so Grafana can resolve the instant without guessing a zone. Pass-1 rollout ships the flag default `false` — only GH316 Test-Cases set it `true`; every other spec keeps the legacy shape. Pass 2 flips the default and sweeps. |
+| `Timestamp` | `init()` wallclock per scenario | Timezone-aware ISO-8601 with numeric offset (`yyyy-MM-dd'T'HH:mm:ss.SSSXXX`) so Grafana resolves the instant without guessing a zone. Issue 316. |
 | `GitBranch` | `gitBranch` parameter | Validated at init against `git rev-parse --abbrev-ref HEAD`. Stable across all rows of a run. |
 | `Commit` | `git rev-parse HEAD` after `RefactorAmend` / `CommitRefactorF` / `Commit1` | 40-char SHA of whichever commit this scenario produced last. Under `stage=true` the SHA is red's post-amend SHA (refactor's `--amend` rewrites it). |
 | `Scenario` | scenario name from `scenarios-list.txt` | |

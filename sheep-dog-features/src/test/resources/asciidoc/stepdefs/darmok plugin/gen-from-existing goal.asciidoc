@@ -86,11 +86,6 @@
 | GitBranch
 |===
 
-=== Step-Parameters: GitBranch, TzAwareTimestampsEnabled
-|===
-| GitBranch | TzAwareTimestampsEnabled
-|===
-
 === Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts
