@@ -3,8 +3,9 @@
 @darmok-maven-plugin
 
 Before the Red phase, Darmok inserts the scenario's tag into the target asciidoc file's `Test-Case` block.
-Three variations cover the observable behaviors: the target tag is already present, the test-case line carries a different tag, or the test-case has no tag line yet.
-All three Test-Cases use an implementation that already satisfies the scenario, so the Red phase finishes quickly and Green / Refactor are skipped — the differences are isolated to the tag-insertion log markers and the final asciidoc file state.
+Three observable behaviors cover tag handling: the target tag is already present, the test-case line carries a different tag, or the test-case has no tag line yet.
+The no-tag-line case has two variants — content following the heading, and the matching heading at end-of-file in a multi-test-case file — that exercise different paths through `insertTagAtTestCase`'s blank-line skip and end-of-file checks.
+All Test-Cases use an implementation that already satisfies the scenario, so the Red phase finishes quickly and Green / Refactor are skipped — the differences are isolated to the tag-insertion log markers and the final asciidoc file state.
 
 == Test-Setup: A scenario whose implementation already exists
 
@@ -80,6 +81,48 @@ Some description
 
 @otherTag @loginHappyPath
 Some description
+----
+
+=== And: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
+| DEBUG | mojo     | Added tag @loginHappyPath to file
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Green: Skipped (tests already passing)
+|===
+
+== Test-Case: The matching test-case is the last in the file with no body
+
+The file contains multiple test-cases; the matching one is at the end of the file with no trailing content.
+Darmok skips past the non-matching test-cases, finds the target heading at end-of-file, and falls through both the blank-line-skip while-loop and the existing-tag-line check (each short-circuits on `nextLineIndex` reaching `content.size()`).
+The else-branch fires, appending a blank line and then the tag line as the new last two entries of the file.
+This is the boundary case the three other variations don't reach.
+
+=== Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: Some other story
+
+Description of other story
+
+== Test-Case: User logs in successfully
+----
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: Some other story
+
+Description of other story
+
+== Test-Case: User logs in successfully
+
+@loginHappyPath
 ----
 
 === And: The code-prj project darmok.mojo.log file will be as follows

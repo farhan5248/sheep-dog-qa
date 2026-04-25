@@ -1,0 +1,51 @@
+= Test-Suite: Tag Insertion Scenario Not Found
+
+@darmok-maven-plugin
+
+The scenarios-list references a scenario by name, and Darmok assumes that scenario name exists as a `Test-Case:` heading in the target asciidoc file.
+When the file exists but no matching `Test-Case:` heading carries that name, Darmok logs a `Scenario not found in file` warning and continues into the Red phase without inserting a tag.
+This is distinct from the file-absent path: the asciidoc file is valid, but the scenario name doesn't match any of its Test-Case headings.
+
+== Test-Case: Scenario name not in referenced file
+
+The asciidoc file exists and parses cleanly, but its `Test-Case:` headings name different scenarios than the one in scenarios-list.
+Darmok iterates the entire file, finds no match, emits the WARN line, and returns from `addTagToAsciidoc` without writing.
+The downstream Red phase still runs to completion: `asciidoctor-to-uml` and `uml-to-cucumber-guice` succeed against the valid file, the runner class is generated, and `mvn test` exits 0 because no scenario carries the target tag — so the red-exit-100 path fires and Green/Refactor are skipped.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: Some other story
+
+Description of other story
+----
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file will be created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: Some other story
+
+Description of other story
+----
+
+=== And: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
+| WARN  | mojo     | Scenario not found in file: User logs in successfully
+| INFO  | mojo     | Red: Running maven...
+| INFO  | mojo     | Green: Skipped (tests already passing)
+|===

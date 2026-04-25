@@ -231,16 +231,19 @@ title Tag Insertion
 
 [*] --> InspectFile
 InspectFile --> WarnMissing          : asciidoc file absent
+InspectFile --> WarnScenarioNotFound : file exists, scenario name not in any Test-Case heading
 InspectFile --> AlreadyPresent       : target @tag already on Test-Case
 InspectFile --> AppendToExistingLine : other tags present, not target
 InspectFile --> InsertNewLine        : no tag line under Test-Case
 
 WarnMissing          : WARN mojo "File not found: <file>.asciidoc"
+WarnScenarioNotFound : WARN mojo "Scenario not found in file: <scenario>"
 AlreadyPresent       : DEBUG mojo "Tag @<t> already present in file"
 AppendToExistingLine : DEBUG mojo "Added tag @<t> to file"
 InsertNewLine        : DEBUG mojo "Added tag @<t> to file"
 
 WarnMissing          --> [*]
+WarnScenarioNotFound --> [*]
 AlreadyPresent       --> [*]
 AppendToExistingLine --> [*]
 InsertNewLine        --> [*]
@@ -251,9 +254,10 @@ InsertNewLine        --> [*]
 Files under this sub-machine:
 
 - `Tag Insertion Missing File.asciidoc` — `WarnMissing` transition only.
-- `Tag Insertion Tag Handling.asciidoc` — the three `Already / Append / Insert` transitions.
+- `Tag Insertion Scenario Not Found.asciidoc` — `WarnScenarioNotFound` transition only (issue 300).
+- `Tag Insertion Tag Handling.asciidoc` — the three `Already / Append / Insert` transitions; `InsertNewLine` exercised twice (content-follows vs heading-at-EOF) so `insertTagAtTestCase`'s blank-line-skip and end-of-file branches both run (issue 300).
 
-`WarnMissing` does not abort; the subsequent red-phase mvn call will fail naturally and drop into the `Claude Retry Loop` sub-machine.
+`WarnMissing` does not abort; the subsequent red-phase mvn call will fail naturally because its input file is missing. `WarnScenarioNotFound` also does not abort, but the red-phase mvn call still succeeds (the file is valid asciidoc) — `mvn test` then runs zero scenarios because no Test-Case carries the target tag, exits 0, and the red-exit-100 path fires.
 
 ---
 
