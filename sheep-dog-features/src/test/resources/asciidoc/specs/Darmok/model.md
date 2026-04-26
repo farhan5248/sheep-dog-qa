@@ -289,10 +289,13 @@ MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 
 `MvnTest` tees its stdout to `${baseDir}/log.txt` (issue 325) — the file is overwritten on every invocation. This is the raw mvn output the green-phase claude prompt reads to diagnose the failure; the wrapped DEBUG line in `darmok.runners.<date>.log` carries the same content but with timestamp/level/category prefixes that aren't useful as prompt input.
 
+`MvnU2C`'s goal name is the `svcMavenPluginGoal` maven parameter (issue 328). Default `uml-to-cucumber-guice` matches the legacy hardcode and keeps every pre-existing runner-log assertion green; projects whose stepdefs are Spring-flavored (e.g. darmok-maven-plugin itself) override to `uml-to-cucumber-spring` in their pom's `<configuration>` block. The parameter only changes the goal name on the `MvnU2C` runner-log line; no other observable shifts.
+
 Files under this sub-machine:
 
 - `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor); also asserts `WriteRunner` content (issue 297).
 - `Red Phase Maven Failures.asciidoc` — `MvnA2U` / `MvnU2C` / `WriteRunner` (compile) failure transitions.
+- `Red Phase Cucumber Gen Goal.asciidoc` — `svcMavenPluginGoal=uml-to-cucumber-spring` flips `MvnU2C`'s runner-log goal name (issue 328); guice default is exercised by every other Red Phase file.
 - `Mvn Output Log Red Phase.asciidoc` — `MvnTest` writes mvn test output to `${baseDir}/log.txt`. Uses the red-exit-100 setup so red is the only mvn invocation in the run; the file's presence after the run proves Red Phase called `runToFile`.
 
 ---
@@ -576,6 +579,7 @@ Parameters that change observable behavior:
 | `refactorSessionMode` | `continue` (default — reuse green's UUID after un-timed `/compact`) · `fresh` (refactor generates its own UUID, legacy shape, no test spec sets it) |
 | `pipeline` | `forward` · `reverse` (refactor prompt only) |
 | `onlyChanges` | `false` (default) · `true` (svc-plugin goals only) |
+| `svcMavenPluginGoal` | `uml-to-cucumber-guice` (default) · `uml-to-cucumber-spring` (Spring-flavored stepdef projects) |
 | `LOG_PATH` env | unset (`target/darmok/`) · set |
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |

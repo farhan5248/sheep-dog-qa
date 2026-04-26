@@ -1,0 +1,47 @@
+= Test-Suite: Red Phase Cucumber Gen Goal
+
+@darmok-maven-plugin
+
+When the red phase invokes `sheep-dog-svc-maven-plugin`'s cucumber-gen step, the goal name comes from the `svcMavenPluginGoal` maven parameter rather than the legacy `uml-to-cucumber-guice` hardcode (issue 328).
+The default value preserves the legacy guice goal, so every pre-existing runner-log assertion stays green; projects whose stepdefs are Spring-flavored (e.g. darmok-maven-plugin itself, see its `scripts/forward-engineer.bat`) override the parameter to `uml-to-cucumber-spring` in their pom's `darmok-maven-plugin` `<configuration>` block.
+
+== Test-Setup: A scenario whose implementation already exists
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+== Test-Case: Spring-flavored cucumber-gen goal flips the runner log invocation
+
+Projects whose generated stepdefs are wired with Spring (cucumber-spring on the classpath, `@CucumberContextConfiguration` on the runner) need the spring flavour of the cucumber-gen output, not the guice flavour.
+Setting `svcMavenPluginGoal` to `uml-to-cucumber-spring` reroutes the second mvn call in the red phase to the spring goal; every other observable in the run is unchanged from the guice default.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| SvcMavenPluginGoal
+| uml-to-cucumber-spring
+|===
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:asciidoctor-to-uml -Dtags=loginHappyPath -Dhost=qa.sheepdog.io -DonlyChanges=false
+| DEBUG | runner   | Running: mvn org.farhan:sheep-dog-svc-maven-plugin:uml-to-cucumber-spring -Dtags=loginHappyPath -Dhost=qa.sheepdog.io -DonlyChanges=false
+| DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
+| DEBUG | runner   | Running: git add .
+| DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
+|===
