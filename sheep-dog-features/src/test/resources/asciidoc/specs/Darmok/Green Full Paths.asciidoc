@@ -1,0 +1,41 @@
+= Test-Suite: Green Full Paths
+
+@darmok-maven-plugin
+
+When `greenFullPathsEnabled` is true, GreenPhase emits five full-path args (`<projectPath> <runnerClassName> <logPath> <jacocoPath> <umlDir>`) to claude instead of the legacy `<artifactId> <pattern>` shape, so the slimmed `/rgr-green` SKILL.md (next plugin release) has no path-discovery work to do. Default off until the SKILL.md slim ships in pass 3. Pinned by issue 183.
+
+== Test-Setup: A failing scenario that reaches the green phase
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Green emits full paths when greenFullPathsEnabled is true
+
+Sets the flag on via the When-with table. GreenPhase replaces the legacy `/rgr-green code-prj loginHappyPath` shape with `<projectPath> <runnerClassName> <logPath> <jacocoPath> <umlDir>` — paths anchored on the test baseDir (`target/darmok-test/sheep-dog-svc/code-prj`). The runner-log line proves the new shape; backslash-vs-forward-slash differences across platforms are absorbed by `DarmokMojoLog.normalizeCommandExtensions`.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenFullPathsEnabled
+| true
+|===
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
+|===

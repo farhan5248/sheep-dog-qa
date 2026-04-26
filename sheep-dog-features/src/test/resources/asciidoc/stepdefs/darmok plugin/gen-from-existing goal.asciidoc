@@ -86,6 +86,11 @@
 | ClaudeSessionIdEnabled
 |===
 
+=== Step-Parameters: GreenFullPathsEnabled
+|===
+| GreenFullPathsEnabled
+|===
+
 === Step-Parameters: GitBranch
 |===
 | GitBranch

@@ -580,6 +580,7 @@ Parameters that change observable behavior:
 | `pipeline` | `forward` · `reverse` (refactor prompt only) |
 | `onlyChanges` | `false` (default) · `true` (svc-plugin goals only) |
 | `svcMavenPluginGoal` | `uml-to-cucumber-guice` (default) · `uml-to-cucumber-spring` (Spring-flavored stepdef projects) |
+| `greenFullPathsEnabled` param | `false` (default — green's claude line is `/rgr-green <artifactId> <pattern>`) · `true` (green's claude line is `/rgr-green <projectPath> <runnerClassName> <logPath> <jacocoPath> <umlDir>`, so the slimmed skill has no path-discovery work). Issue 183. |
 | `LOG_PATH` env | unset (`target/darmok/`) · set |
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |
