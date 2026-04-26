@@ -287,10 +287,13 @@ MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 @enduml
 ```
 
+`MvnTest` tees its stdout to `${baseDir}/log.txt` (issue 325) — the file is overwritten on every invocation. This is the raw mvn output the green-phase claude prompt reads to diagnose the failure; the wrapped DEBUG line in `darmok.runners.<date>.log` carries the same content but with timestamp/level/category prefixes that aren't useful as prompt input.
+
 Files under this sub-machine:
 
 - `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor); also asserts `WriteRunner` content (issue 297).
 - `Red Phase Maven Failures.asciidoc` — `MvnA2U` / `MvnU2C` / `WriteRunner` (compile) failure transitions.
+- `Mvn Output Log Red Phase.asciidoc` — `MvnTest` writes mvn test output to `${baseDir}/log.txt`. Uses the red-exit-100 setup so red is the only mvn invocation in the run; the file's presence after the run proves Red Phase called `runToFile`.
 
 ---
 
@@ -420,9 +423,12 @@ CommitPhase --> [*] : hands off to the phase's commit in Commit Behavior
 @enduml
 ```
 
+`MvnVerify` tees its stdout to `${baseDir}/log.txt` (issue 325) — the file is overwritten on every invocation, so on retry the latest verify failure replaces the previous one. The intent is for the next `claude --resume` to surface the most recent failure detail; same file Red Phase uses, since both red and verify failures feed the same downstream prompt.
+
 Files under this sub-machine:
 
 - `Phase Verification.asciidoc` — all verify transitions, both phases.
+- `Mvn Output Log Verify.asciidoc` — `MvnVerify` writes mvn clean verify output to `${baseDir}/log.txt`, exercised in both Green and Refactor by pushing each phase's verify into the exhaustion path so the assertion fires after a deterministic abort.
 
 Counting rule: on exhaustion, `mvn clean verify` was invoked `maxVerifyAttempts` times and `claude --resume` exactly `maxVerifyAttempts - 1` times.
 
@@ -596,6 +602,7 @@ Parameters that change observable behavior:
 8. **Phase Verification is a sub-step, not a phase** — it lives inside green and inside refactor, after the Claude Retry Loop, Phase Timeout, and Directory Allowlist sub-machines have reached exit 0.
 9. **Phase Timeout and Directory Allowlist are also sub-steps** — order within each phase is: Claude Retry Loop → Phase Timeout (only fires if the claude call exceeded `maxClaudeSeconds`) → Directory Allowlist → Phase Verification → phase commit. Allowlist exhaustion aborts the phase without a commit, same as a verify exhaustion. Timeouts are not API errors and don't consume `maxRetries`; allowlist violations don't consume `maxRetries` or `maxVerifyAttempts` either.
 10. **`maxClaudeSeconds` source** — default 720 comes from the UCL of the per-scenario runtime distribution on the SPC dashboard. When grafana becomes queryable from the plugin (future issue), this property becomes the fallback for "grafana unavailable", not the default value.
+11. **`${baseDir}/log.txt` is the per-iteration mvn output handoff** (issue 325) — written by Red Phase's `mvn test` and by Phase Verification's `mvn clean verify` (in both Green and Refactor). Overwritten, not appended. Lives at the project root (not under `target/`, because `mvn clean verify` would wipe it). Distinct from the dated `darmok.runners.<date>.log`, which captures every subprocess invocation as wrapped DEBUG entries — log.txt is the raw mvn output the next claude prompt reads.
 
 ---
 

@@ -1,0 +1,33 @@
+= Test-Suite: Mvn Output Log Red Phase
+
+@darmok-maven-plugin
+
+Red Phase's `mvn test` tees its stdout to `${baseDir}/log.txt` so the green-phase claude prompt can read failure detail directly. The file lives at the project root — not under `target/` — because subsequent verify calls run `mvn clean`, which would wipe `target/` before the next claude prompt could read it. Pinned by issue 325.
+
+== Test-Setup: A scenario whose implementation already exists
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file is created
+
+== Test-Case: Red writes mvn test output to log.txt
+
+Red Phase exits 100 (tests already pass), green and refactor are skipped, and the only mvn invocation that wrote to `${baseDir}/log.txt` was red's `mvn test`. The file's observable presence at the project root after the run proves Red Phase called `runToFile` instead of `run`.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project log.txt file will be present

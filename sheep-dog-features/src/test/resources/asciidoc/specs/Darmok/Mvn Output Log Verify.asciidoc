@@ -1,0 +1,53 @@
+= Test-Suite: Mvn Output Log Verify
+
+@darmok-maven-plugin
+
+Phase Verification's `mvn clean verify` tees its stdout to `${baseDir}/log.txt`, overwriting whatever Red Phase wrote earlier. The same `runVerifyLoop` runs inside both Green and Refactor, so both Test-Cases must pass to confirm the substitution covers the shared loop and isn't bound to one phase. Pinned by issue 325.
+
+== Test-Setup: A failing scenario that reaches the verify sub-step
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Green's mvn clean verify writes to log.txt
+
+Green's `runVerifyLoop` runs `mvn clean verify` to confirm the implementation Claude generated holds. Output is teed to `${baseDir}/log.txt` so a subsequent `claude --resume` reads the verify failure detail directly. This Test-Case pushes verify into the exhaustion path so the assertion fires after a deterministic abort.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Green
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails
+
+=== Then: The code-prj project log.txt file will be present
+
+== Test-Case: Refactor's mvn clean verify writes to log.txt
+
+Symmetric with the green case — proves the `runToFile` substitution lives in `runVerifyLoop`, not in a phase-specific call site. Pushes refactor verify into exhaustion to make the assertion fire after a deterministic abort.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails
+
+=== Then: The code-prj project log.txt file will be present
