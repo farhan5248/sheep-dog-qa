@@ -23,6 +23,7 @@ File: ProcessDarmok
 Tag insertion must be idempotent.
 Re-running the same scenario (or running after a manual edit that already added the tag) should not duplicate tags or rewrite the asciidoc file, since the downstream `asciidoctor-to-uml` step is sensitive to duplicates and a no-op commit would muddy git history.
 Darmok detects the target tag is already present, skips the file mutation, and logs the detection at DEBUG.
+The DEBUG marker row uses the literal `Any` in its Category column to exercise the log row-matcher's wildcard branch — `matches` short-circuits to true without comparing the actual value, while still requiring the Level and Content cells to match.
 
 === Given: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
 ----
@@ -50,7 +51,7 @@ Some description
 |===
 | Level | Category | Content
 | INFO  | mojo     | Processing Scenario: ProcessDarmok/User logs in successfully [loginHappyPath]
-| DEBUG | mojo     | Tag @loginHappyPath already present in file
+| DEBUG | Any      | Tag @loginHappyPath already present in file
 | INFO  | mojo     | Red: Running maven...
 | INFO  | mojo     | Green: Skipped (tests already passing)
 |===
