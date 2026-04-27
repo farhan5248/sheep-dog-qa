@@ -91,6 +91,11 @@
 | GitBranch
 |===
 
+=== Step-Parameters: GreenPromptTemplateEnabled
+|===
+| GreenPromptTemplateEnabled
+|===
+
 === Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts
 |===
 | MaxClaudeSeconds | MaxTimeoutAttempts

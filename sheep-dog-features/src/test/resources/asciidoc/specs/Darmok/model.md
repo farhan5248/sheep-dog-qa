@@ -332,6 +332,7 @@ Files under this sub-machine:
 - `Claude Retry Loop Non-Retryable.asciidoc` — `NonRetryable` transition (opaque exit codes, SIGKILL, SIGINT).
 - `Claude Retry Loop Retryable.asciidoc` — `Retryable` + `Exhaust` transitions across all four patterns, both phases.
 - `Claude Retry Loop Partial Output.asciidoc` — stdout mirroring observable on the `NonRetryable` transition: the runner log captures whatever claude printed before the failure marker.
+- `Green Prompt Template.asciidoc` — green-phase prompt delivery shape (issue 326). When `greenPromptTemplateEnabled=true`, GreenPhase renders `darmok-maven-plugin/src/main/resources/prompts/green.md` with substituted placeholders to `${baseDir}/target/darmok/green.md` and invokes claude with `@<rendered-path>` instead of inlining `/rgr-green` plus positional path args.
 
 `Timeout`, `Allowlist`, and (transitively) `Phase Verification` re-enter this state machine via the sub-machines below; on their successful exits, control continues to the phase commit.
 

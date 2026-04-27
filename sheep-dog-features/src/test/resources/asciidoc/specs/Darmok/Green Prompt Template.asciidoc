@@ -1,0 +1,43 @@
+= Test-Suite: Green Prompt Template
+
+@darmok-maven-plugin
+
+When `greenPromptTemplateEnabled` is on, GreenPhase loads `darmok-maven-plugin/src/main/resources/prompts/green.md` (a template with `${projectPath}`, `${runnerClassName}`, `${logPath}`, `${jacocoPath}`, `${umlDir}` placeholders), substitutes the values, writes the rendered prompt to `${baseDir}/target/darmok/green.md`, and invokes `claude --print "@<rendered-path>"` so claude reads the prompt from the file. The slash-command form (`/rgr-green ...` with positional path args) goes away in favour of file-based prompt delivery — keeps the runners.log assertions short and removes the runtime dependency on `.claude/skills/rgr-green/` being installed.
+
+Default-off; this Test-Suite turns it on. Existing Test-Cases continue to assert on the slash-command shape until the pass-2 sweep migrates them. Pinned by issue 326.
+
+== Test-Setup: A failing scenario that reaches green phase
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+== Test-Case: Green phase invokes claude with rendered template path
+
+`greenPromptTemplateEnabled=true` switches GreenPhase to file-based prompt delivery. The runners.log captures the new claude invocation: instead of inlining the `/rgr-green` slash-command and its five path args, the command line carries `@<rendered-path>` and claude reads the prompt from the rendered green.md file. The path is stable across runs (relative-path baseDir from issue 332).
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenPromptTemplateEnabled
+| true
+|===
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md
+|===
