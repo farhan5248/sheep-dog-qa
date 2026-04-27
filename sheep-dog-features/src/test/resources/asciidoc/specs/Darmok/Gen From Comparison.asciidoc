@@ -33,8 +33,8 @@ This Test-Case verifies the comparison call is made, that it doesn't interfere w
 
 === When: The darmok plugin gen-from-comparison goal is executed and succeeds with
 |===
-| ModelComparison | ModelGreen | ModelRefactor
-| sonnet          | sonnet     | sonnet       
+| ModelComparison | ModelGreen | ModelRefactor | GreenFullPathsEnabled
+| sonnet          | sonnet     | sonnet        | true
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
@@ -62,7 +62,7 @@ This Test-Case verifies the comparison call is made, that it doesn't interfere w
 |===
 | Level | Category | Content                                                                                                     
 | DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-gen-from-comparison darmok-prj
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-green darmok-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model sonnet /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
 | DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000002 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
 |===
 

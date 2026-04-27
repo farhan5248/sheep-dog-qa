@@ -34,7 +34,11 @@ Some description
 Default happy path for the green phase. Claude writes only inside the allowlist (`src/main/java/...LoginHappyPath.java` and the matching impl under `src/test/java/org/farhan/impl/`), `git status --porcelain` reports zero out-of-allowlist paths, and the scenario proceeds into Phase Verification. 
 Pins down the new `Green: Allowlist check running` log line and the `git status --porcelain` subprocess so a regression that drops the allowlist gate is caught explicitly.
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -48,7 +52,7 @@ Pins down the new `Green: Allowlist check running` log line and the `git status 
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
 | DEBUG | runner   | Running: git status --porcelain
 |===
 
@@ -58,7 +62,11 @@ Pins down the new `Green: Allowlist check running` log line and the `git status 
 
 Symmetric with the green-allowlist happy-path case. Confirms the allowlist check runs inside refactor too — the sub-step is not accidentally bound to green.
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -87,10 +95,14 @@ Exactly one green commit is made — it captures the allowlist-clean output from
 === Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
 |===
 | Command Parameters                 | Attempt | Path
-| /rgr-green code-prj loginHappyPath | 1       | pom.xml
+| /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml | 1       | pom.xml
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -105,7 +117,7 @@ Exactly one green commit is made — it captures the allowlist-clean output from
 === And: The code-prj project darmok.runners.log file will be as follows
 |===
 | Level | Category | Content
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus /rgr-green code-prj loginHappyPath
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
 | DEBUG | runner   | Running: git status --porcelain
 | DEBUG | runner   | Running: git checkout HEAD -- pom.xml
 | DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model opus only modify files under src/main/java or src/test/java/org/farhan/impl
@@ -122,10 +134,14 @@ The goal fails with an exception naming the phase and attempt count, the refacto
 === Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
 |===
 | Command Parameters                 | Path
-| /rgr-green code-prj loginHappyPath | pom.xml
+| /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml | pom.xml
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed but fails
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
 |===
@@ -148,7 +164,11 @@ Symmetric with the green-phase recovery case. Proves the revert-and-resume loop 
 | /rgr-refactor forward code-prj | 1       | pom.xml
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
 |===
@@ -182,7 +202,11 @@ Symmetric with the green-phase exhaustion case. No refactor commit is made; the 
 | /rgr-refactor forward code-prj | pom.xml
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed but fails
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
+|===
+| GreenFullPathsEnabled
+| true
+|===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
 |===
@@ -202,13 +226,13 @@ With the additional path declared, the same write passes the allowlist gate firs
 === Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
 |===
 | Command Parameters                 | Path
-| /rgr-green code-prj loginHappyPath | src/test/resources/mojo-defaults.properties
+| /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml | src/test/resources/mojo-defaults.properties
 |===
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| AllowlistAdditionalPaths
-| src/test/resources/mojo-defaults.properties
+| AllowlistAdditionalPaths                    | GreenFullPathsEnabled
+| src/test/resources/mojo-defaults.properties | true
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
@@ -229,13 +253,13 @@ This pins down that `allowlistBasePaths` is not additive on top of the default �
 === Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
 |===
 | Command Parameters                 | Path
-| /rgr-green code-prj loginHappyPath | src/test/java/org/farhan/impl/LoginHappyPathImpl.java
+| /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml | src/test/java/org/farhan/impl/LoginHappyPathImpl.java
 |===
 
 === When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
-| AllowlistBasePaths
-| src/main/java/
+| AllowlistBasePaths | GreenFullPathsEnabled
+| src/main/java/     | true
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
