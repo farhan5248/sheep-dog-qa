@@ -518,6 +518,7 @@ Files under this sub-machine:
 - `Commit Behavior Process Charts.asciidoc` — `metrics.csv` commit-SHA column on every row.
 - `Metrics Csv Timestamps.asciidoc` — `metrics.csv` timestamp column ISO-8601-with-offset format (issue 316).
 - `Metrics Csv Special Characters.asciidoc` — `DarmokMojoMetrics` `escape` + `parse` + `splitCsv` round-trip (issue 302): scenario names containing `,` and `"`, plus pre-populated metrics.csv fixtures that exercise the parser's blank-middle-line and short-row branches that real Darmok runs never produce. Residual: `escape` newline branch (scenarioName never carries `\n` because parseScenarios reads it line-by-line); `parse` null/missing-file branches and `column`/`findNext` no-match branches (asserting on null via the table-driven assertion path requires either a TestState extension or a new step phrase, deferred).
+- `Metrics Csv Failed Runs.asciidoc` — `metrics.csv` row appears even on green/refactor failure once red has produced a commit (issue 329). Unreached phases write 0; `Commit` column carries red's SHA on post-red failure.
 
 Phase-failure implications:
 
@@ -525,18 +526,18 @@ Phase-failure implications:
 - Red fail + green fail (non-retryable/exhausted/timeout/verify/allowlist) — red commit stands in both modes (red always commits now).
 - Red fail + green OK + refactor fail — under `stage=false` green's commit stands; under `stage=true` red's commit stands (not amended, since refactor never reached its commit step).
 
-`metrics.csv` row contract (one row per successful scenario, appended atomically):
+`metrics.csv` row contract (one row per scenario whose red phase produced a commit — exit 0 or exit 100 — regardless of whether green or refactor later fail; appended atomically. Red-phase failures produce no row, since a non-zero non-100 red exit indicates infrastructure failure rather than a real scenario run. Issue 329):
 
 | Column | Source | Notes |
 |---|---|---|
 | `Timestamp` | `init()` wallclock per scenario | Timezone-aware ISO-8601 with numeric offset (`yyyy-MM-dd'T'HH:mm:ss.SSSXXX`) so Grafana resolves the instant without guessing a zone. Issue 316. |
 | `GitBranch` | `gitBranch` parameter | Validated at init against `git rev-parse --abbrev-ref HEAD`. Stable across all rows of a run. |
-| `Commit` | `git rev-parse HEAD` after `RefactorAmend` / `CommitRefactorF` / `Commit1` | 40-char SHA of whichever commit this scenario produced last. Under `stage=true` the SHA is red's post-amend SHA (refactor's `--amend` rewrites it). |
+| `Commit` | `git rev-parse HEAD` captured after red's commit lands; refreshed after `RefactorAmend` / `CommitRefactorF` on full success | 40-char SHA. On green or refactor failure the value is red's SHA (red commits before green starts in both stage modes). On full success under `stage=true` the SHA is red's post-amend SHA (refactor's `--amend` rewrites it). |
 | `Scenario` | scenario name from `scenarios-list.txt` | |
 | `PhaseRedMs` | millis elapsed in `Red Phase` | |
-| `PhaseGreenMs` | millis elapsed in `Claude Retry Loop` + `Phase Timeout` + `Phase Verification` for green | 0 when red exit 100 |
-| `PhaseRefactorMs` | same three sub-machines, refactor side | 0 when red exit 100 |
-| `PhaseTotalMs` | scenario wall-clock | |
+| `PhaseGreenMs` | millis elapsed in `Claude Retry Loop` + `Phase Timeout` + `Phase Verification` for green | 0 when red exit 100, 0 when green never reached |
+| `PhaseRefactorMs` | same three sub-machines, refactor side | 0 when red exit 100, 0 when refactor never reached (e.g. green failed) |
+| `PhaseTotalMs` | scenario wall-clock | Includes whatever phases ran before the failure |
 
 ---
 

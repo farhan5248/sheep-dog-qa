@@ -1,0 +1,80 @@
+= Test-Suite: Metrics Csv Failed Runs
+
+@darmok-maven-plugin
+
+Once red has produced a commit, the scenario has cleared the infrastructure-validation gate and the run is real data — the time spent on it belongs in the SPC dataset whether or not green and refactor go on to succeed. Today `metrics.csv` is appended only after refactor commits, so a green-phase or refactor-phase failure leaves the failed scenario invisible to the dashboard and the operator can't compare its runtime distribution against the successful runs.
+
+This Test-Suite pins the post-red-commit row contract: red exit 0 followed by any green/refactor failure still writes one row, with whatever phase durations were captured before the abort, zeros for unreached phases, and red's commit SHA in the `Commit` column (red commits before green starts in both stage modes, so the SHA is captured then). Red-phase failures stay invisible — a non-zero non-100 red exit signals broken infrastructure, not a real run, so emitting a metrics row for it would pollute the dataset. Issue 329.
+
+== Test-Setup: A failing scenario whose red phase passes
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+=== And: The darmok plugin gen-from-existing goal git command is executed and succeeds with
+|===
+| Command Parameters          | GitBranch
+| rev-parse --abbrev-ref HEAD | Rebuild30
+|===
+
+== Test-Case: Green failure still records a metrics row with red SHA
+
+Green-phase verify exhausts after `maxVerifyAttempts` and `processScenario` throws.
+Red has already committed `run-rgr <scenario>` so red's SHA is captured on the state object the moment that commit lands; the failure path writes the metrics row before propagating the exception.
+Refactor never ran, so its column is 0; green ran partially, so its column carries whatever was clocked.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Green
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project metrics.csv file will be as follows
+|===
+| Timestamp | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | 0               | Milliseconds
+|===
+
+== Test-Case: Refactor failure still records a metrics row with red SHA
+
+Refactor-phase verify exhausts after `maxVerifyAttempts`. Red and green both completed, so both their durations are clocked; refactor ran partially, so its column carries whatever was clocked before the abort.
+Under `stage=true` (default) refactor would have amended red's commit on success — on failure no amend fires, so red's original SHA is what `Commit` carries.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails for all attempts
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
+|===
+| GitBranch
+| Rebuild30
+|===
+
+=== Then: The code-prj project metrics.csv file will be as follows
+|===
+| Timestamp | GitBranch | Commit                                   | Scenario                  | PhaseRedMs   | PhaseGreenMs | PhaseRefactorMs | PhaseTotalMs
+| Timestamp | Rebuild30 | abc1234567890abcdef1234567890abcdef12345 | User logs in successfully | Milliseconds | Milliseconds | Milliseconds    | Milliseconds
+|===
