@@ -37,8 +37,8 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| Stage | ModelGreen | ModelRefactor | GreenFullPathsEnabled
-| false | sonnet     | sonnet        | true
+| Stage | ModelGreen | ModelRefactor
+| false | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
@@ -88,8 +88,8 @@ A `Red: Committing` marker now appears in the mojo log; `Green: Committing` is s
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| Stage | ModelGreen | ModelRefactor | GreenFullPathsEnabled
-| true  | sonnet     | sonnet        | true
+| Stage | ModelGreen | ModelRefactor
+| true  | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
@@ -134,8 +134,8 @@ The corollary observable lives in the runner log line order — `Running: git st
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| Stage | ModelGreen | ModelRefactor | GreenFullPathsEnabled
-| true  | sonnet     | sonnet        | true
+| Stage | ModelGreen | ModelRefactor
+| true  | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present
@@ -169,8 +169,8 @@ Complements Test-Case 3 which captures the same property as a runner-log line-or
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| Stage | ModelGreen | ModelRefactor | GreenFullPathsEnabled
-| true  | sonnet     | sonnet        | true
+| Stage | ModelGreen | ModelRefactor
+| true  | sonnet     | sonnet
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be present

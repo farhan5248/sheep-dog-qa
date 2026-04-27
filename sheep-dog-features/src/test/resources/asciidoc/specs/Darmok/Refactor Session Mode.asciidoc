@@ -35,11 +35,7 @@ Some description
 
 Refactor's first observable claude line is a `/compact` resume on green's UUID, followed immediately by `/rgr-refactor` carried by `--resume <green-uuid>` rather than `--session-id <fresh-uuid>`. Pins down two observables together because they appear in the same runner-log sequence: the compact preamble, and the absence of a fresh refactor UUID on the initial refactor call.
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
-|===
-| GreenFullPathsEnabled
-| true
-|===
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.runners.log file will be as follows
 |===
@@ -61,11 +57,7 @@ After a failed `mvn clean verify` during the refactor phase, the resume call car
 | Refactor
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
-|===
-| GreenFullPathsEnabled
-| true
-|===
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.runners.log file will be as follows
 |===

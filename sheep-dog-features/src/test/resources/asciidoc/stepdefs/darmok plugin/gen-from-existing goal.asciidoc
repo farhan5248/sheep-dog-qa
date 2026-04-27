@@ -76,11 +76,6 @@
 | AllowlistAdditionalPaths
 |===
 
-=== Step-Parameters: AllowlistAdditionalPaths, GreenFullPathsEnabled
-|===
-| AllowlistAdditionalPaths | GreenFullPathsEnabled
-|===
-
 === Step-Parameters: BaselineVerifyEnabled
 |===
 | BaselineVerifyEnabled
@@ -94,21 +89,6 @@
 === Step-Parameters: GitBranch
 |===
 | GitBranch
-|===
-
-=== Step-Parameters: GreenFullPathsEnabled
-|===
-| GreenFullPathsEnabled
-|===
-
-=== Step-Parameters: GreenFullPathsEnabled, MaxClaudeSeconds, MaxTimeoutAttempts
-|===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-|===
-
-=== Step-Parameters: GreenFullPathsEnabled, ModelGreen, ModelRefactor, Stage
-|===
-| Stage | ModelGreen | ModelRefactor | GreenFullPathsEnabled
 |===
 
 === Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts
@@ -140,11 +120,6 @@
 | AllowlistBasePaths
 |===
 
-=== Step-Parameters: AllowlistBasePaths, GreenFullPathsEnabled
-|===
-| AllowlistBasePaths | GreenFullPathsEnabled
-|===
-
 === Step-Parameters: BaselineVerifyEnabled
 |===
 | BaselineVerifyEnabled
@@ -153,16 +128,6 @@
 === Step-Parameters: GitBranch
 |===
 | GitBranch
-|===
-
-=== Step-Parameters: GreenFullPathsEnabled
-|===
-| GreenFullPathsEnabled
-|===
-
-=== Step-Parameters: GreenFullPathsEnabled, MaxClaudeSeconds, MaxTimeoutAttempts
-|===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
 |===
 
 === Step-Parameters: MaxClaudeSeconds, MaxTimeoutAttempts

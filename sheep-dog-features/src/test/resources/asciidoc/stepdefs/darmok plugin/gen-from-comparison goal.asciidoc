@@ -2,11 +2,6 @@
 
 == Step-Definition: is executed and succeeds with
 
-=== Step-Parameters: GreenFullPathsEnabled, ModelComparison, ModelGreen, ModelRefactor
-|===
-| ModelComparison | ModelGreen | ModelRefactor | GreenFullPathsEnabled
-|===
-
 === Step-Parameters: ModelComparison, ModelGreen, ModelRefactor
 |===
 | ModelComparison | ModelGreen | ModelRefactor

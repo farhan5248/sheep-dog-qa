@@ -34,8 +34,8 @@ The first claude invocation hangs past the 1-second timeout and gets destroyed. 
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
@@ -71,8 +71,8 @@ First claude hangs and is killed. First install fails (killed session left incom
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
@@ -103,8 +103,8 @@ Every claude call — the initial one and every resume — is killed by the time
 
 === When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file will be absent
@@ -131,8 +131,8 @@ Symmetric with the green-phase resume-recovery case, proving the timeout loop li
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows
@@ -164,8 +164,8 @@ Every refactor claude call is killed and every refactor install fails, so the go
 
 === When: The darmok plugin gen-from-existing goal is executed but fails with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows with this failure
@@ -183,8 +183,8 @@ Covers issue 290. The claude subprocess signals exit promptly (`process.waitFor`
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
 |===
-| MaxClaudeSeconds | MaxTimeoutAttempts | GreenFullPathsEnabled
-| 1                | 2                  | true
+| MaxClaudeSeconds | MaxTimeoutAttempts
+| 1                | 2
 |===
 
 === Then: The code-prj project darmok.mojo.log file will be as follows

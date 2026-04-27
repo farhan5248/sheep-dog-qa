@@ -36,11 +36,7 @@ Some description
 
 The first claude call in the green phase emits `--session-id <green-uuid>` right after `--print`. Pins down the initial-call observable so a regression that drops the flag is caught explicitly.
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
-|===
-| GreenFullPathsEnabled
-| true
-|===
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.runners.log file will be as follows
 |===
@@ -60,11 +56,7 @@ After a failed `mvn clean verify` the resume call carries `--resume <green-uuid>
 | Green
 |===
 
-=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
-|===
-| GreenFullPathsEnabled
-| true
-|===
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
 
 === Then: The code-prj project darmok.runners.log file will be as follows
 |===
