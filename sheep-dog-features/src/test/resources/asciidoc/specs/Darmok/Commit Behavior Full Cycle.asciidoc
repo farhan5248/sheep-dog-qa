@@ -71,7 +71,7 @@ This Test-Case exercises the happy path end-to-end: red fails as expected, green
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr red User logs in successfully
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr green User logs in successfully
 | DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
@@ -119,7 +119,7 @@ A `Red: Committing` marker now appears in the mojo log; `Green: Committing` is s
 | DEBUG | runner   | Running: mvn test -Dtest=loginHappyPathTest
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Running: git commit -m run-rgr User logs in successfully
-| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet /rgr-green target/darmok-test/sheep-dog-svc/code-prj loginHappyPathTest target/darmok-test/sheep-dog-svc/code-prj/log.txt target/darmok-test/sheep-dog-svc/code-prj/target/site/jacoco-with-tests target/darmok-test/sheep-dog-svc/code-prj/site/uml
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model sonnet @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md
 | DEBUG | runner   | Running: git add .
 | DEBUG | runner   | Executing: claude --resume 00000000-0000-0000-0000-000000000001 --print --dangerously-skip-permissions --model sonnet /rgr-refactor forward darmok-prj
 | DEBUG | runner   | Running: git add .

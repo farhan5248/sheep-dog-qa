@@ -28,6 +28,8 @@ Some description
 
 == Test-Case: Green phase invokes claude with rendered template path
 
+@GH326
+
 `greenPromptTemplateEnabled=true` switches GreenPhase to file-based prompt delivery. The runners.log captures the new claude invocation: instead of inlining the `/rgr-green` slash-command and its five path args, the command line carries `@<rendered-path>` and claude reads the prompt from the rendered green.md file. The path is stable across runs (relative-path baseDir from issue 332).
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds with
