@@ -106,6 +106,11 @@
 | RefactorSessionMode
 |===
 
+=== Step-Parameters: ScenariosFile
+|===
+| ScenariosFile
+|===
+
 === Step-Parameters: SvcMavenPluginGoal
 |===
 | SvcMavenPluginGoal
@@ -138,6 +143,11 @@
 === Step-Parameters: ModelGreen, ModelRefactor, Stage
 |===
 | Stage | ModelGreen | ModelRefactor
+|===
+
+=== Step-Parameters: ScenariosFile
+|===
+| ScenariosFile
 |===
 
 == Step-Definition: mvn asciidoctor-to-uml command is executed but failed

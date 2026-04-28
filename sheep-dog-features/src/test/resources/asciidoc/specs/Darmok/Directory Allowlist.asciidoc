@@ -29,8 +29,6 @@ Some description
 
 == Test-Case: Green allowlist passes on the first attempt
 
-@GH141
-
 Default happy path for the green phase. Claude writes only inside the allowlist (`src/main/java/...LoginHappyPath.java` and the matching impl under `src/test/java/org/farhan/impl/`), `git status --porcelain` reports zero out-of-allowlist paths, and the scenario proceeds into Phase Verification. 
 Pins down the new `Green: Allowlist check running` log line and the `git status --porcelain` subprocess so a regression that drops the allowlist gate is caught explicitly.
 
@@ -54,8 +52,6 @@ Pins down the new `Green: Allowlist check running` log line and the `git status 
 
 == Test-Case: Refactor allowlist passes on the first attempt
 
-@GH141
-
 Symmetric with the green-allowlist happy-path case. Confirms the allowlist check runs inside refactor too — the sub-step is not accidentally bound to green.
 
 === When: The darmok plugin gen-from-existing goal is executed and succeeds
@@ -77,8 +73,6 @@ Symmetric with the green-allowlist happy-path case. Confirms the allowlist check
 |===
 
 == Test-Case: Green allowlist fails once then succeeds after revert and resume
-
-@GH141
 
 The first claude call writes an out-of-allowlist path (`pom.xml`). Darmok logs a WARN, runs `git checkout HEAD -- pom.xml` to revert it, invokes `claude --resume` with the literal correction message, and re-runs `git status --porcelain`. 
 The second inspection finds only allowlist-internal paths and the scenario proceeds into Phase Verification normally. 
@@ -114,8 +108,6 @@ Exactly one green commit is made — it captures the allowlist-clean output from
 
 == Test-Case: Green allowlist fails for every attempt
 
-@GH141
-
 Every `git status --porcelain` in the green phase finds an out-of-allowlist path. Darmok retries up to `maxAllowlistAttempts` (default 2), each retry preceded by a revert and a `claude --resume`, except the final attempt which aborts without another resume. 
 The goal fails with an exception naming the phase and attempt count, the refactor phase is never reached, and no green commit is made.
 
@@ -137,8 +129,6 @@ The goal fails with an exception naming the phase and attempt count, the refacto
 |===
 
 == Test-Case: Refactor allowlist fails once then succeeds after revert and resume
-
-@GH141
 
 Symmetric with the green-phase recovery case. Proves the revert-and-resume loop is phase-parametric.
 
@@ -171,8 +161,6 @@ Symmetric with the green-phase recovery case. Proves the revert-and-resume loop 
 |===
 
 == Test-Case: Refactor allowlist fails for every attempt
-
-@GH141
 
 Symmetric with the green-phase exhaustion case. No refactor commit is made; the green commit from this scenario remains in git history under `stage=false` (nothing is committed under `stage=true`).
 
@@ -289,4 +277,53 @@ Issue 335: symmetric with the green-phase recovery case. Proves the resume brack
 | INFO  | mojo     | Refactor: Completed (Any)
 | INFO  | mojo     | Refactor: Allowlist check running...
 | INFO  | mojo     | Refactor: Allowlist check passed, proceeding
+|===
+
+== Test-Case: Active scenarios-list file is allowlisted automatically
+
+The configured `scenariosFile` value lives at the project root, outside the default base. Darmok appends it to the effective allowlist at `init()` so claude touching the active scenarios-list file during green or refactor passes the gate first try without an explicit `allowlistAdditionalPaths` declaration. Issue 327.
+
+=== Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
+|===
+| Command Parameters                                               | Path
+| @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md | scenarios-list-gh327.txt
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds with
+|===
+| ScenariosFile
+| scenarios-list-gh327.txt
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Allowlist check running...
+| INFO  | mojo     | Green: Allowlist check passed, proceeding
+| INFO  | mojo     | Green: Verify running...
+|===
+
+== Test-Case: Non-matching scenarios-list-shaped file is treated as a violation
+
+Only the configured `scenariosFile` value is auto-allowlisted. Any other scenarios-list-shaped path that surfaces in `git status --porcelain` is still a violation. Pins down that the auto-add is exact-value, not pattern-based — a stale `scenarios-list-gh<other>.txt` left over from a prior run won't sneak past the gate. Issue 327.
+
+=== Given: The darmok plugin gen-from-existing goal claude command is executed and succeeds with
+|===
+| Command Parameters                                               | Path
+| @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md | scenarios-list-gh999.txt
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails with
+|===
+| ScenariosFile
+| scenarios-list-gh327.txt
+|===
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Allowlist check running...
+| WARN  | mojo     | Green: Allowlist violation (attempt 1/2), reverting scenarios-list-gh999.txt and resuming claude...
+| INFO  | mojo     | Green: Allowlist check running...
+| ERROR | mojo     | Green: Allowlist check failed after 2 attempts, aborting
 |===

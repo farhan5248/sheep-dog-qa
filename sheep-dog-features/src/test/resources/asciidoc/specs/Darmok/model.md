@@ -408,6 +408,8 @@ Default `allowlistBasePaths` (per issue #141):
 - `src/main/java/`
 - `src/test/java/org/farhan/impl/`
 
+Plus the resolved `scenariosFile` parameter value — appended to the effective allowlist at `init()` (issue 327). Without auto-add, claude touching the active scenarios-list file (e.g. `scenarios-list-gh<N>.txt`) during green or refactor exhausts the gate even though the file is a legitimate Darmok-managed artifact. Only the configured `scenariosFile` is permitted; any other scenarios-list-shaped path in `git status --porcelain` is still treated as a violation.
+
 Resume message: literal string `"only modify files under src/main/java or src/test/java/org/farhan/impl"` — exact wording is part of the observable contract. The message stays static even when `allowlistAdditionalPaths` extends the effective list; per-project guidance for the extra paths belongs in the project's CLAUDE.md, not in the resume prompt.
 
 Resume call (issue #311): `claude --resume <session-id> "only modify files under src/main/java or src/test/java/org/farhan/impl"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
