@@ -183,12 +183,12 @@ AbortFail --> [*] : FAIL
 Notes:
 
 - `Skip` is observable-empty: no mvn subprocess fires, no runner-log entry, no mojo-log entry. Reached only when a spec explicitly sets the flag off.
-- `Proceed` runs exactly one `mvn clean install` subprocess — runner log captures the DEBUG invocation line; mojo log is silent on success.
-- `AbortFail` fires before any scenario is read, so `scenarios-list.txt` state is irrelevant and `metrics.csv` stays absent.
+- `Proceed` runs exactly one `mvn clean install` subprocess — runner log captures the DEBUG invocation line; mojo log brackets the call with `Baseline: Running maven...` / `Baseline: Completed maven (<duration>)` (issue 335).
+- `AbortFail` fires before any scenario is read, so `scenarios-list.txt` state is irrelevant and `metrics.csv` stays absent. Mojo log shows the `Baseline: Running maven...` / `Baseline: Completed maven (<duration>)` bracket before the ERROR line — same shape as the success path, since the bracket logs around the subprocess regardless of exit code (issue 335).
 
 Files under this sub-machine:
 
-- `Baseline Verification.asciidoc` — both flag-on transitions (`Proceed`, `AbortFail`).
+- `Baseline Verification.asciidoc` — both flag-on transitions (`Proceed`, `AbortFail`), including the issue-335 bracket lines.
 
 ---
 
@@ -401,6 +401,8 @@ Files under this sub-machine:
 
 Counting rule: on exhaustion, `git status --porcelain` was inspected `maxAllowlistAttempts` times and `claude --resume` exactly `maxAllowlistAttempts - 1` times — no resume after the final failing inspection. Mirrors Phase Timeout and Phase Verification.
 
+Resume bracket (issue 335): every `RevertAndResume` transition wraps the `claude --resume` call with `<phase>: Running...` / `<phase>: Completed (<duration>)` mojo-log lines, same shape as the initial phase-entry pair. Gives the user visibility into how long the corrective claude run took. The bracket fires only on the recover transition, never on `ExhaustAllowlist` (which has no resume call).
+
 Default `allowlistBasePaths` (per issue #141):
 
 - `src/main/java/`
@@ -439,6 +441,8 @@ Files under this sub-machine:
 - `Mvn Output Log Verify.asciidoc` — `MvnVerify` writes mvn clean verify output to `${baseDir}/log.txt`, exercised in both Green and Refactor by pushing each phase's verify into the exhaustion path so the assertion fires after a deterministic abort.
 
 Counting rule: on exhaustion, `mvn clean verify` was invoked `maxVerifyAttempts` times and `claude --resume` exactly `maxVerifyAttempts - 1` times.
+
+Resume bracket (issue 335): every `ClaudeResume` transition wraps the `claude --resume` call with `<phase>: Running...` / `<phase>: Completed (<duration>)` mojo-log lines, same shape as the initial phase-entry pair. Gives the user visibility into how long the corrective claude run took. The bracket fires only on the recover transition, never on `ExhaustVerify` (which has no resume call).
 
 Resume call (issue #311): `claude --resume <session-id> "mvn clean verify failures should be fixed"`, where `<session-id>` is the UUID captured on this phase's initial call in `Claude Retry Loop`.
 

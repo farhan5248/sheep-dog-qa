@@ -170,3 +170,45 @@ Symmetric with the green-phase exhaustion case. No refactor commit is made; the 
 | INFO  | mojo     | Refactor: Verify running...
 | ERROR | mojo     | Refactor: Verify failed after 3 attempts, aborting
 |===
+
+== Test-Case: Green verify retry brackets the resume call with Running and Completed lines
+
+Issue 335: when a verify failure triggers `claude --resume`, the mojo log brackets the resume invocation with `Green: Running...` / `Green: Completed (<duration>)` — same shape as the initial phase-entry pair. Visibility for how long the corrective claude run took. The bracket only fires on the recover transition; an exhausted loop has no resume call after the final failing attempt.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails once then succeeds
+|===
+| Phase
+| Green
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | mojo     | Green: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Green: Completed (Any)
+| INFO  | mojo     | Green: Verify running...
+|===
+
+== Test-Case: Refactor verify retry brackets the resume call with Running and Completed lines
+
+Issue 335: symmetric with the green-phase recovery case. Proves the resume bracket is phase-parametric and not bolted to green.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean verify command is executed but fails once then succeeds
+|===
+| Phase
+| Refactor
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | mojo     | Refactor: Verify failed (attempt 1/3), resuming claude...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | Refactor: Completed (Any)
+| INFO  | mojo     | Refactor: Verify running...
+|===

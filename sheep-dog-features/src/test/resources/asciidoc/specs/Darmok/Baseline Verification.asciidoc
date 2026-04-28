@@ -50,3 +50,37 @@ Gated by the `baselineVerifyEnabled` maven parameter, on by default (issue 320 f
 |===
 
 === And: The code-prj project metrics.csv file will be absent
+
+== Test-Case: Baseline emits Running and Completed bracket lines
+
+Issue 335: `verifyBaseline` brackets its `mvn clean install` subprocess with `Baseline: Running maven...` / `Baseline: Completed maven (<duration>)` mojo-log lines, same shape as the red-phase entry pair. Pins down the visibility of the baseline mvn run so the user can see what the plugin is doing during the silent gap between the gen-from-existing banner and the first scenario. Asserts on the success path.
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Baseline: Running maven...
+| INFO  | mojo     | Baseline: Completed maven (Any)
+| INFO  | mojo     | RGR Automation Complete!
+|===
+
+== Test-Case: Baseline emits bracket lines before the failure abort line
+
+Issue 335: on baseline failure, the same `Baseline: Running maven...` / `Baseline: Completed maven (<duration>)` bracket fires before the ERROR abort line. The Completed line logs regardless of exit code — same shape as the red phase entry pair, which logs Completed even when the underlying mvn call fails. Gives the user a non-zero duration for the failed build instead of silence.
+
+=== Given: The darmok plugin gen-from-existing goal mvn clean install command is executed but fails with
+|===
+| Phase
+| Baseline
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails
+
+=== Then: The code-prj project darmok.mojo.log file will be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Baseline: Running maven...
+| INFO  | mojo     | Baseline: Completed maven (Any)
+| ERROR | mojo     | Baseline build failed. Aborting.
+|===
