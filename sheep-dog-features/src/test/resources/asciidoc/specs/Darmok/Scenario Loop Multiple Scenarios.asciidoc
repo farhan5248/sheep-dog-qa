@@ -48,6 +48,49 @@ File: ProcessDarmok
 | DEBUG | runner   | Running: git commit -m run-rgr User logs out successfully
 |===
 
+== Test-Case: Each scenario gets its own session ID
+
+Both scenarios reach the green phase (impls absent for both) so each one issues a fresh `claude --print --session-id <uuid>` call.
+The runner log shows two distinct UUIDs — one per scenario — which is what `processScenario` enforces via `setSessionId(null)` at the top of each iteration.
+Living documentation only: the fake echoes the YAML's `in:` text, so this Test-Case asserts what we want production to emit, not what production actually emitted.
+An integration test that exercises the real Claude CLI is what would actually pin the runtime behavior.
+Issue 337.
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+  Scenario: User logs out successfully
+    Tag: logoutHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+
+== Test-Case: User logs out successfully
+
+Some description
+----
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LoginHappyPath.java file isn't created
+
+=== And: The code-prj project src/main/java/org/farhan/objects/LogoutHappyPath.java file isn't created
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000001 --dangerously-skip-permissions --model opus @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md
+| DEBUG | runner   | Executing: claude --print --session-id 00000000-0000-0000-0000-000000000002 --dangerously-skip-permissions --model opus @target/darmok-test/sheep-dog-svc/code-prj/target/darmok/green.md
+|===
+
 == Test-Case: Two scenarios from separate File blocks
 
 The `generate_scenarios_list.py` script emits multiple `File:` blocks (one per source asciidoc file) separated by a blank line.
