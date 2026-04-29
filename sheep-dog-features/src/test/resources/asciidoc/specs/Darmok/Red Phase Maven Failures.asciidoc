@@ -2,7 +2,7 @@
 
 @darmok-maven-plugin
 
-During the red phase Darmok invokes three maven commands in sequence: `asciidoctor-to-uml`, `uml-to-cucumber-guice`, and `test`. Today only the final `mvn test` exit code drives the red-phase return value. Non-zero exits from the earlier two commands are captured in the runner log but don't halt red — the failure is visible, just not acted on. This Test-Suite pins that current behavior across the three failure points so a future change to halt on intermediate failures surfaces as an expected test break.
+During the red phase Darmok invokes three maven commands in sequence: `asciidoctor-to-uml`, `uml-to-cucumber-guice`, and `test`. The first two are wrapped in the maven retry loop (issue 349) — a non-retryable failure (no `Service did not become available within` pattern in `log.txt`) returns immediately and aborts the red phase with `rgr-red failed with exit code N`. The third call, `mvn test`, is excluded from retry: its non-zero exit is the red-phase signal "tests failing, proceed to green", not an infra failure, so the existing `TestsPass` / `TestsFail` branch fires unchanged. Retryable failures are pinned in the sibling `Red Phase Maven Retry.asciidoc`.
 
 == Test-Setup: A failing scenario that enters the red phase
 
@@ -22,9 +22,9 @@ File: ProcessDarmok
 Some description
 ----
 
-== Test-Case: The asciidoctor-to-uml command fails
+== Test-Case: The asciidoctor-to-uml command fails non-retryably
 
-The first red-phase maven invocation fails (e.g. the AsciiDoc API service is unreachable). The failure output reaches the runner log but red proceeds to the next step.
+The first red-phase maven invocation fails with output that does NOT match the retryable pattern (e.g. the AsciiDoc API service rejected the request outright). The retry loop returns immediately on attempt 1, the maven failure is surfaced to the mojo log, and the red phase aborts with `rgr-red failed`.
 
 === Given: The darmok plugin gen-from-existing goal mvn asciidoctor-to-uml command is executed but failed
 |===
@@ -38,11 +38,26 @@ The first red-phase maven invocation fails (e.g. the AsciiDoc API service is unr
 |===
 | Level | Category | Content
 | DEBUG | runner   | svc unreachable: connection refused
+| DEBUG | runner   | Maven CLI exited with code 1
 |===
 
-== Test-Case: The uml-to-cucumber-guice command fails
+=== And: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | mojo     | Maven failed (exit 1): svc unreachable: connection refused
+|===
 
-The second red-phase maven invocation fails (e.g. the Cucumber gen service rate-limited the request). Same contract — captured in the log, not acted on.
+=== And: The code-prj project darmok.mojo.log file won't be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | RGR Automation Complete!
+|===
+
+== Test-Case: The uml-to-cucumber-guice command fails non-retryably
+
+The second red-phase maven invocation fails with output that does NOT match the retryable pattern. Same contract — return immediately on attempt 1, surface to mojo log, abort red.
 
 === Given: The darmok plugin gen-from-existing goal mvn uml-to-cucumber-guice command is executed but failed
 |===
@@ -56,6 +71,21 @@ The second red-phase maven invocation fails (e.g. the Cucumber gen service rate-
 |===
 | Level | Category | Content
 | DEBUG | runner   | TooManyRequests: upstream rate limit
+| DEBUG | runner   | Maven CLI exited with code 1
+|===
+
+=== And: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | mojo     | Maven failed (exit 1): TooManyRequests: upstream rate limit
+|===
+
+=== And: The code-prj project darmok.mojo.log file won't be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | RGR Automation Complete!
 |===
 
 == Test-Case: The generated runner class fails to compile

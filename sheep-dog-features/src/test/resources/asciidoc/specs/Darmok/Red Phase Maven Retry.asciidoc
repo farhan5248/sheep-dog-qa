@@ -1,0 +1,131 @@
+= Test-Suite: Red Phase Maven Retry
+
+@darmok-maven-plugin
+
+The two `sheep-dog-svc-maven-plugin` goals invoked during the red phase (`asciidoctor-to-uml`, `uml-to-cucumber-guice`) talk to a remote service. When the service is unavailable, the plugin's own health-check loop times out after 300 seconds and surfaces the literal `Service did not become available within 300000 milliseconds` line in stdout. The maven retry loop wraps both goals, scans the `log.txt` written by each call for that pattern, and retries up to `maxRetries` times with `retryWaitSeconds` between attempts. Recovery on any retry returns control to the next red-phase step; exhaustion aborts the goal with `rgr-red failed`. The third red-phase maven call (`mvn test`) is excluded from the retry loop — its non-zero exit is the red signal "tests failing, proceed to green", not an infra failure.
+
+== Test-Setup: A failing scenario that enters the red phase
+
+=== Given: The code-prj project scenarios-list.txt file is created as follows
+----
+File: ProcessDarmok
+  Scenario: User logs in successfully
+    Tag: loginHappyPath
+----
+
+=== And: The spec-prj project src/test/resources/asciidoc/specs/ProcessDarmok.asciidoc file is created as follows
+----
+= Test-Suite: Login
+
+== Test-Case: User logs in successfully
+
+Some description
+----
+
+== Test-Case: Asciidoctor-to-uml retries on Service-not-available then succeeds
+
+The first red-phase maven invocation fails on attempt 1 with the retryable pattern; the loop detects the match, waits, retries, and the second invocation succeeds. The runner log records the retry detection at WARN (not ERROR, since recovery followed). Red phase proceeds to `uml-to-cucumber-guice` and the rest of the cycle as usual.
+
+=== Given: The darmok plugin gen-from-existing goal mvn asciidoctor-to-uml command is executed and succeeds with
+|===
+| Pattern
+| Service did not become available within 300000 milliseconds
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | runner   | Retryable error detected: Service did not become available within
+| DEBUG | runner   | Retry attempt 2 of 3...
+| DEBUG | runner   | Maven CLI completed successfully
+|===
+
+== Test-Case: Asciidoctor-to-uml exhausts retries on Service-not-available
+
+Every attempt up to `maxRetries` returns the same retryable pattern. The retry loop logs each detection, the final attempt escalates to ERROR with `Max retries exhausted`, the failure is surfaced to the mojo log, and the goal aborts with `rgr-red failed`.
+
+=== Given: The darmok plugin gen-from-existing goal mvn asciidoctor-to-uml command is executed but fails with
+|===
+| Pattern
+| Service did not become available within 300000 milliseconds
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails
+
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | runner   | Retryable error detected: Service did not become available within
+| ERROR | runner   | Max retries (3) exhausted
+| DEBUG | runner   | Maven CLI exited with code 1
+|===
+
+=== And: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | mojo     | Maven failed (exit 1): Service did not become available within 300000 milliseconds
+|===
+
+=== And: The code-prj project darmok.mojo.log file won't be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | RGR Automation Complete!
+|===
+
+== Test-Case: Uml-to-cucumber-guice retries on Service-not-available then succeeds
+
+Same retry contract applied to the second red-phase maven goal. Asciidoctor-to-uml succeeds on its first attempt; uml-to-cucumber-guice fails on its first attempt with the retryable pattern, recovers on its second.
+
+=== Given: The darmok plugin gen-from-existing goal mvn uml-to-cucumber-guice command is executed and succeeds with
+|===
+| Pattern
+| Service did not become available within 300000 milliseconds
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed and succeeds
+
+=== Then: The code-prj project darmok.runners.log file will be as follows
+|===
+| Level | Category | Content
+| WARN  | runner   | Retryable error detected: Service did not become available within
+| DEBUG | runner   | Retry attempt 2 of 3...
+| DEBUG | runner   | Maven CLI completed successfully
+|===
+
+== Test-Case: Uml-to-cucumber-guice exhausts retries on Service-not-available
+
+Same exhaustion shape as the asciidoctor-to-uml case, applied to the second red-phase maven goal. Asciidoctor-to-uml succeeds; uml-to-cucumber-guice fails on every attempt up to `maxRetries`; the goal aborts with `rgr-red failed`.
+
+=== Given: The darmok plugin gen-from-existing goal mvn uml-to-cucumber-guice command is executed but fails with
+|===
+| Pattern
+| Service did not become available within 300000 milliseconds
+|===
+
+=== When: The darmok plugin gen-from-existing goal is executed but fails
+
+=== Then: The code-prj project darmok.runners.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | runner   | Retryable error detected: Service did not become available within
+| ERROR | runner   | Max retries (3) exhausted
+| DEBUG | runner   | Maven CLI exited with code 1
+|===
+
+=== And: The code-prj project darmok.mojo.log file will be as follows with this failure
+|===
+| Level | Category | Content
+| ERROR | mojo     | Maven failed (exit 1): Service did not become available within 300000 milliseconds
+|===
+
+=== And: The code-prj project darmok.mojo.log file won't be as follows
+|===
+| Level | Category | Content
+| INFO  | mojo     | Green: Running...
+| INFO  | mojo     | Refactor: Running...
+| INFO  | mojo     | RGR Automation Complete!
+|===

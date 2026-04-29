@@ -274,15 +274,27 @@ WriteRunner --> MvnTest : runner source written under src/test/java/.../suites/<
 MvnTest --> TestsPass   : exit 0
 MvnTest --> TestsFail   : exit non-zero
 
+MvnA2U --> A2URetryable    : exit non-zero, log.txt matches retryable pattern
+A2URetryable --> MvnA2U    : attempt < maxRetries (WARN markers)
+A2URetryable --> A2UExhaust : attempt == maxRetries (ERROR markers)
+MvnA2U --> A2UNonRetryable : exit non-zero, no pattern match
+
+MvnU2C --> U2CRetryable    : exit non-zero, log.txt matches retryable pattern
+U2CRetryable --> MvnU2C    : attempt < maxRetries (WARN markers)
+U2CRetryable --> U2CExhaust : attempt == maxRetries (ERROR markers)
+MvnU2C --> U2CNonRetryable : exit non-zero, no pattern match
+
 TestsPass : return 100 — signal "nothing to do"
 TestsFail : return 0 — signal "proceed to green"
 
 TestsPass --> [*]
 TestsFail --> [*]
 
-MvnA2U      --> [*] : non-zero → FAIL
-MvnU2C      --> [*] : non-zero → FAIL
-MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
+A2UExhaust      --> [*] : FAIL "rgr-red failed with exit code N"
+A2UNonRetryable --> [*] : FAIL "rgr-red failed with exit code N"
+U2CExhaust      --> [*] : FAIL "rgr-red failed with exit code N"
+U2CNonRetryable --> [*] : FAIL "rgr-red failed with exit code N"
+MvnTest         --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 
 @enduml
 ```
@@ -291,10 +303,13 @@ MvnTest     --> [*] : any other exit → FAIL "rgr-red failed with exit code N"
 
 `MvnU2C`'s goal name is the `svcMavenPluginGoal` maven parameter (issue 328). Default `uml-to-cucumber-guice` matches the legacy hardcode and keeps every pre-existing runner-log assertion green; projects whose stepdefs are Spring-flavored (e.g. darmok-maven-plugin itself) override to `uml-to-cucumber-spring` in their pom's `<configuration>` block. The parameter only changes the goal name on the `MvnU2C` runner-log line; no other observable shifts.
 
+Maven retry loop (issue 349): `MvnA2U` and `MvnU2C` both invoke the `sheep-dog-svc-maven-plugin` against `qa.sheepdog.io`, which has its own 5-minute health-check loop and surfaces transient unavailability with `[ERROR] Service did not become available within 300000 milliseconds`. Wrapping each call in a retry loop — same shape as Claude Retry Loop, sharing `maxRetries` (default 3) and `retryWaitSeconds` (default 30) — recovers from a flaky upstream without forcing the operator to re-run the whole scenario. The retry layer also flips the long-standing "log + continue" behavior on these two calls to "halt on non-zero" (matching the `MvnTest` semantics already in place). The retryable pattern is the literal `Service did not become available within` substring scanned in the log.txt that each call now writes (the existing `Maven.run(workingDir, logFile, args)` overload is reused — no new API). `MvnTest` is excluded from retry: its non-zero exit is the red-phase signal "tests failing, proceed to green", not an infra failure, so the test-output read of log.txt continues straight to the existing `TestsPass` / `TestsFail` branch without any retryable-pattern scan.
+
 Files under this sub-machine:
 
 - `Red Phase Already Passing.asciidoc` — `TestsPass` transition (exit 100, skip green+refactor); also asserts `WriteRunner` content (issue 297).
-- `Red Phase Maven Failures.asciidoc` — `MvnA2U` / `MvnU2C` / `WriteRunner` (compile) failure transitions.
+- `Red Phase Maven Failures.asciidoc` — `A2UNonRetryable` / `U2CNonRetryable` / `WriteRunner` (compile) FAIL transitions; pre-issue-349 the first two were "log + continue" — issue 349 flipped them to halt.
+- `Red Phase Maven Retry.asciidoc` — `A2URetryable` recovery and `A2UExhaust` / `U2CRetryable` recovery and `U2CExhaust` transitions for the retryable-pattern path (issue 349).
 - `Red Phase Cucumber Gen Goal.asciidoc` — `svcMavenPluginGoal=uml-to-cucumber-spring` flips `MvnU2C`'s runner-log goal name (issue 328); guice default is exercised by every other Red Phase file.
 - `Mvn Output Log Red Phase.asciidoc` — `MvnTest` writes mvn test output to `${baseDir}/log.txt`. Uses the red-exit-100 setup so red is the only mvn invocation in the run; the file's presence after the run proves Red Phase called `runToFile`.
 
@@ -596,6 +611,7 @@ Parameters that change observable behavior:
 | `maxClaudeSeconds` | 720 (UCL default) · small N (test-compressed) |
 | `maxTimeoutAttempts` | 2 (default) · N |
 | `maxAllowlistAttempts` | 2 (default) · N |
+| red-phase mvn outcome | exit 0 · retryable-recover · retryable-exhaust · non-retryable fail |
 | `allowlistBasePaths` | `src/main/java/,src/test/java/org/farhan/impl/` (default) · narrowed (tightening) |
 | `allowlistAdditionalPaths` | empty (default) · CSV of extra paths (the common knob, e.g. `src/test/resources/mojo-defaults.properties`) |
 | `maxVerifyAttempts` | 3 (default) · N |

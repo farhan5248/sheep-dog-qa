@@ -150,11 +150,25 @@
 | ScenariosFile
 |===
 
+== Step-Definition: mvn asciidoctor-to-uml command is executed and succeeds with
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
+|===
+
 == Step-Definition: mvn asciidoctor-to-uml command is executed but failed
 
 === Step-Parameters: Exit, Output
 |===
 | Exit | Output
+|===
+
+== Step-Definition: mvn asciidoctor-to-uml command is executed but fails with
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
 |===
 
 == Step-Definition: mvn clean install command is executed and fails on every call in the green phase
@@ -203,10 +217,24 @@
 | Exit | Output
 |===
 
+== Step-Definition: mvn uml-to-cucumber-guice command is executed and succeeds with
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
+|===
+
 == Step-Definition: mvn uml-to-cucumber-guice command is executed but failed
 
 === Step-Parameters: Exit, Output
 |===
 | Exit | Output
+|===
+
+== Step-Definition: mvn uml-to-cucumber-guice command is executed but fails with
+
+=== Step-Parameters: Pattern
+|===
+| Pattern
 |===
 
